@@ -118,6 +118,7 @@ class StudentManagementTest extends TestCase
     public function test_parent_cannot_view_another_parents_children(): void
     {
         $parentA = User::factory()->create();
+        Student::factory()->for($parentA)->create();
         $parentB = User::factory()->create();
         $childOfB = Student::factory()->for($parentB)->create();
 
@@ -129,6 +130,7 @@ class StudentManagementTest extends TestCase
     public function test_parent_cannot_update_another_parents_children(): void
     {
         $parentA = User::factory()->create();
+        Student::factory()->for($parentA)->create();
         $parentB = User::factory()->create();
         $childOfB = Student::factory()->for($parentB)->create([
             'name' => 'Original Name',
@@ -152,6 +154,7 @@ class StudentManagementTest extends TestCase
     public function test_parent_cannot_delete_another_parents_children(): void
     {
         $parentA = User::factory()->create();
+        Student::factory()->for($parentA)->create();
         $parentB = User::factory()->create();
         $childOfB = Student::factory()->for($parentB)->create();
 
