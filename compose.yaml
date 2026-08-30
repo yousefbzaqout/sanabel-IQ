@@ -5,6 +5,8 @@ services:
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
+            cache_from:
+                - sail-8.5/app
         image: sail-8.5/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
@@ -24,8 +26,10 @@ services:
         depends_on:
             - pgsql
             - redis
+            - mailpit
     pgsql:
-        image: 'postgres:18-alpine'
+        # Official pgvector image on PostgreSQL 18 (ankane/pgvector:latest is stale PG15).
+        image: 'pgvector/pgvector:pg18'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
         environment:
@@ -36,6 +40,7 @@ services:
         volumes:
             - 'sail-pgsql:/var/lib/postgresql'
             - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
+            - './docker/pgsql/enable-pgvector.sql:/docker-entrypoint-initdb.d/20-enable-pgvector.sql'
         networks:
             - sail
         healthcheck:
@@ -64,6 +69,13 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    mailpit:
+        image: 'axllent/mailpit:latest'
+        ports:
+            - '${FORWARD_MAILPIT_PORT:-1025}:1025'
+            - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
