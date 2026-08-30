@@ -1,0 +1,4 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+
+\connect testing
+CREATE EXTENSION IF NOT EXISTS vector;
