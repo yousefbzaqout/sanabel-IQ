@@ -26,4 +26,13 @@ class StoreStudentRequest extends FormRequest
             'avatar_path' => ['nullable', 'string', 'max:255'],
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        if ($this->routeIs('onboarding.child.store')) {
+            return $this->redirector->getUrlGenerator()->route('onboarding.child');
+        }
+
+        return parent::getRedirectUrl();
+    }
 }
