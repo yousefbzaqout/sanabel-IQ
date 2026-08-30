@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -49,6 +50,7 @@ class AuthenticationEdgeCaseTest extends TestCase
     {
         $payload = "<script>alert('xss')</script>";
         $parent = User::factory()->create(['name' => $payload]);
+        Student::factory()->for($parent)->create();
 
         $this->actingAs($parent)
             ->get(route('dashboard'))
