@@ -24,6 +24,13 @@ class StudentController extends Controller
         ]);
     }
 
+    public function create(): View
+    {
+        $this->authorize('create', Student::class);
+
+        return view('students.create');
+    }
+
     public function store(StoreStudentRequest $request): RedirectResponse
     {
         $this->authorize('create', Student::class);
