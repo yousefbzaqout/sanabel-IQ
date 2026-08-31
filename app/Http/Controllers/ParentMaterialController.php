@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Enums\MaterialStatus;
+use App\Enums\ParentGoalStatus;
 use App\Http\Requests\StoreParentMaterialRequest;
 use App\Jobs\ProcessPDFMaterialJob;
 use App\Models\Activity;
+use App\Models\ParentLearningGoal;
 use App\Models\ParentMaterial;
 use App\Models\Student;
+use App\Models\Subject;
+use App\Services\Goals\ParentGoalEvaluatorService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +21,7 @@ use Illuminate\View\View;
 
 class ParentMaterialController extends Controller
 {
-    public function index(Request $request): View
+    public function index(Request $request, ParentGoalEvaluatorService $goalEvaluator): View
     {
         $this->authorize('viewAny', ParentMaterial::class);
 
@@ -36,9 +40,38 @@ class ParentMaterialController extends Controller
             ->latest()
             ->get();
 
+        $activeStudent = Student::query()->find($activeStudentId);
+
+        $activeGoals = $activeStudent === null
+            ? collect()
+            : ParentLearningGoal::query()
+                ->where('parent_id', $request->user()->id)
+                ->where('student_id', $activeStudent->id)
+                ->where('status', ParentGoalStatus::Pending)
+                ->with('subject')
+                ->latest()
+                ->get()
+                ->map(function (ParentLearningGoal $goal) use ($goalEvaluator, $activeStudent): array {
+                    $progress = $goalEvaluator->progressForGoal($activeStudent, $goal);
+
+                    return [
+                        'goal' => $goal,
+                        'activities_completed' => $progress['activities_completed'],
+                        'xp_earned' => $progress['xp_earned'],
+                        'activity_progress_percent' => $goal->target_activity_count > 0
+                            ? min(100, (int) round(($progress['activities_completed'] / $goal->target_activity_count) * 100))
+                            : 0,
+                        'xp_progress_percent' => $goal->target_xp > 0
+                            ? min(100, (int) round(($progress['xp_earned'] / $goal->target_xp) * 100))
+                            : 100,
+                    ];
+                });
+
         return view('dashboard', [
             'materials' => $materials,
             'activities' => $activities,
+            'activeGoals' => $activeGoals,
+            'subjects' => Subject::query()->orderBy('name')->get(),
         ]);
     }
 

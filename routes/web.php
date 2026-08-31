@@ -9,10 +9,13 @@ use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ParentAnalyticsController;
+use App\Http\Controllers\ParentComparativeAnalyticsController;
+use App\Http\Controllers\ParentGoalController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentProgressController;
+use App\Http\Controllers\StudentReportExportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,6 +47,15 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('parent.analytics');
     Route::post('/parent/analytics/generate-recommendations', [ParentAnalyticsController::class, 'generateRecommendations'])
         ->name('parent.analytics.generate-recommendations');
+
+    Route::get('/parent/comparative-analytics', [ParentComparativeAnalyticsController::class, 'index'])
+        ->name('parent.comparative-analytics');
+    Route::get('/parent/students/{student}/export', [StudentReportExportController::class, 'export'])
+        ->name('parent.students.export');
+    Route::get('/parent/goals', [ParentGoalController::class, 'index'])
+        ->name('parent.goals.index');
+    Route::post('/parent/goals', [ParentGoalController::class, 'store'])
+        ->name('parent.goals.store');
 
     Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
         ->name('materials.show');

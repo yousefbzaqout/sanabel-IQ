@@ -22,11 +22,51 @@
             @endif
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <p>{{ __("You're logged in!") }}</p>
-                    @isset($activeStudent)
-                        <p class="mt-2">{{ __('Active child') }}: {{ $activeStudent->name }} — {{ __('Grade') }} {{ $activeStudent->grade_level }}</p>
-                    @endisset
+                <div class="p-6 space-y-4">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ __('Active Learning Goals') }}</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Track weekly targets for the active child.') }}</p>
+                        </div>
+                        <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'create-goal')">
+                            {{ __('إضافة هدف دراسي جديد') }}
+                        </x-primary-button>
+                    </div>
+
+                    @forelse ($activeGoals as $goalEntry)
+                        <div class="rounded-lg border border-indigo-200 dark:border-indigo-800 p-4 space-y-3">
+                            <div class="flex items-center justify-between gap-3">
+                                <p class="font-semibold text-gray-900 dark:text-gray-100">
+                                    {{ $goalEntry['goal']->subject?->name ?? __('General Goal') }}
+                                </p>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">
+                                    {{ $goalEntry['goal']->start_date->toDateString() }} — {{ $goalEntry['goal']->end_date->toDateString() }}
+                                </span>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>{{ __('Activities') }}</span>
+                                    <span>{{ $goalEntry['activities_completed'] }} / {{ $goalEntry['goal']->target_activity_count }}</span>
+                                </div>
+                                <div class="h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                                    <div class="h-full bg-indigo-500" style="width: {{ $goalEntry['activity_progress_percent'] }}%"></div>
+                                </div>
+                            </div>
+                            @if ($goalEntry['goal']->target_xp > 0)
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>XP</span>
+                                        <span>{{ $goalEntry['xp_earned'] }} / {{ $goalEntry['goal']->target_xp }}</span>
+                                    </div>
+                                    <div class="h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                                        <div class="h-full bg-amber-500" style="width: {{ $goalEntry['xp_progress_percent'] }}%"></div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @empty
+                        <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('No active learning goals yet.') }}</p>
+                    @endforelse
                 </div>
             </div>
 
@@ -236,6 +276,55 @@
                 <x-primary-button>
                     {{ __('Upload') }}
                 </x-primary-button>
+            </div>
+        </form>
+    </x-modal>
+
+    <x-modal name="create-goal" focusable>
+        <form method="POST" action="{{ route('parent.goals.store') }}" class="p-6 space-y-6">
+            @csrf
+
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                {{ __('إضافة هدف دراسي جديد') }}
+            </h2>
+
+            <input type="hidden" name="student_id" value="{{ $activeStudent->id ?? '' }}">
+
+            <div>
+                <x-input-label for="subject_id" :value="__('Subject (optional)')" />
+                <select id="subject_id" name="subject_id" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
+                    <option value="">{{ __('General goal') }}</option>
+                    @foreach ($subjects as $subject)
+                        <option value="{{ $subject->id }}" @selected(old('subject_id') == $subject->id)>{{ $subject->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                    <x-input-label for="target_activity_count" :value="__('Target activities')" />
+                    <x-text-input id="target_activity_count" class="block mt-1 w-full" type="number" min="1" name="target_activity_count" :value="old('target_activity_count', 5)" required />
+                </div>
+                <div>
+                    <x-input-label for="target_xp" :value="__('Target XP')" />
+                    <x-text-input id="target_xp" class="block mt-1 w-full" type="number" min="0" name="target_xp" :value="old('target_xp', 200)" />
+                </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                    <x-input-label for="start_date" :value="__('Start date')" />
+                    <x-text-input id="start_date" class="block mt-1 w-full" type="date" name="start_date" :value="old('start_date', now()->toDateString())" required />
+                </div>
+                <div>
+                    <x-input-label for="end_date" :value="__('End date')" />
+                    <x-text-input id="end_date" class="block mt-1 w-full" type="date" name="end_date" :value="old('end_date', now()->addDays(7)->toDateString())" required />
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3">
+                <x-secondary-button x-on:click="$dispatch('close')">{{ __('Cancel') }}</x-secondary-button>
+                <x-primary-button>{{ __('Save Goal') }}</x-primary-button>
             </div>
         </form>
     </x-modal>

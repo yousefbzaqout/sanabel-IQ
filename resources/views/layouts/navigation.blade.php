@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('parent.analytics')" :active="request()->routeIs('parent.analytics*')">
                         {{ __('Analytics') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('parent.comparative-analytics')" :active="request()->routeIs('parent.comparative-analytics')">
+                        {{ __('Compare') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                         {{ __('Activities') }}
                     </x-nav-link>
@@ -91,6 +94,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('parent.analytics')" :active="request()->routeIs('parent.analytics*')">
                 {{ __('Analytics') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('parent.comparative-analytics')" :active="request()->routeIs('parent.comparative-analytics')">
+                {{ __('Compare') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                 {{ __('Activities') }}

@@ -38,4 +38,9 @@ class StudentPolicy
     {
         return $user->id === $student->user_id;
     }
+
+    public function export(User $user, Student $student): bool
+    {
+        return $user->id === $student->user_id;
+    }
 }
