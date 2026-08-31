@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Notifications;
 
+use App\Models\ActivityAttempt;
 use App\Models\Student;
 use App\Models\User;
 use App\Services\Analytics\SubjectAnalyticsService;
@@ -12,6 +13,55 @@ use Illuminate\Support\Carbon;
 class WeeklyParentSummaryService
 {
     public function __construct(private readonly SubjectAnalyticsService $subjectAnalytics) {}
+
+    public function parentHasWeeklyActivity(User $parent, ?Carbon $since = null): bool
+    {
+        $since ??= now()->subDays(7);
+
+        $studentIds = $parent->students()->pluck('students.id');
+
+        if ($studentIds->isEmpty()) {
+            return false;
+        }
+
+        return ActivityAttempt::query()
+            ->whereIn('student_id', $studentIds)
+            ->where('completed_at', '>=', $since)
+            ->exists();
+    }
+
+    /**
+     * @return array{
+     *     period_start: string,
+     *     period_end: string,
+     *     children: list<array{
+     *         student_id: int,
+     *         name: string,
+     *         grade_level: int
+     *     }>
+     * }
+     */
+    public function buildEncouragementForParent(User $parent, ?Carbon $since = null): array
+    {
+        $since ??= now()->subDays(7);
+
+        $children = $parent->students()
+            ->orderBy('id')
+            ->get()
+            ->map(static fn (Student $student): array => [
+                'student_id' => $student->id,
+                'name' => $student->name,
+                'grade_level' => $student->grade_level,
+            ])
+            ->values()
+            ->all();
+
+        return [
+            'period_start' => $since->toDateString(),
+            'period_end' => now()->toDateString(),
+            'children' => $children,
+        ];
+    }
 
     /**
      * @return array{
