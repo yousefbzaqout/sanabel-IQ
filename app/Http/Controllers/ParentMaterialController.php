@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\MaterialStatus;
 use App\Http\Requests\StoreParentMaterialRequest;
+use App\Jobs\ProcessPDFMaterialJob;
 use App\Models\ParentMaterial;
 use App\Models\Student;
 use Illuminate\Http\RedirectResponse;
@@ -53,13 +54,15 @@ class ParentMaterialController extends Controller
         $hashedFilename = hash('sha256', $uploadedFile->getClientOriginalName().microtime(true)).'.pdf';
         $filePath = $uploadedFile->storeAs('', $hashedFilename, 'materials');
 
-        $request->user()->parentMaterials()->create([
+        $material = $request->user()->parentMaterials()->create([
             'student_id' => $student->id,
             'title' => $request->validated('title'),
             'file_path' => $filePath,
             'type' => $request->validated('type'),
             'status' => MaterialStatus::Pending,
         ]);
+
+        ProcessPDFMaterialJob::dispatch($material);
 
         return redirect()
             ->route('dashboard')

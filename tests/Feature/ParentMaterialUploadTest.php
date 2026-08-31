@@ -6,11 +6,13 @@ namespace Tests\Feature;
 
 use App\Enums\MaterialStatus;
 use App\Enums\MaterialType;
+use App\Jobs\ProcessPDFMaterialJob;
 use App\Models\ParentMaterial;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
@@ -23,6 +25,7 @@ class ParentMaterialUploadTest extends TestCase
         parent::setUp();
 
         Storage::fake('materials');
+        Queue::fake();
     }
 
     public function test_parent_can_upload_pdf_material_for_active_child(): void
@@ -52,6 +55,7 @@ class ParentMaterialUploadTest extends TestCase
 
         Storage::disk('materials')->assertExists($material->file_path);
         $this->assertStringEndsWith('.pdf', $material->file_path);
+        Queue::assertPushed(ProcessPDFMaterialJob::class, fn (ProcessPDFMaterialJob $job): bool => $job->parentMaterial->is($material));
     }
 
     public function test_upload_fails_for_non_pdf_file_types(): void

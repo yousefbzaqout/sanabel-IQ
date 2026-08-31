@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'embedding' => [
+        'provider' => env('EMBEDDING_PROVIDER', 'openrouter'),
+        'model' => env('EMBEDDING_MODEL', 'google/text-embedding-004'),
+    ],
+
 ];
