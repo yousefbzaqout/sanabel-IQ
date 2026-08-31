@@ -43,4 +43,10 @@ class Subject extends Model
     {
         return $this->hasMany(LearningMaterial::class)->orderBy('order_column');
     }
+
+    /** @return HasMany<LearningMaterial, $this> */
+    public function publishedLearningMaterials(): HasMany
+    {
+        return $this->learningMaterials()->published();
+    }
 }
