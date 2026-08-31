@@ -7,8 +7,10 @@ namespace App\Providers;
 use App\Contracts\AIServiceInterface;
 use App\Models\Activity;
 use App\Models\ParentMaterial;
+use App\Models\ParentLearningGoal;
 use App\Models\Student;
 use App\Policies\ActivityPolicy;
+use App\Policies\ParentLearningGoalPolicy;
 use App\Policies\ParentMaterialPolicy;
 use App\Policies\StudentPolicy;
 use App\Services\AI\PrismEmbeddingService;
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Student::class, StudentPolicy::class);
         Gate::policy(ParentMaterial::class, ParentMaterialPolicy::class);
         Gate::policy(Activity::class, ActivityPolicy::class);
+        Gate::policy(ParentLearningGoal::class, ParentLearningGoalPolicy::class);
 
         View::composer(['layouts.navigation', 'components.notification-bell'], function ($view): void {
             $user = auth()->user();

@@ -56,6 +56,8 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('parent.goals.index');
     Route::post('/parent/goals', [ParentGoalController::class, 'store'])
         ->name('parent.goals.store');
+    Route::delete('/parent/goals/{parentLearningGoal}', [ParentGoalController::class, 'destroy'])
+        ->name('parent.goals.destroy');
 
     Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
         ->name('materials.show');

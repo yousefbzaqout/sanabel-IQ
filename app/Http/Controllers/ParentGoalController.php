@@ -50,4 +50,15 @@ class ParentGoalController extends Controller
             ->route('dashboard')
             ->with('status', __('Learning goal created successfully.'));
     }
+
+    public function destroy(Request $request, ParentLearningGoal $parentLearningGoal): RedirectResponse
+    {
+        $this->authorize('delete', $parentLearningGoal);
+
+        $parentLearningGoal->delete();
+
+        return redirect()
+            ->route('parent.goals.index')
+            ->with('status', __('Learning goal deleted successfully.'));
+    }
 }
