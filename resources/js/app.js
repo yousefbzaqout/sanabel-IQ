@@ -1,5 +1,6 @@
 import Alpine from 'alpinejs';
 import './echo';
+import './push-notifications';
 
 window.Alpine = Alpine;
 

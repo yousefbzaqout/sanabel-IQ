@@ -7,6 +7,7 @@ namespace App\Console\Commands;
 use App\Models\User;
 use App\Notifications\WeeklyParentEncouragementNotification;
 use App\Notifications\WeeklyParentSummaryNotification;
+use App\Notifications\WeeklySummaryWebPushNotification;
 use App\Services\Notifications\WeeklyParentSummaryService;
 use Illuminate\Console\Command;
 
@@ -34,6 +35,7 @@ class SendWeeklyParentSummariesCommand extends Command
                     if ($summaryService->parentHasWeeklyActivity($parent)) {
                         $summary = $summaryService->buildForParent($parent);
                         $parent->notify(new WeeklyParentSummaryNotification($summary));
+                        $parent->notify(new WeeklySummaryWebPushNotification($summary));
                         $activeSummaryCount++;
 
                         continue;
