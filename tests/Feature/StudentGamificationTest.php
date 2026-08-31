@@ -62,6 +62,51 @@ class StudentGamificationTest extends TestCase
         $this->assertNotNull($student->badges()->where('slug', 'first_activity')->first()?->pivot?->unlocked_at);
     }
 
+    public function test_first_perfect_submission_unlocks_multiple_badges_without_duplicate_pivot_rows(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $activity = Activity::factory()
+            ->for($student)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'xp_reward' => 50,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        app(ActivitySubmissionService::class)->submit(
+            $activity,
+            $student,
+            $this->allCorrectAnswers(),
+        );
+
+        $student->refresh();
+
+        $this->assertSame(2, $student->badges()->count());
+        $this->assertDatabaseCount('student_badge', 2);
+        $this->assertTrue($student->badges()->where('slug', 'first_activity')->exists());
+        $this->assertTrue($student->badges()->where('slug', 'perfect_score')->exists());
+        $this->assertSame(
+            2,
+            $student->badges()->whereIn('slug', ['first_activity', 'perfect_score'])->count(),
+        );
+    }
+
+    public function test_xp_level_boundary_cases(): void
+    {
+        $this->assertSame(1, StudentGamification::levelForXp(0));
+        $this->assertSame(0, StudentGamification::xpTowardsNextLevel(0));
+        $this->assertSame(0, StudentGamification::progressPercent(0));
+
+        $this->assertSame(1, StudentGamification::levelForXp(99));
+        $this->assertSame(99, StudentGamification::xpTowardsNextLevel(99));
+        $this->assertSame(99, StudentGamification::progressPercent(99));
+
+        $this->assertSame(2, StudentGamification::levelForXp(100));
+        $this->assertSame(0, StudentGamification::xpTowardsNextLevel(100));
+        $this->assertSame(0, StudentGamification::progressPercent(100));
+    }
+
     public function test_leaderboard_ranks_students_within_same_grade_level(): void
     {
         $parent = User::factory()->create();
@@ -85,6 +130,88 @@ class StudentGamificationTest extends TestCase
 
         $this->assertCount(1, $leaderboard);
         $this->assertSame('Grade Three', $leaderboard->first()->name);
+    }
+
+    public function test_leaderboard_cache_is_flushed_after_xp_update(): void
+    {
+        $parent = User::factory()->create();
+        Student::factory()->for($parent)->create(['name' => 'Leader One', 'grade_level' => 3, 'total_xp' => 500]);
+        Student::factory()->for($parent)->create(['name' => 'Leader Two', 'grade_level' => 3, 'total_xp' => 400]);
+        Student::factory()->for($parent)->create(['name' => 'Leader Three', 'grade_level' => 3, 'total_xp' => 300]);
+        $childC = Student::factory()->for($parent)->create(['name' => 'Child C', 'grade_level' => 3, 'total_xp' => 100]);
+
+        $leaderboardService = app(LeaderboardService::class);
+
+        $cachedLeaderboard = $leaderboardService->forGradeLevel(3);
+        $this->assertSame('Leader One', $cachedLeaderboard->first()->name);
+        $this->assertSame('Child C', $cachedLeaderboard->last()->name);
+
+        $activity = Activity::factory()
+            ->for($childC)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'xp_reward' => 450,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        app(ActivitySubmissionService::class)->submit(
+            $activity,
+            $childC,
+            $this->allCorrectAnswers(),
+        );
+
+        $refreshedLeaderboard = $leaderboardService->forGradeLevel(3);
+
+        $this->assertSame('Child C', $refreshedLeaderboard->first()->name);
+        $this->assertSame(550, $refreshedLeaderboard->first()->total_xp);
+    }
+
+    public function test_leaderboard_masks_student_names_for_privacy(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create([
+            'name' => 'Amina Hassan',
+            'grade_level' => 3,
+            'total_xp' => 120,
+        ]);
+        Student::factory()->for($parent)->create([
+            'name' => 'Omar Al-Rashid',
+            'grade_level' => 3,
+            'total_xp' => 80,
+        ]);
+
+        $response = $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->get(route('student.leaderboard'));
+
+        $response->assertOk()
+            ->assertSee('Amina H.')
+            ->assertSee('Omar A.');
+
+        $entries = $response->viewData('entries');
+        $this->assertSame('Amina H.', $entries->first()['display_name']);
+        $this->assertSame('Omar A.', $entries->last()['display_name']);
+        $this->assertStringNotContainsString('Hassan', $entries->first()['display_name']);
+        $this->assertStringNotContainsString('Al-Rashid', $entries->last()['display_name']);
+    }
+
+    public function test_leaderboard_handles_empty_and_single_student_grade_levels(): void
+    {
+        $parent = User::factory()->create();
+        $onlyStudent = Student::factory()->for($parent)->create([
+            'name' => 'Solo Learner',
+            'grade_level' => 6,
+            'total_xp' => 15,
+        ]);
+
+        $this->assertCount(0, app(LeaderboardService::class)->forGradeLevel(2));
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $onlyStudent->id])
+            ->get(route('student.leaderboard'))
+            ->assertOk()
+            ->assertSee('Solo L.')
+            ->assertSee('#1');
     }
 
     public function test_parent_can_view_child_progress_and_earned_badges(): void

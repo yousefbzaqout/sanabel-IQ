@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\ActivityAttempt;
 use App\Models\Badge;
 use App\Models\Student;
+use App\Services\Gamification\LeaderboardDisplayName;
 use App\Services\Gamification\LeaderboardService;
 use App\Services\Gamification\StudentGamification;
 use Illuminate\Http\Request;
@@ -71,6 +72,7 @@ class StudentProgressController extends Controller
                 return [
                     'rank' => $index + 1,
                     'student' => $entry,
+                    'display_name' => LeaderboardDisplayName::format($entry->name),
                     'level' => StudentGamification::levelForXp($entry->total_xp),
                 ];
             });
