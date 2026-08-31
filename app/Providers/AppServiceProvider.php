@@ -6,8 +6,8 @@ namespace App\Providers;
 
 use App\Contracts\AIServiceInterface;
 use App\Models\Activity;
-use App\Models\ParentMaterial;
 use App\Models\ParentLearningGoal;
+use App\Models\ParentMaterial;
 use App\Models\Student;
 use App\Policies\ActivityPolicy;
 use App\Policies\ParentLearningGoalPolicy;
@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Activity::class, ActivityPolicy::class);
         Gate::policy(ParentLearningGoal::class, ParentLearningGoalPolicy::class);
 
-        View::composer(['layouts.navigation', 'components.notification-bell'], function ($view): void {
+        View::composer(['layouts.navigation', 'layouts.parent', 'components.notification-bell'], function ($view): void {
             $user = auth()->user();
 
             if ($user === null) {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Gameplay;
 
+use App\Events\ActivityCompletedBroadcastEvent;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
 use App\Models\Student;
@@ -117,6 +118,14 @@ class ActivitySubmissionService
             $this->badgeEvaluator->evaluate($freshStudent, $result['attempt']);
             $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
             $this->goalEvaluator->evaluate($freshStudent);
+
+            ActivityCompletedBroadcastEvent::dispatch(
+                parentId: (int) $freshStudent->user_id,
+                childName: $freshStudent->name,
+                activityTitle: $activity->title,
+                scorePercent: $result['percentage'],
+                xpEarned: $result['xp_earned'],
+            );
         }
 
         return $result;
