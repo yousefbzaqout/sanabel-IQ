@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\ActiveChildController;
+use App\Http\Controllers\ActivityGenerationController;
 use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,8 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('materials.store');
     Route::delete('/materials/{parentMaterial}', [ParentMaterialController::class, 'destroy'])
         ->name('materials.destroy');
+    Route::post('/materials/{parentMaterial}/generate-activity', [ActivityGenerationController::class, 'store'])
+        ->name('materials.generate-activity');
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');

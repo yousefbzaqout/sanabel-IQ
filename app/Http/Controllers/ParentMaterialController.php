@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Enums\MaterialStatus;
 use App\Http\Requests\StoreParentMaterialRequest;
 use App\Jobs\ProcessPDFMaterialJob;
+use App\Models\Activity;
 use App\Models\ParentMaterial;
 use App\Models\Student;
 use Illuminate\Http\RedirectResponse;
@@ -28,8 +29,16 @@ class ParentMaterialController extends Controller
             ->latest()
             ->get();
 
+        $activities = Activity::query()
+            ->with('parentMaterial')
+            ->where('student_id', $activeStudentId)
+            ->whereHas('parentMaterial', fn ($query) => $query->where('user_id', $request->user()->id))
+            ->latest()
+            ->get();
+
         return view('dashboard', [
             'materials' => $materials,
+            'activities' => $activities,
         ]);
     }
 
