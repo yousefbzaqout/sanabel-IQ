@@ -107,6 +107,9 @@
                                 </p>
                             </div>
                             <div class="flex items-center gap-3">
+                                <a href="{{ route('admin.materials.questions.index', $material) }}" class="text-sm text-indigo-700 hover:underline">
+                                    {{ __('Questions') }}
+                                </a>
                                 <span class="cursor-move text-xs text-slate-400">⇅</span>
                                 <form method="POST" action="{{ route('admin.materials.destroy', $material) }}" onsubmit="return confirm('{{ __('Delete this material?') }}')">
                                     @csrf

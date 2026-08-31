@@ -6,6 +6,7 @@ use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
 use App\Http\Controllers\Admin\AdminMaterialController;
+use App\Http\Controllers\Admin\AdminQuestionController;
 use App\Http\Controllers\Admin\AdminSubjectController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
@@ -117,6 +118,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         ->name('materials.destroy');
     Route::post('/materials/reorder', [AdminMaterialController::class, 'reorder'])
         ->name('materials.reorder');
+
+    Route::get('/materials/{learningMaterial}/questions', [AdminQuestionController::class, 'index'])
+        ->name('materials.questions.index');
+    Route::post('/materials/{learningMaterial}/questions', [AdminQuestionController::class, 'store'])
+        ->name('materials.questions.store');
+    Route::post('/materials/{learningMaterial}/questions/reorder', [AdminQuestionController::class, 'reorder'])
+        ->name('materials.questions.reorder');
+    Route::put('/questions/{question}', [AdminQuestionController::class, 'update'])
+        ->name('questions.update');
+    Route::delete('/questions/{question}', [AdminQuestionController::class, 'destroy'])
+        ->name('questions.destroy');
 });
 
 require __DIR__.'/auth.php';

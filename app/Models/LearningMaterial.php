@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable([
     'subject_id',
@@ -40,6 +41,12 @@ class LearningMaterial extends Model
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    /** @return HasMany<Question, $this> */
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class)->orderBy('order_column');
     }
 
     /**
