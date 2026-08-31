@@ -7,6 +7,7 @@ namespace App\Http\Requests;
 use App\Models\Student;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\Rule;
 
 class StoreParentMaterialRequest extends FormRequest
@@ -33,7 +34,18 @@ class StoreParentMaterialRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'type' => ['required', Rule::in(['exam', 'summary', 'worksheet'])],
-            'file' => ['required', 'file', 'mimes:pdf', 'max:10240'],
+            'file' => [
+                'required',
+                'file',
+                'mimes:pdf',
+                'mimetypes:application/pdf',
+                'max:10240',
+                function (string $attribute, mixed $value, \Closure $fail): void {
+                    if ($value instanceof UploadedFile && $value->getSize() < 1) {
+                        $fail(__('The file must not be empty.'));
+                    }
+                },
+            ],
         ];
     }
 
