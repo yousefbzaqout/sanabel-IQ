@@ -47,4 +47,10 @@ class ParentMaterial extends Model
     {
         return $this->hasMany(MaterialChunk::class);
     }
+
+    /** @return HasMany<Activity, $this> */
+    public function activities(): HasMany
+    {
+        return $this->hasMany(Activity::class);
+    }
 }

@@ -86,7 +86,15 @@
                                             <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
                                                 {{ $material->created_at?->diffForHumans() }}
                                             </td>
-                                            <td class="px-4 py-3 text-sm text-end">
+                                            <td class="px-4 py-3 text-sm text-end space-x-3 rtl:space-x-reverse">
+                                                @if ($material->status === \App\Enums\MaterialStatus::Completed)
+                                                    <form method="POST" action="{{ route('materials.generate-activity', $material) }}" class="inline">
+                                                        @csrf
+                                                        <button type="submit" class="text-indigo-600 dark:text-indigo-400 hover:underline">
+                                                            {{ __('Generate Game / Activity') }}
+                                                        </button>
+                                                    </form>
+                                                @endif
                                                 <form method="POST" action="{{ route('materials.destroy', $material) }}" class="inline">
                                                     @csrf
                                                     @method('DELETE')
@@ -94,6 +102,55 @@
                                                         {{ __('Delete') }}
                                                     </button>
                                                 </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <h3 class="text-lg font-medium mb-4">{{ __('Generated activities') }}</h3>
+
+                    @if ($activities->isEmpty())
+                        <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('No activities generated yet for this child.') }}</p>
+                    @else
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2 text-start text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{{ __('Title') }}</th>
+                                        <th class="px-4 py-2 text-start text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{{ __('Material') }}</th>
+                                        <th class="px-4 py-2 text-start text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{{ __('Status') }}</th>
+                                        <th class="px-4 py-2 text-start text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{{ __('XP') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    @foreach ($activities as $activity)
+                                        <tr>
+                                            <td class="px-4 py-3 text-sm">{{ $activity->title }}</td>
+                                            <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
+                                                {{ $activity->parentMaterial?->title ?? '—' }}
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                @if ($activity->status === \App\Enums\ActivityStatus::Published)
+                                                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-200">
+                                                        {{ __('Ready to play') }}
+                                                    </span>
+                                                @else
+                                                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                                                        {{ ucfirst($activity->status->value) }}
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            <td class="px-4 py-3 text-sm">
+                                                <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">
+                                                    {{ $activity->xp_reward }} XP
+                                                </span>
                                             </td>
                                         </tr>
                                     @endforeach

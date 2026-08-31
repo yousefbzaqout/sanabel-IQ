@@ -28,4 +28,9 @@ class ParentMaterialPolicy
     {
         return $user->id === $parentMaterial->user_id;
     }
+
+    public function generate(User $user, ParentMaterial $parentMaterial): bool
+    {
+        return $user->id === $parentMaterial->user_id;
+    }
 }
