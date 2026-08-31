@@ -7,6 +7,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ParentAnalyticsController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -27,6 +28,10 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+    Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
 
     Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
     Route::post('/students', [StudentController::class, 'store'])->name('students.store');
