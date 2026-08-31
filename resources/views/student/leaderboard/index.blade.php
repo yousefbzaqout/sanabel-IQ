@@ -49,7 +49,7 @@
                                     </div>
                                     <div>
                                         <p class="font-semibold text-gray-900 dark:text-gray-100">
-                                            {{ explode(' ', $entry['student']->name)[0] }}
+                                            {{ $entry['display_name'] }}
                                             @if ($isActiveChild)
                                                 <span class="ms-2 text-xs font-medium text-indigo-600 dark:text-indigo-300">({{ __('You') }})</span>
                                             @endif

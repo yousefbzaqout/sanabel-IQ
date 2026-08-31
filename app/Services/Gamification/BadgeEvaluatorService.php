@@ -8,6 +8,7 @@ use App\Models\ActivityAttempt;
 use App\Models\Badge;
 use App\Models\Student;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class BadgeEvaluatorService
 {
@@ -16,31 +17,38 @@ class BadgeEvaluatorService
      */
     public function evaluate(Student $student, ?ActivityAttempt $latestAttempt = null): Collection
     {
-        $student->refresh();
-        $newlyUnlocked = collect();
+        return DB::transaction(function () use ($student): Collection {
+            Student::query()
+                ->whereKey($student->id)
+                ->lockForUpdate()
+                ->first();
 
-        /** @var Collection<int, Badge> $badges */
-        $badges = Badge::query()->orderBy('id')->get();
-        $earnedBadgeIds = $student->badges()->pluck('badges.id')->all();
+            $student->refresh();
+            $newlyUnlocked = collect();
 
-        foreach ($badges as $badge) {
-            if (in_array($badge->id, $earnedBadgeIds, true)) {
-                continue;
+            /** @var Collection<int, Badge> $badges */
+            $badges = Badge::query()->orderBy('id')->get();
+            $earnedBadgeIds = $student->badges()->pluck('badges.id')->all();
+
+            foreach ($badges as $badge) {
+                if (in_array($badge->id, $earnedBadgeIds, true)) {
+                    continue;
+                }
+
+                if (! $this->qualifies($student, $badge)) {
+                    continue;
+                }
+
+                $student->badges()->attach($badge->id, ['unlocked_at' => now()]);
+                $newlyUnlocked->push($badge);
+                $earnedBadgeIds[] = $badge->id;
             }
 
-            if (! $this->qualifies($student, $badge, $latestAttempt)) {
-                continue;
-            }
-
-            $student->badges()->attach($badge->id, ['unlocked_at' => now()]);
-            $newlyUnlocked->push($badge);
-            $earnedBadgeIds[] = $badge->id;
-        }
-
-        return $newlyUnlocked;
+            return $newlyUnlocked;
+        });
     }
 
-    private function qualifies(Student $student, Badge $badge, ?ActivityAttempt $latestAttempt): bool
+    private function qualifies(Student $student, Badge $badge): bool
     {
         return match ($badge->requirement_type) {
             'xp_threshold' => $student->total_xp >= $badge->requirement_value,
