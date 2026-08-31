@@ -4,21 +4,23 @@ declare(strict_types=1);
 
 namespace App\Events;
 
-use App\Models\ParentLearningGoal;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Queue\SerializesModels;
 
 class GoalAchievedBroadcastEvent implements ShouldBroadcastNow
 {
     use Dispatchable;
     use InteractsWithSockets;
-    use SerializesModels;
 
     public function __construct(
-        public ParentLearningGoal $goal,
+        public readonly int $parentId,
+        public readonly string $childName,
+        public readonly int $targetActivityCount,
+        public readonly int $targetXp,
+        public readonly ?string $subject,
+        public readonly string $achievedAt,
     ) {}
 
     /**
@@ -27,7 +29,7 @@ class GoalAchievedBroadcastEvent implements ShouldBroadcastNow
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('parent.'.$this->goal->parent_id),
+            new PrivateChannel('parent.'.$this->parentId),
         ];
     }
 
@@ -41,14 +43,12 @@ class GoalAchievedBroadcastEvent implements ShouldBroadcastNow
      */
     public function broadcastWith(): array
     {
-        $this->goal->loadMissing(['student', 'subject']);
-
         return [
-            'child_name' => $this->goal->student->name,
-            'target_activity_count' => $this->goal->target_activity_count,
-            'target_xp' => $this->goal->target_xp,
-            'subject' => $this->goal->subject?->name,
-            'achieved_at' => now()->toIso8601String(),
+            'child_name' => $this->childName,
+            'target_activity_count' => $this->targetActivityCount,
+            'target_xp' => $this->targetXp,
+            'subject' => $this->subject,
+            'achieved_at' => $this->achievedAt,
         ];
     }
 }

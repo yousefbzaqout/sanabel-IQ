@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Broadcasting\AuthorizingLogBroadcaster;
+use App\Broadcasting\AuthorizingNullBroadcaster;
 use App\Contracts\AIServiceInterface;
 use App\Models\Activity;
 use App\Models\ParentLearningGoal;
@@ -14,9 +16,11 @@ use App\Policies\ParentLearningGoalPolicy;
 use App\Policies\ParentMaterialPolicy;
 use App\Policies\StudentPolicy;
 use App\Services\AI\PrismEmbeddingService;
+use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Psr\Log\LoggerInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +31,17 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Broadcast::extend('null', fn (): AuthorizingNullBroadcaster => new AuthorizingNullBroadcaster);
+
+        Broadcast::extend('log', fn ($app): AuthorizingLogBroadcaster => new AuthorizingLogBroadcaster(
+            $app->make(LoggerInterface::class),
+        ));
+
+        Broadcast::purge('null');
+        Broadcast::purge('log');
+
+        require base_path('routes/channels.php');
+
         Gate::policy(Student::class, StudentPolicy::class);
         Gate::policy(ParentMaterial::class, ParentMaterialPolicy::class);
         Gate::policy(Activity::class, ActivityPolicy::class);
