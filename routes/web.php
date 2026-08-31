@@ -12,6 +12,7 @@ use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ParentAnalyticsController;
 use App\Http\Controllers\ParentComparativeAnalyticsController;
+use App\Http\Controllers\ParentCurriculumController;
 use App\Http\Controllers\ParentGoalController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -58,6 +59,8 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
 
     Route::get('/parent/comparative-analytics', [ParentComparativeAnalyticsController::class, 'index'])
         ->name('parent.comparative-analytics');
+    Route::get('/parent/curriculum/subjects/{subject}/materials', [ParentCurriculumController::class, 'materials'])
+        ->name('parent.curriculum.materials');
     Route::get('/parent/students/{student}/export', [StudentReportExportController::class, 'export'])
         ->name('parent.students.export');
     Route::get('/parent/goals', [ParentGoalController::class, 'index'])
