@@ -109,10 +109,7 @@ class StudentManagementTest extends TestCase
         $this->assertDatabaseMissing('students', ['id' => $student->id]);
         $this->assertDatabaseMissing('activities', ['id' => $activity->id]);
         $this->assertDatabaseMissing('reward_contracts', ['id' => $contract->id]);
-        $this->assertDatabaseHas('parent_materials', [
-            'id' => $material->id,
-            'student_id' => null,
-        ]);
+        $this->assertDatabaseMissing('parent_materials', ['id' => $material->id]);
     }
 
     public function test_parent_cannot_view_another_parents_children(): void

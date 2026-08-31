@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 #[Fillable(['user_id', 'name', 'grade_level', 'school_term', 'total_xp', 'coins', 'lives', 'avatar_path'])]
 class Student extends Model
@@ -47,5 +48,21 @@ class Student extends Model
     public function rewardContracts(): HasMany
     {
         return $this->hasMany(RewardContract::class);
+    }
+
+    /** @return HasMany<ParentMaterial, $this> */
+    public function parentMaterials(): HasMany
+    {
+        return $this->hasMany(ParentMaterial::class);
+    }
+
+    protected static function booted(): void
+    {
+        static::deleting(function (Student $student): void {
+            $student->parentMaterials()->each(function (ParentMaterial $material): void {
+                Storage::disk('materials')->delete($material->file_path);
+                $material->delete();
+            });
+        });
     }
 }
