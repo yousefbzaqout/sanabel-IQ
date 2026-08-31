@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Goals;
 
 use App\Enums\ParentGoalStatus;
+use App\Events\GoalAchievedBroadcastEvent;
 use App\Models\ActivityAttempt;
 use App\Models\ParentLearningGoal;
 use App\Models\Student;
@@ -58,11 +59,19 @@ class ParentGoalEvaluatorService
 
             $lockedGoal->update(['status' => ParentGoalStatus::Achieved]);
 
+            $freshGoal = $lockedGoal->fresh(['student', 'subject']);
+
+            if ($freshGoal === null) {
+                return;
+            }
+
             $parent = $lockedGoal->parent;
 
             if ($parent instanceof User) {
-                $parent->notify(new GoalAchievedNotification($lockedGoal->fresh(['student', 'subject'])));
+                $parent->notify(new GoalAchievedNotification($freshGoal));
             }
+
+            GoalAchievedBroadcastEvent::dispatch($freshGoal);
         });
     }
 
