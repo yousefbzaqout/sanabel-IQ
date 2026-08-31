@@ -11,6 +11,8 @@ use RuntimeException;
 
 class ActivityGeneratorService
 {
+    public function __construct(private readonly ActivityPayloadValidator $payloadValidator) {}
+
     /**
      * @return array{
      *     title: string,
@@ -56,9 +58,11 @@ class ActivityGeneratorService
 
         $structured = $response->structured;
 
-        if (! is_array($structured) || ! isset($structured['title'], $structured['questions'], $structured['total_xp'])) {
+        if (! is_array($structured)) {
             throw new RuntimeException('Activity generation returned an invalid structured response.');
         }
+
+        $this->payloadValidator->validate($structured);
 
         return [
             'title' => (string) $structured['title'],
