@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['student_id', 'parent_material_id', 'title', 'payload', 'xp_reward', 'status'])]
 class Activity extends Model
@@ -39,5 +40,11 @@ class Activity extends Model
     public function parentMaterial(): BelongsTo
     {
         return $this->belongsTo(ParentMaterial::class);
+    }
+
+    /** @return HasMany<ActivityAttempt, $this> */
+    public function attempts(): HasMany
+    {
+        return $this->hasMany(ActivityAttempt::class);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
+use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
@@ -42,6 +43,15 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('materials.generate-activity');
     Route::get('/activities/{activity}', [ActivityController::class, 'show'])
         ->name('activities.show');
+
+    Route::prefix('student')->name('student.')->group(function (): void {
+        Route::get('/activities', [ChildActivityController::class, 'index'])
+            ->name('activities.index');
+        Route::get('/activities/{activity}/play', [ChildActivityController::class, 'show'])
+            ->name('activities.play');
+        Route::post('/activities/{activity}/submit', [ChildActivityController::class, 'submit'])
+            ->name('activities.submit');
+    });
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');

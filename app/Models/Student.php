@@ -56,6 +56,21 @@ class Student extends Model
         return $this->hasMany(ParentMaterial::class);
     }
 
+    public function addXp(int $amount): void
+    {
+        if ($amount <= 0) {
+            return;
+        }
+
+        $this->increment('total_xp', $amount);
+    }
+
+    /** @return HasMany<ActivityAttempt, $this> */
+    public function activityAttempts(): HasMany
+    {
+        return $this->hasMany(ActivityAttempt::class);
+    }
+
     protected static function booted(): void
     {
         static::deleting(function (Student $student): void {
