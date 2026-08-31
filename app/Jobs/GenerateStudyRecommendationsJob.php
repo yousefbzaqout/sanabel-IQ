@@ -20,11 +20,11 @@ class GenerateStudyRecommendationsJob implements ShouldQueue
     /** @var list<int> */
     public array $backoff = [10, 30, 60];
 
-    public function __construct(public Student $student) {}
+    public function __construct(public int $studentId) {}
 
     public function handle(AIStudyRecommendationService $recommendationService): void
     {
-        $student = $this->student->fresh();
+        $student = Student::query()->find($this->studentId);
 
         if ($student === null) {
             return;
@@ -34,7 +34,7 @@ class GenerateStudyRecommendationsJob implements ShouldQueue
             $recommendationService->generate($student);
         } catch (Throwable $exception) {
             Log::error('Study recommendation generation failed.', [
-                'student_id' => $student->id,
+                'student_id' => $this->studentId,
                 'message' => $exception->getMessage(),
             ]);
 
