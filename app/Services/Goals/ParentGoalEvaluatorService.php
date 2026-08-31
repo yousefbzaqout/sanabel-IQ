@@ -11,41 +11,59 @@ use App\Models\Student;
 use App\Models\User;
 use App\Notifications\GoalAchievedNotification;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ParentGoalEvaluatorService
 {
     public function evaluate(Student $student): void
     {
-        $today = now()->startOfDay();
-
         ParentLearningGoal::query()
             ->where('student_id', $student->id)
             ->where('status', ParentGoalStatus::Pending)
+            ->orderBy('id')
             ->get()
-            ->each(function (ParentLearningGoal $goal) use ($student, $today): void {
-                if ($today->gt($goal->end_date)) {
-                    $goal->update(['status' => ParentGoalStatus::Expired]);
+            ->each(fn (ParentLearningGoal $goal): mixed => $this->evaluateGoal($student, $goal));
+    }
 
-                    return;
-                }
+    public function evaluateGoal(Student $student, ParentLearningGoal $goal): void
+    {
+        DB::transaction(function () use ($student, $goal): void {
+            $lockedGoal = ParentLearningGoal::query()
+                ->whereKey($goal->id)
+                ->lockForUpdate()
+                ->first();
 
-                if ($today->lt($goal->start_date)) {
-                    return;
-                }
+            if ($lockedGoal === null || $lockedGoal->status !== ParentGoalStatus::Pending) {
+                return;
+            }
 
-                $progress = $this->progressForGoal($student, $goal);
+            $today = now()->startOfDay();
 
-                if ($progress['activities_completed'] >= $goal->target_activity_count
-                    && $progress['xp_earned'] >= $goal->target_xp) {
-                    $goal->update(['status' => ParentGoalStatus::Achieved]);
+            if ($today->gt($lockedGoal->end_date)) {
+                $lockedGoal->update(['status' => ParentGoalStatus::Expired]);
 
-                    $parent = $goal->parent;
+                return;
+            }
 
-                    if ($parent instanceof User) {
-                        $parent->notify(new GoalAchievedNotification($goal->fresh(['student', 'subject'])));
-                    }
-                }
-            });
+            if ($today->lt($lockedGoal->start_date)) {
+                return;
+            }
+
+            $progress = $this->progressForGoal($student, $lockedGoal);
+
+            if ($progress['activities_completed'] < $lockedGoal->target_activity_count
+                || $progress['xp_earned'] < $lockedGoal->target_xp) {
+                return;
+            }
+
+            $lockedGoal->update(['status' => ParentGoalStatus::Achieved]);
+
+            $parent = $lockedGoal->parent;
+
+            if ($parent instanceof User) {
+                $parent->notify(new GoalAchievedNotification($lockedGoal->fresh(['student', 'subject'])));
+            }
+        });
     }
 
     /**

@@ -74,24 +74,27 @@ class StudentReportExportService
                 return;
             }
 
-            fputcsv($handle, ['Field', 'Value']);
-            fputcsv($handle, ['Student Name', $report['student']->name]);
-            fputcsv($handle, ['Grade Level', (string) $report['student']->grade_level]);
-            fputcsv($handle, ['Total XP', (string) $report['student']->total_xp]);
-            fputcsv($handle, ['Overall Accuracy %', (string) $report['analysis']['overall_accuracy_percent']]);
-            fputcsv($handle, ['Questions Attempted', (string) $report['analysis']['total_questions_attempted']]);
-            fputcsv($handle, []);
+            fwrite($handle, "\xEF\xBB\xBF");
 
-            fputcsv($handle, ['Activity Attempts']);
-            fputcsv($handle, ['Completed At', 'Score', 'Total Questions', 'XP Earned', 'Accuracy %']);
+            $this->putCsvRow($handle, ['Field', 'Value']);
+            $this->putCsvRow($handle, ['Student Name', $report['student']->name]);
+            $this->putCsvRow($handle, ['Grade Level', (string) $report['student']->grade_level]);
+            $this->putCsvRow($handle, ['Total XP', (string) $report['student']->total_xp]);
+            $this->putCsvRow($handle, ['Overall Accuracy %', (string) $report['analysis']['overall_accuracy_percent']]);
+            $this->putCsvRow($handle, ['Questions Attempted', (string) $report['analysis']['total_questions_attempted']]);
+            $this->putCsvRow($handle, []);
+
+            $this->putCsvRow($handle, ['Activity Attempts']);
+            $this->putCsvRow($handle, ['Completed At', 'Material', 'Score', 'Total Questions', 'XP Earned', 'Accuracy %']);
 
             foreach ($report['attempts'] as $attempt) {
                 $accuracy = $attempt->total_questions > 0
                     ? (int) round(($attempt->score / $attempt->total_questions) * 100)
                     : 0;
 
-                fputcsv($handle, [
-                    $attempt->completed_at?->toDateTimeString(),
+                $this->putCsvRow($handle, [
+                    $attempt->completed_at?->toDateTimeString() ?? '',
+                    $attempt->activity?->parentMaterial?->title ?? '',
                     (string) $attempt->score,
                     (string) $attempt->total_questions,
                     (string) $attempt->xp_earned,
@@ -99,17 +102,42 @@ class StudentReportExportService
                 ]);
             }
 
-            fputcsv($handle, []);
-            fputcsv($handle, ['Badges']);
-            fputcsv($handle, ['Badge Name', 'Unlocked At']);
+            $this->putCsvRow($handle, []);
+            $this->putCsvRow($handle, ['Badges']);
+            $this->putCsvRow($handle, ['Badge Name', 'Unlocked At']);
 
             foreach ($report['badges'] as $badge) {
-                fputcsv($handle, [$badge['name'], $badge['unlocked_at'] ?? '']);
+                $this->putCsvRow($handle, [$badge['name'], $badge['unlocked_at'] ?? '']);
             }
 
             fclose($handle);
         }, $filename, [
             'Content-Type' => 'text/csv; charset=UTF-8',
         ]);
+    }
+
+    /**
+     * @param  resource  $handle
+     * @param  list<string|null>  $cells
+     */
+    private function putCsvRow($handle, array $cells): void
+    {
+        fputcsv($handle, array_map(
+            fn (?string $cell): string => $this->sanitizeCsvCell((string) $cell),
+            $cells,
+        ));
+    }
+
+    public function sanitizeCsvCell(string $value): string
+    {
+        if ($value === '') {
+            return $value;
+        }
+
+        if (preg_match('/^[=+\-@\t\r]/', $value) === 1) {
+            return "'".$value;
+        }
+
+        return $value;
     }
 }
