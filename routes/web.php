@@ -7,6 +7,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
+use App\Http\Controllers\ParentAnalyticsController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -33,6 +34,11 @@ Route::middleware('auth')->group(function (): void {
 
 Route::middleware(['auth', 'active.child'])->group(function (): void {
     Route::get('/dashboard', [ParentMaterialController::class, 'index'])->name('dashboard');
+
+    Route::get('/parent/analytics', [ParentAnalyticsController::class, 'index'])
+        ->name('parent.analytics');
+    Route::post('/parent/analytics/generate-recommendations', [ParentAnalyticsController::class, 'generateRecommendations'])
+        ->name('parent.analytics.generate-recommendations');
 
     Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
         ->name('materials.show');

@@ -72,6 +72,12 @@ class Student extends Model
         return $this->hasMany(ActivityAttempt::class);
     }
 
+    /** @return HasMany<StudyRecommendation, $this> */
+    public function studyRecommendations(): HasMany
+    {
+        return $this->hasMany(StudyRecommendation::class);
+    }
+
     /** @return BelongsToMany<Badge, $this> */
     public function badges(): BelongsToMany
     {

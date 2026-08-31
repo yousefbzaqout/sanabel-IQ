@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('parent.analytics')" :active="request()->routeIs('parent.analytics*')">
+                        {{ __('Analytics') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                         {{ __('Activities') }}
                     </x-nav-link>
@@ -84,6 +87,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('parent.analytics')" :active="request()->routeIs('parent.analytics*')">
+                {{ __('Analytics') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                 {{ __('Activities') }}
