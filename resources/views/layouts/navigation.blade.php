@@ -35,6 +35,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 gap-3">
+                <x-notification-bell />
                 @isset($activeStudent)
                     <x-child-switcher :active-student="$activeStudent" :students="$parentStudents" />
                 @endisset
