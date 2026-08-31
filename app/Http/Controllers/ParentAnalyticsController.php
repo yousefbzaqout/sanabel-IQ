@@ -11,9 +11,12 @@ use App\Services\Analytics\SubjectAnalyticsService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Throwable;
 
 class ParentAnalyticsController extends Controller
 {
+    private const RECOMMENDATION_COOLDOWN_MINUTES = 5;
+
     public function index(Request $request, SubjectAnalyticsService $subjectAnalytics): View
     {
         $student = $this->resolveActiveStudent($request);
@@ -42,7 +45,21 @@ class ParentAnalyticsController extends Controller
         $student = $this->resolveActiveStudent($request);
         $this->authorize('view', $student);
 
-        GenerateStudyRecommendationsJob::dispatch($student);
+        if ($this->hasRecentRecommendation($student)) {
+            return redirect()
+                ->route('parent.analytics')
+                ->with('error', __('A study recommendation was generated recently. Please wait :minutes minutes before requesting another.', [
+                    'minutes' => self::RECOMMENDATION_COOLDOWN_MINUTES,
+                ]));
+        }
+
+        try {
+            GenerateStudyRecommendationsJob::dispatchSync($student->id);
+        } catch (Throwable) {
+            return redirect()
+                ->route('parent.analytics')
+                ->with('error', __('Unable to generate study recommendations right now. Please try again in a few minutes.'));
+        }
 
         return redirect()
             ->route('parent.analytics')
@@ -57,5 +74,13 @@ class ParentAnalyticsController extends Controller
         abort_if($student === null, 403);
 
         return $student;
+    }
+
+    private function hasRecentRecommendation(Student $student): bool
+    {
+        return StudyRecommendation::query()
+            ->where('student_id', $student->id)
+            ->where('generated_at', '>=', now()->subMinutes(self::RECOMMENDATION_COOLDOWN_MINUTES))
+            ->exists();
     }
 }

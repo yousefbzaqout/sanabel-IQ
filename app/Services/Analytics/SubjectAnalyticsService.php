@@ -88,8 +88,20 @@ class SubjectAnalyticsService
         $analysis = $this->analyze($student);
 
         return collect($analysis['subject_breakdown'])
-            ->filter(fn (array $subject): bool => $subject['accuracy_percent'] < self::WEAKNESS_THRESHOLD)
+            ->filter(fn (array $subject): bool => $this->isWeakAccuracy(
+                $subject['correct_answers'],
+                $subject['total_questions'],
+            ))
             ->values();
+    }
+
+    public function isWeakAccuracy(int $correct, int $total): bool
+    {
+        if ($total === 0) {
+            return false;
+        }
+
+        return (($correct / $total) * 100) < self::WEAKNESS_THRESHOLD;
     }
 
     private function accuracyPercent(int $correct, int $total): int

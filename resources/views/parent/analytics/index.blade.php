@@ -18,6 +18,12 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 px-4 py-3 rounded-md">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="grid gap-6 lg:grid-cols-3">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg lg:col-span-1">
                     <div class="p-6 flex flex-col items-center text-center">
@@ -41,7 +47,11 @@
                             </div>
                         </div>
                         <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                            {{ __(':count questions attempted', ['count' => $analysis['total_questions_attempted']]) }}
+                            @if ($analysis['total_questions_attempted'] === 0)
+                                {{ __('لا توجد بيانات كافية بعد') }}
+                            @else
+                                {{ __(':count questions attempted', ['count' => $analysis['total_questions_attempted']]) }}
+                            @endif
                         </p>
                     </div>
                 </div>
@@ -51,6 +61,7 @@
                         <h3 class="text-lg font-medium mb-4">{{ __('Subject Performance') }}</h3>
                         @if ($analysis['subject_breakdown'] === [])
                             <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('No activity attempts recorded yet.') }}</p>
+                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">{{ __('لا توجد بيانات كافية بعد') }}</p>
                         @else
                             <div class="h-64 mb-6">
                                 <canvas id="subjectPerformanceChart" aria-label="{{ __('Subject performance chart') }}"></canvas>
