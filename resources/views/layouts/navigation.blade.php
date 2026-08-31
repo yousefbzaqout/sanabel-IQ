@@ -18,6 +18,12 @@
                     <x-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                         {{ __('Activities') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('student.progress')" :active="request()->routeIs('student.progress')">
+                        {{ __('Progress') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('student.leaderboard')" :active="request()->routeIs('student.leaderboard')">
+                        {{ __('Leaderboard') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
                         {{ __('Children') }}
                     </x-nav-link>
@@ -81,6 +87,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('student.activities.index')" :active="request()->routeIs('student.activities.*')">
                 {{ __('Activities') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('student.progress')" :active="request()->routeIs('student.progress')">
+                {{ __('Progress') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('student.leaderboard')" :active="request()->routeIs('student.leaderboard')">
+                {{ __('Leaderboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('students.index')" :active="request()->routeIs('students.*')">
                 {{ __('Children') }}

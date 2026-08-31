@@ -10,6 +10,7 @@ use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentProgressController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -51,6 +52,10 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
             ->name('activities.play');
         Route::post('/activities/{activity}/submit', [ChildActivityController::class, 'submit'])
             ->name('activities.submit');
+        Route::get('/progress', [StudentProgressController::class, 'index'])
+            ->name('progress');
+        Route::get('/leaderboard', [StudentProgressController::class, 'leaderboard'])
+            ->name('leaderboard');
     });
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');

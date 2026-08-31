@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
 
@@ -69,6 +70,15 @@ class Student extends Model
     public function activityAttempts(): HasMany
     {
         return $this->hasMany(ActivityAttempt::class);
+    }
+
+    /** @return BelongsToMany<Badge, $this> */
+    public function badges(): BelongsToMany
+    {
+        return $this->belongsToMany(Badge::class, 'student_badge')
+            ->using(StudentBadge::class)
+            ->withPivot(['unlocked_at'])
+            ->withTimestamps();
     }
 
     protected static function booted(): void

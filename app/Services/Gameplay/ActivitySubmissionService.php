@@ -7,10 +7,17 @@ namespace App\Services\Gameplay;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
 use App\Models\Student;
+use App\Services\Gamification\BadgeEvaluatorService;
+use App\Services\Gamification\LeaderboardService;
 use Illuminate\Support\Facades\DB;
 
 class ActivitySubmissionService
 {
+    public function __construct(
+        private readonly BadgeEvaluatorService $badgeEvaluator,
+        private readonly LeaderboardService $leaderboardService,
+    ) {}
+
     /**
      * @param  list<int>  $answers
      * @return array{
@@ -24,7 +31,7 @@ class ActivitySubmissionService
      */
     public function submit(Activity $activity, Student $student, array $answers): array
     {
-        return DB::transaction(function () use ($activity, $student, $answers): array {
+        $result = DB::transaction(function () use ($activity, $student, $answers): array {
             Student::query()
                 ->whereKey($student->id)
                 ->lockForUpdate()
@@ -101,5 +108,14 @@ class ActivitySubmissionService
                 'feedback' => $feedback,
             ];
         });
+
+        $freshStudent = $student->fresh();
+
+        if ($freshStudent !== null) {
+            $this->badgeEvaluator->evaluate($freshStudent, $result['attempt']);
+            $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
+        }
+
+        return $result;
     }
 }
