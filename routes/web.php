@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ChildOnboardingController;
+use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,14 @@ Route::middleware('auth')->group(function (): void {
 });
 
 Route::middleware(['auth', 'active.child'])->group(function (): void {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [ParentMaterialController::class, 'index'])->name('dashboard');
+
+    Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
+        ->name('materials.show');
+    Route::post('/materials', [ParentMaterialController::class, 'store'])
+        ->name('materials.store');
+    Route::delete('/materials/{parentMaterial}', [ParentMaterialController::class, 'destroy'])
+        ->name('materials.destroy');
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
