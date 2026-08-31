@@ -71,7 +71,14 @@ class ParentGoalEvaluatorService
                 $parent->notify(new GoalAchievedNotification($freshGoal));
             }
 
-            GoalAchievedBroadcastEvent::dispatch($freshGoal);
+            GoalAchievedBroadcastEvent::dispatch(
+                parentId: (int) $freshGoal->parent_id,
+                childName: $freshGoal->student->name,
+                targetActivityCount: (int) $freshGoal->target_activity_count,
+                targetXp: (int) $freshGoal->target_xp,
+                subject: $freshGoal->subject?->name,
+                achievedAt: now()->toIso8601String(),
+            );
         });
     }
 
