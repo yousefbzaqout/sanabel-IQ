@@ -8,6 +8,7 @@ use App\Models\Concerns\HasVectorSearch;
 use Database\Factories\MaterialChunkFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -34,6 +35,17 @@ class MaterialChunk extends Model
     public function parentMaterial(): BelongsTo
     {
         return $this->belongsTo(ParentMaterial::class);
+    }
+
+    /**
+     * @param  list<int|float>  $embedding
+     * @return Collection<int, static>
+     */
+    public static function nearestNeighbors(array $embedding, int $limit = 5): Collection
+    {
+        return static::query()
+            ->nearestNeighbors($embedding, $limit)
+            ->get();
     }
 
     /**
