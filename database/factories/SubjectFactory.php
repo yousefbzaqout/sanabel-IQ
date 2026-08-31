@@ -17,11 +17,17 @@ class SubjectFactory extends Factory
 
     public function definition(): array
     {
-        $name = fake()->unique()->word();
+        $name = fake()->unique()->words(2, true);
+        $gradeLevel = fake()->numberBetween(1, 5);
+        $code = strtoupper(Str::slug($name, '-')).'-G'.$gradeLevel;
 
         return [
             'name' => $name,
-            'slug' => Str::slug($name),
+            'slug' => Str::slug($name).'-'.$gradeLevel.'-'.Str::random(4),
+            'code' => $code,
+            'grade_level' => $gradeLevel,
+            'icon' => null,
+            'description' => fake()->optional()->sentence(),
         ];
     }
 }

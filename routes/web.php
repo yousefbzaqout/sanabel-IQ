@@ -5,6 +5,8 @@ declare(strict_types=1);
 use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
+use App\Http\Controllers\Admin\AdminMaterialController;
+use App\Http\Controllers\Admin\AdminSubjectController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\NotificationController;
@@ -95,6 +97,23 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
     Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
     Route::post('/students/{student}/select', [ActiveChildController::class, 'select'])
         ->name('students.select');
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function (): void {
+    Route::get('/subjects', [AdminSubjectController::class, 'index'])->name('subjects.index');
+    Route::post('/subjects', [AdminSubjectController::class, 'store'])->name('subjects.store');
+    Route::get('/subjects/{subject}', [AdminSubjectController::class, 'show'])->name('subjects.show');
+    Route::put('/subjects/{subject}', [AdminSubjectController::class, 'update'])->name('subjects.update');
+    Route::delete('/subjects/{subject}', [AdminSubjectController::class, 'destroy'])->name('subjects.destroy');
+
+    Route::post('/subjects/{subject}/materials', [AdminMaterialController::class, 'store'])
+        ->name('subjects.materials.store');
+    Route::put('/materials/{learningMaterial}', [AdminMaterialController::class, 'update'])
+        ->name('materials.update');
+    Route::delete('/materials/{learningMaterial}', [AdminMaterialController::class, 'destroy'])
+        ->name('materials.destroy');
+    Route::post('/materials/reorder', [AdminMaterialController::class, 'reorder'])
+        ->name('materials.reorder');
 });
 
 require __DIR__.'/auth.php';
