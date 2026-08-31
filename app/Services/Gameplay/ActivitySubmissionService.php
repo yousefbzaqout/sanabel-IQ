@@ -9,6 +9,7 @@ use App\Models\ActivityAttempt;
 use App\Models\Student;
 use App\Services\Gamification\BadgeEvaluatorService;
 use App\Services\Gamification\LeaderboardService;
+use App\Services\Goals\ParentGoalEvaluatorService;
 use Illuminate\Support\Facades\DB;
 
 class ActivitySubmissionService
@@ -16,6 +17,7 @@ class ActivitySubmissionService
     public function __construct(
         private readonly BadgeEvaluatorService $badgeEvaluator,
         private readonly LeaderboardService $leaderboardService,
+        private readonly ParentGoalEvaluatorService $goalEvaluator,
     ) {}
 
     /**
@@ -114,6 +116,7 @@ class ActivitySubmissionService
         if ($freshStudent !== null) {
             $this->badgeEvaluator->evaluate($freshStudent, $result['attempt']);
             $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
+            $this->goalEvaluator->evaluate($freshStudent);
         }
 
         return $result;

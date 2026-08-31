@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['user_id', 'student_id', 'title', 'file_path', 'type', 'status'])]
+#[Fillable(['user_id', 'student_id', 'subject_id', 'title', 'file_path', 'type', 'status'])]
 class ParentMaterial extends Model
 {
     /** @use HasFactory<ParentMaterialFactory> */
@@ -40,6 +40,12 @@ class ParentMaterial extends Model
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
+    }
+
+    /** @return BelongsTo<Subject, $this> */
+    public function subject(): BelongsTo
+    {
+        return $this->belongsTo(Subject::class);
     }
 
     /** @return HasMany<MaterialChunk, $this> */

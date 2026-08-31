@@ -41,4 +41,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ParentMaterial::class);
     }
+
+    /** @return HasMany<ParentLearningGoal, $this> */
+    public function parentLearningGoals(): HasMany
+    {
+        return $this->hasMany(ParentLearningGoal::class, 'parent_id');
+    }
 }
