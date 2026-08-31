@@ -176,6 +176,150 @@ class ChildActivityGameplayTest extends TestCase
         $this->assertDatabaseCount('activity_attempts', 0);
     }
 
+    public function test_out_of_bounds_and_non_integer_answer_indices_return_validation_errors(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create();
+        $activity = Activity::factory()
+            ->for($student)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'payload' => [
+                    'questions' => array_slice($this->samplePayload()['questions'], 0, 3),
+                ],
+            ]);
+
+        $response = $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.activities.submit', $activity), [
+                'answers' => [99, -1, 'abc'],
+            ]);
+
+        $response->assertUnprocessable()
+            ->assertJsonValidationErrors(['answers.0', 'answers.1', 'answers.2']);
+
+        $this->assertDatabaseCount('activity_attempts', 0);
+    }
+
+    public function test_partial_answer_submission_requires_all_questions_to_be_answered(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create();
+        $activity = Activity::factory()
+            ->for($student)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.activities.submit', $activity), [
+                'answers' => [1, 1, 1],
+            ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['answers']);
+
+        $this->assertDatabaseCount('activity_attempts', 0);
+    }
+
+    public function test_rapid_double_submission_awards_xp_only_once(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $activity = Activity::factory()
+            ->for($student)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'xp_reward' => 50,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        $payload = ['answers' => $this->allCorrectAnswers()];
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.activities.submit', $activity), $payload)
+            ->assertOk();
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.activities.submit', $activity), $payload)
+            ->assertOk();
+
+        $this->assertSame(2, ActivityAttempt::query()->count());
+        $this->assertSame(1, ActivityAttempt::query()->where('xp_earned', '>', 0)->count());
+        $this->assertSame(50, $student->fresh()->total_xp);
+        $this->assertSame(50, ActivityAttempt::query()->sum('xp_earned'));
+    }
+
+    public function test_fractional_xp_reward_is_rounded_without_precision_errors(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $activity = Activity::factory()
+            ->for($student)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'xp_reward' => 35,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.activities.submit', $activity), [
+                'answers' => [1, 1, 1, 0, 0],
+            ])
+            ->assertOk()
+            ->assertJsonPath('score', 3)
+            ->assertJsonPath('xp_earned', 21);
+
+        $this->assertDatabaseHas('activity_attempts', [
+            'activity_id' => $activity->id,
+            'student_id' => $student->id,
+            'score' => 3,
+            'total_questions' => 5,
+            'xp_earned' => 21,
+        ]);
+
+        $this->assertSame(21, $student->fresh()->total_xp);
+    }
+
+    public function test_submit_is_blocked_when_active_child_session_switches_mid_gameplay(): void
+    {
+        $parent = User::factory()->create();
+        $childA = Student::factory()->for($parent)->create(['name' => 'Child A']);
+        $childB = Student::factory()->for($parent)->create(['name' => 'Child B']);
+
+        $activityForChildA = Activity::factory()
+            ->for($childA)
+            ->create([
+                'status' => ActivityStatus::Published,
+                'payload' => $this->samplePayload(),
+            ]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $childA->id])
+            ->get(route('student.activities.play', $activityForChildA))
+            ->assertOk();
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $childA->id])
+            ->post(route('students.select', $childB))
+            ->assertRedirect();
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $childB->id])
+            ->postJson(route('student.activities.submit', $activityForChildA), [
+                'answers' => $this->allCorrectAnswers(),
+            ])
+            ->assertForbidden();
+
+        $this->assertDatabaseCount('activity_attempts', 0);
+        $this->assertSame(0, $childA->fresh()->total_xp);
+        $this->assertSame(0, $childB->fresh()->total_xp);
+    }
+
     /**
      * @return array{questions: list<array<string, mixed>>}
      */

@@ -46,7 +46,7 @@ class SubmitActivityAnswersRequest extends FormRequest
             if (count($answers) !== $totalQuestions) {
                 $validator->errors()->add(
                     'answers',
-                    __('The number of answers must match the total number of questions.'),
+                    __('All questions must be answered before submitting.'),
                 );
             }
 
