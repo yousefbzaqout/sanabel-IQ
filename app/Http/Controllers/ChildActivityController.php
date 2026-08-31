@@ -56,9 +56,11 @@ class ChildActivityController extends Controller
         Activity $activity,
         ActivitySubmissionService $submissionService,
     ): JsonResponse {
-        $this->authorize('play', $activity);
-
         $activeStudentId = (int) $request->session()->get('active_student_id');
+
+        abort_unless($activity->student_id === $activeStudentId, 403);
+
+        $this->authorize('play', $activity);
 
         /** @var Student $student */
         $student = $request->user()->students()->findOrFail($activeStudentId);
