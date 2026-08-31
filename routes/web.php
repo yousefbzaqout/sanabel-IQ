@@ -13,6 +13,7 @@ use App\Http\Controllers\ParentComparativeAnalyticsController;
 use App\Http\Controllers\ParentGoalController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PushSubscriptionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentProgressController;
 use App\Http\Controllers\StudentReportExportController;
@@ -35,6 +36,11 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
     Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
+
+    Route::post('/parent/push-subscriptions', [PushSubscriptionController::class, 'store'])
+        ->name('parent.push-subscriptions.store');
+    Route::delete('/parent/push-subscriptions', [PushSubscriptionController::class, 'destroy'])
+        ->name('parent.push-subscriptions.destroy');
 
     Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
     Route::post('/students', [StudentController::class, 'store'])->name('students.store');

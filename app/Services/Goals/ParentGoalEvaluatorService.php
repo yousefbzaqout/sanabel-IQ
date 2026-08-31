@@ -11,6 +11,7 @@ use App\Models\ParentLearningGoal;
 use App\Models\Student;
 use App\Models\User;
 use App\Notifications\GoalAchievedNotification;
+use App\Notifications\GoalAchievedWebPushNotification;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -69,6 +70,7 @@ class ParentGoalEvaluatorService
 
             if ($parent instanceof User) {
                 $parent->notify(new GoalAchievedNotification($freshGoal));
+                $parent->notify(new GoalAchievedWebPushNotification($freshGoal));
             }
 
             GoalAchievedBroadcastEvent::dispatch(

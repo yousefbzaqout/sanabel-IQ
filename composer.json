@@ -8,7 +8,9 @@
     "require": {
         "php": "^8.3",
         "echolabsdev/prism": "^0.100.1",
+        "laravel-notification-channels/webpush": "*",
         "laravel/framework": "^13.8",
+        "laravel-notification-channels/webpush": "^12.1",
         "laravel/tinker": "^3.0",
         "smalot/pdfparser": "^2.12"
     },
