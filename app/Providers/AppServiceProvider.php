@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Contracts\AIServiceInterface;
+use App\Models\Activity;
 use App\Models\ParentMaterial;
 use App\Models\Student;
+use App\Policies\ActivityPolicy;
 use App\Policies\ParentMaterialPolicy;
 use App\Policies\StudentPolicy;
 use App\Services\AI\PrismEmbeddingService;
@@ -24,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::policy(Student::class, StudentPolicy::class);
         Gate::policy(ParentMaterial::class, ParentMaterialPolicy::class);
+        Gate::policy(Activity::class, ActivityPolicy::class);
     }
 }

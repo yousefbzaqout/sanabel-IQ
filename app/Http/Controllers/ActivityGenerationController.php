@@ -22,7 +22,7 @@ class ActivityGenerationController extends Controller
 
         abort_unless($parentMaterial->status === MaterialStatus::Completed, 422);
 
-        GenerateActivityFromMaterialJob::dispatch($parentMaterial);
+        GenerateActivityFromMaterialJob::dispatch($parentMaterial, $parentMaterial->student_id);
 
         return redirect()
             ->route('dashboard')

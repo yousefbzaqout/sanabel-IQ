@@ -23,7 +23,10 @@ class GenerateActivityFromMaterialJob implements ShouldQueue
     /** @var list<int> */
     public array $backoff = [10, 30, 60];
 
-    public function __construct(public ParentMaterial $parentMaterial) {}
+    public function __construct(
+        public ParentMaterial $parentMaterial,
+        public int $studentId,
+    ) {}
 
     public function handle(ActivityGeneratorService $activityGeneratorService): void
     {
@@ -37,11 +40,21 @@ class GenerateActivityFromMaterialJob implements ShouldQueue
             return;
         }
 
+        if ($material->student_id !== $this->studentId) {
+            Log::error('Activity generation aborted due to student context mismatch.', [
+                'parent_material_id' => $material->id,
+                'expected_student_id' => $this->studentId,
+                'material_student_id' => $material->student_id,
+            ]);
+
+            return;
+        }
+
         try {
             $generated = $activityGeneratorService->generate($material);
 
             Activity::query()->create([
-                'student_id' => $material->student_id,
+                'student_id' => $this->studentId,
                 'parent_material_id' => $material->id,
                 'title' => $generated['title'],
                 'payload' => $generated['payload'],
@@ -51,6 +64,7 @@ class GenerateActivityFromMaterialJob implements ShouldQueue
         } catch (Throwable $exception) {
             Log::error('Activity generation failed.', [
                 'parent_material_id' => $material->id,
+                'student_id' => $this->studentId,
                 'message' => $exception->getMessage(),
             ]);
 
