@@ -14,6 +14,8 @@ class WeeklySummaryWebPushNotification extends Notification implements ShouldQue
 {
     use Queueable;
 
+    public const int MAX_BODY_LENGTH = 250;
+
     /**
      * @param  array{
      *     period_start: string,
@@ -43,18 +45,28 @@ class WeeklySummaryWebPushNotification extends Notification implements ShouldQue
     {
         $totalActivities = collect($this->summary['children'])->sum('activities_completed');
         $totalXp = collect($this->summary['children'])->sum('xp_earned');
+        $body = __(':activities activities completed and :xp XP earned this week.', [
+            'activities' => $totalActivities,
+            'xp' => $totalXp,
+        ]);
 
         return (new WebPushMessage)
             ->title(__('Weekly Progress Summary'))
-            ->body(__(':activities activities completed and :xp XP earned this week.', [
-                'activities' => $totalActivities,
-                'xp' => $totalXp,
-            ]))
+            ->body($this->truncateForMobileBanner($body))
             ->icon(url('/icons/sanabel-icon.svg'))
             ->badge(url('/icons/sanabel-icon.svg'))
             ->action(__('View report'), 'open_report')
             ->data([
                 'url' => route('parent.analytics'),
             ]);
+    }
+
+    private function truncateForMobileBanner(string $body): string
+    {
+        if (mb_strlen($body) <= self::MAX_BODY_LENGTH) {
+            return $body;
+        }
+
+        return mb_substr($body, 0, self::MAX_BODY_LENGTH - 1).'…';
     }
 }
