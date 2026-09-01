@@ -15,14 +15,16 @@ use App\Models\QuestionOption;
 use App\Models\Student;
 use App\Models\StudentStreak;
 use App\Models\User;
+use App\Services\Gamification\BadgeEvaluatorService;
 use App\Services\Gamification\LeaderboardService;
 use App\Services\Gamification\StreakTrackerService;
 use App\Services\Gamification\StudentGamification;
 use App\Services\Gameplay\ActivitySubmissionService;
-use App\Services\Gameplay\QuizScoringService;
 use Database\Seeders\BadgeSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 
@@ -385,6 +387,181 @@ class StudentGamificationTest extends TestCase
             ->assertJsonPath('entries.1.total_xp', 300)
             ->assertJsonPath('entries.2.rank', 3)
             ->assertJsonPath('entries.2.total_xp', 100);
+    }
+
+    public function test_same_day_multiple_quizzes_increment_streak_only_once(): void
+    {
+        config(['app.timezone' => 'Asia/Riyadh']);
+        Carbon::setTestNow(Carbon::parse('2026-01-05 09:00:00', 'Asia/Riyadh'));
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+
+        for ($index = 0; $index < 3; $index++) {
+            $material = LearningMaterial::factory()->published()->create([
+                'title' => 'Quiz '.$index,
+                'xp_reward' => 10,
+            ]);
+            $question = Question::factory()->for($material)->mcq()->create(['order_column' => 0]);
+            $correct = QuestionOption::factory()->for($question)->correct()->create(['order_column' => 0]);
+            QuestionOption::factory()->for($question)->create(['order_column' => 1]);
+
+            $this->actingAs($parent)
+                ->withSession(['active_student_id' => $student->id])
+                ->postJson(route('student.materials.quiz.submit', $material), [
+                    'answers' => [[
+                        'question_id' => $question->id,
+                        'selected_option_id' => $correct->id,
+                    ]],
+                ])
+                ->assertOk();
+        }
+
+        $streak = $student->fresh()?->streak;
+        $this->assertNotNull($streak);
+        $this->assertSame(1, $streak->current_streak);
+        $this->assertSame(1, $streak->max_streak);
+        $this->assertSame('2026-01-05', $streak->last_activity_date?->toDateString());
+
+        Carbon::setTestNow();
+    }
+
+    public function test_timezone_gap_resets_streak_while_preserving_max_streak(): void
+    {
+        config(['app.timezone' => 'Asia/Riyadh']);
+
+        $student = Student::factory()->create();
+
+        Carbon::setTestNow(Carbon::parse('2026-01-04 20:00:00', 'Asia/Riyadh'));
+        app(StreakTrackerService::class)->recordActivity($student);
+
+        Carbon::setTestNow(Carbon::parse('2026-01-05 23:50:00', 'Asia/Riyadh'));
+        app(StreakTrackerService::class)->recordActivity($student->fresh());
+
+        $this->assertSame(2, $student->fresh()?->streak?->current_streak);
+        $this->assertSame(2, $student->fresh()?->streak?->max_streak);
+
+        Carbon::setTestNow(Carbon::parse('2026-01-07 08:00:00', 'Asia/Riyadh'));
+        app(StreakTrackerService::class)->recordActivity($student->fresh());
+
+        $streak = $student->fresh()?->streak;
+        $this->assertNotNull($streak);
+        $this->assertSame(1, $streak->current_streak);
+        $this->assertSame(2, $streak->max_streak);
+        $this->assertSame('2026-01-07', $streak->last_activity_date?->toDateString());
+
+        Carbon::setTestNow();
+    }
+
+    public function test_repeated_badge_evaluation_is_idempotent_without_duplicate_events(): void
+    {
+        $student = Student::factory()->create(['total_xp' => 0]);
+
+        $badge = Badge::query()->updateOrCreate(['code' => 'first_quiz'], [
+            'name_ar' => 'أول خطوة',
+            'description_ar' => 'إكمال أول اختبار',
+            'icon' => 'footprints',
+            'criteria_type' => 'quiz_count',
+            'criteria_value' => 1,
+        ]);
+
+        $student->badges()->attach($badge->id, ['unlocked_at' => now()]);
+
+        Event::fake([BadgeUnlockedBroadcastEvent::class]);
+
+        $evaluator = app(BadgeEvaluatorService::class);
+
+        for ($index = 0; $index < 3; $index++) {
+            $unlocked = $evaluator->evaluate($student->fresh());
+            $this->assertCount(0, $unlocked);
+        }
+
+        $this->assertDatabaseCount('student_badges', 1);
+        Event::assertNotDispatched(BadgeUnlockedBroadcastEvent::class);
+    }
+
+    public function test_badge_unlock_broadcast_is_isolated_to_student_parent_channels(): void
+    {
+        Event::fake([BadgeUnlockedBroadcastEvent::class]);
+
+        Badge::query()->updateOrCreate(['code' => 'first_quiz'], [
+            'name_ar' => 'أول خطوة',
+            'description_ar' => 'إكمال أول اختبار',
+            'icon' => 'footprints',
+            'criteria_type' => 'quiz_count',
+            'criteria_value' => 1,
+        ]);
+
+        $parent = User::factory()->create();
+        $otherParent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $material = LearningMaterial::factory()->published()->create(['xp_reward' => 10]);
+        $question = Question::factory()->for($material)->mcq()->create(['order_column' => 0]);
+        $correct = QuestionOption::factory()->for($question)->correct()->create(['order_column' => 0]);
+        QuestionOption::factory()->for($question)->create(['order_column' => 1]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.materials.quiz.submit', $material), [
+                'answers' => [[
+                    'question_id' => $question->id,
+                    'selected_option_id' => $correct->id,
+                ]],
+            ])
+            ->assertOk();
+
+        Event::assertDispatched(BadgeUnlockedBroadcastEvent::class, function (BadgeUnlockedBroadcastEvent $event) use ($parent, $otherParent, $student): bool {
+            $channelNames = array_map(fn ($channel) => $channel->name, $event->broadcastOn());
+
+            $this->assertContains('private-parent.'.$parent->id, $channelNames);
+            $this->assertContains('private-student.'.$student->id, $channelNames);
+            $this->assertNotContains('private-parent.'.$otherParent->id, $channelNames);
+
+            return true;
+        });
+    }
+
+    public function test_leaderboard_tie_breaks_by_student_id_and_avoids_streak_n_plus_one_queries(): void
+    {
+        $parent = User::factory()->create();
+        $students = collect();
+
+        for ($index = 0; $index < 5; $index++) {
+            $students->push(Student::factory()->for($parent)->create([
+                'name' => 'Tie '.$index,
+                'grade_level' => 4,
+                'total_xp' => 200,
+            ]));
+        }
+
+        $activeStudent = $students->first();
+        $expectedOrder = $students->sortBy('id')->values();
+
+        app(LeaderboardService::class)->flushGradeLevel(4);
+        Cache::flush();
+
+        $leaderboard = app(LeaderboardService::class)->forGradeLevel(4);
+        $this->assertSame(
+            $expectedOrder->pluck('id')->all(),
+            $leaderboard->pluck('id')->all(),
+        );
+
+        DB::flushQueryLog();
+        DB::enableQueryLog();
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $activeStudent->id])
+            ->getJson(route('student.leaderboard', ['grade' => 4]))
+            ->assertOk()
+            ->assertJsonCount(5, 'entries')
+            ->assertJsonPath('entries.0.rank', 1)
+            ->assertJsonPath('entries.4.rank', 5);
+
+        $streakQueries = collect(DB::getQueryLog())
+            ->filter(static fn (array $query): bool => str_contains(strtolower($query['query']), 'student_streaks'))
+            ->values();
+
+        $this->assertLessThanOrEqual(1, $streakQueries->count());
     }
 
     /**
