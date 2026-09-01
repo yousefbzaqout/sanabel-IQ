@@ -15,8 +15,10 @@ use App\Models\Student;
 use App\Models\StudentQuizAnswer;
 use App\Models\StudentQuizAttempt;
 use App\Models\User;
+use App\Services\Gameplay\QuizScoringService;
 use App\Services\Goals\ParentGoalEvaluatorService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Testing\TestResponse;
 use Mockery;
@@ -206,6 +208,183 @@ class StudentQuizExecutionTest extends TestCase
                 ],
             ])
             ->assertNotFound();
+    }
+
+    public function test_quiz_retake_records_attempt_without_awarding_additional_xp(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $material = LearningMaterial::factory()->published()->create(['xp_reward' => 100]);
+        $quiz = $this->createSingleQuestionQuiz($material);
+
+        $answers = [[
+            'question_id' => $quiz['question']->id,
+            'selected_option_id' => $quiz['correct']->id,
+        ]];
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.materials.quiz.submit', $material), ['answers' => $answers])
+            ->assertOk()
+            ->assertJson([
+                'score' => 1,
+                'percentage' => 100,
+                'xp_earned' => 100,
+                'total_xp' => 100,
+            ]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.materials.quiz.submit', $material), ['answers' => $answers])
+            ->assertOk()
+            ->assertJson([
+                'score' => 1,
+                'percentage' => 100,
+                'xp_earned' => 0,
+                'total_xp' => 100,
+            ]);
+
+        $this->assertSame(100, $student->fresh()?->total_xp);
+        $this->assertDatabaseCount('student_quiz_attempts', 2);
+        $this->assertSame(1, StudentQuizAttempt::query()->where('xp_earned', '>', 0)->count());
+        $this->assertDatabaseHas('student_quiz_attempts', [
+            'student_id' => $student->id,
+            'learning_material_id' => $material->id,
+            'xp_earned' => 0,
+        ]);
+    }
+
+    public function test_quiz_submit_rejects_cross_material_option_ids_and_missing_questions(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create();
+        $materialA = LearningMaterial::factory()->published()->create(['xp_reward' => 50]);
+        $materialB = LearningMaterial::factory()->published()->create(['xp_reward' => 50]);
+
+        $quizA = $this->createSingleQuestionQuiz($materialA);
+        $quizB = $this->createSingleQuestionQuiz($materialB);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->from(route('student.materials.quiz', $materialA))
+            ->postJson(route('student.materials.quiz.submit', $materialA), [
+                'answers' => [[
+                    'question_id' => $quizA['question']->id,
+                    'selected_option_id' => $quizB['correct']->id,
+                ]],
+            ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['answers.0.selected_option_id']);
+
+        $this->assertDatabaseCount('student_quiz_attempts', 0);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->from(route('student.materials.quiz', $materialA))
+            ->postJson(route('student.materials.quiz.submit', $materialA), [
+                'answers' => [],
+            ])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors(['answers']);
+
+        $this->assertDatabaseCount('student_quiz_attempts', 0);
+    }
+
+    public function test_rapid_quiz_resubmissions_award_xp_only_once(): void
+    {
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $material = LearningMaterial::factory()->published()->create(['xp_reward' => 100]);
+        $quiz = $this->createSingleQuestionQuiz($material);
+
+        $answers = [[
+            'question_id' => $quiz['question']->id,
+            'selected_option_id' => $quiz['correct']->id,
+        ]];
+
+        $service = app(QuizScoringService::class);
+
+        $firstResult = $service->submit($material, $student, $answers);
+        $secondResult = $service->submit($material->fresh(['questions.options']), $student, $answers);
+
+        $this->assertSame(100, $firstResult['xp_earned']);
+        $this->assertSame(0, $secondResult['xp_earned']);
+        $this->assertSame(100, $student->fresh()?->total_xp);
+        $this->assertSame(
+            100,
+            (int) StudentQuizAttempt::query()->sum('xp_earned'),
+        );
+        $this->assertSame(1, StudentQuizAttempt::query()->where('xp_earned', '>', 0)->count());
+        $this->assertDatabaseCount('student_quiz_attempts', 2);
+    }
+
+    public function test_late_night_quiz_submission_counts_toward_same_day_parent_goal(): void
+    {
+        config(['app.timezone' => 'Asia/Riyadh']);
+        Carbon::setTestNow(Carbon::parse('2026-01-15 23:58:00', 'Asia/Riyadh'));
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $material = LearningMaterial::factory()->published()->create(['xp_reward' => 50]);
+        $quiz = $this->createSingleQuestionQuiz($material);
+
+        $goal = ParentLearningGoal::factory()->for($parent, 'parent')->for($student)->create([
+            'target_activity_count' => 1,
+            'target_xp' => 50,
+            'start_date' => '2026-01-15',
+            'end_date' => '2026-01-15',
+            'status' => ParentGoalStatus::Pending,
+        ]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.materials.quiz.submit', $material), [
+                'answers' => [[
+                    'question_id' => $quiz['question']->id,
+                    'selected_option_id' => $quiz['correct']->id,
+                ]],
+            ])
+            ->assertOk();
+
+        $evaluator = app(ParentGoalEvaluatorService::class);
+        $progress = $evaluator->progressForGoal($student->fresh(), $goal->fresh());
+
+        $this->assertSame(1, $progress['activities_completed']);
+        $this->assertSame(50, $progress['xp_earned']);
+
+        app(ParentGoalEvaluatorService::class)->evaluate($student->fresh());
+
+        $this->assertSame(ParentGoalStatus::Achieved, $goal->fresh()?->status);
+
+        Carbon::setTestNow();
+    }
+
+    /**
+     * @return array{question: Question, correct: QuestionOption, incorrect: QuestionOption}
+     */
+    private function createSingleQuestionQuiz(LearningMaterial $material): array
+    {
+        $question = Question::factory()->for($material)->mcq()->create([
+            'prompt' => 'سؤال واحد',
+            'points' => 10,
+            'order_column' => 0,
+        ]);
+
+        $incorrect = QuestionOption::factory()->for($question)->create([
+            'option_text' => 'خطأ',
+            'is_correct' => false,
+            'order_column' => 0,
+        ]);
+        $correct = QuestionOption::factory()->for($question)->correct()->create([
+            'option_text' => 'صح',
+            'order_column' => 1,
+        ]);
+
+        return [
+            'question' => $question,
+            'correct' => $correct,
+            'incorrect' => $incorrect,
+        ];
     }
 
     /**
