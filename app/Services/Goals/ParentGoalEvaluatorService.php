@@ -9,6 +9,7 @@ use App\Events\GoalAchievedBroadcastEvent;
 use App\Models\ActivityAttempt;
 use App\Models\ParentLearningGoal;
 use App\Models\Student;
+use App\Models\StudentQuizAttempt;
 use App\Models\User;
 use App\Notifications\GoalAchievedNotification;
 use App\Notifications\GoalAchievedWebPushNotification;
@@ -104,9 +105,21 @@ class ParentGoalEvaluatorService
 
         $attempts = $query->get();
 
+        $quizQuery = StudentQuizAttempt::query()
+            ->where('student_id', $student->id)
+            ->whereBetween('completed_at', [$start, $end]);
+
+        if ($goal->subject_id !== null) {
+            $quizQuery->whereHas('learningMaterial', function ($materialQuery) use ($goal): void {
+                $materialQuery->where('subject_id', $goal->subject_id);
+            });
+        }
+
+        $quizAttempts = $quizQuery->get();
+
         return [
-            'activities_completed' => $attempts->count(),
-            'xp_earned' => (int) $attempts->sum('xp_earned'),
+            'activities_completed' => $attempts->count() + $quizAttempts->count(),
+            'xp_earned' => (int) $attempts->sum('xp_earned') + (int) $quizAttempts->sum('xp_earned'),
         ];
     }
 }
