@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class StudentBadge extends Pivot
 {
-    protected $table = 'student_badge';
+    protected $table = 'student_badges';
 
     /**
      * @return array<string, string>

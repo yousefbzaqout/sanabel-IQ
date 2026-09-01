@@ -31,7 +31,7 @@ class StudentReportExportService
             ->orderByPivot('unlocked_at', 'desc')
             ->get()
             ->map(static fn ($badge): array => [
-                'name' => $badge->name,
+                'name' => $badge->name_ar,
                 'unlocked_at' => $badge->pivot?->unlocked_at?->toDateTimeString(),
             ])
             ->all();

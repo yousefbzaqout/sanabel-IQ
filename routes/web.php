@@ -21,6 +21,8 @@ use App\Http\Controllers\PushSubscriptionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentProgressController;
 use App\Http\Controllers\StudentReportExportController;
+use App\Http\Controllers\Student\StudentBadgeController;
+use App\Http\Controllers\Student\StudentLeaderboardController;
 use App\Http\Controllers\Student\StudentQuizController;
 use Illuminate\Support\Facades\Route;
 
@@ -92,8 +94,10 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
             ->name('activities.submit');
         Route::get('/progress', [StudentProgressController::class, 'index'])
             ->name('progress');
-        Route::get('/leaderboard', [StudentProgressController::class, 'leaderboard'])
+        Route::get('/leaderboard', [StudentLeaderboardController::class, 'index'])
             ->name('leaderboard');
+        Route::get('/badges', [StudentBadgeController::class, 'index'])
+            ->name('badges');
         Route::get('/materials/{learningMaterial}/quiz', [StudentQuizController::class, 'show'])
             ->name('materials.quiz');
         Route::post('/materials/{learningMaterial}/quiz/submit', [StudentQuizController::class, 'submit'])

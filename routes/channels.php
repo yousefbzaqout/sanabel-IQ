@@ -9,3 +9,7 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('parent.{id}', function (User $user, string $id): bool {
     return (int) Auth::id() === (int) $id;
 });
+
+Broadcast::channel('student.{studentId}', function (User $user, string $studentId): bool {
+    return $user->students()->whereKey((int) $studentId)->exists();
+});

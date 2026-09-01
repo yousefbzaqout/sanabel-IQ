@@ -78,6 +78,12 @@ class Student extends Model
         return $this->hasMany(StudentQuizAttempt::class);
     }
 
+    /** @return \Illuminate\Database\Eloquent\Relations\HasOne<StudentStreak, $this> */
+    public function streak(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(StudentStreak::class);
+    }
+
     /** @return HasMany<StudyRecommendation, $this> */
     public function studyRecommendations(): HasMany
     {
@@ -93,7 +99,7 @@ class Student extends Model
     /** @return BelongsToMany<Badge, $this> */
     public function badges(): BelongsToMany
     {
-        return $this->belongsToMany(Badge::class, 'student_badge')
+        return $this->belongsToMany(Badge::class, 'student_badges')
             ->using(StudentBadge::class)
             ->withPivot(['unlocked_at'])
             ->withTimestamps();
