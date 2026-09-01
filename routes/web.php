@@ -21,6 +21,7 @@ use App\Http\Controllers\PushSubscriptionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentProgressController;
 use App\Http\Controllers\StudentReportExportController;
+use App\Http\Controllers\Student\StudentQuizController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -93,6 +94,10 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
             ->name('progress');
         Route::get('/leaderboard', [StudentProgressController::class, 'leaderboard'])
             ->name('leaderboard');
+        Route::get('/materials/{learningMaterial}/quiz', [StudentQuizController::class, 'show'])
+            ->name('materials.quiz');
+        Route::post('/materials/{learningMaterial}/quiz/submit', [StudentQuizController::class, 'submit'])
+            ->name('materials.quiz.submit');
     });
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
