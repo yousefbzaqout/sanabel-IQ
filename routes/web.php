@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminSubjectController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Parent\ParentAnalyticsController as ParentProgressAnalyticsController;
 use App\Http\Controllers\ParentAnalyticsController;
 use App\Http\Controllers\ParentComparativeAnalyticsController;
 use App\Http\Controllers\ParentCurriculumController;
@@ -51,6 +52,13 @@ Route::middleware('auth')->group(function (): void {
 
     Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
     Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+
+    Route::get('/parent/analytics/{student}', [ParentProgressAnalyticsController::class, 'show'])
+        ->name('parent.analytics.show');
+    Route::get('/parent/analytics/{student}/export/pdf', [ParentProgressAnalyticsController::class, 'exportPdf'])
+        ->name('parent.analytics.export.pdf');
+    Route::get('/parent/analytics/{student}/export/excel', [ParentProgressAnalyticsController::class, 'exportExcel'])
+        ->name('parent.analytics.export.excel');
 });
 
 Route::middleware(['auth', 'active.child'])->group(function (): void {
