@@ -54,11 +54,16 @@
                                                 <span class="ms-2 text-xs font-medium text-indigo-600 dark:text-indigo-300">({{ __('You') }})</span>
                                             @endif
                                         </p>
-                                        <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('Level :level', ['level' => $entry['level']]) }}</p>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                                            {{ __('Level :level', ['level' => $entry['level']]) }}
+                                            @if (($entry['current_streak'] ?? 0) > 0)
+                                                · 🔥 {{ $entry['current_streak'] }}
+                                            @endif
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="text-end">
-                                    <p class="text-lg font-bold text-amber-600 dark:text-amber-300">{{ $entry['student']->total_xp }} XP</p>
+                                    <p class="text-lg font-bold text-amber-600 dark:text-amber-300">{{ ($entry['total_xp'] ?? $entry['student']->total_xp) }} XP</p>
                                 </div>
                             </div>
                         @endforeach

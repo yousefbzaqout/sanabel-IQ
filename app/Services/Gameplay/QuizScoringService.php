@@ -13,6 +13,7 @@ use App\Models\StudentQuizAttempt;
 use App\Models\StudentQuizAnswer;
 use App\Services\Gamification\BadgeEvaluatorService;
 use App\Services\Gamification\LeaderboardService;
+use App\Services\Gamification\StreakTrackerService;
 use App\Services\Goals\ParentGoalEvaluatorService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,7 @@ class QuizScoringService
         private readonly BadgeEvaluatorService $badgeEvaluator,
         private readonly LeaderboardService $leaderboardService,
         private readonly ParentGoalEvaluatorService $goalEvaluator,
+        private readonly StreakTrackerService $streakTracker,
     ) {}
 
     /**
@@ -142,6 +144,7 @@ class QuizScoringService
         $freshStudent = $student->fresh();
 
         if ($freshStudent !== null) {
+            $this->streakTracker->recordActivity($freshStudent);
             $this->badgeEvaluator->evaluate($freshStudent);
             $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
             $this->goalEvaluator->evaluate($freshStudent);

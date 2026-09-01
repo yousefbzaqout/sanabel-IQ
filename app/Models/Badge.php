@@ -4,13 +4,21 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\BadgeCriteriaType;
 use Database\Factories\BadgeFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-#[Fillable(['slug', 'name', 'description', 'icon', 'requirement_type', 'requirement_value'])]
+#[Fillable([
+    'code',
+    'name_ar',
+    'description_ar',
+    'icon',
+    'criteria_type',
+    'criteria_value',
+])]
 class Badge extends Model
 {
     /** @use HasFactory<BadgeFactory> */
@@ -22,14 +30,15 @@ class Badge extends Model
     protected function casts(): array
     {
         return [
-            'requirement_value' => 'integer',
+            'criteria_type' => BadgeCriteriaType::class,
+            'criteria_value' => 'integer',
         ];
     }
 
     /** @return BelongsToMany<Student, $this> */
     public function students(): BelongsToMany
     {
-        return $this->belongsToMany(Student::class, 'student_badge')
+        return $this->belongsToMany(Student::class, 'student_badges')
             ->using(StudentBadge::class)
             ->withPivot(['unlocked_at'])
             ->withTimestamps();

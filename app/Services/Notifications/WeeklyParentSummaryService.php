@@ -119,8 +119,8 @@ class WeeklyParentSummaryService
             ->wherePivot('unlocked_at', '>=', $since)
             ->get()
             ->map(static fn ($badge): array => [
-                'name' => $badge->name,
-                'slug' => $badge->slug,
+                'name' => $badge->name_ar,
+                'code' => $badge->code,
             ])
             ->values()
             ->all();

@@ -54,8 +54,8 @@
                                 ])>
                                     <div class="flex items-start justify-between gap-3">
                                         <div>
-                                            <p class="font-semibold text-gray-900 dark:text-gray-100">{{ $badgeEntry['badge']->name }}</p>
-                                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ $badgeEntry['badge']->description }}</p>
+                                            <p class="font-semibold text-gray-900 dark:text-gray-100">{{ $badgeEntry['badge']->name_ar }}</p>
+                                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ $badgeEntry['badge']->description_ar }}</p>
                                         </div>
                                         <span class="text-2xl">{{ $badgeEntry['unlocked'] ? '🏅' : '🔒' }}</span>
                                     </div>

@@ -5,16 +5,25 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Enums\ActivityStatus;
+use App\Events\BadgeUnlockedBroadcastEvent;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
 use App\Models\Badge;
+use App\Models\LearningMaterial;
+use App\Models\Question;
+use App\Models\QuestionOption;
 use App\Models\Student;
+use App\Models\StudentStreak;
 use App\Models\User;
-use App\Services\Gameplay\ActivitySubmissionService;
 use App\Services\Gamification\LeaderboardService;
+use App\Services\Gamification\StreakTrackerService;
 use App\Services\Gamification\StudentGamification;
+use App\Services\Gameplay\ActivitySubmissionService;
+use App\Services\Gameplay\QuizScoringService;
 use Database\Seeders\BadgeSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 
 class StudentGamificationTest extends TestCase
@@ -57,9 +66,9 @@ class StudentGamificationTest extends TestCase
 
         $student->refresh();
 
-        $this->assertTrue($student->badges()->where('slug', 'first_activity')->exists());
-        $this->assertTrue($student->badges()->where('slug', 'perfect_score')->exists());
-        $this->assertNotNull($student->badges()->where('slug', 'first_activity')->first()?->pivot?->unlocked_at);
+        $this->assertTrue($student->badges()->where('code', 'first_activity')->exists());
+        $this->assertTrue($student->badges()->where('code', 'perfect_score')->exists());
+        $this->assertNotNull($student->badges()->where('code', 'first_activity')->first()?->pivot?->unlocked_at);
     }
 
     public function test_first_perfect_submission_unlocks_multiple_badges_without_duplicate_pivot_rows(): void
@@ -83,12 +92,12 @@ class StudentGamificationTest extends TestCase
         $student->refresh();
 
         $this->assertSame(2, $student->badges()->count());
-        $this->assertDatabaseCount('student_badge', 2);
-        $this->assertTrue($student->badges()->where('slug', 'first_activity')->exists());
-        $this->assertTrue($student->badges()->where('slug', 'perfect_score')->exists());
+        $this->assertDatabaseCount('student_badges', 2);
+        $this->assertTrue($student->badges()->where('code', 'first_activity')->exists());
+        $this->assertTrue($student->badges()->where('code', 'perfect_score')->exists());
         $this->assertSame(
             2,
-            $student->badges()->whereIn('slug', ['first_activity', 'perfect_score'])->count(),
+            $student->badges()->whereIn('code', ['first_activity', 'perfect_score'])->count(),
         );
     }
 
@@ -236,7 +245,7 @@ class StudentGamificationTest extends TestCase
             'completed_at' => now(),
         ]);
 
-        $firstActivityBadge = Badge::query()->where('slug', 'first_activity')->firstOrFail();
+        $firstActivityBadge = Badge::query()->where('code', 'first_activity')->firstOrFail();
         $student->badges()->attach($firstActivityBadge->id, ['unlocked_at' => now()]);
 
         $response = $this->actingAs($parent)
@@ -251,6 +260,131 @@ class StudentGamificationTest extends TestCase
             ->assertSee('نشاط الرياضيات')
             ->assertViewHas('progressPercent', 50)
             ->assertViewHas('recentAttempts');
+    }
+
+    public function test_completing_first_quiz_unlocks_first_step_badge(): void
+    {
+        Event::fake([BadgeUnlockedBroadcastEvent::class]);
+
+        Badge::query()->updateOrCreate(['code' => 'first_quiz'], [
+            'name_ar' => 'أول خطوة',
+            'description_ar' => 'إكمال أول اختبار',
+            'icon' => 'footprints',
+            'criteria_type' => 'quiz_count',
+            'criteria_value' => 1,
+        ]);
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create(['total_xp' => 0]);
+        $material = LearningMaterial::factory()->published()->create(['xp_reward' => 50]);
+        $question = Question::factory()->for($material)->mcq()->create(['order_column' => 0]);
+        $correct = QuestionOption::factory()->for($question)->correct()->create(['order_column' => 0]);
+        QuestionOption::factory()->for($question)->create(['order_column' => 1]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id])
+            ->postJson(route('student.materials.quiz.submit', $material), [
+                'answers' => [[
+                    'question_id' => $question->id,
+                    'selected_option_id' => $correct->id,
+                ]],
+            ])
+            ->assertOk();
+
+        $this->assertTrue($student->fresh()->badges()->where('code', 'first_quiz')->exists());
+        $this->assertDatabaseHas('student_badges', [
+            'student_id' => $student->id,
+        ]);
+
+        Event::assertDispatched(BadgeUnlockedBroadcastEvent::class, function (BadgeUnlockedBroadcastEvent $event) use ($parent, $student): bool {
+            if ($event->broadcastWith()['badge_code'] !== 'first_quiz') {
+                return false;
+            }
+
+            $channels = $event->broadcastOn();
+            $channelNames = array_map(fn ($channel) => $channel->name, $channels);
+
+            $this->assertContains('private-parent.'.$parent->id, $channelNames);
+            $this->assertContains('private-student.'.$student->id, $channelNames);
+            $this->assertSame('أول خطوة', $event->broadcastWith()['badge_name_ar']);
+
+            return true;
+        });
+    }
+
+    public function test_daily_activity_maintains_and_increments_streak(): void
+    {
+        Carbon::setTestNow('2026-01-01 10:00:00');
+
+        $student = Student::factory()->create();
+
+        app(StreakTrackerService::class)->recordActivity($student);
+        $this->assertDatabaseHas('student_streaks', [
+            'student_id' => $student->id,
+            'current_streak' => 1,
+            'max_streak' => 1,
+            'last_activity_date' => '2026-01-01',
+        ]);
+
+        Carbon::setTestNow('2026-01-02 10:00:00');
+
+        app(StreakTrackerService::class)->recordActivity($student->fresh());
+
+        $this->assertDatabaseHas('student_streaks', [
+            'student_id' => $student->id,
+            'current_streak' => 2,
+            'max_streak' => 2,
+            'last_activity_date' => '2026-01-02',
+        ]);
+
+        Carbon::setTestNow();
+    }
+
+    public function test_missing_a_day_resets_current_streak_to_one(): void
+    {
+        $student = Student::factory()->create();
+
+        StudentStreak::factory()->for($student)->create([
+            'current_streak' => 5,
+            'max_streak' => 5,
+            'last_activity_date' => now()->subDays(2)->toDateString(),
+        ]);
+
+        app(StreakTrackerService::class)->recordActivity($student->fresh());
+
+        $streak = $student->fresh()?->streak;
+        $this->assertNotNull($streak);
+        $this->assertSame(1, $streak->current_streak);
+        $this->assertSame(5, $streak->max_streak);
+        $this->assertSame(now()->toDateString(), $streak->last_activity_date?->toDateString());
+    }
+
+    public function test_leaderboard_ranks_students_by_grade_level_and_xp(): void
+    {
+        $parent = User::factory()->create();
+        Student::factory()->for($parent)->create(['name' => 'Low', 'grade_level' => 3, 'total_xp' => 100]);
+        Student::factory()->for($parent)->create(['name' => 'Mid', 'grade_level' => 3, 'total_xp' => 300]);
+        $activeStudent = Student::factory()->for($parent)->create(['name' => 'Top', 'grade_level' => 3, 'total_xp' => 500]);
+
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $activeStudent->id])
+            ->getJson(route('student.leaderboard', ['grade' => 3]))
+            ->assertOk()
+            ->assertJsonStructure([
+                'grade_level',
+                'period',
+                'active_rank',
+                'entries' => [
+                    '*' => ['rank', 'display_name', 'total_xp', 'level', 'current_streak'],
+                ],
+            ])
+            ->assertJsonPath('grade_level', 3)
+            ->assertJsonPath('entries.0.rank', 1)
+            ->assertJsonPath('entries.0.total_xp', 500)
+            ->assertJsonPath('entries.1.rank', 2)
+            ->assertJsonPath('entries.1.total_xp', 300)
+            ->assertJsonPath('entries.2.rank', 3)
+            ->assertJsonPath('entries.2.total_xp', 100);
     }
 
     /**

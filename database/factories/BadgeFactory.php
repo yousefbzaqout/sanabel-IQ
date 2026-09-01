@@ -17,12 +17,12 @@ class BadgeFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => fake()->unique()->slug(),
-            'name' => fake()->words(2, true),
-            'description' => fake()->sentence(),
+            'code' => fake()->unique()->slug(),
+            'name_ar' => fake()->words(2, true),
+            'description_ar' => fake()->sentence(),
             'icon' => 'star',
-            'requirement_type' => 'xp_threshold',
-            'requirement_value' => 100,
+            'criteria_type' => 'xp_threshold',
+            'criteria_value' => 100,
         ];
     }
 }

@@ -331,7 +331,7 @@ class ParentNotificationTest extends TestCase
             'completed_at' => now()->subDays(10),
         ]);
 
-        $badge = Badge::query()->where('slug', 'first_activity')->firstOrFail();
+        $badge = Badge::query()->where('code', 'first_activity')->firstOrFail();
         $student->badges()->attach($badge->id, ['unlocked_at' => now()->subDays(3)]);
     }
 }
