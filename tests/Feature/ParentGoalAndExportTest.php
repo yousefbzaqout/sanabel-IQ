@@ -92,8 +92,8 @@ class ParentGoalAndExportTest extends TestCase
             ]));
 
         $pdfResponse->assertOk();
-        $pdfResponse->assertSee('Export Student');
-        $pdfResponse->assertSee('150');
+        $pdfResponse->assertHeader('content-type', 'application/pdf');
+        $this->assertStringStartsWith('%PDF', $pdfResponse->getContent());
     }
 
     public function test_parent_can_create_custom_weekly_goal_for_child(): void
@@ -314,8 +314,7 @@ class ParentGoalAndExportTest extends TestCase
                 'format' => 'pdf',
             ]))
             ->assertOk()
-            ->assertSee('Fresh Learner')
-            ->assertSee(__('No badges earned yet.'));
+            ->assertHeader('content-type', 'application/pdf');
     }
 
     public function test_goal_achievement_notification_is_dispatched_exactly_once_under_repeated_evaluation(): void

@@ -25,6 +25,7 @@ class StudentReportExportService
         $attempts = $student->activityAttempts()
             ->with(['activity.parentMaterial'])
             ->latest('completed_at')
+            ->limit(100)
             ->get();
 
         $badges = $student->badges()

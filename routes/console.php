@@ -9,5 +9,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command('sanabel:send-weekly-summaries')->weeklyOn(0, '8:00');
 Schedule::job(new DispatchWeeklyParentDigestJob)->weeklyOn(6, '18:00');

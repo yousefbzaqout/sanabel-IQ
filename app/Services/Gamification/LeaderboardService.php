@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\StudentQuizAttempt;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -43,19 +44,7 @@ class LeaderboardService
     public function rankForStudent(Student $student, string $period = 'alltime'): int
     {
         if ($period === 'weekly') {
-            $weekStart = now()->startOfWeek();
-            $studentWeeklyXp = $this->weeklyXpForStudent($student, $weekStart);
-
-            return Student::query()
-                ->where('grade_level', $student->grade_level)
-                ->get()
-                ->filter(function (Student $peer) use ($student, $studentWeeklyXp, $weekStart): bool {
-                    $peerWeeklyXp = $this->weeklyXpForStudent($peer, $weekStart);
-
-                    return $peerWeeklyXp > $studentWeeklyXp
-                        || ($peerWeeklyXp === $studentWeeklyXp && $peer->id < $student->id);
-                })
-                ->count() + 1;
+            return $this->weeklyRankForStudent($student);
         }
 
         return Student::query()
@@ -167,6 +156,58 @@ class LeaderboardService
             })
             ->values()
             ->take(self::LIMIT);
+    }
+
+    private function weeklyRankForStudent(Student $student): int
+    {
+        $weekStart = now()->startOfWeek()->toDateTimeString();
+
+        $result = DB::selectOne(
+            <<<'SQL'
+                WITH weekly_xp AS (
+                    SELECT student_id, SUM(xp_earned) AS xp
+                    FROM (
+                        SELECT student_id, xp_earned
+                        FROM activity_attempts
+                        WHERE completed_at >= ?
+                        UNION ALL
+                        SELECT student_id, xp_earned
+                        FROM student_quiz_attempts
+                        WHERE completed_at >= ?
+                    ) AS attempts
+                    GROUP BY student_id
+                ),
+                target AS (
+                    SELECT COALESCE(xp, 0) AS xp
+                    FROM weekly_xp
+                    WHERE student_id = ?
+                    UNION ALL
+                    SELECT 0
+                    LIMIT 1
+                )
+                SELECT COUNT(*) + 1 AS rank
+                FROM students AS peers
+                LEFT JOIN weekly_xp ON weekly_xp.student_id = peers.id
+                CROSS JOIN target
+                WHERE peers.grade_level = ?
+                  AND (
+                    COALESCE(weekly_xp.xp, 0) > target.xp
+                    OR (
+                        COALESCE(weekly_xp.xp, 0) = target.xp
+                        AND peers.id < ?
+                    )
+                  )
+            SQL,
+            [
+                $weekStart,
+                $weekStart,
+                $student->id,
+                $student->grade_level,
+                $student->id,
+            ],
+        );
+
+        return (int) ($result->rank ?? 1);
     }
 
     private function cacheKey(int $gradeLevel, string $period): string

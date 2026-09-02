@@ -56,67 +56,54 @@ class DispatchWeeklyParentDigestJob implements ShouldQueue
             return;
         }
 
-        if (! $this->claimDigestSlots($parent, $periodStart, $periodEnd)) {
-            return;
-        }
-
-        $children = [];
-
-        foreach ($parent->students as $student) {
-            $summary = $analyticsService->buildRollingSummary($student);
-
-            $children[] = [
-                'student_id' => $student->id,
-                'name' => $student->name,
-                'grade_level' => $student->grade_level,
-                'xp_earned' => $summary->xpEarnedInPeriod,
-                'quiz_accuracy_percent' => $summary->quizAccuracyPercent,
-                'activities_completed' => $summary->activitiesCompleted,
-                'analytics_url' => route('parent.analytics.show', $student),
-            ];
-        }
-
-        if ($children === []) {
-            return;
-        }
-
-        $digest = [
-            'period_start' => $periodStart->toDateString(),
-            'period_end' => $periodEnd->toDateString(),
-            'children' => $children,
-        ];
-
         try {
-            Mail::to($parent)->queue(new WeeklySummaryMailable($parent, $digest));
-        } catch (Throwable $exception) {
-            Log::warning('Weekly digest email dispatch failed.', [
-                'parent_id' => $parent->id,
-                'message' => $exception->getMessage(),
-            ]);
-        }
+            DB::transaction(function () use ($parent, $analyticsService, $periodStart, $periodEnd): void {
+                User::query()
+                    ->whereKey($parent->id)
+                    ->lockForUpdate()
+                    ->first();
 
-        try {
-            $parent->notifyNow(new WeeklySummaryWebPushNotification($digest));
-        } catch (Throwable $exception) {
-            Log::warning('Weekly digest WebPush dispatch failed.', [
-                'parent_id' => $parent->id,
-                'message' => $exception->getMessage(),
-            ]);
-
-            $this->pruneExpiredPushSubscriptions($parent, $exception);
-        }
-    }
-
-    /**
-     * Atomically claim digest slots for this parent/week before sending.
-     * Concurrent workers racing the same week lose the unique claim and skip.
-     */
-    private function claimDigestSlots(User $parent, Carbon $periodStart, Carbon $periodEnd): bool
-    {
-        try {
-            return DB::transaction(function () use ($parent, $periodStart, $periodEnd): bool {
                 if ($this->digestAlreadySent($parent, $periodStart)) {
-                    return false;
+                    return;
+                }
+
+                $children = [];
+
+                foreach ($parent->students as $student) {
+                    $summary = $analyticsService->buildRollingSummary($student);
+
+                    $children[] = [
+                        'student_id' => $student->id,
+                        'name' => $student->name,
+                        'grade_level' => $student->grade_level,
+                        'xp_earned' => $summary->xpEarnedInPeriod,
+                        'quiz_accuracy_percent' => $summary->quizAccuracyPercent,
+                        'activities_completed' => $summary->activitiesCompleted,
+                        'analytics_url' => route('parent.analytics.show', $student),
+                    ];
+                }
+
+                if ($children === []) {
+                    return;
+                }
+
+                $digest = [
+                    'period_start' => $periodStart->toDateString(),
+                    'period_end' => $periodEnd->toDateString(),
+                    'children' => $children,
+                ];
+
+                Mail::to($parent)->queue(new WeeklySummaryMailable($parent, $digest));
+
+                try {
+                    $parent->notifyNow(new WeeklySummaryWebPushNotification($digest));
+                } catch (Throwable $exception) {
+                    Log::warning('Weekly digest WebPush dispatch failed.', [
+                        'parent_id' => $parent->id,
+                        'message' => $exception->getMessage(),
+                    ]);
+
+                    $this->pruneExpiredPushSubscriptions($parent, $exception);
                 }
 
                 $rows = $parent->students->map(
@@ -133,15 +120,12 @@ class DispatchWeeklyParentDigestJob implements ShouldQueue
                 )->all();
 
                 ParentReportLog::query()->insert($rows);
-
-                return true;
             });
-        } catch (QueryException $exception) {
-            if ($this->isUniqueConstraintViolation($exception)) {
-                return false;
-            }
-
-            throw $exception;
+        } catch (Throwable $exception) {
+            Log::warning('Weekly digest dispatch failed.', [
+                'parent_id' => $parent->id,
+                'message' => $exception->getMessage(),
+            ]);
         }
     }
 
@@ -151,15 +135,7 @@ class DispatchWeeklyParentDigestJob implements ShouldQueue
             ->where('parent_id', $parent->id)
             ->where('report_type', 'weekly_digest')
             ->whereDate('start_date', $periodStart->toDateString())
-            ->lockForUpdate()
             ->exists();
-    }
-
-    private function isUniqueConstraintViolation(QueryException $exception): bool
-    {
-        $sqlState = $exception->errorInfo[0] ?? null;
-
-        return $sqlState === '23505' || str_contains(strtolower($exception->getMessage()), 'unique');
     }
 
     private function pruneExpiredPushSubscriptions(User $parent, Throwable $exception): void

@@ -7,13 +7,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStudentRequest;
 use App\Models\Student;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ChildOnboardingController extends Controller
 {
-    public function show(): View
+    public function show(Request $request): View|RedirectResponse
     {
         $this->authorize('create', Student::class);
+
+        if ($request->user()->students()->exists()) {
+            return redirect()
+                ->route('students.create')
+                ->with('status', __('You already have children on your account. Add another child below.'));
+        }
 
         return view('onboarding.child');
     }

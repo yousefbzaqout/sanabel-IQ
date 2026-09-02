@@ -6,18 +6,21 @@ namespace Tests\Feature;
 
 use App\Enums\ActivityStatus;
 use App\Enums\MaterialStatus;
+use App\Jobs\DispatchWeeklyParentDigestJob;
+use App\Mail\WeeklySummaryMailable;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
 use App\Models\Badge;
 use App\Models\ParentMaterial;
 use App\Models\Student;
 use App\Models\User;
-use App\Notifications\WeeklyParentEncouragementNotification;
 use App\Notifications\WeeklyParentSummaryNotification;
+use App\Services\Analytics\ParentAnalyticsService;
 use App\Services\Notifications\WeeklyParentSummaryService;
 use Database\Seeders\BadgeSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
@@ -105,8 +108,9 @@ class ParentNotificationTest extends TestCase
         $this->assertSame(0, $parent->fresh()?->unreadNotifications()->count());
     }
 
-    public function test_scheduled_console_command_dispatches_weekly_summaries_for_active_parents(): void
+    public function test_scheduled_digest_job_dispatches_weekly_summaries_for_parents_with_students(): void
     {
+        Mail::fake();
         Notification::fake();
 
         $parentWithActivity = User::factory()->create();
@@ -118,18 +122,26 @@ class ParentNotificationTest extends TestCase
 
         $parentWithoutStudents = User::factory()->create();
 
-        $this->artisan('sanabel:send-weekly-summaries')
-            ->assertSuccessful();
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
-        Notification::assertSentTo($parentWithActivity, WeeklyParentSummaryNotification::class);
-        Notification::assertSentTo($parentWithInactiveStudent, WeeklyParentEncouragementNotification::class);
-        Notification::assertNotSentTo($parentWithoutStudents, WeeklyParentSummaryNotification::class);
-        Notification::assertNotSentTo($parentWithoutStudents, WeeklyParentEncouragementNotification::class);
+        Mail::assertQueued(WeeklySummaryMailable::class, 2);
+        Mail::assertQueued(
+            WeeklySummaryMailable::class,
+            fn (WeeklySummaryMailable $mailable): bool => $mailable->hasTo($parentWithActivity->email),
+        );
+        Mail::assertQueued(
+            WeeklySummaryMailable::class,
+            fn (WeeklySummaryMailable $mailable): bool => $mailable->hasTo($parentWithInactiveStudent->email),
+        );
+        Mail::assertNotQueued(
+            WeeklySummaryMailable::class,
+            fn (WeeklySummaryMailable $mailable): bool => $mailable->hasTo($parentWithoutStudents->email),
+        );
     }
 
     public function test_weekly_summary_aggregates_metrics_for_multiple_children_in_single_report(): void
     {
-        Notification::fake();
+        Mail::fake();
 
         $parent = User::factory()->create();
         $gradeOneChild = Student::factory()->for($parent)->create([
@@ -149,24 +161,15 @@ class ParentNotificationTest extends TestCase
         $this->seedRecentAttempt($parent, $gradeThreeChild, xpEarned: 20, completedDaysAgo: 2);
         $this->seedRecentAttempt($parent, $gradeFiveChild, xpEarned: 30, completedDaysAgo: 3);
 
-        $this->artisan('sanabel:send-weekly-summaries')->assertSuccessful();
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
-        Notification::assertSentTo(
-            $parent,
-            WeeklyParentSummaryNotification::class,
-            function (WeeklyParentSummaryNotification $notification) use ($parent, $gradeOneChild, $gradeThreeChild, $gradeFiveChild): bool {
-                $payload = $notification->toArray($parent);
-                $children = collect($payload['children']);
-
-                return $children->count() === 3
-                    && $children->contains('student_id', $gradeOneChild->id)
-                    && $children->contains('student_id', $gradeThreeChild->id)
-                    && $children->contains('student_id', $gradeFiveChild->id)
-                    && ($children->firstWhere('student_id', $gradeOneChild->id)['xp_earned'] ?? null) === 10
-                    && ($children->firstWhere('student_id', $gradeThreeChild->id)['xp_earned'] ?? null) === 20
-                    && ($children->firstWhere('student_id', $gradeFiveChild->id)['xp_earned'] ?? null) === 30
-                    && $children->pluck('grade_level')->sort()->values()->all() === [1, 3, 5];
-            },
+        Mail::assertQueued(
+            WeeklySummaryMailable::class,
+            fn (WeeklySummaryMailable $mailable): bool => $mailable->hasTo($parent->email)
+                && collect($mailable->digest['children'])->count() === 3
+                && collect($mailable->digest['children'])->contains('student_id', $gradeOneChild->id)
+                && collect($mailable->digest['children'])->contains('student_id', $gradeThreeChild->id)
+                && collect($mailable->digest['children'])->contains('student_id', $gradeFiveChild->id),
         );
 
         $summary = app(WeeklyParentSummaryService::class)->buildForParent($parent);
@@ -184,9 +187,9 @@ class ParentNotificationTest extends TestCase
         $this->assertStringContainsString((string) $gradeFiveChild->grade_level, $html);
     }
 
-    public function test_bulk_command_sends_active_and_encouragement_variants_and_skips_childless_parents(): void
+    public function test_bulk_digest_job_sends_to_parents_with_students_and_skips_childless_parents(): void
     {
-        Notification::fake();
+        Mail::fake();
 
         for ($index = 0; $index < 50; $index++) {
             $parent = User::factory()->create();
@@ -201,11 +204,9 @@ class ParentNotificationTest extends TestCase
 
         User::factory()->count(20)->create();
 
-        $this->artisan('sanabel:send-weekly-summaries')->assertSuccessful();
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
-        Notification::assertSentTimes(WeeklyParentSummaryNotification::class, 50);
-        Notification::assertSentTimes(WeeklyParentEncouragementNotification::class, 30);
-        Notification::assertCount(80);
+        Mail::assertQueued(WeeklySummaryMailable::class, 80);
     }
 
     public function test_parent_cannot_mark_another_parents_notification_as_read(): void

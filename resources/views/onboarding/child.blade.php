@@ -17,7 +17,7 @@
 
                     <div>
                         <x-input-label for="name" :value="__('Child name')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus dir="auto" lang="ar" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
@@ -25,7 +25,7 @@
                         <x-input-label for="grade_level" :value="__('Grade')" />
                         <select id="grade_level" name="grade_level" required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
                             @foreach (range(1, 6) as $grade)
-                                <option value="{{ $grade }}" @selected((int) old('grade_level') === $grade)>
+                                <option value="{{ $grade }}" @selected((int) old('grade_level', 1) === $grade)>
                                     {{ __('Grade') }} {{ $grade }}
                                 </option>
                             @endforeach
@@ -43,12 +43,6 @@
                             @endforeach
                         </select>
                         <x-input-error :messages="$errors->get('school_term')" class="mt-2" />
-                    </div>
-
-                    <div>
-                        <x-input-label for="avatar_path" :value="__('Avatar path')" />
-                        <x-text-input id="avatar_path" class="block mt-1 w-full" type="text" name="avatar_path" :value="old('avatar_path')" />
-                        <x-input-error :messages="$errors->get('avatar_path')" class="mt-2" />
                     </div>
 
                     <x-primary-button>
