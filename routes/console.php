@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\DispatchWeeklyParentDigestJob;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schedule;
@@ -9,3 +10,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('sanabel:send-weekly-summaries')->weeklyOn(0, '8:00');
+Schedule::job(new DispatchWeeklyParentDigestJob)->weeklyOn(6, '18:00');

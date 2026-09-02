@@ -18,6 +18,23 @@ class ParentAnalyticsService
     {
         [$startDate, $endDate, $reportType] = $this->resolvePeriod($period);
 
+        return $this->buildSummaryForRange($student, $startDate, $endDate, $reportType);
+    }
+
+    public function buildRollingSummary(Student $student, int $days = 7): ReportSummaryDTO
+    {
+        $startDate = now()->copy()->subDays($days)->startOfDay();
+        $endDate = now()->copy()->endOfDay();
+
+        return $this->buildSummaryForRange($student, $startDate, $endDate, 'weekly_digest');
+    }
+
+    private function buildSummaryForRange(
+        Student $student,
+        Carbon $startDate,
+        Carbon $endDate,
+        string $reportType,
+    ): ReportSummaryDTO {
         $activityAttempts = ActivityAttempt::query()
             ->where('student_id', $student->id)
             ->whereBetween('completed_at', [$startDate, $endDate])
