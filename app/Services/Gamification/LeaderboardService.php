@@ -9,10 +9,14 @@ use App\Models\Student;
 use App\Models\StudentQuizAttempt;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class LeaderboardService
 {
     private const CACHE_TTL_SECONDS = 300;
+
+    private const LOCK_SECONDS = 10;
 
     private const LIMIT = 10;
 
@@ -21,13 +25,19 @@ class LeaderboardService
      */
     public function forGradeLevel(int $gradeLevel, string $period = 'alltime'): Collection
     {
-        return Cache::remember(
-            $this->cacheKey($gradeLevel, $period),
-            self::CACHE_TTL_SECONDS,
-            fn (): Collection => $period === 'weekly'
+        try {
+            return $this->rememberWithLock($gradeLevel, $period);
+        } catch (Throwable $exception) {
+            Log::warning('Leaderboard cache unavailable; falling back to database.', [
+                'grade_level' => $gradeLevel,
+                'period' => $period,
+                'message' => $exception->getMessage(),
+            ]);
+
+            return $period === 'weekly'
                 ? $this->weeklyLeaderboard($gradeLevel)
-                : $this->allTimeLeaderboard($gradeLevel),
-        );
+                : $this->allTimeLeaderboard($gradeLevel);
+        }
     }
 
     public function rankForStudent(Student $student, string $period = 'alltime'): int
@@ -62,8 +72,47 @@ class LeaderboardService
 
     public function flushGradeLevel(int $gradeLevel): void
     {
-        Cache::forget($this->cacheKey($gradeLevel, 'alltime'));
-        Cache::forget($this->cacheKey($gradeLevel, 'weekly'));
+        foreach (['alltime', 'weekly'] as $period) {
+            try {
+                Cache::forget($this->cacheKey($gradeLevel, $period));
+            } catch (Throwable $exception) {
+                Log::warning('Unable to flush leaderboard cache.', [
+                    'grade_level' => $gradeLevel,
+                    'period' => $period,
+                    'message' => $exception->getMessage(),
+                ]);
+            }
+        }
+    }
+
+    /**
+     * @return Collection<int, Student>
+     */
+    private function rememberWithLock(int $gradeLevel, string $period): Collection
+    {
+        $key = $this->cacheKey($gradeLevel, $period);
+
+        $cached = Cache::get($key);
+
+        if ($cached instanceof Collection) {
+            return $cached;
+        }
+
+        return Cache::lock($this->lockKey($gradeLevel, $period), self::LOCK_SECONDS)->block(5, function () use ($key, $gradeLevel, $period): Collection {
+            $cached = Cache::get($key);
+
+            if ($cached instanceof Collection) {
+                return $cached;
+            }
+
+            $leaderboard = $period === 'weekly'
+                ? $this->weeklyLeaderboard($gradeLevel)
+                : $this->allTimeLeaderboard($gradeLevel);
+
+            Cache::put($key, $leaderboard, self::CACHE_TTL_SECONDS);
+
+            return $leaderboard;
+        });
     }
 
     /**
@@ -87,22 +136,27 @@ class LeaderboardService
     {
         $weekStart = now()->startOfWeek();
 
+        $activityXpByStudent = ActivityAttempt::query()
+            ->selectRaw('student_id, COALESCE(SUM(xp_earned), 0) as weekly_xp')
+            ->where('completed_at', '>=', $weekStart)
+            ->groupBy('student_id')
+            ->pluck('weekly_xp', 'student_id');
+
+        $quizXpByStudent = StudentQuizAttempt::query()
+            ->selectRaw('student_id, COALESCE(SUM(xp_earned), 0) as weekly_xp')
+            ->where('completed_at', '>=', $weekStart)
+            ->groupBy('student_id')
+            ->pluck('weekly_xp', 'student_id');
+
         return Student::query()
             ->with('streak')
             ->where('grade_level', $gradeLevel)
             ->get()
-            ->map(function (Student $student) use ($weekStart): Student {
-                $activityXp = ActivityAttempt::query()
-                    ->where('student_id', $student->id)
-                    ->where('completed_at', '>=', $weekStart)
-                    ->sum('xp_earned');
+            ->map(function (Student $student) use ($activityXpByStudent, $quizXpByStudent): Student {
+                $weeklyXp = (int) ($activityXpByStudent[$student->id] ?? 0)
+                    + (int) ($quizXpByStudent[$student->id] ?? 0);
 
-                $quizXp = StudentQuizAttempt::query()
-                    ->where('student_id', $student->id)
-                    ->where('completed_at', '>=', $weekStart)
-                    ->sum('xp_earned');
-
-                $student->setAttribute('weekly_xp', (int) $activityXp + (int) $quizXp);
+                $student->setAttribute('weekly_xp', $weeklyXp);
 
                 return $student;
             })
@@ -118,6 +172,11 @@ class LeaderboardService
     private function cacheKey(int $gradeLevel, string $period): string
     {
         return "leaderboard.grade.{$gradeLevel}.{$period}";
+    }
+
+    private function lockKey(int $gradeLevel, string $period): string
+    {
+        return "leaderboard.lock.grade.{$gradeLevel}.{$period}";
     }
 
     private function weeklyXpForStudent(Student $student, \Illuminate\Support\Carbon $weekStart): int

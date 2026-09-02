@@ -13,6 +13,8 @@ use App\Services\Gamification\LeaderboardService;
 use App\Services\Gamification\StreakTrackerService;
 use App\Services\Goals\ParentGoalEvaluatorService;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class ActivitySubmissionService
 {
@@ -117,11 +119,61 @@ class ActivitySubmissionService
         $freshStudent = $student->fresh();
 
         if ($freshStudent !== null) {
-            $this->streakTracker->recordActivity($freshStudent);
-            $this->badgeEvaluator->evaluate($freshStudent);
-            $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
-            $this->goalEvaluator->evaluate($freshStudent);
+            $this->runPostSubmitSideEffects($freshStudent, $activity, $result);
+        }
 
+        return $result;
+    }
+
+    /**
+     * @param  array{
+     *     attempt: ActivityAttempt,
+     *     score: int,
+     *     total_questions: int,
+     *     percentage: int,
+     *     xp_earned: int,
+     *     feedback: list<array<string, mixed>>
+     * }  $result
+     */
+    private function runPostSubmitSideEffects(Student $freshStudent, Activity $activity, array $result): void
+    {
+        try {
+            $this->streakTracker->recordActivity($freshStudent);
+        } catch (Throwable $exception) {
+            Log::warning('Activity streak tracking failed after submission.', [
+                'student_id' => $freshStudent->id,
+                'message' => $exception->getMessage(),
+            ]);
+        }
+
+        try {
+            $this->badgeEvaluator->evaluate($freshStudent);
+        } catch (Throwable $exception) {
+            Log::warning('Activity badge evaluation failed after submission.', [
+                'student_id' => $freshStudent->id,
+                'message' => $exception->getMessage(),
+            ]);
+        }
+
+        try {
+            $this->leaderboardService->flushGradeLevel($freshStudent->grade_level);
+        } catch (Throwable $exception) {
+            Log::warning('Activity leaderboard cache flush failed after submission.', [
+                'student_id' => $freshStudent->id,
+                'message' => $exception->getMessage(),
+            ]);
+        }
+
+        try {
+            $this->goalEvaluator->evaluate($freshStudent);
+        } catch (Throwable $exception) {
+            Log::warning('Activity parent goal evaluation failed after submission.', [
+                'student_id' => $freshStudent->id,
+                'message' => $exception->getMessage(),
+            ]);
+        }
+
+        try {
             ActivityCompletedBroadcastEvent::dispatch(
                 parentId: (int) $freshStudent->user_id,
                 childName: $freshStudent->name,
@@ -129,8 +181,11 @@ class ActivitySubmissionService
                 scorePercent: $result['percentage'],
                 xpEarned: $result['xp_earned'],
             );
+        } catch (Throwable $exception) {
+            Log::warning('Activity completion broadcast failed after submission.', [
+                'student_id' => $freshStudent->id,
+                'message' => $exception->getMessage(),
+            ]);
         }
-
-        return $result;
     }
 }
