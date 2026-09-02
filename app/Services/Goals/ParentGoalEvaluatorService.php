@@ -1,0 +1,125 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services\Goals;
+
+use App\Enums\ParentGoalStatus;
+use App\Events\GoalAchievedBroadcastEvent;
+use App\Models\ActivityAttempt;
+use App\Models\ParentLearningGoal;
+use App\Models\Student;
+use App\Models\StudentQuizAttempt;
+use App\Models\User;
+use App\Notifications\GoalAchievedNotification;
+use App\Notifications\GoalAchievedWebPushNotification;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+
+class ParentGoalEvaluatorService
+{
+    public function evaluate(Student $student): void
+    {
+        ParentLearningGoal::query()
+            ->where('student_id', $student->id)
+            ->where('status', ParentGoalStatus::Pending)
+            ->orderBy('id')
+            ->get()
+            ->each(fn (ParentLearningGoal $goal): mixed => $this->evaluateGoal($student, $goal));
+    }
+
+    public function evaluateGoal(Student $student, ParentLearningGoal $goal): void
+    {
+        DB::transaction(function () use ($student, $goal): void {
+            $lockedGoal = ParentLearningGoal::query()
+                ->whereKey($goal->id)
+                ->lockForUpdate()
+                ->first();
+
+            if ($lockedGoal === null || $lockedGoal->status !== ParentGoalStatus::Pending) {
+                return;
+            }
+
+            $today = now()->startOfDay();
+
+            if ($today->gt($lockedGoal->end_date)) {
+                $lockedGoal->update(['status' => ParentGoalStatus::Expired]);
+
+                return;
+            }
+
+            if ($today->lt($lockedGoal->start_date)) {
+                return;
+            }
+
+            $progress = $this->progressForGoal($student, $lockedGoal);
+
+            if ($progress['activities_completed'] < $lockedGoal->target_activity_count
+                || $progress['xp_earned'] < $lockedGoal->target_xp) {
+                return;
+            }
+
+            $lockedGoal->update(['status' => ParentGoalStatus::Achieved]);
+
+            $freshGoal = $lockedGoal->fresh(['student', 'subject']);
+
+            if ($freshGoal === null) {
+                return;
+            }
+
+            $parent = $lockedGoal->parent;
+
+            if ($parent instanceof User) {
+                $parent->notify(new GoalAchievedNotification($freshGoal));
+                $parent->notify(new GoalAchievedWebPushNotification($freshGoal));
+            }
+
+            GoalAchievedBroadcastEvent::dispatch(
+                parentId: (int) $freshGoal->parent_id,
+                childName: $freshGoal->student->name,
+                targetActivityCount: (int) $freshGoal->target_activity_count,
+                targetXp: (int) $freshGoal->target_xp,
+                subject: $freshGoal->subject?->name,
+                achievedAt: now()->toIso8601String(),
+            );
+        });
+    }
+
+    /**
+     * @return array{activities_completed: int, xp_earned: int}
+     */
+    public function progressForGoal(Student $student, ParentLearningGoal $goal): array
+    {
+        $start = Carbon::parse($goal->start_date)->startOfDay();
+        $end = Carbon::parse($goal->end_date)->endOfDay();
+
+        $query = ActivityAttempt::query()
+            ->where('student_id', $student->id)
+            ->whereBetween('completed_at', [$start, $end]);
+
+        if ($goal->subject_id !== null) {
+            $query->whereHas('activity.parentMaterial', function ($materialQuery) use ($goal): void {
+                $materialQuery->where('subject_id', $goal->subject_id);
+            });
+        }
+
+        $attempts = $query->get();
+
+        $quizQuery = StudentQuizAttempt::query()
+            ->where('student_id', $student->id)
+            ->whereBetween('completed_at', [$start, $end]);
+
+        if ($goal->subject_id !== null) {
+            $quizQuery->whereHas('learningMaterial', function ($materialQuery) use ($goal): void {
+                $materialQuery->where('subject_id', $goal->subject_id);
+            });
+        }
+
+        $quizAttempts = $quizQuery->get();
+
+        return [
+            'activities_completed' => $attempts->count() + $quizAttempts->count(),
+            'xp_earned' => (int) $attempts->sum('xp_earned') + (int) $quizAttempts->sum('xp_earned'),
+        ];
+    }
+}

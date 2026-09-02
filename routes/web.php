@@ -1,7 +1,150 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Controllers\ActiveChildController;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\ActivityGenerationController;
+use App\Http\Controllers\Admin\AdminMaterialController;
+use App\Http\Controllers\Admin\AdminQuestionController;
+use App\Http\Controllers\Admin\AdminSubjectController;
+use App\Http\Controllers\ChildActivityController;
+use App\Http\Controllers\ChildOnboardingController;
+use App\Http\Controllers\HealthCheckController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Parent\ParentAnalyticsController as ParentProgressAnalyticsController;
+use App\Http\Controllers\ParentAnalyticsController;
+use App\Http\Controllers\ParentComparativeAnalyticsController;
+use App\Http\Controllers\ParentCurriculumController;
+use App\Http\Controllers\ParentMaterialController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PushSubscriptionController;
+use App\Http\Controllers\Student\StudentBadgeController;
+use App\Http\Controllers\Student\StudentDashboardController;
+use App\Http\Controllers\Student\StudentLeaderboardController;
+use App\Http\Controllers\Student\StudentQuizController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentProgressController;
+use App\Http\Controllers\StudentReportExportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/health', HealthCheckController::class)->name('health');
+
+Route::middleware('auth')->group(function (): void {
+    Route::get('/onboarding/child', [ChildOnboardingController::class, 'show'])
+        ->name('onboarding.child');
+    Route::post('/onboarding/child', [ChildOnboardingController::class, 'store'])
+        ->name('onboarding.child.store');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+    Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.read-all');
+
+    Route::post('/parent/push-subscriptions', [PushSubscriptionController::class, 'store'])
+        ->name('parent.push-subscriptions.store');
+    Route::delete('/parent/push-subscriptions', [PushSubscriptionController::class, 'destroy'])
+        ->name('parent.push-subscriptions.destroy');
+
+    Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+    Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+
+    Route::get('/parent/analytics/{student}', [ParentProgressAnalyticsController::class, 'show'])
+        ->name('parent.analytics.show');
+    Route::get('/parent/analytics/{student}/export/pdf', [ParentProgressAnalyticsController::class, 'exportPdf'])
+        ->name('parent.analytics.export.pdf');
+    Route::get('/parent/analytics/{student}/export/excel', [ParentProgressAnalyticsController::class, 'exportExcel'])
+        ->name('parent.analytics.export.excel');
+});
+
+Route::middleware(['auth', 'active.child'])->group(function (): void {
+    Route::redirect('/dashboard', '/parent')->name('dashboard');
+
+    Route::get('/parent/analytics', [ParentAnalyticsController::class, 'index'])
+        ->name('parent.analytics');
+    Route::post('/parent/analytics/generate-recommendations', [ParentAnalyticsController::class, 'generateRecommendations'])
+        ->name('parent.analytics.generate-recommendations');
+
+    Route::get('/parent/comparative-analytics', [ParentComparativeAnalyticsController::class, 'index'])
+        ->name('parent.comparative-analytics');
+    Route::get('/parent/curriculum/subjects/{subject}/materials', [ParentCurriculumController::class, 'materials'])
+        ->name('parent.curriculum.materials');
+    Route::get('/parent/students/{student}/export', [StudentReportExportController::class, 'export'])
+        ->name('parent.students.export');
+
+    Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
+        ->name('materials.show');
+    Route::post('/materials', [ParentMaterialController::class, 'store'])
+        ->name('materials.store');
+    Route::delete('/materials/{parentMaterial}', [ParentMaterialController::class, 'destroy'])
+        ->name('materials.destroy');
+    Route::post('/materials/{parentMaterial}/generate-activity', [ActivityGenerationController::class, 'store'])
+        ->name('materials.generate-activity');
+    Route::get('/activities/{activity}', [ActivityController::class, 'show'])
+        ->name('activities.show');
+
+    Route::prefix('student')->name('student.')->group(function (): void {
+        Route::get('/dashboard', [StudentDashboardController::class, 'index'])
+            ->name('dashboard');
+        Route::get('/activities', [ChildActivityController::class, 'index'])
+            ->name('activities.index');
+        Route::get('/activities/{activity}/play', [ChildActivityController::class, 'show'])
+            ->name('activities.play');
+        Route::post('/activities/{activity}/submit', [ChildActivityController::class, 'submit'])
+            ->name('activities.submit');
+        Route::get('/progress', [StudentProgressController::class, 'index'])
+            ->name('progress');
+        Route::get('/leaderboard', [StudentLeaderboardController::class, 'index'])
+            ->name('leaderboard');
+        Route::get('/badges', [StudentBadgeController::class, 'index'])
+            ->name('badges');
+        Route::get('/materials/{learningMaterial}/quiz', [StudentQuizController::class, 'show'])
+            ->name('materials.quiz');
+        Route::post('/materials/{learningMaterial}/quiz/submit', [StudentQuizController::class, 'submit'])
+            ->name('materials.quiz.submit');
+    });
+
+    Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+    Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
+    Route::patch('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
+    Route::post('/students/{student}/select', [ActiveChildController::class, 'select'])
+        ->name('students.select');
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin-legacy')->name('admin.')->group(function (): void {
+    Route::get('/subjects', [AdminSubjectController::class, 'index'])->name('subjects.index');
+    Route::post('/subjects', [AdminSubjectController::class, 'store'])->name('subjects.store');
+    Route::get('/subjects/{subject}', [AdminSubjectController::class, 'show'])->name('subjects.show');
+    Route::put('/subjects/{subject}', [AdminSubjectController::class, 'update'])->name('subjects.update');
+    Route::delete('/subjects/{subject}', [AdminSubjectController::class, 'destroy'])->name('subjects.destroy');
+
+    Route::post('/subjects/{subject}/materials', [AdminMaterialController::class, 'store'])
+        ->name('subjects.materials.store');
+    Route::put('/materials/{learningMaterial}', [AdminMaterialController::class, 'update'])
+        ->name('materials.update');
+    Route::delete('/materials/{learningMaterial}', [AdminMaterialController::class, 'destroy'])
+        ->name('materials.destroy');
+    Route::post('/materials/reorder', [AdminMaterialController::class, 'reorder'])
+        ->name('materials.reorder');
+
+    Route::get('/materials/{learningMaterial}/questions', [AdminQuestionController::class, 'index'])
+        ->name('materials.questions.index');
+    Route::post('/materials/{learningMaterial}/questions', [AdminQuestionController::class, 'store'])
+        ->name('materials.questions.store');
+    Route::post('/materials/{learningMaterial}/questions/reorder', [AdminQuestionController::class, 'reorder'])
+        ->name('materials.questions.reorder');
+    Route::put('/questions/{question}', [AdminQuestionController::class, 'update'])
+        ->name('questions.update');
+    Route::delete('/questions/{question}', [AdminQuestionController::class, 'destroy'])
+        ->name('questions.destroy');
+});
+
+require __DIR__.'/auth.php';

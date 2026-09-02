@@ -35,4 +35,14 @@ return [
         ],
     ],
 
+    'embedding' => [
+        'provider' => env('EMBEDDING_PROVIDER', 'openrouter'),
+        'model' => env('EMBEDDING_MODEL', 'google/text-embedding-004'),
+    ],
+
+    'generation' => [
+        'provider' => env('AI_GENERATION_PROVIDER', 'openrouter'),
+        'model' => env('AI_GENERATION_MODEL', 'google/gemini-2.0-flash-001'),
+    ],
+
 ];

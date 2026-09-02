@@ -1,25 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\UserRole;
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use NotificationChannels\WebPush\HasPushSubscriptions;
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, HasPushSubscriptions, Notifiable;
 
     /**
-     * Get the attributes that should be cast.
-     *
      * @return array<string, string>
      */
     protected function casts(): array
@@ -27,6 +31,45 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => UserRole::class,
         ];
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === UserRole::Admin;
+    }
+
+    public function assignRole(UserRole $role): void
+    {
+        $this->role = $role;
+        $this->save();
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return match ($panel->getId()) {
+            'admin' => $this->isAdmin(),
+            'parent' => ! $this->isAdmin(),
+            default => false,
+        };
+    }
+
+    /** @return HasMany<Student, $this> */
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    /** @return HasMany<ParentMaterial, $this> */
+    public function parentMaterials(): HasMany
+    {
+        return $this->hasMany(ParentMaterial::class);
+    }
+
+    /** @return HasMany<ParentLearningGoal, $this> */
+    public function parentLearningGoals(): HasMany
+    {
+        return $this->hasMany(ParentLearningGoal::class, 'parent_id');
     }
 }

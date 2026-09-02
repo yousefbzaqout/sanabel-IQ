@@ -1,0 +1,21 @@
+# Sanabel IQ — Agent Stability Rules
+
+These rules are mandatory for all AI-assisted work in this repository.
+
+## PHP & Coding Standards
+- Always use PHP 8.5 syntax, strict types (`declare(strict_types=1);`), and PSR-12 coding standards.
+
+## Testing
+- Test-Driven Development (TDD) is MANDATORY. Write tests (Pest or PHPUnit) BEFORE implementing the actual feature.
+
+## Git Commit Convention
+- Use Conventional Commits (`feat`, `fix`, `chore`, `docs`, `test`, `refactor`) with descriptive English messages.
+
+## No Hallucination
+- If a required package version, API endpoint, or Laravel feature is unknown, STOP and ask the user to verify. Do not guess.
+
+## Database
+- Always assume PostgreSQL 18 with `pgvector` extension for vector operations.
+
+## Branching
+- All feature work branches from `develop`. Do not commit application features directly to `main`.
