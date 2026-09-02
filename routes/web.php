@@ -120,7 +120,7 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('students.select');
 });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function (): void {
+Route::middleware(['auth', 'admin'])->prefix('admin-legacy')->name('admin.')->group(function (): void {
     Route::get('/subjects', [AdminSubjectController::class, 'index'])->name('subjects.index');
     Route::post('/subjects', [AdminSubjectController::class, 'store'])->name('subjects.store');
     Route::get('/subjects/{subject}', [AdminSubjectController::class, 'show'])->name('subjects.show');
