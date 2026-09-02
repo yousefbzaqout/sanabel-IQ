@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Requests\Admin;
 
 use App\Enums\QuestionType;
+use App\Services\Admin\QuestionOptionsValidator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
@@ -66,27 +67,14 @@ class StoreQuestionRequest extends FormRequest
             $type = QuestionType::tryFrom((string) $this->input('type'));
             $options = $this->input('options', []);
 
-            if (! is_array($options)) {
+            if ($type === null || ! is_array($options)) {
                 return;
             }
 
-            $correctCount = collect($options)
-                ->filter(fn (array $option): bool => (bool) ($option['is_correct'] ?? false))
-                ->count();
-
-            if (in_array($type, [QuestionType::Mcq, QuestionType::TrueFalse, QuestionType::FillBlank], true)
-                && $correctCount < 1) {
-                $validator->errors()->add(
-                    'options',
-                    __('At least one option must be marked as correct.'),
-                );
-            }
-
-            if ($type === QuestionType::TrueFalse && count($options) !== 2) {
-                $validator->errors()->add(
-                    'options',
-                    __('True/False questions must have exactly two options.'),
-                );
+            try {
+                QuestionOptionsValidator::validate($type, $options);
+            } catch (\Illuminate\Validation\ValidationException $exception) {
+                $validator->errors()->merge($exception->errors());
             }
         });
     }

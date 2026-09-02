@@ -8,10 +8,14 @@ use App\Broadcasting\AuthorizingLogBroadcaster;
 use App\Broadcasting\AuthorizingNullBroadcaster;
 use App\Contracts\AIServiceInterface;
 use App\Models\Activity;
+use App\Models\LearningMaterial;
 use App\Models\ParentLearningGoal;
 use App\Models\ParentMaterial;
+use App\Models\Question;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Policies\ActivityPolicy;
+use App\Policies\AdminModelPolicy;
 use App\Policies\ParentLearningGoalPolicy;
 use App\Policies\ParentMaterialPolicy;
 use App\Policies\StudentPolicy;
@@ -46,6 +50,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(ParentMaterial::class, ParentMaterialPolicy::class);
         Gate::policy(Activity::class, ActivityPolicy::class);
         Gate::policy(ParentLearningGoal::class, ParentLearningGoalPolicy::class);
+        Gate::policy(Subject::class, AdminModelPolicy::class);
+        Gate::policy(LearningMaterial::class, AdminModelPolicy::class);
+        Gate::policy(Question::class, AdminModelPolicy::class);
 
         View::composer(['layouts.navigation', 'layouts.parent', 'components.notification-bell'], function ($view): void {
             $user = auth()->user();
