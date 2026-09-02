@@ -9,6 +9,8 @@ use App\Filament\Resources\Questions\QuestionResource;
 use App\Models\Question;
 use App\Services\Admin\QuestionOptionsValidator;
 use Filament\Resources\Pages\CreateRecord;
+use Filament\Support\Exceptions\Halt;
+use Illuminate\Validation\ValidationException;
 
 class CreateQuestion extends CreateRecord
 {
@@ -29,7 +31,7 @@ class CreateQuestion extends CreateRecord
             ->values()
             ->all();
 
-        QuestionOptionsValidator::validate($type, $options);
+        $this->assertValidOptions($type, $options);
 
         $materialId = (int) $data['learning_material_id'];
         $maxOrder = Question::query()
@@ -44,7 +46,7 @@ class CreateQuestion extends CreateRecord
 
     protected function afterCreate(): void
     {
-        $options = collect($this->form->getState()['options'] ?? [])
+        $options = collect($this->form->getRawState()['options'] ?? [])
             ->values()
             ->all();
 
@@ -54,6 +56,24 @@ class CreateQuestion extends CreateRecord
                 'is_correct' => (bool) ($option['is_correct'] ?? false),
                 'order_column' => $index,
             ]);
+        }
+    }
+
+    /**
+     * @param  list<array{option_text: string, is_correct: bool}>  $options
+     */
+    private function assertValidOptions(QuestionType $type, array $options): void
+    {
+        try {
+            QuestionOptionsValidator::validate($type, $options);
+        } catch (ValidationException $exception) {
+            foreach ($exception->errors() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->addError("data.{$field}", $message);
+                }
+            }
+
+            throw (new Halt)->rollBackDatabaseTransaction();
         }
     }
 }

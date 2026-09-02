@@ -8,6 +8,8 @@ use App\Enums\QuestionType;
 use App\Filament\Resources\Questions\QuestionResource;
 use App\Services\Admin\QuestionOptionsValidator;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Support\Exceptions\Halt;
+use Illuminate\Validation\ValidationException;
 
 class EditQuestion extends EditRecord
 {
@@ -47,7 +49,7 @@ class EditQuestion extends EditRecord
             ->values()
             ->all();
 
-        QuestionOptionsValidator::validate($type, $options);
+        $this->assertValidOptions($type, $options);
 
         unset($data['options']);
 
@@ -56,7 +58,7 @@ class EditQuestion extends EditRecord
 
     protected function afterSave(): void
     {
-        $options = collect($this->form->getState()['options'] ?? [])
+        $options = collect($this->form->getRawState()['options'] ?? [])
             ->values()
             ->all();
 
@@ -68,6 +70,24 @@ class EditQuestion extends EditRecord
                 'is_correct' => (bool) ($option['is_correct'] ?? false),
                 'order_column' => $index,
             ]);
+        }
+    }
+
+    /**
+     * @param  list<array{option_text: string, is_correct: bool}>  $options
+     */
+    private function assertValidOptions(QuestionType $type, array $options): void
+    {
+        try {
+            QuestionOptionsValidator::validate($type, $options);
+        } catch (ValidationException $exception) {
+            foreach ($exception->errors() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->addError("data.{$field}", $message);
+                }
+            }
+
+            throw (new Halt)->rollBackDatabaseTransaction();
         }
     }
 }
