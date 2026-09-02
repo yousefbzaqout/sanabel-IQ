@@ -43,8 +43,13 @@ class WeeklySummaryWebPushNotification extends Notification implements ShouldQue
 
     public function toWebPush(object $notifiable, self $notification): WebPushMessage
     {
-        $totalActivities = collect($this->summary['children'])->sum('activities_completed');
-        $totalXp = collect($this->summary['children'])->sum('xp_earned');
+        $totalActivities = collect($this->summary['children'])->sum(
+            fn (array $child): int => (int) ($child['activities_completed'] ?? 0),
+        );
+        $totalXp = collect($this->summary['children'])->sum(
+            fn (array $child): int => (int) ($child['xp_earned'] ?? 0),
+        );
+        $analyticsUrl = $this->summary['children'][0]['analytics_url'] ?? route('parent.analytics');
         $body = __(':activities activities completed and :xp XP earned this week.', [
             'activities' => $totalActivities,
             'xp' => $totalXp,
@@ -57,7 +62,7 @@ class WeeklySummaryWebPushNotification extends Notification implements ShouldQue
             ->badge(url('/icons/sanabel-icon.svg'))
             ->action(__('View report'), 'open_report')
             ->data([
-                'url' => route('parent.analytics'),
+                'url' => $analyticsUrl,
             ]);
     }
 
