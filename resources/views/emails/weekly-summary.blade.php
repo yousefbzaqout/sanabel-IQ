@@ -47,6 +47,12 @@
                                     </tr>
                                 </table>
 
+                                @if (($child['activities_completed'] ?? 0) === 0 && ($child['xp_earned'] ?? 0) === 0)
+                                    <p style="margin:16px 0 0;font-size:14px;color:#6b7280;font-family:'Tajawal',Tahoma,Arial,sans-serif;">
+                                        {{ __('No activities completed this week — your encouragement makes a difference!') }}
+                                    </p>
+                                @endif
+
                                 @if (! empty($child['badges_unlocked']))
                                     <p style="margin:16px 0 8px;font-size:14px;font-weight:600;color:#374151;">{{ __('Badges unlocked this week') }}</p>
                                     <ul style="margin:0;padding-right:20px;color:#4b5563;font-size:14px;">

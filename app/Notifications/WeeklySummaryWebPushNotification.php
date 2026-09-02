@@ -50,10 +50,13 @@ class WeeklySummaryWebPushNotification extends Notification implements ShouldQue
             fn (array $child): int => (int) ($child['xp_earned'] ?? 0),
         );
         $analyticsUrl = $this->summary['children'][0]['analytics_url'] ?? route('parent.analytics');
-        $body = __(':activities activities completed and :xp XP earned this week.', [
-            'activities' => $totalActivities,
-            'xp' => $totalXp,
-        ]);
+
+        $body = $totalActivities === 0 && $totalXp === 0
+            ? __('No activities completed this week — your encouragement makes a difference!')
+            : __(':activities activities completed and :xp XP earned this week.', [
+                'activities' => $totalActivities,
+                'xp' => $totalXp,
+            ]);
 
         return (new WebPushMessage)
             ->title(__('Weekly Progress Summary'))
