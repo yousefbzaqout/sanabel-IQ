@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
@@ -30,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/health', HealthCheckController::class)->name('health');
 
 Route::middleware('auth')->group(function (): void {
     Route::get('/onboarding/child', [ChildOnboardingController::class, 'show'])
