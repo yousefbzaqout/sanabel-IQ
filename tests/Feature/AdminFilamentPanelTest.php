@@ -8,6 +8,7 @@ use App\Enums\QuestionType;
 use App\Enums\UserRole;
 use App\Filament\Resources\LearningMaterials\Pages\CreateLearningMaterial;
 use App\Filament\Resources\LearningMaterials\Pages\EditLearningMaterial;
+use App\Filament\Resources\LearningMaterials\Pages\ListLearningMaterials;
 use App\Filament\Resources\Questions\Pages\CreateQuestion;
 use App\Filament\Resources\Subjects\Pages\CreateSubject;
 use App\Filament\Resources\Subjects\Pages\EditSubject;
@@ -17,6 +18,7 @@ use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Subject;
 use App\Models\User;
+use Filament\Actions\DeleteAction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
@@ -188,5 +190,113 @@ class AdminFilamentPanelTest extends TestCase
             ->firstOrFail();
 
         $this->assertSame(2, QuestionOption::query()->where('question_id', $trueFalseQuestion->id)->count());
+    }
+
+    public function test_parent_cannot_invoke_filament_livewire_update_endpoints(): void
+    {
+        $parent = User::factory()->create(['role' => UserRole::Parent]);
+
+        Livewire::actingAs($parent)
+            ->test(CreateQuestion::class)
+            ->assertForbidden();
+
+        Livewire::actingAs($parent)
+            ->test(ListLearningMaterials::class)
+            ->assertForbidden();
+
+        Livewire::actingAs($parent)
+            ->test(EditLearningMaterial::class, [
+                'record' => LearningMaterial::factory()->create()->getRouteKey(),
+            ])
+            ->assertForbidden();
+
+        // Panel-scoped Livewire update path must not exist as an open hijack surface.
+        $this->actingAs($parent)
+            ->post('/admin/livewire/update', [
+                'components' => [
+                    [
+                        'snapshot' => '{}',
+                        'updates' => [],
+                        'calls' => [],
+                    ],
+                ],
+            ])
+            ->assertNotFound();
+    }
+
+    public function test_filament_mcq_creation_rejects_zero_correct_options_with_arabic_error(): void
+    {
+        app()->setLocale('ar');
+
+        $admin = User::factory()->admin()->create();
+        $material = LearningMaterial::factory()->create();
+
+        Livewire::actingAs($admin)
+            ->test(CreateQuestion::class)
+            ->fillForm([
+                'learning_material_id' => $material->id,
+                'type' => QuestionType::Mcq->value,
+                'prompt' => 'ما حاصل 2 + 3؟',
+                'explanation' => 'يجب اختيار إجابة صحيحة',
+                'points' => 10,
+                'options' => [
+                    ['option_text' => '4', 'is_correct' => false],
+                    ['option_text' => '5', 'is_correct' => false],
+                    ['option_text' => '6', 'is_correct' => false],
+                ],
+            ])
+            ->call('create')
+            ->assertHasFormErrors(['options'])
+            ->assertSee('يجب تحديد خيار واحد على الأقل كإجابة صحيحة');
+
+        $this->assertDatabaseCount('questions', 0);
+        $this->assertDatabaseCount('question_options', 0);
+    }
+
+    public function test_deleting_learning_material_via_filament_cascades_questions_and_options(): void
+    {
+        $admin = User::factory()->admin()->create();
+        $material = LearningMaterial::factory()->create();
+
+        $questionIds = [];
+        $optionIds = [];
+
+        for ($questionIndex = 0; $questionIndex < 2; $questionIndex++) {
+            $question = Question::factory()->for($material)->mcq()->create([
+                'prompt' => 'سؤال '.$questionIndex,
+                'order_column' => $questionIndex,
+            ]);
+            $questionIds[] = $question->id;
+
+            for ($optionIndex = 0; $optionIndex < 3; $optionIndex++) {
+                $option = QuestionOption::factory()->for($question)->create([
+                    'option_text' => 'خيار '.$optionIndex,
+                    'is_correct' => $optionIndex === 0,
+                    'order_column' => $optionIndex,
+                ]);
+                $optionIds[] = $option->id;
+            }
+        }
+
+        $this->assertDatabaseCount('questions', 2);
+        $this->assertDatabaseCount('question_options', 6);
+
+        Livewire::actingAs($admin)
+            ->test(EditLearningMaterial::class, ['record' => $material->getRouteKey()])
+            ->callAction(DeleteAction::class)
+            ->assertHasNoActionErrors();
+
+        $this->assertDatabaseMissing('learning_materials', ['id' => $material->id]);
+
+        foreach ($questionIds as $questionId) {
+            $this->assertDatabaseMissing('questions', ['id' => $questionId]);
+        }
+
+        foreach ($optionIds as $optionId) {
+            $this->assertDatabaseMissing('question_options', ['id' => $optionId]);
+        }
+
+        $this->assertDatabaseCount('questions', 0);
+        $this->assertDatabaseCount('question_options', 0);
     }
 }
