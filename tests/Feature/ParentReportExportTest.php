@@ -9,6 +9,7 @@ use App\Enums\MaterialStatus;
 use App\Enums\ParentGoalStatus;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
+use App\Models\Badge;
 use App\Models\LearningMaterial;
 use App\Models\ParentLearningGoal;
 use App\Models\ParentMaterial;
@@ -18,8 +19,11 @@ use App\Models\Student;
 use App\Models\StudentQuizAttempt;
 use App\Models\StudentStreak;
 use App\Models\User;
+use App\Services\Analytics\ParentAnalyticsService;
+use App\Services\Export\PdfReportGeneratorService;
 use Database\Seeders\BadgeSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
@@ -165,6 +169,162 @@ class ParentReportExportTest extends TestCase
             'student_id' => $student->id,
             'report_type' => 'weekly',
         ]);
+
+        Carbon::setTestNow();
+    }
+
+    public function test_zero_activity_student_summary_returns_safe_defaults_and_pdf_without_errors(): void
+    {
+        Carbon::setTestNow('2026-01-07 12:00:00');
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create([
+            'name' => 'طالب جديد',
+            'grade_level' => 1,
+            'total_xp' => 0,
+        ]);
+
+        $dashboardResponse = $this->actingAs($parent)
+            ->get(route('parent.analytics.show', $student));
+
+        $dashboardResponse->assertOk()
+            ->assertViewHas('summary', fn ($summary): bool => $summary->xpEarnedInPeriod === 0
+                && $summary->quizAccuracyPercent === 0
+                && $summary->completedGoalsCount === 0
+                && $summary->currentStreak === 0
+                && $summary->quizHistory->isEmpty()
+                && $summary->badgesUnlocked === []);
+
+        $pdfResponse = $this->actingAs($parent)
+            ->get(route('parent.analytics.export.pdf', [
+                'student' => $student,
+                'period' => 'weekly',
+            ]));
+
+        $pdfResponse->assertOk()
+            ->assertHeader('content-type', 'application/pdf')
+            ->assertSee('0%', false);
+
+        Carbon::setTestNow();
+    }
+
+    public function test_monthly_pdf_export_stays_within_memory_bounds_under_heavy_activity_stream(): void
+    {
+        Carbon::setTestNow('2026-03-15 12:00:00');
+
+        if (function_exists('memory_reset_peak_usage')) {
+            memory_reset_peak_usage();
+        }
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create([
+            'name' => 'محمد',
+            'grade_level' => 5,
+        ]);
+
+        $material = LearningMaterial::factory()->published()->create(['title' => 'اختبار شهري']);
+
+        for ($index = 0; $index < 200; $index++) {
+            StudentQuizAttempt::factory()->for($student)->create([
+                'learning_material_id' => $material->id,
+                'total_questions' => 10,
+                'correct_answers' => 8,
+                'score_percentage' => 80,
+                'xp_earned' => 15,
+                'completed_at' => now()->copy()->subDays($index % 90),
+            ]);
+        }
+
+        $badges = collect();
+
+        foreach (range(1, 50) as $index) {
+            $badges->push(Badge::factory()->create([
+                'code' => 'audit_badge_'.$index,
+                'name_ar' => 'شارة '.$index,
+            ]));
+        }
+
+        foreach ($badges as $index => $badge) {
+            DB::table('student_badges')->insert([
+                'student_id' => $student->id,
+                'badge_id' => $badge->id,
+                'unlocked_at' => now()->copy()->subDays($index % 90),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        $baselinePeak = memory_get_peak_usage(true);
+
+        $response = $this->actingAs($parent)
+            ->get(route('parent.analytics.export.pdf', [
+                'student' => $student,
+                'period' => 'monthly',
+            ]));
+
+        $response->assertOk()
+            ->assertHeader('content-type', 'application/pdf')
+            ->assertSee('%PDF', false);
+
+        $memoryUsedBytes = memory_get_peak_usage(true) - $baselinePeak;
+
+        $this->assertLessThan(
+            128 * 1024 * 1024,
+            $memoryUsedBytes,
+            sprintf('PDF export exceeded 128MB memory budget (used %d bytes).', $memoryUsedBytes),
+        );
+
+        Carbon::setTestNow();
+    }
+
+    public function test_cross_parent_query_parameter_substitution_is_blocked_by_authorization(): void
+    {
+        $parentB = User::factory()->create();
+        $parentA = User::factory()->create();
+        $studentA = Student::factory()->for($parentA)->create();
+        $studentB = Student::factory()->for($parentB)->create();
+
+        $this->actingAs($parentB)
+            ->get(route('parent.analytics.export.pdf', [
+                'student' => $studentA,
+                'period' => 'weekly',
+                'student_id' => $studentB->id,
+            ]))
+            ->assertForbidden();
+
+        $this->actingAs($parentB)
+            ->get(route('parent.analytics.show', [
+                'student' => $studentA,
+                'student_id' => $studentB->id,
+            ]))
+            ->assertForbidden();
+    }
+
+    public function test_amiri_font_assets_resolve_and_arabic_special_characters_render_in_pdf(): void
+    {
+        Carbon::setTestNow('2026-01-07 12:00:00');
+
+        $fontPath = storage_path('fonts/Amiri-Regular.ttf');
+
+        $this->assertFileExists($fontPath);
+        $this->assertFileIsReadable($fontPath);
+        $this->assertGreaterThan(100_000, filesize($fontPath));
+
+        $parent = User::factory()->create();
+        $student = Student::factory()->for($parent)->create([
+            'name' => 'فاطمة — الرياضيات ١٢٣',
+            'grade_level' => 4,
+        ]);
+
+        $summary = app(ParentAnalyticsService::class)->buildSummary($student, 'weekly');
+
+        $pdfBinary = app(PdfReportGeneratorService::class)
+            ->download($summary, 'audit-arabic-font.pdf')
+            ->getContent();
+
+        $this->assertIsString($pdfBinary);
+        $this->assertStringStartsWith('%PDF', $pdfBinary);
+        $this->assertGreaterThan(1024, strlen($pdfBinary));
 
         Carbon::setTestNow();
     }
