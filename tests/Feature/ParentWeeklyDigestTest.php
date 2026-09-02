@@ -63,7 +63,7 @@ class ParentWeeklyDigestTest extends TestCase
             'test-auth-token',
         );
 
-        (new DispatchWeeklyParentDigestJob)->handle(app(\App\Services\Analytics\ParentAnalyticsService::class));
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
         Mail::assertQueued(
             WeeklySummaryMailable::class,
@@ -112,7 +112,7 @@ class ParentWeeklyDigestTest extends TestCase
             'end_date' => $periodEnd,
         ]);
 
-        (new DispatchWeeklyParentDigestJob)->handle(app(\App\Services\Analytics\ParentAnalyticsService::class));
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
         Mail::assertNothingQueued();
         Notification::assertNothingSent();

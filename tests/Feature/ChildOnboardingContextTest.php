@@ -83,14 +83,14 @@ class ChildOnboardingContextTest extends TestCase
 
         $this->actingAs($parent)
             ->withSession(['active_student_id' => null])
-            ->get(route('dashboard'))
+            ->get('/parent')
             ->assertOk();
 
         $this->assertSame($first->id, session('active_student_id'));
 
         $this->actingAs($parent)
             ->withSession(['active_student_id' => $foreignChild->id])
-            ->get(route('dashboard'))
+            ->get('/parent')
             ->assertOk();
 
         $this->assertSame($first->id, session('active_student_id'));

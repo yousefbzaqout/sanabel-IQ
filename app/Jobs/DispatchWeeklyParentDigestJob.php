@@ -11,7 +11,6 @@ use App\Models\User;
 use App\Notifications\WeeklySummaryWebPushNotification;
 use App\Services\Analytics\ParentAnalyticsService;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;

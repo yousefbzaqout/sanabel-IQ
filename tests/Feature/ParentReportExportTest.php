@@ -13,8 +13,6 @@ use App\Models\Badge;
 use App\Models\LearningMaterial;
 use App\Models\ParentLearningGoal;
 use App\Models\ParentMaterial;
-use App\Models\Question;
-use App\Models\QuestionOption;
 use App\Models\Student;
 use App\Models\StudentQuizAttempt;
 use App\Models\StudentStreak;
@@ -23,8 +21,8 @@ use App\Services\Analytics\ParentAnalyticsService;
 use App\Services\Export\PdfReportGeneratorService;
 use Database\Seeders\BadgeSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class ParentReportExportTest extends TestCase

@@ -7,6 +7,7 @@ namespace App\Services\Gamification;
 use App\Models\ActivityAttempt;
 use App\Models\Student;
 use App\Models\StudentQuizAttempt;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -220,7 +221,7 @@ class LeaderboardService
         return "leaderboard.lock.grade.{$gradeLevel}.{$period}";
     }
 
-    private function weeklyXpForStudent(Student $student, \Illuminate\Support\Carbon $weekStart): int
+    private function weeklyXpForStudent(Student $student, Carbon $weekStart): int
     {
         $activityXp = ActivityAttempt::query()
             ->where('student_id', $student->id)

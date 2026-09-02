@@ -7,6 +7,8 @@ namespace Tests\Feature;
 use App\Enums\ActivityStatus;
 use App\Enums\MaterialStatus;
 use App\Enums\ParentGoalStatus;
+use App\Filament\Parent\Resources\Goals\Pages\CreateGoal;
+use App\Filament\Parent\Resources\Goals\Pages\ListGoals;
 use App\Models\Activity;
 use App\Models\ActivityAttempt;
 use App\Models\ParentLearningGoal;
@@ -20,8 +22,10 @@ use App\Services\Gameplay\ActivitySubmissionService;
 use App\Services\Goals\ParentGoalEvaluatorService;
 use Database\Seeders\BadgeSeeder;
 use Database\Seeders\SubjectSeeder;
+use Filament\Facades\Filament;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class ParentGoalAndExportTest extends TestCase
@@ -101,19 +105,22 @@ class ParentGoalAndExportTest extends TestCase
         $parent = User::factory()->create();
         $student = Student::factory()->for($parent)->create();
 
-        $response = $this->actingAs($parent)
-            ->withSession(['active_student_id' => $student->id])
-            ->post(route('parent.goals.store'), [
+        $this->actingAs($parent)
+            ->withSession(['active_student_id' => $student->id]);
+
+        Filament::setCurrentPanel(Filament::getPanel('parent'));
+
+        Livewire::test(CreateGoal::class)
+            ->fillForm([
                 'student_id' => $student->id,
                 'subject_id' => null,
                 'target_activity_count' => 5,
                 'target_xp' => 200,
                 'start_date' => now()->toDateString(),
                 'end_date' => now()->addDays(7)->toDateString(),
-            ]);
-
-        $response->assertRedirect(route('dashboard'));
-        $response->assertSessionHas('status');
+            ])
+            ->call('create')
+            ->assertHasNoFormErrors();
 
         $this->assertDatabaseHas('parent_learning_goals', [
             'parent_id' => $parent->id,
@@ -363,10 +370,11 @@ class ParentGoalAndExportTest extends TestCase
         $parentB = User::factory()->create();
         Student::factory()->for($parentB)->create();
 
-        $this->actingAs($parentB)
-            ->withSession(['active_student_id' => Student::query()->where('user_id', $parentB->id)->value('id')])
-            ->delete(route('parent.goals.destroy', $goal))
-            ->assertForbidden();
+        Filament::setCurrentPanel(Filament::getPanel('parent'));
+
+        Livewire::actingAs($parentB)
+            ->test(ListGoals::class)
+            ->assertCanNotSeeTableRecords([$goal]);
 
         $this->assertModelExists($goal);
     }

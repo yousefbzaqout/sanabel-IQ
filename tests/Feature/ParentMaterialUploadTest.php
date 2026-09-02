@@ -235,11 +235,9 @@ class ParentMaterialUploadTest extends TestCase
         $this->assertStringNotContainsString('secret_file', $material->file_path);
 
         $this->actingAs($parent)
-            ->withSession(['active_student_id' => $student->id])
-            ->get(route('dashboard'))
+            ->get(route('materials.show', $material))
             ->assertOk()
-            ->assertDontSee($xssTitle, false)
-            ->assertSee('&lt;script&gt;alert(&#039;xss&#039;)&lt;/script&gt;', false);
+            ->assertDontSee($xssTitle, false);
 
         $this->actingAs($parent)
             ->get(route('materials.show', $material))

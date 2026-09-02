@@ -4,14 +4,20 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Enums\ActivityStatus;
+use App\Enums\MaterialStatus;
 use App\Enums\UserRole;
 use App\Jobs\DispatchWeeklyParentDigestJob;
+use App\Models\Activity;
+use App\Models\ActivityAttempt;
 use App\Models\Badge;
 use App\Models\LearningMaterial;
+use App\Models\ParentMaterial;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Student;
 use App\Models\User;
+use App\Services\Analytics\ParentAnalyticsService;
 use App\Services\Gamification\BadgeEvaluatorService;
 use App\Services\Gamification\LeaderboardService;
 use Database\Seeders\BadgeSeeder;
@@ -135,7 +141,7 @@ class LaunchBlockersHardeningTest extends TestCase
         $student = Student::factory()->for($parent)->create();
         $this->seedWeeklyActivity($parent, $student);
 
-        (new DispatchWeeklyParentDigestJob)->handle(app(\App\Services\Analytics\ParentAnalyticsService::class));
+        (new DispatchWeeklyParentDigestJob)->handle(app(ParentAnalyticsService::class));
 
         $this->assertDatabaseMissing('parent_report_logs', [
             'parent_id' => $parent->id,
@@ -158,23 +164,23 @@ class LaunchBlockersHardeningTest extends TestCase
 
     private function seedWeeklyActivity(User $parent, Student $student): void
     {
-        $material = \App\Models\ParentMaterial::factory()
+        $material = ParentMaterial::factory()
             ->for($parent)
             ->for($student)
             ->create([
                 'title' => 'Weekly activity',
-                'status' => \App\Enums\MaterialStatus::Completed,
+                'status' => MaterialStatus::Completed,
             ]);
 
-        $activity = \App\Models\Activity::factory()
+        $activity = Activity::factory()
             ->for($student)
             ->for($material, 'parentMaterial')
             ->create([
-                'status' => \App\Enums\ActivityStatus::Published,
+                'status' => ActivityStatus::Published,
                 'xp_reward' => 25,
             ]);
 
-        \App\Models\ActivityAttempt::factory()
+        ActivityAttempt::factory()
             ->for($student)
             ->for($activity)
             ->create([
