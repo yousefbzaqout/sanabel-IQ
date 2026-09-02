@@ -95,4 +95,47 @@ class ChildOnboardingContextTest extends TestCase
 
         $this->assertSame($first->id, session('active_student_id'));
     }
+
+    public function test_onboarding_page_redirects_when_parent_already_has_children(): void
+    {
+        $parent = User::factory()->create();
+        Student::factory()->for($parent)->create();
+
+        $this->actingAs($parent)
+            ->get(route('onboarding.child'))
+            ->assertRedirect(route('students.create'));
+    }
+
+    public function test_child_name_is_normalized_before_persistence(): void
+    {
+        $parent = User::factory()->create();
+
+        $this->actingAs($parent)
+            ->post(route('onboarding.child.store'), [
+                'name' => "  \xE2\x80\x8Fليان  ",
+                'grade_level' => 2,
+                'school_term' => 1,
+            ])
+            ->assertRedirect(route('dashboard'));
+
+        $this->assertDatabaseHas('students', [
+            'user_id' => $parent->id,
+            'name' => 'ليان',
+            'grade_level' => 2,
+        ]);
+
+        $this->actingAs($parent)
+            ->post(route('students.store'), [
+                'name' => 'سارةSara Audit',
+                'grade_level' => 4,
+                'school_term' => 2,
+            ])
+            ->assertRedirect();
+
+        $this->assertDatabaseHas('students', [
+            'user_id' => $parent->id,
+            'name' => 'سارة Audit',
+            'grade_level' => 4,
+        ]);
+    }
 }

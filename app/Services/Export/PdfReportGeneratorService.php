@@ -21,4 +21,16 @@ class PdfReportGeneratorService
 
         return $pdf->download($filename);
     }
+
+    /**
+     * @param  array<string, mixed>  $report
+     */
+    public function downloadStudentReport(array $report, string $filename): Response
+    {
+        $pdf = Pdf::loadView('exports.student-report-pdf', $report)
+            ->setPaper('a4')
+            ->setOption('defaultFont', 'amiri');
+
+        return $pdf->download($filename);
+    }
 }

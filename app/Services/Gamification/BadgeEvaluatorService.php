@@ -82,9 +82,10 @@ class BadgeEvaluatorService
 
     private function completedQuizCount(Student $student): int
     {
-        return StudentQuizAttempt::query()
+        return (int) StudentQuizAttempt::query()
             ->where('student_id', $student->id)
-            ->count();
+            ->distinct()
+            ->count('learning_material_id');
     }
 
     private function currentStreakDays(Student $student): int
@@ -94,24 +95,27 @@ class BadgeEvaluatorService
 
     private function completedActivitiesCount(Student $student): int
     {
-        return ActivityAttempt::query()
+        return (int) ActivityAttempt::query()
             ->where('student_id', $student->id)
-            ->count();
+            ->distinct()
+            ->count('activity_id');
     }
 
     private function perfectScoreCount(Student $student): int
     {
-        $activityPerfects = ActivityAttempt::query()
+        $activityPerfects = (int) ActivityAttempt::query()
             ->where('student_id', $student->id)
             ->whereColumn('score', 'total_questions')
             ->where('total_questions', '>', 0)
-            ->count();
+            ->distinct()
+            ->count('activity_id');
 
-        $quizPerfects = StudentQuizAttempt::query()
+        $quizPerfects = (int) StudentQuizAttempt::query()
             ->where('student_id', $student->id)
             ->whereColumn('correct_answers', 'total_questions')
             ->where('total_questions', '>', 0)
-            ->count();
+            ->distinct()
+            ->count('learning_material_id');
 
         return $activityPerfects + $quizPerfects;
     }
