@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Enums\ParentGoalStatus;
-use App\Enums\QuestionType;
 use App\Events\ActivityCompletedBroadcastEvent;
 use App\Models\LearningMaterial;
 use App\Models\ParentLearningGoal;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use App\Models\Student;
-use App\Models\StudentQuizAnswer;
 use App\Models\StudentQuizAttempt;
 use App\Models\User;
 use App\Services\Gameplay\QuizScoringService;

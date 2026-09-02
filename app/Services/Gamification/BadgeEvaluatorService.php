@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Services\Gamification;
 
-use App\Events\BadgeUnlockedBroadcastEvent;
 use App\Enums\BadgeCriteriaType;
+use App\Events\BadgeUnlockedBroadcastEvent;
 use App\Models\ActivityAttempt;
 use App\Models\Badge;
 use App\Models\Student;
 use App\Models\StudentQuizAttempt;
-use App\Models\StudentStreak;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 

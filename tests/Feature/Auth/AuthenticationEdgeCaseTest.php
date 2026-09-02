@@ -53,7 +53,7 @@ class AuthenticationEdgeCaseTest extends TestCase
         Student::factory()->for($parent)->create();
 
         $this->actingAs($parent)
-            ->get(route('dashboard'))
+            ->get('/parent')
             ->assertOk()
             ->assertDontSee($payload, false)
             ->assertSee('&lt;script&gt;alert(&#039;xss&#039;)&lt;/script&gt;', false);

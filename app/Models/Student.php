@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
 #[Fillable(['user_id', 'name', 'grade_level', 'school_term', 'total_xp', 'coins', 'lives', 'avatar_path'])]
@@ -78,8 +79,8 @@ class Student extends Model
         return $this->hasMany(StudentQuizAttempt::class);
     }
 
-    /** @return \Illuminate\Database\Eloquent\Relations\HasOne<StudentStreak, $this> */
-    public function streak(): \Illuminate\Database\Eloquent\Relations\HasOne
+    /** @return HasOne<StudentStreak, $this> */
+    public function streak(): HasOne
     {
         return $this->hasOne(StudentStreak::class);
     }

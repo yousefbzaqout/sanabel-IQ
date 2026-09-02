@@ -8,6 +8,7 @@ use App\Enums\QuestionType;
 use App\Services\Admin\QuestionOptionsValidator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
 
 class StoreQuestionRequest extends FormRequest
@@ -73,7 +74,7 @@ class StoreQuestionRequest extends FormRequest
 
             try {
                 QuestionOptionsValidator::validate($type, $options);
-            } catch (\Illuminate\Validation\ValidationException $exception) {
+            } catch (ValidationException $exception) {
                 $validator->errors()->merge($exception->errors());
             }
         });

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\ActiveChildController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ActivityGenerationController;
@@ -11,21 +10,22 @@ use App\Http\Controllers\Admin\AdminQuestionController;
 use App\Http\Controllers\Admin\AdminSubjectController;
 use App\Http\Controllers\ChildActivityController;
 use App\Http\Controllers\ChildOnboardingController;
+use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Parent\ParentAnalyticsController as ParentProgressAnalyticsController;
 use App\Http\Controllers\ParentAnalyticsController;
 use App\Http\Controllers\ParentComparativeAnalyticsController;
 use App\Http\Controllers\ParentCurriculumController;
-use App\Http\Controllers\ParentGoalController;
 use App\Http\Controllers\ParentMaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PushSubscriptionController;
+use App\Http\Controllers\Student\StudentBadgeController;
+use App\Http\Controllers\Student\StudentDashboardController;
+use App\Http\Controllers\Student\StudentLeaderboardController;
+use App\Http\Controllers\Student\StudentQuizController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentProgressController;
 use App\Http\Controllers\StudentReportExportController;
-use App\Http\Controllers\Student\StudentBadgeController;
-use App\Http\Controllers\Student\StudentLeaderboardController;
-use App\Http\Controllers\Student\StudentQuizController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function (): void {
 });
 
 Route::middleware(['auth', 'active.child'])->group(function (): void {
-    Route::get('/dashboard', [ParentMaterialController::class, 'index'])->name('dashboard');
+    Route::redirect('/dashboard', '/parent')->name('dashboard');
 
     Route::get('/parent/analytics', [ParentAnalyticsController::class, 'index'])
         ->name('parent.analytics');
@@ -78,12 +78,6 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('parent.curriculum.materials');
     Route::get('/parent/students/{student}/export', [StudentReportExportController::class, 'export'])
         ->name('parent.students.export');
-    Route::get('/parent/goals', [ParentGoalController::class, 'index'])
-        ->name('parent.goals.index');
-    Route::post('/parent/goals', [ParentGoalController::class, 'store'])
-        ->name('parent.goals.store');
-    Route::delete('/parent/goals/{parentLearningGoal}', [ParentGoalController::class, 'destroy'])
-        ->name('parent.goals.destroy');
 
     Route::get('/materials/{parentMaterial}', [ParentMaterialController::class, 'show'])
         ->name('materials.show');
@@ -97,6 +91,8 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
         ->name('activities.show');
 
     Route::prefix('student')->name('student.')->group(function (): void {
+        Route::get('/dashboard', [StudentDashboardController::class, 'index'])
+            ->name('dashboard');
         Route::get('/activities', [ChildActivityController::class, 'index'])
             ->name('activities.index');
         Route::get('/activities/{activity}/play', [ChildActivityController::class, 'show'])

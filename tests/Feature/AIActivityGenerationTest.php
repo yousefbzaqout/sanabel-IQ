@@ -274,7 +274,7 @@ class AIActivityGenerationTest extends TestCase
 
         $this->actingAs($parent)
             ->withSession(['active_student_id' => $childB->id])
-            ->get(route('dashboard'))
+            ->get('/parent')
             ->assertOk();
 
         $queuedJob->handle(app(ActivityGeneratorService::class));
