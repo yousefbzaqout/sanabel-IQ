@@ -109,6 +109,8 @@ Route::middleware(['auth', 'active.child'])->group(function (): void {
             ->name('materials.quiz');
         Route::post('/materials/{learningMaterial}/quiz/submit', [StudentQuizController::class, 'submit'])
             ->name('materials.quiz.submit');
+        Route::get('/quiz/{learningMaterial}/completion', [StudentQuizController::class, 'completion'])
+            ->name('quiz.completion');
     });
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');

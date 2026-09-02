@@ -12,6 +12,20 @@
 
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col items-center gap-4 rounded-2xl border border-amber-200 bg-gradient-to-b from-amber-50 to-white p-6 dark:border-amber-800 dark:from-amber-950/40 dark:to-gray-800 sm:flex-row sm:justify-between">
+                <div class="text-center sm:text-start" dir="rtl">
+                    <h3 class="text-xl font-bold text-amber-900 dark:text-amber-100">مرحباً {{ $student->name }}!</h3>
+                    <p class="mt-1 text-sm text-amber-800/80 dark:text-amber-200/80">سنبل جاهز لمغامرة التعلم اليوم 🌱</p>
+                </div>
+                <x-student.mascot
+                    state="idle"
+                    message="مرحباً {{ $student->name }}! هيا نبدأ مغامرة التعلم معاً!"
+                    size="lg"
+                />
+            </div>
+
+            <x-student.learning-map :student="$student" />
+
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <a href="{{ route('student.activities.index') }}" class="rounded-2xl bg-indigo-600 p-6 text-white shadow-lg hover:bg-indigo-500 transition">
                     <p class="text-lg font-bold">{{ __('Activities') }}</p>
