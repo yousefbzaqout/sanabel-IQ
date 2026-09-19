@@ -72,7 +72,10 @@ class QuizRunner extends Component
     #[Computed]
     public function questions(): Collection
     {
-        return $this->material->questions->sortBy('order_column')->values();
+        return $this->material->questions->sortBy([
+            ['order_column', 'asc'],
+            ['id', 'asc'],
+        ])->values();
     }
 
     #[Computed]
@@ -136,7 +139,7 @@ class QuizRunner extends Component
             $this->dispatch('quiz-incorrect');
         }
 
-        $this->dispatch('quiz-speak', message: $this->mascotMessage);
+        // Keep feedback snappy: FX tones only — avoid blocking neural TTS on every answer.
     }
 
     public function advanceAfterFeedback(): void
@@ -157,7 +160,7 @@ class QuizRunner extends Component
         $this->revealedCorrectOptionId = null;
         $this->lastAnswerCorrect = null;
         $this->mascotState = 'thinking';
-        $this->dispatch('quiz-speak', message: $this->currentQuestion?->prompt ?? $this->mascotMessage);
+        // Question autoplay is handled client-side from static MP3 when available.
     }
 
     public function finalizeQuiz(): void

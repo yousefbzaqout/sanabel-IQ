@@ -1,32 +1,64 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Set up your first child') }}
-        </h2>
-    </x-slot>
+<x-brand-layout title="إعداد الملف التعليمي للطفل — سنابل IQ">
+    <main class="w-full min-h-screen bg-surface py-10 px-gutter">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <x-brand.logo variant="official" :show-tagline="true" />
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-semibold">
+                    <x-brand.icon name="child_care" class="text-[18px]" />
+                    إعداد ملف الطفل
+                </span>
+            </div>
 
-    <div class="py-12">
-        <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <form method="POST" action="{{ route('onboarding.child.store') }}" class="p-6 sm:p-8 space-y-6 text-gray-900 dark:text-gray-100">
-                    @csrf
-
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                        {{ __('Tell us about your child so we can personalize activities for their grade and term.') }}
-                    </p>
-
-                    <div>
-                        <x-input-label for="name" :value="__('Child name')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus dir="auto" lang="ar" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-l from-primary-fixed/40 via-surface-container-lowest to-secondary-container/20 p-6 md:p-8 shadow-brand-card mb-8">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <img src="{{ asset('brand/mascot-sanbal.jpg') }}" alt="سنبل" class="w-28 h-28 rounded-full object-cover shadow-lg">
+                    <div class="text-center md:text-right">
+                        <h1 class="font-headline-lg text-headline-lg text-on-surface font-bold">إعداد الملف التعليمي للطفل</h1>
+                        <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                            أخبرنا عن طفلك لنخصص له الدروس، المحطات التفاعلية، ولوحة المتابعة الأسبوعية.
+                        </p>
                     </div>
+                </div>
+            </div>
 
+            @if (session('status'))
+                <div class="mb-6 rounded-2xl bg-secondary-container/50 text-on-secondary-container p-4 font-body-sm text-body-sm">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('onboarding.child.store') }}" class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 shadow-brand-card space-y-6">
+                @csrf
+
+                <div>
+                    <label for="name" class="font-label-md text-label-md font-semibold text-on-surface">اسم الطفل</label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value="{{ old('name') }}"
+                        required
+                        autofocus
+                        dir="rtl"
+                        lang="ar"
+                        class="mt-2 block w-full rounded-2xl border-0 bg-surface-container-low py-3 px-4 font-body-md text-body-md text-on-surface shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/15"
+                        placeholder="مثال: سارة"
+                    >
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <x-input-label for="grade_level" :value="__('Grade')" />
-                        <select id="grade_level" name="grade_level" required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
+                        <label for="grade_level" class="font-label-md text-label-md font-semibold text-on-surface">الصف الدراسي</label>
+                        <select
+                            id="grade_level"
+                            name="grade_level"
+                            required
+                            class="mt-2 block w-full rounded-2xl border-0 bg-surface-container-low py-3 px-4 font-body-md text-body-md text-on-surface shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/15"
+                        >
                             @foreach (range(1, 6) as $grade)
                                 <option value="{{ $grade }}" @selected((int) old('grade_level', 1) === $grade)>
-                                    {{ __('Grade') }} {{ $grade }}
+                                    الصف {{ $grade }}
                                 </option>
                             @endforeach
                         </select>
@@ -34,22 +66,28 @@
                     </div>
 
                     <div>
-                        <x-input-label for="school_term" :value="__('School term')" />
-                        <select id="school_term" name="school_term" required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full">
+                        <label for="school_term" class="font-label-md text-label-md font-semibold text-on-surface">الفصل الدراسي</label>
+                        <select
+                            id="school_term"
+                            name="school_term"
+                            required
+                            class="mt-2 block w-full rounded-2xl border-0 bg-surface-container-low py-3 px-4 font-body-md text-body-md text-on-surface shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/15"
+                        >
                             @foreach (range(1, 2) as $term)
                                 <option value="{{ $term }}" @selected((int) old('school_term', 1) === $term)>
-                                    {{ __('Term') }} {{ $term }}
+                                    الفصل {{ $term }}
                                 </option>
                             @endforeach
                         </select>
                         <x-input-error :messages="$errors->get('school_term')" class="mt-2" />
                     </div>
+                </div>
 
-                    <x-primary-button>
-                        {{ __('Continue to dashboard') }}
-                    </x-primary-button>
-                </form>
-            </div>
+                <button type="submit" class="w-full py-3.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-title-md text-title-md font-bold flex items-center justify-center gap-2 shadow-brand-cta transition-all">
+                    <span>متابعة إلى لوحة التعلم</span>
+                    <x-brand.icon name="arrow_back" class="text-[20px]" />
+                </button>
+            </form>
         </div>
-    </div>
-</x-app-layout>
+    </main>
+</x-brand-layout>

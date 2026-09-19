@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 6,
+    "semester": 1,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "جسم الإنسان",
+    "lesson_key": "ar-g6-sci-mock-digestive",
+    "audio_slug": "digestive",
+    "key": "mock-g6-science-digestive",
+    "title": "الجهاز الهضمي",
+    "subtitle": "عرض تجريبي — الصف السادس — الفصل 1",
+    "material_title": "تجريبي G6: الجهاز الهضمي",
+    "order_column": 10,
+    "xp_reward": 52,
+    "description": "نتابع مسار الطعام في الجسم.",
+    "phonemes": {
+        "voice_targets": [
+            "هَ",
+            "هُ",
+            "هِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "هَ",
+                "label": "فتحة",
+                "audio_script": "صوت هَ",
+                "cards": [
+                    {
+                        "word": "فم",
+                        "emoji": "👄",
+                        "audio": "هَ مثل فم",
+                        "highlight": "هَ"
+                    },
+                    {
+                        "word": "معدة",
+                        "emoji": "🫁",
+                        "audio": "معدة",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "هضم",
+                        "emoji": "🍎",
+                        "audio": "هضم",
+                        "highlight": "ه"
+                    }
+                ]
+            },
+            {
+                "glyph": "هُ",
+                "label": "ضمة",
+                "audio_script": "صوت هُ",
+                "cards": [
+                    {
+                        "word": "معدة",
+                        "emoji": "🫁",
+                        "audio": "هُ مثل معدة",
+                        "highlight": "هُ"
+                    },
+                    {
+                        "word": "هضم",
+                        "emoji": "🍎",
+                        "audio": "هضم",
+                        "highlight": "ه"
+                    },
+                    {
+                        "word": "فم",
+                        "emoji": "👄",
+                        "audio": "فم",
+                        "highlight": "ف"
+                    }
+                ]
+            },
+            {
+                "glyph": "هِ",
+                "label": "كسرة",
+                "audio_script": "صوت هِ",
+                "cards": [
+                    {
+                        "word": "هضم",
+                        "emoji": "🍎",
+                        "audio": "هِ مثل هضم",
+                        "highlight": "هِ"
+                    },
+                    {
+                        "word": "فم",
+                        "emoji": "👄",
+                        "audio": "فم",
+                        "highlight": "ف"
+                    },
+                    {
+                        "word": "معدة",
+                        "emoji": "🫁",
+                        "audio": "معدة",
+                        "highlight": "م"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "فم",
+        "syllables": [
+            {
+                "glyph": "ف",
+                "order": 1
+            },
+            {
+                "glyph": "م",
+                "order": 2
+            },
+            {
+                "glyph": "م",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة فم"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس الجهاز الهضمي",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس الجهاز الهضمي",
+        "story_audio": "هيا نستكشف الجهاز الهضمي مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "فم",
+                "emoji": "👄",
+                "correct": true,
+                "audio": "فم"
+            },
+            {
+                "id": "item-1",
+                "label": "معدة",
+                "emoji": "🫁",
+                "correct": true,
+                "audio": "معدة"
+            },
+            {
+                "id": "item-2",
+                "label": "هضم",
+                "emoji": "🍎",
+                "correct": true,
+                "audio": "هضم"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في الجهاز الهضمي؟",
+        "parts": [
+            {
+                "text": "👄",
+                "highlight": true
+            },
+            {
+                "text": " فم",
+                "highlight": true
+            },
+            {
+                "text": " = ه",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على فم ضمن الجهاز الهضمي.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس الجهاز الهضمي.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ه في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس الجهاز الهضمي؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "فم من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "فم",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "معدة جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "معدة",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «فم» مناسبة لدرس الجهاز الهضمي.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "فم، معدة، هضم",
+                "options": [
+                    {
+                        "text": "فم \/ معدة \/ هضم",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ه",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "فم",
+            "parts": [
+                {
+                    "text": "ف",
+                    "highlight": true
+                },
+                {
+                    "text": "م",
+                    "highlight": false
+                }
+            ],
+            "audio": "فم: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "معدة",
+            "parts": [
+                {
+                    "text": "م",
+                    "highlight": false
+                },
+                {
+                    "text": "ه",
+                    "highlight": true
+                },
+                {
+                    "text": "ة",
+                    "highlight": false
+                }
+            ],
+            "audio": "معدة: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "هضم",
+            "parts": [
+                {
+                    "text": "هض",
+                    "highlight": false
+                },
+                {
+                    "text": "م",
+                    "highlight": true
+                }
+            ],
+            "audio": "هضم: في نهاية الكلمة"
+        }
+    ]
+}

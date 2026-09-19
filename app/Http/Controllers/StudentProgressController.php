@@ -20,7 +20,7 @@ class StudentProgressController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         $recentAttempts = ActivityAttempt::query()
             ->with('activity')

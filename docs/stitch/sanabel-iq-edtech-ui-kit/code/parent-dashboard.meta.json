@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/df461f8851b64221ace4d39c82e14dfb",
+  "id": "df461f8851b64221ace4d39c82e14dfb",
+  "title": "لوحة تحكم ولي الأمر - سنابل IQ",
+  "width": 2560,
+  "height": 3012,
+  "slug": "parent-dashboard",
+  "files": {
+    "screenshot": "screenshots/parent-dashboard.png",
+    "screenshotById": "parent-portal/df461f8851b64221ace4d39c82e14dfb/screenshot.png",
+    "code": "code/parent-dashboard.html",
+    "codeById": "parent-portal/df461f8851b64221ace4d39c82e14dfb/code.html"
+  },
+  "screenshotBytes": 730820,
+  "fullResSuffix": "=s0",
+  "codeBytes": 41040,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

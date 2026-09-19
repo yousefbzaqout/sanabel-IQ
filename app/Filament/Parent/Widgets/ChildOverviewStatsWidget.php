@@ -11,7 +11,32 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class ChildOverviewStatsWidget extends StatsOverviewWidget
 {
+    protected static bool $isDiscovered = false;
+
+    protected static bool $isLazy = false;
+
     protected static ?int $sort = 1;
+
+    /**
+     * @var int | string | array<string, int | string | null>
+     */
+    protected int|string|array $columnSpan = [
+        'default' => 1,
+        'md' => 2,
+        'lg' => 3,
+    ];
+
+    /**
+     * @return int | array<string, int | null> | null
+     */
+    protected function getColumns(): int|array|null
+    {
+        return [
+            'default' => 1,
+            'sm' => 2,
+            'lg' => 4,
+        ];
+    }
 
     protected function getStats(): array
     {

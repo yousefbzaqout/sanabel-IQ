@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 6,
+    "semester": 1,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "الطاقة",
+    "lesson_key": "ar-g6-sci-mock-energy-forms",
+    "audio_slug": "energy-forms",
+    "key": "mock-g6-science-energy-forms",
+    "title": "أشكال الطاقة",
+    "subtitle": "عرض تجريبي — الصف السادس — الفصل 1",
+    "material_title": "تجريبي G6: أشكال الطاقة",
+    "order_column": 30,
+    "xp_reward": 52,
+    "description": "نسمي أشكالاً يومية للطاقة.",
+    "phonemes": {
+        "voice_targets": [
+            "طَ",
+            "طُ",
+            "طِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "طَ",
+                "label": "فتحة",
+                "audio_script": "صوت طَ",
+                "cards": [
+                    {
+                        "word": "حرارة",
+                        "emoji": "🔥",
+                        "audio": "طَ مثل حرارة",
+                        "highlight": "طَ"
+                    },
+                    {
+                        "word": "ضوء",
+                        "emoji": "💡",
+                        "audio": "ضوء",
+                        "highlight": "ض"
+                    },
+                    {
+                        "word": "حركة",
+                        "emoji": "⚙️",
+                        "audio": "حركة",
+                        "highlight": "ح"
+                    }
+                ]
+            },
+            {
+                "glyph": "طُ",
+                "label": "ضمة",
+                "audio_script": "صوت طُ",
+                "cards": [
+                    {
+                        "word": "ضوء",
+                        "emoji": "💡",
+                        "audio": "طُ مثل ضوء",
+                        "highlight": "طُ"
+                    },
+                    {
+                        "word": "حركة",
+                        "emoji": "⚙️",
+                        "audio": "حركة",
+                        "highlight": "ح"
+                    },
+                    {
+                        "word": "حرارة",
+                        "emoji": "🔥",
+                        "audio": "حرارة",
+                        "highlight": "ح"
+                    }
+                ]
+            },
+            {
+                "glyph": "طِ",
+                "label": "كسرة",
+                "audio_script": "صوت طِ",
+                "cards": [
+                    {
+                        "word": "حركة",
+                        "emoji": "⚙️",
+                        "audio": "طِ مثل حركة",
+                        "highlight": "طِ"
+                    },
+                    {
+                        "word": "حرارة",
+                        "emoji": "🔥",
+                        "audio": "حرارة",
+                        "highlight": "ح"
+                    },
+                    {
+                        "word": "ضوء",
+                        "emoji": "💡",
+                        "audio": "ضوء",
+                        "highlight": "ض"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "حرارة",
+        "syllables": [
+            {
+                "glyph": "ح",
+                "order": 1
+            },
+            {
+                "glyph": "ر",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة حرارة"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس أشكال الطاقة",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس أشكال الطاقة",
+        "story_audio": "هيا نستكشف أشكال الطاقة مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "حرارة",
+                "emoji": "🔥",
+                "correct": true,
+                "audio": "حرارة"
+            },
+            {
+                "id": "item-1",
+                "label": "ضوء",
+                "emoji": "💡",
+                "correct": true,
+                "audio": "ضوء"
+            },
+            {
+                "id": "item-2",
+                "label": "حركة",
+                "emoji": "⚙️",
+                "correct": true,
+                "audio": "حركة"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في أشكال الطاقة؟",
+        "parts": [
+            {
+                "text": "🔥",
+                "highlight": true
+            },
+            {
+                "text": " حرارة",
+                "highlight": true
+            },
+            {
+                "text": " = ط",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على حرارة ضمن أشكال الطاقة.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس أشكال الطاقة.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ط في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس أشكال الطاقة؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "حرارة من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "حرارة",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "ضوء جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "ضوء",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «حرارة» مناسبة لدرس أشكال الطاقة.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "حرارة، ضوء، حركة",
+                "options": [
+                    {
+                        "text": "حرارة \/ ضوء \/ حركة",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ط",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "حرارة",
+            "parts": [
+                {
+                    "text": "ح",
+                    "highlight": true
+                },
+                {
+                    "text": "رارة",
+                    "highlight": false
+                }
+            ],
+            "audio": "حرارة: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "ضوء",
+            "parts": [
+                {
+                    "text": "ض",
+                    "highlight": false
+                },
+                {
+                    "text": "ط",
+                    "highlight": true
+                },
+                {
+                    "text": "ء",
+                    "highlight": false
+                }
+            ],
+            "audio": "ضوء: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "حركة",
+            "parts": [
+                {
+                    "text": "حرك",
+                    "highlight": false
+                },
+                {
+                    "text": "ة",
+                    "highlight": true
+                }
+            ],
+            "audio": "حركة: في نهاية الكلمة"
+        }
+    ]
+}

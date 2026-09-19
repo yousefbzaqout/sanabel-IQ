@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/9e1042250e384071ad0869da81c3738a",
+  "id": "9e1042250e384071ad0869da81c3738a",
+  "title": "المواد والدروس التعليمية - سنابل IQ",
+  "width": 2560,
+  "height": 3192,
+  "slug": "materials-and-lessons",
+  "files": {
+    "screenshot": "screenshots/materials-and-lessons.png",
+    "screenshotById": "parent-portal/9e1042250e384071ad0869da81c3738a/screenshot.png",
+    "code": "code/materials-and-lessons.html",
+    "codeById": "parent-portal/9e1042250e384071ad0869da81c3738a/code.html"
+  },
+  "screenshotBytes": 898913,
+  "fullResSuffix": "=s0",
+  "codeBytes": 35861,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

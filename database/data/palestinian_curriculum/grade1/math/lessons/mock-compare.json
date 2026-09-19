@@ -1,0 +1,383 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 2,
+    "subject_code": "MATH",
+    "content_kind": "number",
+    "unit_title": "مقارنة وترتيب",
+    "lesson_key": "ar-g1-math-mock-compare",
+    "audio_slug": "compare",
+    "key": "mock-g1-math-compare",
+    "title": "أكبر وأصغر",
+    "subtitle": "عرض تجريبي — الصف الأول — الفصل 2",
+    "material_title": "تجريبي G1: أكبر وأصغر",
+    "order_column": 40,
+    "xp_reward": 42,
+    "description": "نقارن أعداداً بسيطة.",
+    "phonemes": {
+        "voice_targets": [
+            "١",
+            "٢",
+            "٣"
+        ],
+        "tabs": [
+            {
+                "glyph": "١",
+                "label": "أكبر",
+                "audio_script": "هذا العدد ١",
+                "cards": [
+                    {
+                        "word": "١ أكبر",
+                        "emoji": "⬆️",
+                        "audio": "أكبر",
+                        "highlight": "١"
+                    },
+                    {
+                        "word": "أكبر",
+                        "emoji": "⬆️",
+                        "audio": "نقول أكبر",
+                        "highlight": "أكبر"
+                    },
+                    {
+                        "word": "١",
+                        "emoji": "🔢",
+                        "audio": "١",
+                        "highlight": "١"
+                    }
+                ]
+            },
+            {
+                "glyph": "٢",
+                "label": "أصغر",
+                "audio_script": "هذا العدد ٢",
+                "cards": [
+                    {
+                        "word": "٢ أصغر",
+                        "emoji": "⬇️",
+                        "audio": "أصغر",
+                        "highlight": "٢"
+                    },
+                    {
+                        "word": "أصغر",
+                        "emoji": "⬇️",
+                        "audio": "نقول أصغر",
+                        "highlight": "أصغر"
+                    },
+                    {
+                        "word": "٢",
+                        "emoji": "🔢",
+                        "audio": "٢",
+                        "highlight": "٢"
+                    }
+                ]
+            },
+            {
+                "glyph": "٣",
+                "label": "يساوي",
+                "audio_script": "هذا العدد ٣",
+                "cards": [
+                    {
+                        "word": "٣ يساوي",
+                        "emoji": "⚖️",
+                        "audio": "يساوي",
+                        "highlight": "٣"
+                    },
+                    {
+                        "word": "يساوي",
+                        "emoji": "⚖️",
+                        "audio": "نقول يساوي",
+                        "highlight": "يساوي"
+                    },
+                    {
+                        "word": "٣",
+                        "emoji": "🔢",
+                        "audio": "٣",
+                        "highlight": "٣"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "١٢٣",
+        "syllables": [
+            {
+                "glyph": "١",
+                "order": 1
+            },
+            {
+                "glyph": "٢",
+                "order": 2
+            },
+            {
+                "glyph": "٣",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! رتّبت الأعداد بالترتيب الصحيح."
+    },
+    "stroke": {
+        "label": "تتبّع كتابة ٥",
+        "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+        "direction": "digit_stroke",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس أكبر وأصغر",
+        "story_audio": "هيا نستكشف أكبر وأصغر مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "أكبر",
+                "emoji": "⬆️",
+                "correct": true,
+                "audio": "أكبر"
+            },
+            {
+                "id": "item-1",
+                "label": "أصغر",
+                "emoji": "⬇️",
+                "correct": true,
+                "audio": "أصغر"
+            },
+            {
+                "id": "item-2",
+                "label": "يساوي",
+                "emoji": "⚖️",
+                "correct": true,
+                "audio": "يساوي"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في أكبر وأصغر؟",
+        "parts": [
+            {
+                "text": "⬆️",
+                "highlight": true
+            },
+            {
+                "text": " أكبر",
+                "highlight": true
+            },
+            {
+                "text": " = ٥",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على أكبر ضمن أكبر وأصغر.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس أكبر وأصغر.",
+            "2": "رتّب معي الأعداد خطوة بخطوة!",
+            "3": "طابق العدد ٥ مع أشكاله المختلفة.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ٥ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "كم عنصراً في المجموعة؟",
+                "visual_items": {
+                    "emoji": "⬆️",
+                    "count": 3
+                },
+                "mascot_hint": "تلميح سنبل: عدّ واحداً واحداً بإصبعك.",
+                "explanation": "المجموعة فيها 3 عناصر.",
+                "options": [
+                    {
+                        "text": "3",
+                        "correct": true
+                    },
+                    {
+                        "text": "2",
+                        "correct": false
+                    },
+                    {
+                        "text": "4",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي جملة صحيحة؟",
+                "comparison": {
+                    "left": 3,
+                    "right": 2,
+                    "operator": "gt"
+                },
+                "mascot_hint": "تلميح سنبل: العدد الأكبر يعني كمية أكثر.",
+                "explanation": "3 أكبر من 2.",
+                "options": [
+                    {
+                        "text": "3 أكبر من 2",
+                        "correct": true
+                    },
+                    {
+                        "text": "3 أصغر من 2",
+                        "correct": false
+                    },
+                    {
+                        "text": "3 يساوي 2",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «أكبر» مناسبة لدرس أكبر وأصغر.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "أكبر، أصغر، يساوي",
+                "options": [
+                    {
+                        "text": "أكبر \/ أصغر \/ يساوي",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "digits": [
+        "١",
+        "٢",
+        "٣"
+    ],
+    "digit": "٣",
+    "number_forms": [
+        {
+            "id": "fingers",
+            "label": "٣ أصابع",
+            "word": "☝️☝️☝️",
+            "parts": [
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                }
+            ],
+            "audio": "نعدّ حتى ٣"
+        },
+        {
+            "id": "dots",
+            "label": "٣ نقاط",
+            "word": "●●●",
+            "parts": [
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ نقاط"
+        },
+        {
+            "id": "objects",
+            "label": "٣ أشياء",
+            "word": "⬆️⬆️⬆️",
+            "parts": [
+                {
+                    "text": "⬆️",
+                    "highlight": true
+                },
+                {
+                    "text": "⬆️",
+                    "highlight": true
+                },
+                {
+                    "text": "⬆️",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ ⬆️"
+        }
+    ]
+}

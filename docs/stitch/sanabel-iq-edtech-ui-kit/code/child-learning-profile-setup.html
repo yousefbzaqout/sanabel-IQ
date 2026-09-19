@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#867461", "on-background": "#131b2e", "on-tertiary-container": "#2b29bb", "surface-tint": "#855300", "tertiary-fixed": "#e1e0ff", "on-secondary-fixed-variant": "#005049", "on-surface-variant": "#534434", "on-secondary-container": "#006f66", "surface": "#faf8ff", "tertiary-container": "#a7a9ff", "on-error-container": "#93000a", "primary-fixed": "#ffddb8", "surface-dim": "#d2d9f4", "secondary-fixed": "#89f5e7", "inverse-surface": "#283044", "surface-bright": "#faf8ff", "surface-container-low": "#f2f3ff", "error-container": "#ffdad6", "primary-container": "#f59e0b", "surface-container": "#eaedff", "on-primary-container": "#613b00", "background": "#faf8ff", "secondary-fixed-dim": "#6bd8cb", "on-primary-fixed": "#2a1700", "on-tertiary-fixed": "#07006c", "primary": "#855300", "on-primary": "#ffffff", "tertiary-fixed-dim": "#c0c1ff", "primary-fixed-dim": "#ffb95f", "inverse-primary": "#ffb95f", "on-error": "#ffffff", "inverse-on-surface": "#eef0ff", "tertiary": "#494bd6", "surface-container-high": "#e2e7ff", "outline-variant": "#d8c3ad", "secondary": "#006a61", "secondary-container": "#86f2e4", "on-surface": "#131b2e", "on-primary-fixed-variant": "#653e00", "surface-container-highest": "#dae2fd", "on-secondary-fixed": "#00201d", "on-tertiary": "#ffffff", "on-tertiary-fixed-variant": "#2f2ebe", "error": "#ba1a1a", "surface-variant": "#dae2fd", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "margin-mobile": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "margin": "2rem", "space-xs": "0.25rem", "space-md": "1rem", "gutter-mobile": "1rem" }, "fontFamily": { "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "label-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-xl": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "label-md": [ "Plus Jakarta Sans" ], "label-lg": [ "Plus Jakarta Sans" ] }, "fontSize": { "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-xl-mobile": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "headline-sm": [ "1.25rem", { "lineHeight": "1.75rem", "fontWeight": "600" } ], "headline-lg": [ "2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-lg-mobile": [ "1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "label-sm": [ "0.6875rem", { "lineHeight": "0.875rem", "fontWeight": "700" } ], "headline-md": [ "1.5rem", { "lineHeight": "2rem", "fontWeight": "700" } ], "headline-xl": [ "3rem", { "lineHeight": "3.75rem", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "label-md": [ "0.75rem", { "lineHeight": "1rem", "fontWeight": "600" } ], "label-lg": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><main class="w-full min-h-screen bg-surface flex flex-col justify-center items-center p-margin"><div class="flex flex-col w-full items-center justify-center relative overflow-hidden py-space-xl">
+<!-- Subtle ambient decorative glow circles -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-32 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 right-1/4 w-96 h-96 bg-tertiary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="w-full max-w-5xl mx-auto flex flex-col items-center gap-space-lg relative z-10 px-gutter-mobile md:px-gutter">
+<!-- Top Step & Trust Bar -->
+<header class="w-full max-w-3xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm flex items-center justify-center font-bold shadow-sm">٢</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">الخطوة ٢ من ٢: إضافة ملف طفلك</span>
+</div>
+<div class="flex items-center gap-1.5 px-space-md py-1 bg-surface-container rounded-full shadow-sm text-secondary font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>تخصيص تجربة التعلم بالذكاء الاصطناعي</span>
+</div>
+</div>
+<!-- Segmented Progress Bar -->
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden flex p-0.5 shadow-inner">
+<div class="w-full h-full bg-gradient-to-l from-secondary via-primary-container to-primary-container rounded-full transition-all duration-700 ease-out"></div>
+</div>
+</header>
+<!-- Main Grid Content Area: Desktop Split with Value Proposition Floating Panel -->
+<div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Central Interactive Form Card (8 cols on large screen) -->
+<main class="lg:col-span-8 bg-surface-container-lowest rounded-lg p-space-lg md:p-space-xl shadow-xl flex flex-col gap-space-lg relative">
+<!-- Mascot Banner / Welcome Speech Bubble -->
+<section class="flex flex-col sm:flex-row items-center sm:items-start gap-space-md bg-surface-container-low rounded-DEFAULT p-space-md">
+<!-- Mascot Graphic: Sanbal the Friendly Golden Chick -->
+<div class="relative shrink-0 flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 bg-primary-fixed rounded-full shadow-md overflow-hidden">
+<svg class="w-20 h-20 sm:w-24 sm:h-24" fill="none" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<!-- Body -->
+<ellipse cx="60" cy="70" fill="#F59E0B" rx="34" ry="32"></ellipse>
+<ellipse cx="60" cy="74" fill="#FBBF24" rx="26" ry="24"></ellipse>
+<!-- Wings -->
+<ellipse cx="28" cy="72" fill="#D97706" rx="10" ry="18" transform="rotate(-15 28 72)"></ellipse>
+<ellipse cx="92" cy="72" fill="#D97706" rx="10" ry="18" transform="rotate(15 92 72)"></ellipse>
+<!-- Head -->
+<circle cx="60" cy="46" fill="#FBBF24" r="28"></circle>
+<!-- Cheeks -->
+<circle cx="44" cy="54" fill="#F472B6" opacity="0.6" r="5"></circle>
+<circle cx="76" cy="54" fill="#F472B6" opacity="0.6" r="5"></circle>
+<!-- Eyes -->
+<circle cx="48" cy="44" fill="#1E293B" r="4"></circle>
+<circle cx="72" cy="44" fill="#1E293B" r="4"></circle>
+<circle cx="49" cy="42.5" fill="#FFFFFF" r="1.5"></circle>
+<circle cx="73" cy="42.5" fill="#FFFFFF" r="1.5"></circle>
+<!-- Beak -->
+<polygon fill="#EA580C" points="60,48 53,55 67,55"></polygon>
+<!-- Little Hair Tuft -->
+<path d="M58 18 Q60 10 64 16 Q68 12 66 20" fill="none" stroke="#D97706" stroke-linecap="round" stroke-width="3"></path>
+<!-- Graduation Cap / Bowtie Accents -->
+<path d="M42 22 L60 15 L78 22 L60 28 Z" fill="#494BD6"></path>
+<polygon fill="#F59E0B" points="78,22 84,32 82,32 78,24"></polygon>
+<circle cx="60" cy="22" fill="#FBBF24" r="2.5"></circle>
+<polygon fill="#0D9488" points="54,68 66,68 60,74"></polygon>
+<polygon fill="#0D9488" points="54,74 66,74 60,68"></polygon>
+<circle cx="60" cy="71" fill="#FFFFFF" r="2"></circle>
+</svg>
+<span class="absolute bottom-1 bg-surface text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold shadow-xs">سنبل</span>
+</div>
+<!-- Speech bubble text -->
+<div class="flex-1 text-center sm:text-right flex flex-col justify-center">
+<div class="inline-block relative bg-surface-container-lowest p-space-sm md:p-space-md rounded-DEFAULT shadow-sm">
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-relaxed">
+                أهلاً بك! أنا سنبل.. دعنا نتعرف على بطلنا الصغير لنُجهّز له أمتع المحطات والتحديات التعليمية الذكية! 🐣✨
+              </p>
+</div>
+<div class="mt-space-xs flex items-center justify-center sm:justify-start gap-1 text-secondary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>محتوى مدروس تربوياً وموافق للمناهج المعتمدة</span>
+</div>
+</div>
+</section>
+<!-- Form Title -->
+<div class="flex flex-col gap-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">إعداد الملف التعليمي لطفلك</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">أدخل بيانات طفلك لنقوم بتخصيص المحطة التعليمية المناسبة لمستواه وفصله الدراسي بدقة وبصورة مبهجة.</p>
+</div>
+<form class="flex flex-col gap-space-lg" id="childProfileForm" onsubmit="event.preventDefault();">
+<!-- Field 1: Child Name -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5" for="childName">
+<span>اسم الطفل</span>
+<span class="text-error font-body-sm text-body-sm">*</span>
+</label>
+<div class="relative flex items-center">
+<div class="absolute right-space-md flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[24px]">face</span>
+</div>
+<input class="w-full h-14 pr-12 pl-space-md bg-surface-container-low text-on-surface rounded-DEFAULT font-body-lg text-body-lg focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-inner transition-all duration-200" id="childName" placeholder="مثال: سارة، أحمد، ريان..." required="" type="text" value="سارة"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">سيظهر هذا الاسم في رسائل التشجيع والأوسمة التفاعلية.</span>
+</div>
+<!-- Field 2: Avatar Picker -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span>اختر الصورة الرمزية المفضلة لطفلك 🎨</span>
+</label>
+<span class="font-label-lg text-label-lg text-primary font-bold" id="selectedAvatarLabel">المبدعة الصغيرة</span>
+</div>
+<!-- Avatar List -->
+<div aria-label="اختر الصورة الرمزية" class="grid grid-cols-5 gap-2 sm:gap-space-sm pt-space-xs" id="avatarPickerGroup" role="radiogroup">
+<!-- Avatar 1 -->
+<button aria-checked="false" class="avatar-btn flex flex-col items-center gap-1 p-2 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all text-center focus:outline-none" onclick="selectAvatar(this, 'الفضاء الصغير')" role="radio" type="button">
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-surface-container flex items-center justify-center overflow-hidden transition-transform duration-200 hover:scale-105">
+<img class="w-full h-full object-cover rounded-full" data-alt="Joyful cute cartoon child astronaut wearing a soft cream space helmet with subtle golden star reflections, friendly anime-inspired 3D render with warm yellow and turquoise tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUnX_YqdpY8qRnfSrzH6f_mXZaIO3bXuc9X0LULzT_f102Kxa8G0la_fhYDSH-O8FFPuVLaQZCx13OF5WGwosNpfFm3a-lmpE3-SYMECasNgt2V5aIzWttwj51_EnrUGbY6jhteWupma5DDlFbtAQBvCb9g6ZcmG-FBEtm_3OkRgm701QRfy_4BuYGplM5z9TuTvybTmkOC8-QLKm1X5KNMJUt1WfJ0yj4GixQsyunguvtVqcGeD82g"/>
+<div class="check-badge hidden absolute inset-0 bg-primary/20 backdrop-blur-[1px] items-center justify-center">
+<span class="material-symbols-outlined text-on-primary bg-primary rounded-full text-[16px] p-0.5">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface truncate w-full">الفضاء</span>
+</button>
+<!-- Avatar 2 -->
+<button aria-checked="false" class="avatar-btn flex flex-col items-center gap-1 p-2 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all text-center focus:outline-none" onclick="selectAvatar(this, 'المستكشف الذكي')" role="radio" type="button">
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-surface-container flex items-center justify-center overflow-hidden transition-transform duration-200 hover:scale-105">
+<img class="w-full h-full object-cover rounded-full" data-alt="Charming 3D illustrated Arab boy wearing round explorer spectacles and a warm beige sun hat with a small magnifying glass badge, cheerful and curious expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsyoRnE-yPRpZBeJOg5HVRxu7lXkk0zpgW8m8hBCfE-ZtpgLdBbkvX1UDoBOxSRrEsJvHF8EVsbtnaVeQcPkdnuqxT9v0Ln6sRlcvfkHJ1wK_zpgdJnLX1-d-ozYazQiioPRVUByI2fMg1VeAhxy4lCo0qkX_PWLB0f9zkyCcJxjbwMfg_HQIO_dQTPfxawjcMHPHExvHKC5AaxTPtP4ISNKK_cONYKpIWaROwpXJ6ycIyG3fYzh3x5A"/>
+<div class="check-badge hidden absolute inset-0 bg-primary/20 backdrop-blur-[1px] items-center justify-center">
+<span class="material-symbols-outlined text-on-primary bg-primary rounded-full text-[16px] p-0.5">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface truncate w-full">المستكشف</span>
+</button>
+<!-- Avatar 3 (Selected Default) -->
+<button aria-checked="true" class="avatar-btn selected-avatar flex flex-col items-center gap-1 p-2 rounded-DEFAULT bg-primary-fixed/30 ring-2 ring-primary transition-all text-center focus:outline-none scale-105" onclick="selectAvatar(this, 'المبدعة الصغيرة')" role="radio" type="button">
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-primary-container flex items-center justify-center overflow-hidden transition-transform duration-200">
+<img class="w-full h-full object-cover rounded-full" data-alt="Vibrant 3D digital illustration of a happy young girl with twin buns, holding a glowing digital paintbrush, sunny warm amber lighting with teal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnlkV9QsNCCaeL_lcCpCm7ytTTftAQRyBeQSGj3MjekagTNg90FyRcOvXBx7erPld7CiQNYn-A_e7KpOP-dSxf1PGuFPOjalKfKoY4fkDLZi4WB-jCtjniS0NfkEXpBgwtMGujDGHEaLysRGQjVU1M1Aa2MhrdJvedJbLgE1pwoplOYecW7DpZEzCSt6oscQyqSByEf1VkukI3IaYhc6ZcRzOn17vgKU3I7AYKtNzlProEPrjvtYAf7A"/>
+<div class="check-badge flex absolute inset-0 bg-primary/30 backdrop-blur-[1px] items-center justify-center">
+<span class="material-symbols-outlined text-on-primary bg-primary rounded-full text-[16px] p-0.5">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold truncate w-full">المبدعة</span>
+</button>
+<!-- Avatar 4 -->
+<button aria-checked="false" class="avatar-btn flex flex-col items-center gap-1 p-2 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all text-center focus:outline-none" onclick="selectAvatar(this, 'البطل الرياضي')" role="radio" type="button">
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-surface-container flex items-center justify-center overflow-hidden transition-transform duration-200 hover:scale-105">
+<img class="w-full h-full object-cover rounded-full" data-alt="Energetic cute cartoon boy with a sportive headband and victory gesture, colorful 3D avatar design in warm daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARJqR2gHHznpobu3dB9-cbSFUCR354cjg5q1BxkhJROJ15MewOAZovafFEQ8WLFcw1x4m9g_OMjpbcq-D4K4cLPQWTX571J31FPIjxYnHueugm_jXDcJ1dLrUD1Q0rbZLpztZbD2XYbPWFjcZJXoGgrdCTUQGLntnkw5oQ68U4fNH4cISUKdmw6Fee-Tfo0P4_WCv7Ef-BnIozfnbIC3ws-4oHX724Zi9ucmk5hWIEIGYwjSG4kbOXgQ"/>
+<div class="check-badge hidden absolute inset-0 bg-primary/20 backdrop-blur-[1px] items-center justify-center">
+<span class="material-symbols-outlined text-on-primary bg-primary rounded-full text-[16px] p-0.5">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface truncate w-full">البطل</span>
+</button>
+<!-- Avatar 5 -->
+<button aria-checked="false" class="avatar-btn flex flex-col items-center gap-1 p-2 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container transition-all text-center focus:outline-none" onclick="selectAvatar(this, 'المفكر العبقري')" role="radio" type="button">
+<div class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full p-0.5 bg-surface-container flex items-center justify-center overflow-hidden transition-transform duration-200 hover:scale-105">
+<img class="w-full h-full object-cover rounded-full" data-alt="Clever young student avatar wearing a cozy teal sweater and holding a tiny smiling robot companion, high fidelity modern 3D character design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmtc0D47thuNvOLduXjuyABpDYBICthBSbEFOcm5HxOt8Sapmgb3uGJcgPppGLX-2WhwlU9DCrQAZqk7P5mECuij9UzzUoQUzbgoD3eanWl0XWJjk0heW_CH-ilhAwW_JAJdI_tXlGHiWLduNkxSOWFmiRAom51TVzBye9dHG7RwnVo7cy04PsLx83nl-aEA3LXm_a7T9kcyo-y5Y_2qycLkAj9KZfqhQE-neyLnbr_NPreU5rqXtmzw"/>
+<div class="check-badge hidden absolute inset-0 bg-primary/20 backdrop-blur-[1px] items-center justify-center">
+<span class="material-symbols-outlined text-on-primary bg-primary rounded-full text-[16px] p-0.5">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface truncate w-full">العبقري</span>
+</button>
+</div>
+</div>
+<!-- Field 3: Grade Level - Visual Pill Cards -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-col">
+<label class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span>المرحلة والصف الدراسي 🎒</span>
+<span class="text-error font-body-sm text-body-sm">*</span>
+</label>
+<span class="font-body-sm text-body-sm text-on-surface-variant">لتحديد محتوى الدروس ومحطات التعلم التفاعلية المناسبة لعمره</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs" id="gradeCardsGroup">
+<!-- KG Card -->
+<button class="grade-card flex flex-col items-center justify-center p-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container text-center transition-all cursor-pointer group" onclick="selectGrade(this, 'الروضة والتمهيدي')" type="button">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-2xl mb-2 shadow-sm group-hover:scale-110 transition-transform">
+                  🧸
+                </div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">الروضة والتمهيدي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">KG 1 - KG 2</span>
+</button>
+<!-- Grade 1 Card (Active Default) -->
+<button class="grade-card selected-grade flex flex-col items-center justify-center p-space-md rounded-DEFAULT bg-primary-fixed/40 ring-2 ring-primary shadow-md text-center transition-all cursor-pointer scale-105" onclick="selectGrade(this, 'الصف الأول الابتدائي')" type="button">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-2xl mb-2 shadow-sm">
+                  ✏️
+                </div>
+<span class="font-label-lg text-label-lg font-bold text-primary">الأول الابتدائي</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant mt-0.5">الصف الأول</span>
+</button>
+<!-- Grade 2 Card -->
+<button class="grade-card flex flex-col items-center justify-center p-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container text-center transition-all cursor-pointer group" onclick="selectGrade(this, 'الصف الثاني الابتدائي')" type="button">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-2xl mb-2 shadow-sm group-hover:scale-110 transition-transform">
+                  📘
+                </div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">الثاني الابتدائي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">الصف الثاني</span>
+</button>
+<!-- Grade 3 Card -->
+<button class="grade-card flex flex-col items-center justify-center p-space-md rounded-DEFAULT bg-surface-container-low hover:bg-surface-container text-center transition-all cursor-pointer group" onclick="selectGrade(this, 'الصف الثالث الابتدائي')" type="button">
+<div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-2xl mb-2 shadow-sm group-hover:scale-110 transition-transform">
+                  🚀
+                </div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">الثالث الابتدائي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">الصف الثالث</span>
+</button>
+</div>
+</div>
+<!-- Field 4: Current Academic Term (Segmented Control) -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5">
+<span>الفصل الدراسي الحالي 📅</span>
+</label>
+<div class="grid grid-cols-3 bg-surface-container-low p-1.5 rounded-DEFAULT gap-1.5" id="termSegmentGroup">
+<button class="term-btn py-2.5 px-space-sm rounded-DEFAULT bg-secondary text-on-secondary font-label-lg text-label-lg font-bold shadow-sm transition-all flex items-center justify-center gap-1" onclick="selectTerm(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+<span>الفصل الأول (خريف)</span>
+</button>
+<button class="term-btn py-2.5 px-space-sm rounded-DEFAULT text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-all flex items-center justify-center gap-1" onclick="selectTerm(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
+<span>الفصل الثاني (شتاء)</span>
+</button>
+<button class="term-btn py-2.5 px-space-sm rounded-DEFAULT text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-all flex items-center justify-center gap-1" onclick="selectTerm(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">nature</span>
+<span>الفصل الثالث (ربيع)</span>
+</button>
+</div>
+</div>
+<!-- Field 5: School Tenant Code (Optional with Badge) -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low/60 p-space-md rounded-DEFAULT">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<label class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1.5" for="schoolCode">
+<span class="material-symbols-outlined text-[20px] text-secondary">apartment</span>
+<span>رمز المدرسة 🏫</span>
+</label>
+<span class="px-2.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full font-label-sm text-label-sm font-bold">
+                اختياري - للمدارس الشريكة
+              </span>
+</div>
+<div class="relative flex items-center mt-1">
+<div class="absolute right-space-md flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[22px]">tag</span>
+</div>
+<input class="w-full h-12 pr-12 pl-space-md bg-surface-container-lowest text-on-surface rounded-DEFAULT font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-secondary/40 shadow-xs uppercase tracking-wider text-right" id="schoolCode" placeholder="مثال: SCH-2025-AMAL" type="text"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              إذا كانت مدرسة طفلك معتمدة في سنابل IQ، أدخل الرمز لتفعيل اشتراك المقعد المدرسي ومتابعة المعلمين مباشرة.
+            </span>
+</div>
+<!-- Primary Submit & Bottom Actions -->
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Big Amber Hero Button -->
+<button class="w-full h-16 rounded-full bg-primary-container hover:bg-amber-400 text-on-primary-container font-headline-sm text-headline-sm font-extrabold shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 group cursor-pointer" onclick="handleOnboardingSubmit()" type="button">
+<span>متابعة إلى لوحة التحكم واستكشاف الدروس</span>
+<span class="material-symbols-outlined text-[26px] group-hover:-translate-x-1 transition-transform">rocket_launch</span>
+</button>
+<!-- Trust and Privacy Notice -->
+<div class="flex items-start gap-2 text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low p-space-sm rounded-DEFAULT">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">lock</span>
+<p class="leading-relaxed">
+                خصوصية بيانات طفلك محمية بالكامل بمعايير الأمان المدرسية. يمكنك دائماً تعديل هذه البيانات، وتغيير الصف، أو إضافة أطفال آخرين من لوحة تحكم ولي الأمر.
+              </p>
+</div>
+<!-- Skip Link -->
+<div class="text-center pt-1">
+<a class="inline-block font-label-lg text-label-lg text-secondary hover:underline font-bold transition-colors" href="#">
+                تخطي هذه الخطوة والعودة لاحقاً
+              </a>
+</div>
+</div>
+</form>
+</main>
+<!-- Sidebar: Floating Helper & Journey Preview (4 cols on large screen) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Reward & Learning Plan Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">ماذا سيحصل طفلك بعد التسجيل؟</h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-sm p-space-xs rounded-DEFAULT bg-surface-container-low">
+<div class="w-9 h-9 rounded-full bg-primary-container/20 text-primary shrink-0 flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">خطة تعلم ذكية مخصصة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">تتأقلم مع سرعة استيعاب طفلك وتثبت نقاط قوته المعرفية.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-xs rounded-DEFAULT bg-surface-container-low">
+<div class="w-9 h-9 rounded-full bg-secondary-container/30 text-secondary shrink-0 flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">تقييم النطق ومخارج الحروف</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">مساعد صوتي ذكي يصحح قراءة الكلمات والتهجئة باللغة العربية الفصحى.</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-xs rounded-DEFAULT bg-surface-container-low">
+<div class="w-9 h-9 rounded-full bg-tertiary-container/30 text-tertiary shrink-0 flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">أوسمة وجوائز تفاعلية</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">رحلة مرحة تجمع بين اللعب ونقاط السنابل التحفيزية مع سنبل.</span>
+</div>
+</div>
+</div>
+<!-- Mini Learning Journey Progress Mockup -->
+<div class="p-space-sm bg-surface-container rounded-DEFAULT flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface font-label-md text-label-md">
+<span class="font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">stars</span>
+                معدل الاستعداد الأكاديمي
+              </span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-full rounded-full"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">جاهز لبدء مغامرة القراءة والرياضيات الأولى فوراً!</span>
+</div>
+</div>
+<!-- Live Preview Profile Card -->
+<div class="bg-gradient-to-br from-surface-container-lowest to-surface-container p-space-lg rounded-lg shadow-sm flex flex-col gap-space-sm items-center text-center relative overflow-hidden">
+<div class="w-full flex justify-between items-center pb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">بطاقة الطالب الذكية</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-label-sm font-bold">نشط</span>
+</div>
+<div class="w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-primary-container to-secondary shadow-md overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover rounded-full" data-alt="Vibrant 3D digital illustration of a happy young girl with twin buns, holding a glowing digital paintbrush, sunny warm amber lighting with teal accents." id="previewAvatarImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfi7UOgSxQWmvzD3QAAM1ROonHfUXN_P32vLCWr-ZiicZDj86w2xDPITKhZSE3LVHxiuXfU77FKx7s4PZhkFJ7rJE02MvXgRniRzlpQTHVQAVnBpncqPMT9wfqvkPxDxP3BNYnldpmVmo3SDBD5PMn7kMsg_0t2tUnh7Tn84T6zzvuk1gC92pE-AwQjxMQPQveQjmQ3DbnpwKTb87jmiJieZl3FEK1Zm27vUBgSPOyGSHzVcVbs8-drA"/>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="previewStudentName">سارة</h3>
+<span class="font-label-md text-label-md text-secondary font-bold" id="previewStudentGrade">الصف الأول الابتدائي</span>
+</div>
+<div class="w-full flex items-center justify-center gap-4 pt-2">
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">٠</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">نقاط سنبل</span>
+</div>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">١</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">المستوى</span>
+</div>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">🔥 ٠</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">أيام الحماس</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Avatar Selection Interaction
+  function selectAvatar(btn, avatarName) {
+    const avatarButtons = document.querySelectorAll('.avatar-btn');
+    avatarButtons.forEach(b => {
+      b.classList.remove('selected-avatar', 'bg-primary-fixed/30', 'ring-2', 'ring-primary', 'scale-105');
+      b.classList.add('bg-surface-container-low');
+      b.setAttribute('aria-checked', 'false');
+      const badge = b.querySelector('.check-badge');
+      if (badge) {
+        badge.classList.add('hidden');
+        badge.classList.remove('flex');
+      }
+    });
+
+    btn.classList.remove('bg-surface-container-low');
+    btn.classList.add('selected-avatar', 'bg-primary-fixed/30', 'ring-2', 'ring-primary', 'scale-105');
+    btn.setAttribute('aria-checked', 'true');
+    
+    const badge = btn.querySelector('.check-badge');
+    if (badge) {
+      badge.classList.remove('hidden');
+      badge.classList.add('flex');
+    }
+
+    const label = document.getElementById('selectedAvatarLabel');
+    if (label) label.textContent = avatarName;
+
+    // Update Live Preview Avatar
+    const previewImg = document.getElementById('previewAvatarImage');
+    const selectedImg = btn.querySelector('img');
+    if (previewImg && selectedImg) {
+      previewImg.src = selectedImg.src;
+      previewImg.setAttribute('data-alt', selectedImg.getAttribute('data-alt') || '');
+    }
+  }
+
+  // Grade Selection Interaction
+  function selectGrade(card, gradeName) {
+    const gradeCards = document.querySelectorAll('.grade-card');
+    gradeCards.forEach(c => {
+      c.classList.remove('selected-grade', 'bg-primary-fixed/40', 'ring-2', 'ring-primary', 'shadow-md', 'scale-105');
+      c.classList.add('bg-surface-container-low');
+      const titleSpan = c.querySelector('.font-bold');
+      if (titleSpan) {
+        titleSpan.classList.remove('text-primary');
+        titleSpan.classList.add('text-on-surface');
+      }
+    });
+
+    card.classList.remove('bg-surface-container-low');
+    card.classList.add('selected-grade', 'bg-primary-fixed/40', 'ring-2', 'ring-primary', 'shadow-md', 'scale-105');
+    
+    const titleSpan = card.querySelector('.font-bold');
+    if (titleSpan) {
+      titleSpan.classList.remove('text-on-surface');
+      titleSpan.classList.add('text-primary');
+    }
+
+    const previewGrade = document.getElementById('previewStudentGrade');
+    if (previewGrade) previewGrade.textContent = gradeName;
+  }
+
+  // Academic Term Segmented Button Interaction
+  function selectTerm(btn) {
+    const termButtons = document.querySelectorAll('.term-btn');
+    termButtons.forEach(b => {
+      b.classList.remove('bg-secondary', 'text-on-secondary', 'shadow-sm', 'font-bold');
+      b.classList.add('text-on-surface');
+    });
+
+    btn.classList.remove('text-on-surface');
+    btn.classList.add('bg-secondary', 'text-on-secondary', 'shadow-sm', 'font-bold');
+  }
+
+  // Name Live Reflection
+  const nameInput = document.getElementById('childName');
+  const previewName = document.getElementById('previewStudentName');
+  if (nameInput && previewName) {
+    nameInput.addEventListener('input', (e) => {
+      const val = e.target.value.trim();
+      previewName.textContent = val.length > 0 ? val : 'اسم الطفل';
+    });
+  }
+
+  function handleOnboardingSubmit() {
+    const nameVal = document.getElementById('childName')?.value.trim();
+    if (!nameVal) {
+      alert('يرجى كتابة اسم الطفل لمتابعة إعداد رحلته التعليمية');
+      document.getElementById('childName')?.focus();
+      return;
+    }
+    // Subtle visual confirmation before navigation simulation
+    const btn = event.currentTarget;
+    if (btn) {
+      btn.innerHTML = '<span>جاري تجهيز محطات التعلم... ✨</span>';
+      setTimeout(() => {
+        alert('مرحباً بك في سنابل IQ! تم إعداد ملف ' + nameVal + ' بنجاح.');
+      }, 500);
+    }
+  }
+</script></main></body></html>

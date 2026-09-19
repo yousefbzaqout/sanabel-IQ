@@ -1,0 +1,383 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 2,
+    "semester": 2,
+    "subject_code": "MATH",
+    "content_kind": "number",
+    "unit_title": "أعداد أكبر",
+    "lesson_key": "ar-g2-math-mock-add-within-20",
+    "audio_slug": "add-within-20",
+    "key": "mock-g2-math-add-within-20",
+    "title": "جمع حتى ٢٠",
+    "subtitle": "عرض تجريبي — الصف الثاني — الفصل 2",
+    "material_title": "تجريبي G2: جمع حتى ٢٠",
+    "order_column": 40,
+    "xp_reward": 44,
+    "description": "نوسّع الجمع حتى ٢٠.",
+    "phonemes": {
+        "voice_targets": [
+            "١",
+            "٢",
+            "٣"
+        ],
+        "tabs": [
+            {
+                "glyph": "١",
+                "label": "عشرة",
+                "audio_script": "هذا العدد ١",
+                "cards": [
+                    {
+                        "word": "١ عشرة",
+                        "emoji": "🔟",
+                        "audio": "عشرة",
+                        "highlight": "١"
+                    },
+                    {
+                        "word": "عشرة",
+                        "emoji": "🔟",
+                        "audio": "نقول عشرة",
+                        "highlight": "عشرة"
+                    },
+                    {
+                        "word": "١",
+                        "emoji": "🔢",
+                        "audio": "١",
+                        "highlight": "١"
+                    }
+                ]
+            },
+            {
+                "glyph": "٢",
+                "label": "خمسة عشر",
+                "audio_script": "هذا العدد ٢",
+                "cards": [
+                    {
+                        "word": "٢ خمسة عشر",
+                        "emoji": "🖐️",
+                        "audio": "خمسة عشر",
+                        "highlight": "٢"
+                    },
+                    {
+                        "word": "خمسة عشر",
+                        "emoji": "🖐️",
+                        "audio": "نقول خمسة عشر",
+                        "highlight": "خمسة عشر"
+                    },
+                    {
+                        "word": "٢",
+                        "emoji": "🔢",
+                        "audio": "٢",
+                        "highlight": "٢"
+                    }
+                ]
+            },
+            {
+                "glyph": "٣",
+                "label": "عشرين",
+                "audio_script": "هذا العدد ٣",
+                "cards": [
+                    {
+                        "word": "٣ عشرين",
+                        "emoji": "🎯",
+                        "audio": "عشرين",
+                        "highlight": "٣"
+                    },
+                    {
+                        "word": "عشرين",
+                        "emoji": "🎯",
+                        "audio": "نقول عشرين",
+                        "highlight": "عشرين"
+                    },
+                    {
+                        "word": "٣",
+                        "emoji": "🔢",
+                        "audio": "٣",
+                        "highlight": "٣"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "١٢٣",
+        "syllables": [
+            {
+                "glyph": "١",
+                "order": 1
+            },
+            {
+                "glyph": "٢",
+                "order": 2
+            },
+            {
+                "glyph": "٣",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! رتّبت الأعداد بالترتيب الصحيح."
+    },
+    "stroke": {
+        "label": "تتبّع كتابة ١٥",
+        "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+        "direction": "digit_stroke",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس جمع حتى ٢٠",
+        "story_audio": "هيا نستكشف جمع حتى ٢٠ مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "عشرة",
+                "emoji": "🔟",
+                "correct": true,
+                "audio": "عشرة"
+            },
+            {
+                "id": "item-1",
+                "label": "خمسة عشر",
+                "emoji": "🖐️",
+                "correct": true,
+                "audio": "خمسة عشر"
+            },
+            {
+                "id": "item-2",
+                "label": "عشرين",
+                "emoji": "🎯",
+                "correct": true,
+                "audio": "عشرين"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في جمع حتى ٢٠؟",
+        "parts": [
+            {
+                "text": "🔟",
+                "highlight": true
+            },
+            {
+                "text": " عشرة",
+                "highlight": true
+            },
+            {
+                "text": " = ١٥",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على عشرة ضمن جمع حتى ٢٠.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس جمع حتى ٢٠.",
+            "2": "رتّب معي الأعداد خطوة بخطوة!",
+            "3": "طابق العدد ١٥ مع أشكاله المختلفة.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ١٥ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "كم عنصراً في المجموعة؟",
+                "visual_items": {
+                    "emoji": "🔟",
+                    "count": 3
+                },
+                "mascot_hint": "تلميح سنبل: عدّ واحداً واحداً بإصبعك.",
+                "explanation": "المجموعة فيها 3 عناصر.",
+                "options": [
+                    {
+                        "text": "3",
+                        "correct": true
+                    },
+                    {
+                        "text": "2",
+                        "correct": false
+                    },
+                    {
+                        "text": "4",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي جملة صحيحة؟",
+                "comparison": {
+                    "left": 3,
+                    "right": 2,
+                    "operator": "gt"
+                },
+                "mascot_hint": "تلميح سنبل: العدد الأكبر يعني كمية أكثر.",
+                "explanation": "3 أكبر من 2.",
+                "options": [
+                    {
+                        "text": "3 أكبر من 2",
+                        "correct": true
+                    },
+                    {
+                        "text": "3 أصغر من 2",
+                        "correct": false
+                    },
+                    {
+                        "text": "3 يساوي 2",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «عشرة» مناسبة لدرس جمع حتى ٢٠.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "عشرة، خمسة عشر، عشرين",
+                "options": [
+                    {
+                        "text": "عشرة \/ خمسة عشر \/ عشرين",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "digits": [
+        "١",
+        "٢",
+        "٣"
+    ],
+    "digit": "٣",
+    "number_forms": [
+        {
+            "id": "fingers",
+            "label": "٣ أصابع",
+            "word": "☝️☝️☝️",
+            "parts": [
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                }
+            ],
+            "audio": "نعدّ حتى ٣"
+        },
+        {
+            "id": "dots",
+            "label": "٣ نقاط",
+            "word": "●●●",
+            "parts": [
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ نقاط"
+        },
+        {
+            "id": "objects",
+            "label": "٣ أشياء",
+            "word": "🔟🔟🔟",
+            "parts": [
+                {
+                    "text": "🔟",
+                    "highlight": true
+                },
+                {
+                    "text": "🔟",
+                    "highlight": true
+                },
+                {
+                    "text": "🔟",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ 🔟"
+        }
+    ]
+}

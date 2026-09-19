@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "MATH",
+  "content_kind": "number",
+  "unit_title": "الأعداد حتى 9",
+  "lesson_key": "ar-g1-math-numbers-4-6",
+  "audio_slug": "numbers-4-6",
+  "key": "math-numbers-4-6",
+  "title": "الأعداد ٤ و٥ و٦",
+  "subtitle": "نعدّ ونكتب ونقارن — الرياضيات للصف الأول",
+  "material_title": "الدرس ٢: الأعداد من ٤ إلى ٦",
+  "digit": "٦",
+  "digits": ["٤", "٥", "٦"],
+  "order_column": 11,
+  "xp_reward": 45,
+  "description": "نتعلم الأعداد أربعة وخمسة وستة مع العدّ البصري وتتبع الأرقام والمقارنة.",
+  "phonemes": {
+    "voice_targets": ["٤", "٥", "٦"],
+    "spoken_names": {
+      "٤": "أربعة",
+      "٥": "خمسة",
+      "٦": "ستة"
+    },
+    "tabs": [
+      {
+        "glyph": "٤",
+        "label": "أربعة",
+        "audio_script": "هذا العدد أربعة",
+        "cards": [
+          {"word": "٤ أزهار", "emoji": "🌸🌸🌸🌸", "audio": "أربع أزهار", "highlight": "٤"},
+          {"word": "أربعة", "emoji": "4️⃣", "audio": "نقول أربعة", "highlight": "أربعة"},
+          {"word": "٤ أرجل", "emoji": "🐶", "audio": "للحيوان أربعة أرجل", "highlight": "٤"}
+        ]
+      },
+      {
+        "glyph": "٥",
+        "label": "خمسة",
+        "audio_script": "هذا العدد خمسة",
+        "cards": [
+          {"word": "٥ أصابع", "emoji": "🖐️", "audio": "خمسة أصابع في اليد", "highlight": "٥"},
+          {"word": "خمسة", "emoji": "5️⃣", "audio": "نقول خمسة", "highlight": "خمسة"},
+          {"word": "٥ نجوم", "emoji": "⭐⭐⭐⭐⭐", "audio": "خمس نجوم", "highlight": "٥"}
+        ]
+      },
+      {
+        "glyph": "٦",
+        "label": "ستة",
+        "audio_script": "هذا العدد ستة",
+        "cards": [
+          {"word": "٦ بيضات", "emoji": "🥚🥚🥚🥚🥚🥚", "audio": "ست بيضات", "highlight": "٦"},
+          {"word": "ستة", "emoji": "6️⃣", "audio": "نقول ستة", "highlight": "ستة"},
+          {"word": "٦ نقاط", "emoji": "🎲", "audio": "ست نقاط على حجر النرد", "highlight": "٦"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "٤٥٦",
+    "syllables": [
+      {"glyph": "٤", "order": 1},
+      {"glyph": "٥", "order": 2},
+      {"glyph": "٦", "order": 3}
+    ],
+    "completion_audio_script": "أحسنت! عددت أربعة، خمسة، ستة!"
+  },
+  "number_forms": [
+    {
+      "id": "fingers",
+      "label": "خمسة أصابع",
+      "word": "🖐️",
+      "parts": [
+        {"text": "١", "highlight": false},
+        {"text": "٢", "highlight": false},
+        {"text": "٣", "highlight": false},
+        {"text": "٤", "highlight": false},
+        {"text": "٥", "highlight": true}
+      ],
+      "audio": "أصابع اليد الخمسة"
+    },
+    {
+      "id": "dots",
+      "label": "ست نقاط",
+      "word": "••••••",
+      "parts": [
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true}
+      ],
+      "audio": "ست نقاط مثل العدد ستة"
+    },
+    {
+      "id": "objects",
+      "label": "أربع أزهار",
+      "word": "🌸🌸🌸🌸",
+      "parts": [
+        {"text": "🌸", "highlight": true},
+        {"text": "🌸", "highlight": true},
+        {"text": "🌸", "highlight": true},
+        {"text": "🌸", "highlight": true}
+      ],
+      "audio": "أربع أزهار جميلة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع كتابة العدد ٦ بإصبعك",
+    "path": "M 95 36 C 70 28 42 42 42 72 C 42 104 68 124 92 118 C 112 112 118 92 110 78 C 102 66 88 66 78 74",
+    "direction": "digit_stroke",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد كتبت العدد ستة يا بطل!"
+  },
+  "discovery": {
+    "intro": "امسح واعثر على مجموعات من ٤ و٥ و٦",
+    "story_audio": "في الحديقة أزهار وأصابع ونرد. هيا نعدّ حتى ستة!",
+    "items": [
+      {"id": "four-flowers", "label": "أربع أزهار", "emoji": "🌸", "correct": true, "audio": "أربعة"},
+      {"id": "five-hand", "label": "يد", "emoji": "🖐️", "correct": true, "audio": "خمسة"},
+      {"id": "six-dice", "label": "نرد", "emoji": "🎲", "correct": true, "audio": "ستة"},
+      {"id": "sun", "label": "شمس", "emoji": "☀️", "correct": false, "audio": "هذه شمس"},
+      {"id": "book", "label": "كتاب", "emoji": "📘", "correct": false, "audio": "هذا كتاب"}
+    ]
+  },
+  "demo": {
+    "question": "كم إصبعاً في يد واحدة؟",
+    "parts": [
+      {"text": "🖐️", "highlight": true},
+      {"text": " = ٥", "highlight": false}
+    ],
+    "explain_audio": "نعدّ أصابع اليد: واحد اثنان ثلاثة أربعة خمسة. الجواب خمسة.",
+    "cta": "جاهز لاختبار الأعداد ٤–٦! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "أنا سنبل! هيا نتعرّف على أربعة وخمسة وستة.",
+      "2": "رتّب ٤ ثم ٥ ثم ٦ بالترتيب.",
+      "3": "صل العدد بأشكاله من حولك.",
+      "4": "ارسم العدد ستة بهدوء من الأعلى.",
+      "5": "عدّ المجموعات التي تجدها!",
+      "6": "فلنراجع العدّ معاً ثم نختبر."
+    },
+    "adaptive": [
+      {"concept": "compare_near", "hint": "تلميح سنبل: فكّر أي مجموعة فيها أشياء أكثر."},
+      {"concept": "digit_stroke_6", "hint": "تلميح سنبل: للعدد ٦ ابدأ من الأعلى وانزل بحلقه ناعمة."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "كم عدد الأزهار؟",
+        "visual_items": {"emoji": "🌸", "count": 4},
+        "mascot_hint": "تلميح سنبل: أشر لكل زهرة وأنت تعدّ.",
+        "explanation": "أربع أزهار = ٤.",
+        "options": [
+          {"text": "٤", "correct": true},
+          {"text": "٥", "correct": false},
+          {"text": "٦", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أي جملة صحيحة؟",
+        "comparison": {"left": 5, "right": 6, "operator": "lt"},
+        "mascot_hint": "تلميح سنبل: ٥ أصغر من ٦ لأن خمسة أقل من ستة.",
+        "explanation": "٥ أصغر من ٦.",
+        "options": [
+          {"text": "٥ أصغر من ٦", "correct": true},
+          {"text": "٥ أكبر من ٦", "correct": false},
+          {"text": "٥ يساوي ٦", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "كم إصبعاً في يدك؟",
+        "visual_items": {"emoji": "👆", "count": 5},
+        "mascot_hint": "تلميح سنبل: انظر إلى يدك وعدّ الأصابع.",
+        "explanation": "خمسة أصابع = ٥.",
+        "options": [
+          {"text": "٥", "correct": true},
+          {"text": "٤", "correct": false},
+          {"text": "٦", "correct": false}
+        ]
+      }
+    ]
+  }
+}

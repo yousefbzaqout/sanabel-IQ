@@ -6,9 +6,9 @@
     };
 
     $motionClass = match ($state) {
-        'happy' => 'animate-bounce',
-        'thinking' => 'animate-pulse',
-        'encouraging' => 'animate-[wiggle_1.2s_ease-in-out_infinite]',
+        'happy' => 'motion-safe:animate-bounce',
+        'thinking' => 'motion-safe:animate-pulse',
+        'encouraging' => 'motion-safe:animate-[wiggle_1.2s_ease-in-out_infinite]',
         default => '',
     };
 @endphp
@@ -32,8 +32,8 @@
             <p>{{ $message }}</p>
             <button
                 type="button"
-                class="absolute -top-2 -start-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-xs text-amber-800 hover:bg-amber-200 dark:bg-amber-900 dark:text-amber-100"
-                @click="bubbleVisible = false; $store.audio?.speak(@js($message))"
+                class="absolute -top-2 -start-2 inline-flex min-h-12 min-w-12 items-center justify-center rounded-full bg-amber-100 text-base text-amber-800 hover:bg-amber-200 dark:bg-amber-900 dark:text-amber-100"
+                @click="bubbleVisible = false; (() => { const audio = $store.audio; if (!audio?.speak) { console.warn('[sanabel-audio] store missing on mascot speak'); return; } audio.unlock?.(); audio.speak(@js($message)); })()"
                 aria-label="سماع الرسالة"
                 title="🔊 سماع"
             >
@@ -104,5 +104,5 @@
         </svg>
     </div>
 
-    <span class="text-xs font-semibold text-amber-700 dark:text-amber-300">سنبل 🐦</span>
+    <span class="text-sm font-semibold text-amber-700 dark:text-amber-300">سنبل 🐦</span>
 </div>

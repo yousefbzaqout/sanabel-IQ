@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 5,
+    "semester": 1,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "فهم المقروء",
+    "lesson_key": "ar-g5-ar-mock-reading-main-idea",
+    "audio_slug": "reading-main-idea",
+    "key": "mock-g5-arabic-reading-main-idea",
+    "title": "الفكرة الرئيسة",
+    "subtitle": "عرض تجريبي — الصف الخامس — الفصل 1",
+    "material_title": "تجريبي G5: الفكرة الرئيسة",
+    "order_column": 20,
+    "xp_reward": 50,
+    "description": "نستخرج الفكرة الرئيسة من فقرة قصيرة.",
+    "phonemes": {
+        "voice_targets": [
+            "فَ",
+            "فُ",
+            "فِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "فَ",
+                "label": "فتحة",
+                "audio_script": "صوت فَ",
+                "cards": [
+                    {
+                        "word": "فكرة",
+                        "emoji": "💡",
+                        "audio": "فَ مثل فكرة",
+                        "highlight": "فَ"
+                    },
+                    {
+                        "word": "عنوان",
+                        "emoji": "🏷️",
+                        "audio": "عنوان",
+                        "highlight": "ع"
+                    },
+                    {
+                        "word": "فقرة",
+                        "emoji": "📄",
+                        "audio": "فقرة",
+                        "highlight": "ف"
+                    }
+                ]
+            },
+            {
+                "glyph": "فُ",
+                "label": "ضمة",
+                "audio_script": "صوت فُ",
+                "cards": [
+                    {
+                        "word": "عنوان",
+                        "emoji": "🏷️",
+                        "audio": "فُ مثل عنوان",
+                        "highlight": "فُ"
+                    },
+                    {
+                        "word": "فقرة",
+                        "emoji": "📄",
+                        "audio": "فقرة",
+                        "highlight": "ف"
+                    },
+                    {
+                        "word": "فكرة",
+                        "emoji": "💡",
+                        "audio": "فكرة",
+                        "highlight": "ف"
+                    }
+                ]
+            },
+            {
+                "glyph": "فِ",
+                "label": "كسرة",
+                "audio_script": "صوت فِ",
+                "cards": [
+                    {
+                        "word": "فقرة",
+                        "emoji": "📄",
+                        "audio": "فِ مثل فقرة",
+                        "highlight": "فِ"
+                    },
+                    {
+                        "word": "فكرة",
+                        "emoji": "💡",
+                        "audio": "فكرة",
+                        "highlight": "ف"
+                    },
+                    {
+                        "word": "عنوان",
+                        "emoji": "🏷️",
+                        "audio": "عنوان",
+                        "highlight": "ع"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "فكرة",
+        "syllables": [
+            {
+                "glyph": "ف",
+                "order": 1
+            },
+            {
+                "glyph": "ك",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة فكرة"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس الفكرة الرئيسة",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس الفكرة الرئيسة",
+        "story_audio": "هيا نستكشف الفكرة الرئيسة مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "فكرة",
+                "emoji": "💡",
+                "correct": true,
+                "audio": "فكرة"
+            },
+            {
+                "id": "item-1",
+                "label": "عنوان",
+                "emoji": "🏷️",
+                "correct": true,
+                "audio": "عنوان"
+            },
+            {
+                "id": "item-2",
+                "label": "فقرة",
+                "emoji": "📄",
+                "correct": true,
+                "audio": "فقرة"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في الفكرة الرئيسة؟",
+        "parts": [
+            {
+                "text": "💡",
+                "highlight": true
+            },
+            {
+                "text": " فكرة",
+                "highlight": true
+            },
+            {
+                "text": " = ف",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على فكرة ضمن الفكرة الرئيسة.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس الفكرة الرئيسة.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ف في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس الفكرة الرئيسة؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "فكرة من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "فكرة",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "عنوان جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "عنوان",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «فكرة» مناسبة لدرس الفكرة الرئيسة.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "فكرة، عنوان، فقرة",
+                "options": [
+                    {
+                        "text": "فكرة \/ عنوان \/ فقرة",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ف",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "فكرة",
+            "parts": [
+                {
+                    "text": "ف",
+                    "highlight": true
+                },
+                {
+                    "text": "كرة",
+                    "highlight": false
+                }
+            ],
+            "audio": "فكرة: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "عنوان",
+            "parts": [
+                {
+                    "text": "ع",
+                    "highlight": false
+                },
+                {
+                    "text": "ف",
+                    "highlight": true
+                },
+                {
+                    "text": "ن",
+                    "highlight": false
+                }
+            ],
+            "audio": "عنوان: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "فقرة",
+            "parts": [
+                {
+                    "text": "فقر",
+                    "highlight": false
+                },
+                {
+                    "text": "ة",
+                    "highlight": true
+                }
+            ],
+            "audio": "فقرة: في نهاية الكلمة"
+        }
+    ]
+}

@@ -20,7 +20,7 @@ class StudentLeaderboardController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         $gradeLevel = (int) $request->integer('grade', $student->grade_level);
         $period = $request->string('period', 'alltime')->toString();

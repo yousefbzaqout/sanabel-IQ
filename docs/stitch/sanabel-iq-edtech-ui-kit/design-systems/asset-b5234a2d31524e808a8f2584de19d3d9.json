@@ -1,0 +1,12 @@
+{
+  "id": "asset-stub-assets_b5234a2d31524e808a8f2584de19d3d9",
+  "type": "DESIGN_SYSTEM_INSTANCE",
+  "sourceAsset": "assets/b5234a2d31524e808a8f2584de19d3d9",
+  "instance": {
+    "id": "assets_b5234a2d31524e808a8f2584de19d3d9",
+    "width": 960,
+    "height": 540,
+    "sourceAsset": "assets/b5234a2d31524e808a8f2584de19d3d9",
+    "type": "DESIGN_SYSTEM_INSTANCE"
+  }
+}

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface": "#faf8ff",
+        "primary-fixed": "#ffddb8",
+        "surface-container-high": "#e2e7ff",
+        "tertiary": "#494bd6",
+        "secondary": "#006a61",
+        "surface-container-low": "#f2f3ff",
+        "surface-dim": "#d2d9f4",
+        "on-surface-variant": "#534434",
+        "on-primary-fixed-variant": "#653e00",
+        "background": "#faf8ff",
+        "error": "#ba1a1a",
+        "surface-bright": "#faf8ff",
+        "on-error-container": "#93000a",
+        "inverse-on-surface": "#eef0ff",
+        "surface-container-lowest": "#ffffff",
+        "inverse-surface": "#283044",
+        "on-surface": "#131b2e",
+        "on-tertiary-fixed": "#07006c",
+        "inverse-primary": "#ffb95f",
+        "on-primary": "#ffffff",
+        "primary-container": "#f59e0b",
+        "tertiary-fixed": "#e1e0ff",
+        "surface-container": "#eaedff",
+        "on-secondary-fixed": "#00201d",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "primary-fixed-dim": "#ffb95f",
+        "on-tertiary-container": "#2b29bb",
+        "on-secondary-fixed-variant": "#005049",
+        "outline": "#867461",
+        "secondary-fixed": "#89f5e7",
+        "tertiary-fixed-dim": "#c0c1ff",
+        "on-primary-fixed": "#2a1700",
+        "surface-container-highest": "#dae2fd",
+        "on-background": "#131b2e",
+        "on-primary-container": "#613b00",
+        "primary": "#855300",
+        "on-tertiary": "#ffffff",
+        "on-secondary": "#ffffff",
+        "outline-variant": "#d8c3ad",
+        "surface-tint": "#855300",
+        "on-secondary-container": "#006f66",
+        "tertiary-container": "#a7a9ff",
+        "secondary-container": "#86f2e4",
+        "surface-variant": "#dae2fd",
+        "on-error": "#ffffff",
+        "error-container": "#ffdad6",
+        "secondary-fixed-dim": "#6bd8cb"
+      },
+      "borderRadius": {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "3rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-md": "1rem",
+        "margin": "2rem",
+        "space-xl": "2.5rem",
+        "margin-mobile": "1rem",
+        "gutter-mobile": "1rem",
+        "space-xs": "0.25rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "space-sm": "0.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Plus Jakarta Sans"],
+        "body-lg": ["Plus Jakarta Sans"],
+        "headline-xl": ["Plus Jakarta Sans"],
+        "label-md": ["Plus Jakarta Sans"],
+        "headline-xl-mobile": ["Plus Jakarta Sans"],
+        "headline-lg-mobile": ["Plus Jakarta Sans"],
+        "headline-md": ["Plus Jakarta Sans"],
+        "headline-sm": ["Plus Jakarta Sans"],
+        "label-lg": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "label-sm": ["Plus Jakarta Sans"],
+        "body-sm": ["Plus Jakarta Sans"]
+      },
+      "fontSize": {
+        "headline-lg": ["2.25rem", {"lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "body-lg": ["1.125rem", {"lineHeight": "1.875rem", "fontWeight": "400"}],
+        "headline-xl": ["3rem", {"lineHeight": "3.75rem", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+        "label-md": ["0.75rem", {"lineHeight": "1rem", "fontWeight": "600"}],
+        "headline-xl-mobile": ["2rem", {"lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+        "headline-lg-mobile": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "headline-md": ["1.5rem", {"lineHeight": "2rem", "fontWeight": "700"}],
+        "headline-sm": ["1.25rem", {"lineHeight": "1.75rem", "fontWeight": "600"}],
+        "label-lg": ["0.875rem", {"lineHeight": "1.25rem", "fontWeight": "600"}],
+        "body-md": ["1rem", {"lineHeight": "1.625rem", "fontWeight": "400"}],
+        "label-sm": ["0.6875rem", {"lineHeight": "0.875rem", "fontWeight": "700"}],
+        "body-sm": ["0.875rem", {"lineHeight": "1.375rem", "fontWeight": "400"}]
+      }
+    }
+  }
+};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 inset-x-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><img alt="Brand logo. - Primary color: #f59e0b
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VZsPads2sYG8yH_klNjS1VsQ1UcFU-2Hw2JQD9fWWg9IeIjNk1sHG0CrC_9FjQITB42VAjIrRB_N9WsD8WHBxy3T8LHG-gnNsvCyTmTbJ4Oc8Ol9JGThSMGGDXhGPGQiLhSmu0b68PUTc_1kFyUlzm3-tURS9E7WIzN5VxrPSunbYna_MNqQPeifjT5o2TlHZ5UCY12FGCaOhuFTCfnrqBTxQZu18hkL1uMDxFrE4CPXKZgJjQmhv2Bn6K"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight">سنابل IQ</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">بوابة أولياء الأمور</span></div></div><div class="hidden md:flex items-center justify-center flex-1 max-w-xl mx-auto"><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-full shadow-[0_2px_8px_rgba(15,23,42,0.04)]"><span class="material-symbols-outlined text-primary-container text-lg">face</span><span class="font-label-md text-label-md text-on-surface-variant">الطفل النشط:</span><span class="font-label-lg text-label-lg text-on-surface font-bold">سارة</span><span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">الصف الأول الابتدائي</span><span class="material-symbols-outlined text-on-surface-variant text-base cursor-pointer">arrow_drop_down</span></div></div><div class="flex items-center gap-space-sm"><button class="hidden xl:flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-full transition-colors" type="button"><span class="material-symbols-outlined text-base">picture_as_pdf</span><span>تصدير تقرير PDF</span></button><button class="hidden xl:flex items-center gap-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-full transition-colors" type="button"><span class="material-symbols-outlined text-base">csv</span><span>تصدير CSV</span></button><div class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></div><div class="flex items-center gap-2 pr-space-xs pl-space-sm py-1 rounded-full bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1X8K9CVrxW8HABWB8jBV3V5f1qYR973Z7GuDEddzlt5tQuHOEw4QuLqkOyOlxNDZgxnWKPMU825zuZc6xMro3BqY2xdCn7bZSmQ8BTZ2RiOO9KCljmSl_GwD1tJ6ni80fCw0GJ6BiAbKBlePlvXIDxpeOSgmvz8Jp7T-4IL4pLDIYGJxtf-NN4Ef_PNeixzzMdP93F038D5HxYJFRW0V8SArn6Ex2Sy6UwlNisxP5EddHRO7XEMdVElXzzM"/><span class="material-symbols-outlined text-on-surface-variant text-base">expand_more</span></div></div></div></header><aside class="fixed top-16 right-0 h-[calc(100vh-4rem)] w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-30 flex flex-col justify-between p-space-md overflow-y-auto"><div class="flex flex-col gap-space-lg"><div class="px-space-sm pt-space-xs"><p class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">التنقل الرئيسي</p></div><nav class="flex flex-col gap-1.5" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-bold rounded-lg" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-label-lg text-label-lg">لوحة التحكم العامة</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="mastery-reports" href="#"><span class="material-symbols-outlined text-xl">insights</span><span class="font-label-lg text-label-lg">تقارير الإتقان والأداء</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="study-plan" href="#"><span class="material-symbols-outlined text-xl">calendar_today</span><span class="font-label-lg text-label-lg">خطة التدريب الأسبوعية</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="badges-rewards" href="#"><span class="material-symbols-outlined text-xl">military_tech</span><span class="font-label-lg text-label-lg">محفظة الأوسمة والشهادات</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="school-messages" href="#"><span class="material-symbols-outlined text-xl">chat</span><span class="font-label-lg text-label-lg">التواصل مع المعلمين</span></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span class="font-label-lg text-label-lg">إعدادات الحساب والأبناء</span></a></nav></div><div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-lg">lightbulb</span><span class="font-label-md text-label-md text-on-surface font-bold">توصية ذكية</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">أكملت سارة 85% من أهداف الحساب لهذا الأسبوع. عزّز ثقتها بجائزة صغيرة!</p></div></aside><div class="pr-72"><main class="w-full pt-16 bg-background min-h-screen px-gutter py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- TOP CONTEXT / FILAMENT PAGE HEADER -->
+<section class="flex flex-col gap-space-md bg-surface-container-lowest p-space-lg rounded-lg shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Identity & Subtitle -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface font-extrabold tracking-tight">
+            لوحة متابعة الطفل: سارة عبد الرحمن
+          </h1>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-base text-primary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+            المستوى الذهبي
+          </span>
+</div>
+<div class="flex items-center gap-2 flex-wrap font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-secondary text-base">school</span>
+            مدرسة الأمل النموذجية
+          </span>
+<span class="text-outline-variant">•</span>
+<span>الصف الأول الابتدائي (شعبة أ)</span>
+<span class="text-outline-variant">•</span>
+<span>الفصل الدراسي الثاني 1445-1446هـ</span>
+</div>
+</div>
+<!-- Action Pill & Switcher -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Switch Child Dropdown Button -->
+<div class="relative group">
+<button class="flex items-center gap-2.5 bg-surface-container-low hover:bg-surface-container text-on-surface px-4 py-2 rounded-full font-label-lg text-label-lg transition-all shadow-sm" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>سارة (الصف الأول)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">arrow_drop_down</span>
+</button>
+<!-- Mock Dropdown List -->
+<div class="absolute left-0 mt-2 w-52 bg-surface-container-lowest rounded-xl shadow-lg p-1.5 hidden group-hover:block z-50">
+<div class="px-3 py-2 text-label-sm font-label-sm text-on-surface-variant font-bold">التبديل بين الأبناء</div>
+<a class="flex items-center justify-between px-3 py-2 rounded bg-surface-container-low font-label-md text-label-md text-on-surface font-bold" href="#">
+<span>سارة (الصف الأول)</span>
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded hover:bg-surface-container font-label-md text-label-md text-on-surface-variant transition-colors" href="#">
+<span>عمر (مرحلة الروضة)</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">face_3</span>
+</a>
+</div>
+</div>
+<!-- Filament Actions -->
+<button class="flex items-center gap-1.5 bg-primary-container hover:brightness-105 active:translate-y-0.5 text-on-primary-container px-4 py-2 rounded-full font-label-lg text-label-lg font-bold shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+<span>تصدير تقرير أسبوعي PDF</span>
+</button>
+<button class="flex items-center gap-1.5 bg-surface-container-lowest hover:bg-surface-container-low text-secondary px-3.5 py-2 rounded-full font-label-lg text-label-lg font-bold shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">table_chart</span>
+<span>تقرير درجات CSV</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" title="تخصيص الواجهة" type="button">
+<span class="material-symbols-outlined text-xl">tune</span>
+</button>
+</div>
+</div>
+<!-- Sync status metadata bar -->
+<div class="flex items-center justify-between pt-space-xs text-label-sm font-label-sm text-on-surface-variant border-none">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span>
+<span>آخر مزامنة مع منصة المدرسة: اليوم، 11:30 ص</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-secondary font-bold">النظام متصل ومحدّث لحظياً</span>
+</div>
+</div>
+</section>
+<!-- KPI STATS OVERVIEW (FILAMENT 4-GRID) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total XP -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">إجمالي النقاط والخبرة (Total XP)</span>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<div class="mt-space-md flex flex-col gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">3,840 <span class="font-label-lg text-label-lg font-semibold text-primary">XP</span></span>
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center text-secondary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+            +420 XP
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">مكتسبة هذا الأسبوع</span>
+</div>
+</div>
+<!-- Decorative Pill Accent -->
+<div class="absolute -bottom-6 -left-6 w-20 h-20 rounded-full bg-primary-fixed/20 pointer-events-none"></div>
+</div>
+<!-- Card 2: Accuracy Rate -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">نسبة دقة الإجابات (Accuracy)</span>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold">
+<span class="material-symbols-outlined text-xl">verified</span>
+</div>
+</div>
+<div class="mt-space-md flex flex-col gap-1">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold">94.2%</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">+2.8%</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-2 rounded-full" style="width: 94.2%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">تقييم صوتي</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Daily Streak -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">سلسلة المواظبة (Daily Streak)</span>
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error font-bold">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<div class="mt-space-md flex flex-col gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">14 <span class="font-body-md text-body-md text-on-surface-variant font-semibold">يوماً متتالياً</span></span>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-error font-bold">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span>شعلة نشطة • بطل الأسبوع بالفصل</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Completed Lessons -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">التحديات والدروس المكتملة</span>
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold">
+<span class="material-symbols-outlined text-xl">auto_stories</span>
+</div>
+</div>
+<div class="mt-space-md flex flex-col gap-1">
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">28 <span class="font-body-md text-body-md text-on-surface-variant">/ 30 درساً</span></span>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="font-semibold text-tertiary">نسبة إنجاز 93%</span>
+<span>متبقٍ درسان فقط</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ASYMMETRIC MAIN GRID (8/12 - 4/12) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- RIGHT MAIN COLUMN (8 COLS RTL) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Mastery Analytics Chart Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Header with Tabs -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+              مؤشر إتقان المهارات والمواد الدراسية (Mastery Analytics)
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              تحليل أدائي دقيق مدعوم بنموذج الذكاء الاصطناعي لكل مجال تعليمي
+            </p>
+</div>
+<!-- Chart Range Tabs -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-full self-start">
+<button class="px-3.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold shadow-sm transition-all" type="button">
+              آخر 7 أيام
+            </button>
+<button class="px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+              آخر 30 يوماً
+            </button>
+<button class="px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+              الفصل كامل
+            </button>
+</div>
+</div>
+<!-- SVG Visual Mastery Chart Area -->
+<div class="w-full bg-surface-container-low/60 rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="w-full h-64 relative flex items-end">
+<!-- Inline SVG chart -->
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 680 220">
+<!-- Grid lines -->
+<line stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="680" y1="20" y2="20"></line>
+<line stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="680" y1="70" y2="70"></line>
+<line stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="680" y1="120" y2="120"></line>
+<line stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="680" y1="170" y2="170"></line>
+<!-- Gradient Fill for Area Under Curve -->
+<defs>
+<lineargradient id="chartGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="chartGradientTeal" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#006a61" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#006a61" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Area Curves -->
+<path d="M 40,160 Q 180,60 320,80 T 500,40 T 640,30 L 640,210 L 40,210 Z" fill="url(#chartGradient)"></path>
+<path d="M 40,160 Q 180,60 320,80 T 500,40 T 640,30" stroke="#f59e0b" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Secondary Skill Path -->
+<path d="M 40,180 Q 180,110 320,130 T 500,80 T 640,65 L 640,210 L 40,210 Z" fill="url(#chartGradientTeal)"></path>
+<path d="M 40,180 Q 180,110 320,130 T 500,80 T 640,65" stroke="#006a61" stroke-dasharray="2 0" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Interactive Data Markers -->
+<circle cx="180" cy="90" fill="#f59e0b" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="320" cy="80" fill="#f59e0b" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="500" cy="40" fill="#f59e0b" r="6" stroke="#ffffff" stroke-width="3"></circle>
+<circle cx="640" cy="30" fill="#f59e0b" r="7" stroke="#ffffff" stroke-width="3"></circle>
+<circle cx="500" cy="80" fill="#006a61" r="5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="640" cy="65" fill="#006a61" r="5" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Skill Breakdowns Progress Bars -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md pt-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">اللغة العربية</span>
+<span class="font-label-md text-label-md font-extrabold text-primary">96%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 96%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">إتقان التهجئة وحروف المد</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">الرياضيات التفاعلية</span>
+<span class="font-label-md text-label-md font-extrabold text-secondary">88%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 88%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الجمع والطرح الصوري</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">العلوم والاستكشاف</span>
+<span class="font-label-md text-label-md font-extrabold text-tertiary">91%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 91%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">عالم النباتات والحيوانات</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">النطق والتحدث</span>
+<span class="font-label-md text-label-md font-extrabold text-primary">95%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 95%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">سلامة المخارج والطلاقة</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Weekly Leaderboard & Milestones Table (Filament TableWidget) -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">leaderboard</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+                لوحة المتصدرين وتحديات الأسبوع
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                شعبة أ • تنافس إيجابي ينمي روح المثابرة
+              </p>
+</div>
+</div>
+<span class="font-label-md text-label-md px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-bold">
+            الأسبوع الحادي عشر
+          </span>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-right font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md font-bold">
+<th class="py-3 px-4 rounded-r-lg">الترتيب</th>
+<th class="py-3 px-4">الطالب</th>
+<th class="py-3 px-4">نقاط الأسبوع</th>
+<th class="py-3 px-4">المهارة البارزة</th>
+<th class="py-3 px-4 rounded-l-lg">الأوسمة المكتسبة</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 font-bold text-on-surface">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-bold">
+                    1 🥇
+                  </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">ريان العتيبي</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">4,100 XP</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">السرعة الحسابية</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm font-bold text-secondary">
+<span class="material-symbols-outlined text-base">verified</span>
+                    نجم الحساب الذهبي
+                  </span>
+</td>
+</tr>
+<!-- Row 2: Sarah (Highlighted) -->
+<tr class="bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors">
+<td class="py-3.5 px-4 font-bold text-on-surface">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-highest text-on-surface font-bold">
+                    2 🥈
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary leading-none font-bold">سارة عبد الرحمن</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-extrabold">طفلك</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-extrabold text-primary">3,840 XP</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">مخارج الحروف والخط</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm font-bold text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">draw</span>
+                    وسام الخطاط الصغير
+                  </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 font-bold text-on-surface">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-on-surface font-bold">
+                    3 🥉
+                  </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">فهد الدوسري</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">3,620 XP</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">الاستيعاب القرائي</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm font-bold text-tertiary">
+<span class="material-symbols-outlined text-base">menu_book</span>
+                    القارئ الماهر
+                  </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 font-bold text-on-surface">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-surface-container text-on-surface-variant font-bold">
+                    4
+                  </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">مريم الخالدي</td>
+<td class="py-3.5 px-4 font-bold text-on-surface">3,490 XP</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">استكشاف العلوم</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm font-bold text-secondary">
+<span class="material-symbols-outlined text-base">eco</span>
+                    صديقة البيئة
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Count Footer -->
+<div class="flex items-center justify-between pt-space-xs font-label-md text-label-md text-on-surface-variant">
+<span>عرض 4 من 24 طالباً في الفصل</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container transition-colors disabled:opacity-40" type="button">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+<span class="font-bold text-on-surface">1</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- LEFT SIDEBAR COLUMN (4 COLS RTL - AI GUIDANCE & NEXT STEPS) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Sanbal's Weekly Smart Insight Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<!-- Sanbal Chick Header Avatar & Speech Ribbon -->
+<div class="flex items-center gap-space-sm">
+<div class="w-16 h-16 rounded-full bg-primary-fixed/40 flex items-center justify-center p-1 overflow-hidden shrink-0 shadow-sm">
+<img alt="سنبل المرشد الذكي" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XNNtqthZZvgsdIwx199-1bUswZlDQ0_WLOVra2n6gyG_wS6A2kxMn5JU2sZyxs0O-_KDf6hfINekUHr4VdY66UqBlg9w9wdFaqsTyumYoX8Ur2T1oEFVcNhtJ6-M1a2t4C7_krACw9VZ8-oDhKixNWCij3ngv2-tQRexTq0c_ZLgPVBLqSOQiB-2nowUi-UpN8wzCdfd0CwRhJKZLJNLq8vKWSysYG7C8aq2p9I8UjMDTQe-SU3cQ3A1Yx"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">توجيهات سنبل الذكية</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">تحليل الذكاء الاصطناعي الأسبوعي</span>
+</div>
+</div>
+<!-- Sanbal Message Bubble -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 relative">
+<div class="flex items-center gap-1.5 text-primary font-bold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>ملاحظة سنبل الصوتية واللغوية:</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            "سارة أبدعت هذا الأسبوع في نطق ومخارج حرفي <strong>القاف والطاء</strong> بدقة 96%! 🌟 نقترح تدريبها اليوم لمدة 10 دقائق على تتبع كتابة الكلمات لتعزيز تناسق الخط."
+          </p>
+<!-- Audio Listening Preview Pill -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-2 rounded-full mt-1 shadow-sm">
+<div class="flex items-center gap-2 pr-1">
+<button class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+</button>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">استمع لتسجيل سارة الصوتي 🎧</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant pl-2">0:24 د</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container hover:brightness-105 active:translate-y-0.5 text-on-primary-container py-3 rounded-full font-label-lg text-label-lg font-extrabold shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-xl">rocket_launch</span>
+<span>ابدأ تمرين التتبع المقترح مع سارة</span>
+</button>
+</div>
+<!-- Upcoming Assignments Widget -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">assignment</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+              الواجبات والتحديات القادمة
+            </h3>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-bold">
+            2 مهام
+          </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Assignment 1 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">تحدي قراءة قصة الغابة الخضراء</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">تسليم غداً</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              قراءة الفصل الثالث وتسجيل صوتي لـ 3 فقرات قصيرة.
+            </p>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-semibold text-secondary">
+<span class="material-symbols-outlined text-sm">person</span>
+                المعلمة: أ. نورة
+              </span>
+<button class="text-primary font-bold hover:underline" type="button">عرض التفاصيل ←</button>
+</div>
+</div>
+<!-- Assignment 2 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">مسابقة الحساب السريع (الجمع حتى 20)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">الجمعة القادمة</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              لعبة تفاعلية مدتها 5 دقائق لتقوية البديهة الرقمية.
+            </p>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 font-semibold text-secondary">
+<span class="material-symbols-outlined text-sm">calculate</span>
+                قسم الرياضيات
+              </span>
+<button class="text-primary font-bold hover:underline" type="button">بدء الجولة ←</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Parent Co-pilot Educational Tip -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-sm relative">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-xl">psychology</span>
+<span class="font-headline-sm text-headline-sm">نصيحة تربوية سريعة لولي الأمر</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          "التعزيز الإيجابي يعزز ثقة طفلك، امنح سارة 10 دقائق من الثناء الصادق على تقدمها المستمر في نطق الكلمات الصعبة، وشاركها لحظة نجاحها."
+        </p>
+<div class="flex items-center justify-between pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>د. إبراهيم الفهد • مستشار الطفولة المبكرة</span>
+<span class="material-symbols-outlined text-secondary text-base cursor-pointer">favorite</span>
+</div>
+</div>
+</div>
+</section>
+</div></main></div></body></html>

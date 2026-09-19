@@ -40,8 +40,8 @@
                 class="relative overflow-hidden rounded-3xl border border-amber-300/60 bg-gradient-to-br from-amber-400/30 via-yellow-300/20 to-orange-400/30 p-6 text-center shadow-[0_0_40px_rgba(251,191,36,0.35)] backdrop-blur"
                 wire:ignore
             >
-                <div class="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]"></div>
-                <div class="pointer-events-none absolute -inset-8 animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent,rgba(255,255,255,0.25),transparent_40%)] opacity-40"></div>
+                <div class="pointer-events-none absolute inset-0 motion-safe:animate-pulse bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]"></div>
+                <div class="pointer-events-none absolute -inset-8 motion-safe:animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent,rgba(255,255,255,0.25),transparent_40%)] opacity-40"></div>
 
                 <div class="relative z-10 space-y-3" dir="rtl">
                     <p class="text-sm font-semibold uppercase tracking-wide text-amber-100">شارة جديدة!</p>
@@ -53,7 +53,7 @@
                     </div>
                     <h3 class="text-2xl font-black text-white" x-text="current.name"></h3>
                     <p class="text-sm leading-relaxed text-amber-50/90" x-text="current.description"></p>
-                    <p class="text-xs text-amber-100/80" x-show="badges.length > 1">
+                    <p class="text-sm text-amber-100/90" x-show="badges.length > 1">
                         <span x-text="index + 1"></span> / <span x-text="badges.length"></span>
                     </p>
                 </div>

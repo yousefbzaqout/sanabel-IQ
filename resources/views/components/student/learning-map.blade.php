@@ -28,7 +28,7 @@
                 الصف {{ $student->grade_level }} — اختر المحطة التالية مع سنبل
             </p>
         </div>
-        <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-sm dark:bg-emerald-950/70 dark:text-emerald-100">
+        <span class="rounded-full bg-white/80 px-3 py-1 text-sm font-semibold text-emerald-800 shadow-sm dark:bg-emerald-950/70 dark:text-emerald-100">
             {{ count($nodes) }} محطات
         </span>
     </div>
@@ -69,7 +69,7 @@
                                 </span>
                                 <div class="min-w-0 text-start" dir="auto">
                                     <p class="truncate font-semibold text-gray-500 dark:text-gray-400">{{ $node['title'] }}</p>
-                                    <p class="text-xs text-gray-400">مقفل — أكمل المحطة السابقة أولاً</p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">مقفل — أكمل المحطة السابقة أولاً</p>
                                 </div>
                             </div>
                         @else
@@ -88,12 +88,19 @@
                                     @class([
                                         'relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 text-2xl',
                                         'border-emerald-500 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-200' => $isCompleted,
-                                        'border-amber-400 bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-100 animate-pulse' => $isAvailable,
+                                        'border-amber-400 bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-100 ring-4 ring-amber-300/60' => $isAvailable,
                                     ])
                                 >
                                     {{ $isCompleted ? '✅' : '⭐' }}
                                     @if ($isAvailable)
-                                        <span class="absolute inset-0 animate-ping rounded-full border-2 border-amber-300 opacity-40"></span>
+                                        <span
+                                            class="absolute -top-1 -end-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-amber-400 text-[10px] font-bold text-amber-950 shadow"
+                                            data-station-highlight
+                                            aria-hidden="true"
+                                        >
+                                            !
+                                        </span>
+                                        <span class="absolute inset-0 motion-safe:animate-ping rounded-full border-2 border-amber-300 opacity-40" aria-hidden="true"></span>
                                     @endif
                                 </span>
                                 <div class="min-w-0 text-start" dir="auto">
@@ -102,7 +109,7 @@
                                         'text-emerald-900 dark:text-emerald-100' => $isCompleted,
                                         'text-amber-950 dark:text-amber-50' => $isAvailable,
                                     ])>{{ $node['title'] }}</p>
-                                    <p class="text-xs {{ $isCompleted ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-200' }}">
+                                    <p class="text-sm {{ $isCompleted ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-200' }}">
                                         {{ $isCompleted ? 'مكتمل — راجع أو أعد الاختبار' : 'المحطة التالية — ابدأ الآن!' }}
                                     </p>
                                 </div>

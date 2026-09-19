@@ -1,0 +1,383 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 1,
+    "subject_code": "MATH",
+    "content_kind": "number",
+    "unit_title": "الضرب والقسمة",
+    "lesson_key": "ar-g3-math-mock-multiply-intro",
+    "audio_slug": "multiply-intro",
+    "key": "mock-g3-math-multiply-intro",
+    "title": "مفهوم الضرب",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 1",
+    "material_title": "تجريبي G3: مفهوم الضرب",
+    "order_column": 10,
+    "xp_reward": 46,
+    "description": "نفهم الضرب كجمع متكرر.",
+    "phonemes": {
+        "voice_targets": [
+            "١",
+            "٢",
+            "٣"
+        ],
+        "tabs": [
+            {
+                "glyph": "١",
+                "label": "ضرب",
+                "audio_script": "هذا العدد ١",
+                "cards": [
+                    {
+                        "word": "١ ضرب",
+                        "emoji": "✖️",
+                        "audio": "ضرب",
+                        "highlight": "١"
+                    },
+                    {
+                        "word": "ضرب",
+                        "emoji": "✖️",
+                        "audio": "نقول ضرب",
+                        "highlight": "ضرب"
+                    },
+                    {
+                        "word": "١",
+                        "emoji": "🔢",
+                        "audio": "١",
+                        "highlight": "١"
+                    }
+                ]
+            },
+            {
+                "glyph": "٢",
+                "label": "مرات",
+                "audio_script": "هذا العدد ٢",
+                "cards": [
+                    {
+                        "word": "٢ مرات",
+                        "emoji": "🧩",
+                        "audio": "مرات",
+                        "highlight": "٢"
+                    },
+                    {
+                        "word": "مرات",
+                        "emoji": "🧩",
+                        "audio": "نقول مرات",
+                        "highlight": "مرات"
+                    },
+                    {
+                        "word": "٢",
+                        "emoji": "🔢",
+                        "audio": "٢",
+                        "highlight": "٢"
+                    }
+                ]
+            },
+            {
+                "glyph": "٣",
+                "label": "حاصل",
+                "audio_script": "هذا العدد ٣",
+                "cards": [
+                    {
+                        "word": "٣ حاصل",
+                        "emoji": "🔢",
+                        "audio": "حاصل",
+                        "highlight": "٣"
+                    },
+                    {
+                        "word": "حاصل",
+                        "emoji": "🔢",
+                        "audio": "نقول حاصل",
+                        "highlight": "حاصل"
+                    },
+                    {
+                        "word": "٣",
+                        "emoji": "🔢",
+                        "audio": "٣",
+                        "highlight": "٣"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "١٢٣",
+        "syllables": [
+            {
+                "glyph": "١",
+                "order": 1
+            },
+            {
+                "glyph": "٢",
+                "order": 2
+            },
+            {
+                "glyph": "٣",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! رتّبت الأعداد بالترتيب الصحيح."
+    },
+    "stroke": {
+        "label": "تتبّع كتابة ٤",
+        "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+        "direction": "digit_stroke",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس مفهوم الضرب",
+        "story_audio": "هيا نستكشف مفهوم الضرب مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "ضرب",
+                "emoji": "✖️",
+                "correct": true,
+                "audio": "ضرب"
+            },
+            {
+                "id": "item-1",
+                "label": "مرات",
+                "emoji": "🧩",
+                "correct": true,
+                "audio": "مرات"
+            },
+            {
+                "id": "item-2",
+                "label": "حاصل",
+                "emoji": "🔢",
+                "correct": true,
+                "audio": "حاصل"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في مفهوم الضرب؟",
+        "parts": [
+            {
+                "text": "✖️",
+                "highlight": true
+            },
+            {
+                "text": " ضرب",
+                "highlight": true
+            },
+            {
+                "text": " = ٤",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على ضرب ضمن مفهوم الضرب.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس مفهوم الضرب.",
+            "2": "رتّب معي الأعداد خطوة بخطوة!",
+            "3": "طابق العدد ٤ مع أشكاله المختلفة.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ٤ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "كم عنصراً في المجموعة؟",
+                "visual_items": {
+                    "emoji": "✖️",
+                    "count": 3
+                },
+                "mascot_hint": "تلميح سنبل: عدّ واحداً واحداً بإصبعك.",
+                "explanation": "المجموعة فيها 3 عناصر.",
+                "options": [
+                    {
+                        "text": "3",
+                        "correct": true
+                    },
+                    {
+                        "text": "2",
+                        "correct": false
+                    },
+                    {
+                        "text": "4",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي جملة صحيحة؟",
+                "comparison": {
+                    "left": 3,
+                    "right": 2,
+                    "operator": "gt"
+                },
+                "mascot_hint": "تلميح سنبل: العدد الأكبر يعني كمية أكثر.",
+                "explanation": "3 أكبر من 2.",
+                "options": [
+                    {
+                        "text": "3 أكبر من 2",
+                        "correct": true
+                    },
+                    {
+                        "text": "3 أصغر من 2",
+                        "correct": false
+                    },
+                    {
+                        "text": "3 يساوي 2",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «ضرب» مناسبة لدرس مفهوم الضرب.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "ضرب، مرات، حاصل",
+                "options": [
+                    {
+                        "text": "ضرب \/ مرات \/ حاصل",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "digits": [
+        "١",
+        "٢",
+        "٣"
+    ],
+    "digit": "٣",
+    "number_forms": [
+        {
+            "id": "fingers",
+            "label": "٣ أصابع",
+            "word": "☝️☝️☝️",
+            "parts": [
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                }
+            ],
+            "audio": "نعدّ حتى ٣"
+        },
+        {
+            "id": "dots",
+            "label": "٣ نقاط",
+            "word": "●●●",
+            "parts": [
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ نقاط"
+        },
+        {
+            "id": "objects",
+            "label": "٣ أشياء",
+            "word": "✖️✖️✖️",
+            "parts": [
+                {
+                    "text": "✖️",
+                    "highlight": true
+                },
+                {
+                    "text": "✖️",
+                    "highlight": true
+                },
+                {
+                    "text": "✖️",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ ✖️"
+        }
+    ]
+}

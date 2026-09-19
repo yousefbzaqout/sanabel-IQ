@@ -15,6 +15,10 @@ class ActiveChildResolver
             return null;
         }
 
+        if ($user->isStudent()) {
+            return $user->learningProfile;
+        }
+
         $activeId = (int) session('active_student_id', 0);
 
         if ($activeId > 0) {

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Brand Icon: Wheat Sprout & Spark of Intelligence -->
+  <g transform="translate(185, 6)">
+    <rect width="48" height="48" rx="14" fill="url(#brandGrad)" />
+    <path d="M24 8C24 8 28 15 28 22C28 27 24 31 24 31C24 31 20 27 20 22C20 15 24 8 24 8Z" fill="#FFFDF9"/>
+    <path d="M24 20C24 20 18 19 14 23C10.5 26.5 12 31 12 31C12 31 16 30 20 27C22 25 24 20 24 20Z" fill="#FEF3C7"/>
+    <path d="M24 20C24 20 30 19 34 23C37.5 26.5 36 31 36 31C36 31 32 30 28 27C26 25 24 20 24 20Z" fill="#FEF3C7"/>
+    <circle cx="24" cy="38" r="3" fill="#0D9488"/>
+    <path d="M24 31V41" stroke="#FFFDF9" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Arabic Brand Name & English Accent -->
+  <text x="175" y="34" font-family="Cairo, Readex Pro, sans-serif" font-size="22" font-weight="800" fill="#0F172A" text-anchor="end">سنابل</text>
+  <rect x="100" y="16" width="34" height="22" rx="6" fill="#0D9488"/>
+  <text x="117" y="32" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle">IQ</text>
+  <!-- Subtitle Tagline -->
+  <text x="175" y="49" font-family="Cairo, Readex Pro, sans-serif" font-size="10" font-weight="600" fill="#64748B" text-anchor="end">منصة التعليم التفاعلي الذكي</text>
+  <defs>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+</svg>

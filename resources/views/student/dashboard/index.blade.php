@@ -1,78 +1,94 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Learning Hub') }} — {{ $student->name }}
-            </h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __('Weekly Rank') }}: #{{ $weeklyRank }} · {{ __('Streak') }}: {{ $streakDays }} 🔥
-            </p>
-        </div>
-    </x-slot>
-
-    <div class="py-10">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
-            <div class="flex flex-col items-center gap-4 rounded-2xl border border-amber-200 bg-gradient-to-b from-amber-50 to-white p-6 dark:border-amber-800 dark:from-amber-950/40 dark:to-gray-800 sm:flex-row sm:justify-between">
-                <div class="text-center sm:text-start" dir="rtl">
-                    <h3 class="text-xl font-bold text-amber-900 dark:text-amber-100">مرحباً {{ $student->name }}!</h3>
-                    <p class="mt-1 text-sm text-amber-800/80 dark:text-amber-200/80">سنبل جاهز لمغامرة التعلم اليوم 🌱</p>
+<x-student-layout>
+    <div class="flex flex-col w-full px-gutter py-space-md max-w-7xl mx-auto space-y-space-lg select-none pt-28 md:pt-36" dir="rtl">
+        {{-- Welcome banner --}}
+        <section class="relative overflow-hidden rounded-xl bg-gradient-to-l from-primary-fixed via-primary-fixed-dim/40 to-surface-container-low p-space-md md:p-space-lg shadow-[0_12px_36px_-6px_rgba(245,158,11,0.22)]">
+            <div class="absolute -top-16 -right-16 w-52 h-52 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-md">
+                <div class="flex items-center gap-space-md flex-1">
+                    <div class="relative shrink-0">
+                        <div class="absolute inset-0 rounded-full bg-primary-container/30 blur-md animate-pulse"></div>
+                        <img alt="سنبل" class="relative z-10 w-24 h-24 md:w-32 md:h-32 object-cover rounded-full drop-shadow-xl" src="{{ asset('brand/mascot-sanbal.jpg') }}">
+                        <span class="absolute -bottom-1 -right-1 bg-surface-container-lowest px-2 py-0.5 rounded-full text-label-sm font-bold text-on-primary-fixed-variant shadow-md">سنبل معك 🐥</span>
+                    </div>
+                    <div class="space-y-space-xs">
+                        <div class="relative bg-surface-container-lowest text-on-surface p-space-md rounded-2xl md:rounded-3xl shadow-sm border-2 border-primary-container/20">
+                            <p class="font-headline-sm text-headline-sm md:text-headline-md text-on-primary-fixed leading-tight font-extrabold">
+                                أهلاً بك يا بطل {{ $student->name }}! 🌟 جاهز لمغامرة اليوم؟
+                            </p>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                                أكمل محطة واحدة اليوم للمحافظة على شعلتك النشطة
+                                <span class="text-primary font-bold">🔥 ({{ $streakDays }} يوماً)</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <x-student.mascot
-                    state="idle"
-                    message="مرحباً {{ $student->name }}! هيا نبدأ مغامرة التعلم معاً!"
-                    size="lg"
-                />
+                <div class="w-full md:w-auto shrink-0 bg-surface-container-lowest/80 backdrop-blur-md p-space-md rounded-2xl shadow-sm flex items-center justify-around gap-space-md">
+                    <div class="text-center px-2">
+                        <div class="font-label-sm text-label-sm text-on-surface-variant">الترتيب الأسبوعي</div>
+                        <div class="font-headline-sm text-headline-sm text-primary font-extrabold">#{{ $weeklyRank }}</div>
+                    </div>
+                    <div class="h-10 w-px bg-outline-variant/30"></div>
+                    <div class="text-center px-2">
+                        <div class="font-label-sm text-label-sm text-on-surface-variant">نقاطك</div>
+                        <div class="font-headline-sm text-headline-sm text-secondary font-extrabold">{{ number_format($student->total_xp) }} XP</div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <x-student.learning-map :student="$student" />
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+            <section class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-md border-b border-surface-container-low mb-space-md">
+                    <div class="flex items-center gap-space-xs">
+                        <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container">
+                            <span class="material-symbols-outlined text-2xl">explore</span>
+                        </div>
+                        <div>
+                            <h2 class="font-headline-sm text-headline-sm text-on-surface font-extrabold">خريطة المغامرة السحرية</h2>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">سر في الدرب، واجمع النجوم وافتح القلعة الكبرى!</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <a href="{{ route('student.activities.index') }}" class="rounded-2xl bg-indigo-600 p-6 text-white shadow-lg hover:bg-indigo-500 transition">
-                    <p class="text-lg font-bold">{{ __('Activities') }}</p>
-                    <p class="text-sm opacity-90">{{ __('Play generated learning games') }}</p>
-                </a>
-                <a href="{{ route('student.progress') }}" class="rounded-2xl bg-violet-600 p-6 text-white shadow-lg hover:bg-violet-500 transition">
-                    <p class="text-lg font-bold">{{ __('Progress') }}</p>
-                    <p class="text-sm opacity-90">{{ __('XP, levels, milestones') }}</p>
-                </a>
-                <a href="{{ route('student.leaderboard') }}" class="rounded-2xl bg-amber-500 p-6 text-white shadow-lg hover:bg-amber-400 transition">
-                    <p class="text-lg font-bold">{{ __('Leaderboard') }}</p>
-                    <p class="text-sm opacity-90">{{ __('Weekly peer rankings') }}</p>
-                </a>
-                <a href="{{ route('student.badges') }}" class="rounded-2xl bg-emerald-600 p-6 text-white shadow-lg hover:bg-emerald-500 transition">
-                    <p class="text-lg font-bold">{{ __('Badges') }}</p>
-                    <p class="text-sm opacity-90">{{ __('Unlocked achievements') }}</p>
-                </a>
-            </div>
+                <x-student.learning-map :student="$student" />
+            </section>
 
-            <div class="rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('Quiz Path') }}</h3>
-                @if ($materials->isEmpty())
-                    <p class="text-gray-600 dark:text-gray-400">{{ __('No published quizzes for this grade yet.') }}</p>
-                @else
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        @foreach ($materials as $material)
-                            <a href="{{ route('student.materials.quiz', $material) }}" class="rounded-xl border border-indigo-100 dark:border-indigo-900/40 bg-indigo-50 dark:bg-indigo-950/30 p-4 hover:shadow-md transition">
-                                <p class="font-semibold text-indigo-900 dark:text-indigo-100">{{ $material->title }}</p>
-                                <p class="mt-1 text-sm text-indigo-700 dark:text-indigo-200">{{ $material->xp_reward }} XP</p>
+            <aside class="lg:col-span-4 space-y-space-md">
+                <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+                    <div class="flex items-center justify-between pb-2 border-b border-surface-container-low">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container">
+                                <span class="material-symbols-outlined text-xl">bolt</span>
+                            </div>
+                            <h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold">اختصارات اليوم ⚡</h3>
+                        </div>
+                    </div>
+                    <a href="{{ route('student.activities.index') }}" class="block p-space-sm rounded-2xl bg-surface-container-low hover:bg-surface-container transition-colors">
+                        <h4 class="font-label-lg text-label-lg font-bold text-on-surface">الأنشطة اليومية</h4>
+                        <p class="font-body-sm text-label-md text-on-surface-variant">ألعاب صوت ورسم وذكاء</p>
+                    </a>
+                    <a href="{{ route('student.progress') }}" class="block p-space-sm rounded-2xl bg-surface-container-low hover:bg-surface-container transition-colors">
+                        <h4 class="font-label-lg text-label-lg font-bold text-on-surface">مسار تقدمي</h4>
+                        <p class="font-body-sm text-label-md text-on-surface-variant">XP والمستويات والإنجازات</p>
+                    </a>
+                    <a href="{{ route('student.badges') }}" class="block p-space-sm rounded-2xl bg-gradient-to-br from-primary-fixed/40 to-primary-container/20 border border-primary-container/30">
+                        <h4 class="font-label-lg text-label-lg font-bold text-on-surface">خزانة الجوائز 🎁</h4>
+                        <p class="font-body-sm text-label-sm text-on-surface-variant">{{ $badges->count() }} أوسمة حديثة</p>
+                    </a>
+                </div>
+
+                @if ($materials->isNotEmpty())
+                    <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-2">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold mb-2">دروس جاهزة</h3>
+                        @foreach ($materials->take(3) as $material)
+                            <a href="{{ $material->studentLaunchUrl() }}" class="flex items-center justify-between rounded-2xl bg-surface-container-low px-3 py-2 hover:bg-surface-container transition-colors">
+                                <span class="font-label-md text-label-md font-bold text-on-surface truncate">{{ $material->title }}</span>
+                                <span class="text-label-sm font-bold text-primary shrink-0">{{ $material->xp_reward }} XP</span>
                             </a>
                         @endforeach
                     </div>
                 @endif
-            </div>
-
-            @if ($badges->isNotEmpty())
-                <div class="rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ __('Recent Badges') }}</h3>
-                    <div class="flex flex-wrap gap-3">
-                        @foreach ($badges as $badge)
-                            <span class="inline-flex rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-100 px-3 py-1 text-sm font-medium">
-                                {{ $badge->name_ar }}
-                            </span>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
+            </aside>
         </div>
     </div>
-</x-app-layout>
+</x-student-layout>

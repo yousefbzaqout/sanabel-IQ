@@ -43,6 +43,24 @@ return [
     'generation' => [
         'provider' => env('AI_GENERATION_PROVIDER', 'openrouter'),
         'model' => env('AI_GENERATION_MODEL', 'google/gemini-2.0-flash-001'),
+        'max_tokens' => (int) env('AI_GENERATION_MAX_TOKENS', 8192),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Arabic curriculum TTS
+    |--------------------------------------------------------------------------
+    |
+    | driver=edge uses Microsoft Edge neural voices via `python3 -m edge_tts`
+    | (pip install edge-tts). Falls back to Google Translate TTS on failure.
+    | Tests force driver=google so Http::fake stays deterministic.
+    |
+    */
+    'tts' => [
+        'driver' => env('TTS_DRIVER', 'edge'),
+        'python' => env('TTS_PYTHON', 'python3'),
+        'voice' => env('TTS_VOICE', 'ar-SA-ZariyahNeural'),
+        'rate' => env('TTS_RATE', '-15%'),
     ],
 
 ];

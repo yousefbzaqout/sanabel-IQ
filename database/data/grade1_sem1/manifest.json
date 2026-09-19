@@ -1,0 +1,12 @@
+{
+  "grade_level": 1,
+  "semester": 1,
+  "locale": "ar",
+  "source": {
+    "arabic_textbook": "لغتنا الجميلة — الجزء الأول",
+    "publisher": "وزارة التربية والتعليم الفلسطينية",
+    "archive": "grade 1 semester 1.7z",
+    "notes": "Arabic lesson titles follow the official TOC. Math, Islamic Education, and Social Studies are Grade-1 Semester-1 aligned starter banks for the student learning map."
+  },
+  "fixture": "curriculum.php"
+}

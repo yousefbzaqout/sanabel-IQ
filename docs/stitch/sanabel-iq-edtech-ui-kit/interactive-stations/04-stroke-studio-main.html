@@ -1,0 +1,293 @@
+<main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<div class="w-full px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg max-w-[1440px] mx-auto">
+<!-- Station Header & Context Bar -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-space-md md:p-space-lg shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-space-md py-space-xs rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">draw</span>
+<span class="font-label-lg text-label-lg font-bold">محطة الذكاء الاصطناعي 03: تتبع الخط والرسم الذكي ✍️</span>
+</div>
+<div class="flex items-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed px-space-md py-space-xs rounded-full">
+<span class="material-symbols-outlined text-secondary text-sm">psychology</span>
+<span class="font-label-sm text-label-sm">مستوى التوجيه: إرشادي ذكي ⭐⭐</span>
+</div>
+</div>
+<!-- Letter Form Selection Tabs -->
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1.5 rounded-full overflow-x-auto" id="letter-positions">
+<button class="letter-tab px-space-md py-space-xs rounded-full font-label-lg text-label-lg bg-primary-container text-on-primary-container font-bold shadow-sm transition-all whitespace-nowrap" data-pos="initial" type="button">
+          بـ (أول الكلمة)
+        </button>
+<button class="letter-tab px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high transition-all whitespace-nowrap" data-pos="medial" type="button">
+          ـبـ (وسط الكلمة)
+        </button>
+<button class="letter-tab px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high transition-all whitespace-nowrap" data-pos="final" type="button">
+          ـب (آخر الكلمة)
+        </button>
+<button class="letter-tab px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high transition-all whitespace-nowrap" data-pos="isolated" type="button">
+          ب (منفصل)
+        </button>
+</div>
+</div>
+<!-- Main Workspace Layout: Canvas Grid (8 cols) + AI Analysis Panel (4 cols) -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Interactive Tracing Studio Canvas (Col 8) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Canvas Shell Container -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-md overflow-hidden flex flex-col">
+<!-- Top Sub-Header on Canvas -->
+<div class="flex items-center justify-between z-10 mb-space-sm">
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-xs rounded-full">
+<span class="text-xl">🦆</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">بَـطَّةٌ</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">(حرف الباء المفتوح)</span>
+</div>
+<!-- Hint Audio & Replay Helpers -->
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface hover:bg-surface-dim transition-all text-label-md font-label-md font-semibold" id="btn-replay">
+<span class="material-symbols-outlined text-sm text-primary">play_circle</span>
+<span>إعادة حركة القلم 🎬</span>
+</button>
+<button class="p-space-xs rounded-full bg-surface-container-high text-on-surface hover:bg-error-container hover:text-on-error-container transition-all" id="btn-clear" title="مسح اللوحة">
+<span class="material-symbols-outlined">delete_sweep</span>
+</button>
+</div>
+</div>
+<!-- The Interactive Tracing Box with Pedagogical Grid Lines -->
+<div class="relative w-full h-[400px] md:h-[480px] bg-[#FAF9F5] rounded-lg overflow-hidden select-none cursor-crosshair touch-none shadow-inner flex items-center justify-center" id="tracing-ground">
+<!-- Calligraphic Notebook Ruling Lines (SVG Grid) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="28" id="grid-dots" patternunits="userSpaceOnUse" width="28">
+<circle cx="2" cy="2" fill="#CBD5E1" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#grid-dots)" height="100%" width="100%"></rect>
+<!-- Upper Line -->
+<line stroke="#94A3B8" stroke-dasharray="6,6" stroke-width="1.5" x1="0" x2="100%" y1="28%" y2="28%"></line>
+<!-- Baseline (Khatt Al-Asas) -->
+<line stroke="#F59E0B" stroke-width="2.5" x1="0" x2="100%" y1="62%" y2="62%"></line>
+<!-- Descender Guide Line -->
+<line stroke="#006A61" stroke-dasharray="4,4" stroke-width="1.5" x1="0" x2="100%" y1="82%" y2="82%"></line>
+</svg>
+<!-- Guide Arabic Letter 'بـ' Dotted Guide Track & Flow Arrows -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 700 450" xmlns="http://www.w3.org/2000/svg">
+<!-- Subdued Ghost Letter Backdrop -->
+<path d="M 450 180 C 450 240, 445 280, 430 280 L 220 280" stroke="#E2E8F0" stroke-linecap="round" stroke-linejoin="round" stroke-width="46"></path>
+<circle cx="340" cy="355" fill="#E2E8F0" r="16"></circle>
+<!-- Dotted Perfect Path for Tracing Target -->
+<path d="M 450 180 C 450 240, 445 280, 430 280 L 220 280" id="guide-stroke" stroke="#94A3B8" stroke-dasharray="10,14" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+<!-- Animated Direction Arrows along the spine -->
+<g class="animate-pulse">
+<!-- Arrow 1: Downward curve -->
+<path d="M 450 220 L 444 235 L 456 235 Z" fill="#F59E0B"></path>
+<!-- Arrow 2: Baseline glide to left (RTL Flow) -->
+<path d="M 320 280 L 332 274 L 332 286 Z" fill="#F59E0B"></path>
+</g>
+<!-- Target dot circle guide -->
+<circle cx="340" cy="355" fill="none" r="12" stroke="#94A3B8" stroke-dasharray="4,4" stroke-width="3"></circle>
+<!-- Starting Point Beacon (Glow Green) -->
+<g transform="translate(450, 180)">
+<circle class="animate-ping opacity-75" cx="0" cy="0" fill="#10B981" r="18"></circle>
+<circle cx="0" cy="0" fill="#059669" r="12"></circle>
+<circle cx="0" cy="0" fill="#FFFFFF" r="4"></circle>
+</g>
+<!-- Label "ابدأ من هنا" Floating Indicator -->
+<g transform="translate(450, 140)">
+<rect fill="#006A61" height="28" rx="14" width="110" x="-55" y="-16"></rect>
+<text fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle" x="0" y="3">ابدأ من هنا 🟢</text>
+</g>
+<!-- Fatha Diacritic Marker Above -->
+<line stroke="#F59E0B" stroke-linecap="round" stroke-width="10" x1="420" x2="385" y1="130" y2="105"></line>
+</svg>
+<!-- Active Drawing Layer (Simulated Drawn Brush Stroke with Sparkles) -->
+<svg class="absolute inset-0 w-full h-full" fill="none" id="drawing-canvas" viewbox="0 0 700 450">
+<!-- Realistic Child Drawn Stroke with Smooth Cap -->
+<path d="M 450 182 C 452 235, 442 279, 428 280 L 260 280" id="user-drawn-path" stroke="#F59E0B" stroke-linecap="round" stroke-linejoin="round" stroke-width="26" style="filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.45));"></path>
+<!-- Placed Child Dot -->
+<circle cx="340" cy="355" fill="#F59E0B" r="14" style="filter: drop-shadow(0 4px 8px rgba(245, 158, 11, 0.4));"></circle>
+<!-- Sparkle & Glitter Points along the child's path -->
+<g class="sparkles pointer-events-none">
+<circle class="animate-ping" cx="448" cy="210" fill="#FFF" r="3"></circle>
+<polygon fill="#FDE68A" points="432,270 435,276 441,277 436,281 438,287 432,284 427,287 429,281 424,277 430,276"></polygon>
+<polygon fill="#FEF08A" points="265,276 268,282 274,283 269,287 271,293 265,290 260,293 262,287 257,283 263,282"></polygon>
+</g>
+</svg>
+<!-- Dynamic Pencil Position Beacon for Kids -->
+<div class="absolute pointer-events-none z-20 flex items-center gap-1 bg-surface-container-lowest px-2 py-1 rounded-full shadow-lg" id="active-pointer-badge" style="right: 61%; top: 60%;">
+<span class="text-sm">✨</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">رائع! استمر</span>
+</div>
+</div>
+<!-- Tactile Floating Studio Toolbar -->
+<div class="mt-space-md w-full bg-surface-container-low rounded-lg p-space-sm md:p-space-md flex flex-wrap items-center justify-between gap-space-md">
+<!-- Magic Color Swatches -->
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-1 hidden sm:inline">ألوان الحبر:</span>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-[#F59E0B] shadow-md transform scale-110 flex items-center justify-center text-white" data-color="#F59E0B" title="عسلي ساطع" type="button">
+<span class="material-symbols-outlined text-sm">check</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-[#006A61] shadow-sm hover:scale-105 transition-transform" data-color="#006A61" title="أخضر زمردي" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#494BD6] shadow-sm hover:scale-105 transition-transform" data-color="#494BD6" title="أزرق سحري" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#E11D48] shadow-sm hover:scale-105 transition-transform" data-color="#E11D48" title="توت زهري" type="button"></button>
+<button class="w-8 h-8 rounded-full bg-[#1E293B] shadow-sm hover:scale-105 transition-transform" data-color="#1E293B" title="حبر كلاسيكي" type="button"></button>
+</div>
+</div>
+<!-- Brush Nib Styles -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-full shadow-sm">
+<button class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">brush</span>
+<span>فرشاة عريضة</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded-full text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>قلم دقيق</span>
+</button>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded-full text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm" type="button">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span>نجوم سحرية ✨</span>
+</button>
+</div>
+<!-- Eraser / Touch Up -->
+<div class="flex items-center gap-1">
+<button class="flex items-center gap-1 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-sm text-label-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">ink_eraser</span>
+<span>ممحاة 🧹</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Child Motivation & Sensory Soundboard -->
+<div class="w-full bg-secondary-fixed text-on-secondary-fixed rounded-lg p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest text-secondary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined">hearing</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold">استمع لصوت الحرف والنطق النموذجي</p>
+<p class="font-body-sm text-body-sm opacity-90">«بـَ - بَـطَّة - تَدْفَعُ المَاءَ بِأَقْدَامِهَا الصَّغِيرَة»</p>
+</div>
+</div>
+<button class="px-space-md py-space-xs rounded-full bg-secondary text-on-secondary font-label-md text-label-md font-bold shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">volume_up</span>
+<span>تشغيل الصوت</span>
+</button>
+</div>
+</div>
+<!-- AI Stroke Verification & Live Feedback Panel (Col 4) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Score & Criteria Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">التحليل الذكي للمسار</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">فوري ⚡</span>
+</div>
+<!-- Big Metric Radial-Bar Visualizer -->
+<div class="bg-surface-container-low rounded-lg p-space-md flex items-center gap-space-md">
+<div class="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
+<svg class="w-20 h-20 -rotate-90" viewbox="0 0 36 36">
+<!-- Track -->
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<!-- Progress 92% -->
+<path class="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-black text-on-surface">92%</span>
+</div>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">دقة المسار وانحناء الحرف 🎯</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ممتاز! بقيت لمسة تدريب خفيفة ليصبح مثالياً بنسبة 100%.</span>
+</div>
+</div>
+<!-- Micro AI Criteria Checklist -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">معايير الدقة الحركية:</span>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs">✓</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">نقطة الانطلاق (البداية من الأعلى)</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary">100% ✅</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs">✓</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">اتجاه الانسياب وسحب السطر</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary">94% ✅</span>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center text-xs">✓</span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">موضع وتثبيت النقطة في الأسفل</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-primary">ممتاز ✅</span>
+</div>
+</div>
+<!-- Sanbal The Chick AI Mascot Feedback Bubble -->
+<div class="mt-space-xs bg-primary-fixed/40 rounded-lg p-space-md flex items-start gap-space-md">
+<div class="relative w-16 h-16 flex-shrink-0">
+<img alt="Sanbal the chick mentor" class="w-16 h-16 object-contain rounded-full bg-surface-container-lowest shadow-sm p-1" src="https://lh3.googleusercontent.com/aida/AEtjO1V2fn3uxVN6grAXxqy1u_Q8IUnwrny0nx5OT-SlR6H41FZnKzMcFYvdVG_Bg95YpWWunKfGjRZvuUjCGrBrWK8qsmgYZGZxE0ENOvUMD32yJaVfQLc1i1U54gBlcvdCM-T27UQ3RyNA07dCvdKo4eCiwWQPsnMMTopQJMVlsHJsZdlZJmvtQkemA3954vozMsJjq_937CY2JAG_HRw_I6GSAla39KEkFvUKTOLvflwHWBiJPnXazMZX6aw"/>
+<span class="absolute -bottom-1 -right-1 text-base">🐥</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md font-bold text-on-primary-fixed">المعلم سنبل الذكي:</span>
+<span class="text-xs text-primary font-bold">يقدم نصيحة فورية</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+                «خطك جميل وانسيابي يا سارة! لقد سحبتِ الحرف على السطر ببراعة. فقط تذكري وضع النقطة تماماً في منتصف المسافة السفلية لتكون تحفتكِ متكاملة!» 🖌️✨
+              </p>
+</div>
+</div>
+<!-- Interactive Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full h-14 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold shadow-[0_4px_0_#D97706] hover:translate-y-0.5 active:translate-y-1 transition-transform flex items-center justify-center gap-space-xs" type="button">
+<span>حفظ الرسمة والتقدم للمحطة القادمة</span>
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<button class="w-full py-3 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg font-semibold transition-all flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-primary text-base">replay</span>
+<span>محاولة أخرى للمثالية (+20 نقطة)</span>
+</button>
+</div>
+</div>
+<!-- Pedagogical Calligraphy Reference & Word Card -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-space-md shadow-sm flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-2xl font-black text-primary">
+              بَـ
+            </div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">قاعدة خط النسخ</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">يكتب السن الصاعد قليلاً ثم استقرار على السطر مع نقطة مفردة في الأسفل.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-70">school</span>
+</div>
+</div>
+</div>
+<!-- Bottom Milestone Mini-Tray -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-label-md text-label-md font-bold text-on-surface-variant">الحروف المنجزة اليوم في مرسم الخط:</span>
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs shadow-xs">أ</span>
+<span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs shadow-xs animate-bounce">ب</span>
+<span class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs opacity-60">ت</span>
+<span class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs opacity-60">ث</span>
+<span class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs opacity-60">ج</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">الوسام التالي:</span>
+<span class="px-space-md py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">خطاط سنابل الموهوب 🎖️</span>
+</div>
+</div>
+</div>
+</div>
+</main>

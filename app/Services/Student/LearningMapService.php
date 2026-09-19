@@ -29,8 +29,11 @@ class LearningMapService
         /** @var Collection<int, Subject> $subjects */
         $subjects = Subject::query()
             ->where('grade_level', $student->grade_level)
-            ->whereHas('learningMaterials', fn ($query) => $query->published())
-            ->with(['learningMaterials' => fn ($query) => $query->published()->orderBy('order_column')->orderBy('id')])
+            ->whereHas('learningMaterials', fn ($query) => $this->curriculumMaterials($query))
+            ->with(['learningMaterials' => fn ($query) => $this->curriculumMaterials($query)
+                ->with('interactiveLesson')
+                ->orderBy('order_column')
+                ->orderBy('id')])
             ->orderBy('id')
             ->get();
 
@@ -60,7 +63,7 @@ class LearningMapService
                 'material_id' => $material?->id,
                 'state' => $state,
                 'url' => $material !== null && $state !== 'locked'
-                    ? route('student.materials.quiz', $material)
+                    ? $material->studentLaunchUrl()
                     : null,
                 'icon' => $subject->icon,
                 'position' => $index + 1,
@@ -125,5 +128,15 @@ class LearningMapService
             })
             ->pluck('id')
             ->values();
+    }
+
+    /**
+     * Curriculum path materials only (exclude Mock Demo / sandbox rows).
+     */
+    private function curriculumMaterials(mixed $query): mixed
+    {
+        return $query
+            ->published()
+            ->where('title', 'not like', 'تجريبي%');
     }
 }

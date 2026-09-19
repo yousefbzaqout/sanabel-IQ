@@ -27,7 +27,7 @@ class StudentQuizController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         if ($request->expectsJson()) {
             return response()->json([
@@ -57,7 +57,7 @@ class StudentQuizController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         return view('student.quiz.completion', [
             'material' => $material,
@@ -79,7 +79,7 @@ class StudentQuizController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         /** @var list<array{question_id: int, selected_option_id: int}> $answers */
         $answers = array_values($request->validated('answers'));

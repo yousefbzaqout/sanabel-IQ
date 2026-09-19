@@ -1,0 +1,39 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 5,
+    "semester": 1,
+    "subject": {
+        "code": "AR",
+        "name": "اللغة العربية",
+        "slug": "arabic-g5-palestinian",
+        "icon": "📖",
+        "description": "اللغة العربية للصف 5 — منهاج تجريبي للعرض (يشمل وحدات أصلية وتجريبية)"
+    },
+    "official_outcomes": [
+        "محتوى غني للعرض على خريطة الطالب",
+        "دروس تفاعلية بست محطات مع اختبارات قصيرة",
+        "تلميحات سنبل السياقية في كل درس"
+    ],
+    "units": [
+        {
+            "order": 1,
+            "title": "تجريبي: قواعد أساسية",
+            "semester": 1,
+            "lesson_files": [
+                "lessons\/mock-grammar-noun.json",
+                "lessons\/mock-reading-main-idea.json",
+                "lessons\/mock-punctuation.json"
+            ]
+        },
+        {
+            "order": 2,
+            "title": "تجريبي: نصوص قصيرة",
+            "semester": 2,
+            "lesson_files": [
+                "lessons\/mock-comprehension.json",
+                "lessons\/mock-synonyms.json",
+                "lessons\/mock-summary-writing.json"
+            ]
+        }
+    ]
+}
