@@ -256,7 +256,7 @@ class StudentGamificationTest extends TestCase
 
         $response->assertOk()
             ->assertViewIs('student.progress.index')
-            ->assertSee('Level 3')
+            ->assertSee('المستوى 3')
             ->assertSee('250')
             ->assertSee('البداية المشرقة')
             ->assertSee('نشاط الرياضيات')

@@ -23,6 +23,10 @@ class AuthRedirectResolver
             return '/student';
         }
 
+        if ($user->isParent() && $user->students()->doesntExist()) {
+            return '/onboarding/child';
+        }
+
         return '/parent';
     }
 
