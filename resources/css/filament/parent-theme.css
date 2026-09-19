@@ -1,0 +1,176 @@
+@import '../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../app/Filament/Parent/**/*';
+@source '../../../resources/views/filament/parent/**/*';
+
+/*
+ |--------------------------------------------------------------------------
+ | Sanabel-IQ Parent Panel — Stitch Material 3 tokens
+ | Mirrors resources/css/app.css so Filament widgets get full Tailwind utilities.
+ |--------------------------------------------------------------------------
+ */
+@theme {
+    --font-sans: 'Tajawal', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+    --font-headline: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Tajawal', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-label: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+
+    --color-background: #faf8ff;
+    --color-on-background: #131b2e;
+    --color-surface: #faf8ff;
+    --color-surface-dim: #d2d9f4;
+    --color-surface-bright: #faf8ff;
+    --color-surface-variant: #dae2fd;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f2f3ff;
+    --color-surface-container: #eaedff;
+    --color-surface-container-high: #e2e7ff;
+    --color-surface-container-highest: #dae2fd;
+    --color-on-surface: #131b2e;
+    --color-on-surface-variant: #534434;
+    --color-inverse-surface: #283044;
+    --color-inverse-on-surface: #eef0ff;
+    --color-outline: #867461;
+    --color-outline-variant: #d8c3ad;
+    --color-surface-tint: #855300;
+
+    --color-primary: #855300;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #f59e0b;
+    --color-on-primary-container: #613b00;
+    --color-inverse-primary: #ffb95f;
+    --color-primary-fixed: #ffddb8;
+    --color-primary-fixed-dim: #ffb95f;
+    --color-on-primary-fixed: #2a1700;
+    --color-on-primary-fixed-variant: #653e00;
+
+    --color-secondary: #006a61;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #86f2e4;
+    --color-on-secondary-container: #006f66;
+    --color-secondary-fixed: #89f5e7;
+    --color-secondary-fixed-dim: #6bd8cb;
+    --color-on-secondary-fixed: #00201d;
+    --color-on-secondary-fixed-variant: #005049;
+
+    --color-tertiary: #494bd6;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #a7a9ff;
+    --color-on-tertiary-container: #2b29bb;
+    --color-tertiary-fixed: #e1e0ff;
+    --color-tertiary-fixed-dim: #c0c1ff;
+    --color-on-tertiary-fixed: #07006c;
+    --color-on-tertiary-fixed-variant: #2f2ebe;
+
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad6;
+    --color-on-error-container: #93000a;
+
+    --spacing-space-xs: 0.25rem;
+    --spacing-space-sm: 0.5rem;
+    --spacing-space-md: 1rem;
+    --spacing-space-lg: 1.5rem;
+    --spacing-space-xl: 2.5rem;
+    --spacing-gutter: 1.5rem;
+    --spacing-gutter-mobile: 1rem;
+    --spacing-margin: 2rem;
+    --spacing-margin-mobile: 1rem;
+
+    --radius-DEFAULT: 1rem;
+    --radius-lg: 2rem;
+    --radius-xl: 3rem;
+    --radius-full: 9999px;
+
+    --text-headline-xl: 3rem;
+    --text-headline-xl--line-height: 3.75rem;
+    --text-headline-xl--font-weight: 800;
+    --text-headline-lg: 2.25rem;
+    --text-headline-lg--line-height: 2.75rem;
+    --text-headline-lg--font-weight: 700;
+    --text-headline-md: 1.5rem;
+    --text-headline-md--line-height: 2rem;
+    --text-headline-md--font-weight: 700;
+    --text-headline-sm: 1.25rem;
+    --text-headline-sm--line-height: 1.75rem;
+    --text-headline-sm--font-weight: 600;
+    --text-body-lg: 1.125rem;
+    --text-body-lg--line-height: 1.875rem;
+    --text-body-md: 1rem;
+    --text-body-md--line-height: 1.625rem;
+    --text-body-sm: 0.875rem;
+    --text-body-sm--line-height: 1.375rem;
+    --text-label-lg: 0.875rem;
+    --text-label-lg--line-height: 1.25rem;
+    --text-label-lg--font-weight: 600;
+    --text-label-md: 0.75rem;
+    --text-label-md--line-height: 1rem;
+    --text-label-md--font-weight: 600;
+    --text-label-sm: 0.6875rem;
+    --text-label-sm--line-height: 0.875rem;
+    --text-label-sm--font-weight: 700;
+}
+
+@layer base {
+    .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined', sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1.5rem;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+    }
+}
+
+@layer utilities {
+    .font-headline-lg,
+    .font-headline-md,
+    .font-headline-sm,
+    .font-label-lg,
+    .font-label-md,
+    .font-label-sm {
+        font-family: var(--font-headline);
+    }
+
+    .font-body-lg,
+    .font-body-md,
+    .font-body-sm {
+        font-family: var(--font-body);
+    }
+}
+
+/* Soften Filament chrome toward Stitch parent shell */
+.fi-body {
+    background: #faf8ff !important;
+}
+
+.fi-sidebar {
+    background: #ffffff !important;
+}
+
+.fi-topbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(16px);
+}
+
+.fi-sidebar-item-button[aria-current='page'],
+.fi-sidebar-item-button.fi-active {
+    background: #f59e0b !important;
+    color: #613b00 !important;
+    font-weight: 700;
+    border-radius: 0.75rem;
+}
+
+.fi-wi-stitch-parent-dashboard {
+    font-family: 'Tajawal', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}

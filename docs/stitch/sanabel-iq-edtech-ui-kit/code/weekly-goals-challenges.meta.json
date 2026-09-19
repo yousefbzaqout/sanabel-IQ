@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/ada908ff1d0c4496b084e8c39a513c32",
+  "id": "ada908ff1d0c4496b084e8c39a513c32",
+  "title": "أهداف وتحديات الأسبوع - سنابل IQ",
+  "width": 2560,
+  "height": 3632,
+  "slug": "weekly-goals-challenges",
+  "files": {
+    "screenshot": "screenshots/weekly-goals-challenges.png",
+    "screenshotById": "parent-portal/ada908ff1d0c4496b084e8c39a513c32/screenshot.png",
+    "code": "code/weekly-goals-challenges.html",
+    "codeById": "parent-portal/ada908ff1d0c4496b084e8c39a513c32/code.html"
+  },
+  "screenshotBytes": 1395202,
+  "fullResSuffix": "=s0",
+  "codeBytes": 53223,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

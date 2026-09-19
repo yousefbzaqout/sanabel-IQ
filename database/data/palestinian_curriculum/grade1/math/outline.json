@@ -1,0 +1,60 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 1,
+    "subject": {
+        "code": "MATH",
+        "name": "الرياضيات",
+        "slug": "math-g1-palestinian",
+        "icon": "🔢",
+        "description": "الرياضيات للصف الأول — الجزء الأول (المنهاج الفلسطيني): الأعداد حتى 9، العدّ البصري، وتتبع الأرقام"
+    },
+    "official_outcomes": [
+        "التعرّف على الأعداد من 1 إلى 9 قراءة وكتابة",
+        "عدّ مجموعات من الأشياء حتى 9",
+        "مقارنة الأعداد باستخدام أكبر من \/ أصغر من \/ يساوي",
+        "كتابة الأرقام العربية الهندية (١–٩) بخط واضح"
+    ],
+    "units": [
+        {
+            "order": 1,
+            "title": "الأعداد حتى 9",
+            "numbers": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "lesson_files": [
+                "lessons\/numbers-1-to-3.json",
+                "lessons\/numbers-4-to-6.json",
+                "lessons\/numbers-7-to-9.json"
+            ]
+        },
+        {
+            "order": 2,
+            "title": "تجريبي: الأعداد حتى ٩",
+            "semester": 1,
+            "lesson_files": [
+                "lessons\/mock-count-1-3.json",
+                "lessons\/mock-count-4-6.json",
+                "lessons\/mock-count-7-9.json"
+            ]
+        },
+        {
+            "order": 3,
+            "title": "تجريبي: مقارنة وترتيب",
+            "semester": 2,
+            "lesson_files": [
+                "lessons\/mock-compare.json",
+                "lessons\/mock-order.json",
+                "lessons\/mock-shapes-basic.json"
+            ]
+        }
+    ]
+}

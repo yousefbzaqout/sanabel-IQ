@@ -17,7 +17,7 @@ class StudentBadgeController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->with(['badges', 'streak'])->findOrFail($activeStudentId);
+        $student = $request->user()->accessibleStudentsQuery()->with(['badges', 'streak'])->findOrFail($activeStudentId);
 
         $earnedBadgeIds = $student->badges->pluck('id')->all();
 

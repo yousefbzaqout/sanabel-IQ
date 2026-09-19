@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     'option_text',
     'is_correct',
     'order_column',
+    'audio_path',
 ])]
 class QuestionOption extends Model
 {

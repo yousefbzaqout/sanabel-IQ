@@ -23,7 +23,7 @@ class ChildResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
-    protected static ?string $navigationLabel = 'الأبناء';
+    protected static ?string $navigationLabel = 'إدارة الأبناء';
 
     protected static ?string $modelLabel = 'ابن/ابنة';
 

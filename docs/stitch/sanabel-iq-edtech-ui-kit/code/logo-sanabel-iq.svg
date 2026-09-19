@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  <!-- Brand Mark: Golden Wheat Sprout & Sparkle -->
+  <rect x="4" y="8" width="48" height="48" rx="16" fill="url(#wheat_grad)" />
+  <path d="M28 44V20M28 26C31 22 37 21 40 24C40 28 35 32 28 32M28 34C24 30 19 31 17 34C17 38 22 40 28 40M28 22C28 17 33 14 36 15" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="38" cy="18" r="2.5" fill="#FEF08A"/>
+  <!-- Typography RTL: سنابل IQ -->
+  <text x="64" y="38" font-family="'Cairo', 'Readex Pro', sans-serif" font-size="24" font-weight="800" fill="#0F172A">سنابل</text>
+  <rect x="135" y="19" width="38" height="24" rx="7" fill="#0D9488"/>
+  <text x="142" y="36" font-family="'Cairo', sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" letter-spacing="1">IQ</text>
+  <defs>
+    <linearGradient id="wheat_grad" x1="4" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+</svg>

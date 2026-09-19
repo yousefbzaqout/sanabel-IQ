@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/00e8152a29c246e6a79448d9532cbf0e",
+  "id": "00e8152a29c246e6a79448d9532cbf0e",
+  "title": "خزانة الأوسمة والجوائز - سنابل IQ",
+  "width": 2560,
+  "height": 5274,
+  "slug": "badges-awards-cabinet",
+  "files": {
+    "screenshot": "screenshots/badges-awards-cabinet.png",
+    "screenshotById": "parent-portal/00e8152a29c246e6a79448d9532cbf0e/screenshot.png",
+    "code": "code/badges-awards-cabinet.html",
+    "codeById": "parent-portal/00e8152a29c246e6a79448d9532cbf0e/code.html"
+  },
+  "screenshotBytes": 1532460,
+  "fullResSuffix": "=s0",
+  "codeBytes": 51875,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

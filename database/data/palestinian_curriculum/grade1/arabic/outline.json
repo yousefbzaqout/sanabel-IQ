@@ -1,0 +1,54 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 1,
+    "subject": {
+        "code": "AR",
+        "name": "اللغة العربية",
+        "slug": "arabic-g1-palestinian",
+        "icon": "📖",
+        "description": "لغتنا الجميلة — الجزء الأول (المنهاج الفلسطيني، الصف الأول، الفصل الأول)"
+    },
+    "official_outcomes": [
+        "الاستماع إلى قصص الحروف والتفاعل مع أنشطتها",
+        "قراءة حروف اللغة العربية (ر، د، ب، م، ن، س، ز، ح، ل، ت، ج، ف، ع، ش، ص، ق، ث، خ) قراءة جهرية صحيحة",
+        "كتابة الحروف نفسها بخط واضح",
+        "قراءة وكتابة كلمات من 3–5 أحرف وجمل بسيطة"
+    ],
+    "units": [
+        {
+            "order": 1,
+            "title": "الوحدة الأولى",
+            "letters": [
+                "ر",
+                "د",
+                "ب"
+            ],
+            "lesson_files": [
+                "lessons\/letter-raa.json",
+                "lessons\/letter-dal.json",
+                "lessons\/letter-baa.json"
+            ]
+        },
+        {
+            "order": 2,
+            "title": "تجريبي: الحروف والحركات",
+            "semester": 1,
+            "lesson_files": [
+                "lessons\/mock-letter-alif.json",
+                "lessons\/mock-letter-baa.json",
+                "lessons\/mock-letter-taa.json"
+            ]
+        },
+        {
+            "order": 3,
+            "title": "تجريبي: المقاطع القصيرة",
+            "semester": 2,
+            "lesson_files": [
+                "lessons\/mock-letter-jeem.json",
+                "lessons\/mock-letter-dal.json",
+                "lessons\/mock-letter-raa.json"
+            ]
+        }
+    ]
+}

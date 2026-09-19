@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "01a-landing-hero",
+    "label": "Hero"
+  },
+  {
+    "slug": "01b-landing-features",
+    "label": "Features"
+  },
+  {
+    "slug": "01c-landing-journey",
+    "label": "Learning Journey"
+  },
+  {
+    "slug": "01d-landing-schools",
+    "label": "Schools Solutions"
+  },
+  {
+    "slug": "01e-landing-roles",
+    "label": "Roles"
+  },
+  {
+    "slug": "01f-landing-pricing",
+    "label": "Pricing"
+  },
+  {
+    "slug": "01g-landing-demo",
+    "label": "Demo Request"
+  }
+]

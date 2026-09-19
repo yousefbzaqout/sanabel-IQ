@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 2,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "قوى بسيطة",
+    "lesson_key": "ar-g3-sci-mock-magnets",
+    "audio_slug": "magnets",
+    "key": "mock-g3-science-magnets",
+    "title": "المغناطيس",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 2",
+    "material_title": "تجريبي G3: المغناطيس",
+    "order_column": 50,
+    "xp_reward": 46,
+    "description": "نجرّب جذب وتنافر المغناطيس.",
+    "phonemes": {
+        "voice_targets": [
+            "قَ",
+            "قُ",
+            "قِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "قَ",
+                "label": "فتحة",
+                "audio_script": "صوت قَ",
+                "cards": [
+                    {
+                        "word": "جذب",
+                        "emoji": "🧲",
+                        "audio": "قَ مثل جذب",
+                        "highlight": "قَ"
+                    },
+                    {
+                        "word": "تنافر",
+                        "emoji": "➡️",
+                        "audio": "تنافر",
+                        "highlight": "ت"
+                    },
+                    {
+                        "word": "قطب",
+                        "emoji": "⬅️",
+                        "audio": "قطب",
+                        "highlight": "ق"
+                    }
+                ]
+            },
+            {
+                "glyph": "قُ",
+                "label": "ضمة",
+                "audio_script": "صوت قُ",
+                "cards": [
+                    {
+                        "word": "تنافر",
+                        "emoji": "➡️",
+                        "audio": "قُ مثل تنافر",
+                        "highlight": "قُ"
+                    },
+                    {
+                        "word": "قطب",
+                        "emoji": "⬅️",
+                        "audio": "قطب",
+                        "highlight": "ق"
+                    },
+                    {
+                        "word": "جذب",
+                        "emoji": "🧲",
+                        "audio": "جذب",
+                        "highlight": "ج"
+                    }
+                ]
+            },
+            {
+                "glyph": "قِ",
+                "label": "كسرة",
+                "audio_script": "صوت قِ",
+                "cards": [
+                    {
+                        "word": "قطب",
+                        "emoji": "⬅️",
+                        "audio": "قِ مثل قطب",
+                        "highlight": "قِ"
+                    },
+                    {
+                        "word": "جذب",
+                        "emoji": "🧲",
+                        "audio": "جذب",
+                        "highlight": "ج"
+                    },
+                    {
+                        "word": "تنافر",
+                        "emoji": "➡️",
+                        "audio": "تنافر",
+                        "highlight": "ت"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "جذب",
+        "syllables": [
+            {
+                "glyph": "ج",
+                "order": 1
+            },
+            {
+                "glyph": "ذ",
+                "order": 2
+            },
+            {
+                "glyph": "ب",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة جذب"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس المغناطيس",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس المغناطيس",
+        "story_audio": "هيا نستكشف المغناطيس مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "جذب",
+                "emoji": "🧲",
+                "correct": true,
+                "audio": "جذب"
+            },
+            {
+                "id": "item-1",
+                "label": "تنافر",
+                "emoji": "➡️",
+                "correct": true,
+                "audio": "تنافر"
+            },
+            {
+                "id": "item-2",
+                "label": "قطب",
+                "emoji": "⬅️",
+                "correct": true,
+                "audio": "قطب"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في المغناطيس؟",
+        "parts": [
+            {
+                "text": "🧲",
+                "highlight": true
+            },
+            {
+                "text": " جذب",
+                "highlight": true
+            },
+            {
+                "text": " = ق",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على جذب ضمن المغناطيس.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس المغناطيس.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ق في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس المغناطيس؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "جذب من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "جذب",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "تنافر جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "تنافر",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «جذب» مناسبة لدرس المغناطيس.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "جذب، تنافر، قطب",
+                "options": [
+                    {
+                        "text": "جذب \/ تنافر \/ قطب",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ق",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "جذب",
+            "parts": [
+                {
+                    "text": "ج",
+                    "highlight": true
+                },
+                {
+                    "text": "ذب",
+                    "highlight": false
+                }
+            ],
+            "audio": "جذب: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "تنافر",
+            "parts": [
+                {
+                    "text": "ت",
+                    "highlight": false
+                },
+                {
+                    "text": "ق",
+                    "highlight": true
+                },
+                {
+                    "text": "ر",
+                    "highlight": false
+                }
+            ],
+            "audio": "تنافر: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "قطب",
+            "parts": [
+                {
+                    "text": "قط",
+                    "highlight": false
+                },
+                {
+                    "text": "ب",
+                    "highlight": true
+                }
+            ],
+            "audio": "قطب: في نهاية الكلمة"
+        }
+    ]
+}

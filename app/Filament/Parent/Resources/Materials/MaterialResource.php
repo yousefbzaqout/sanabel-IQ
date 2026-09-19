@@ -22,7 +22,7 @@ class MaterialResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
-    protected static ?string $navigationLabel = 'المواد التعليمية';
+    protected static ?string $navigationLabel = 'المواد والدروس التعليمية';
 
     protected static ?string $modelLabel = 'مادة';
 

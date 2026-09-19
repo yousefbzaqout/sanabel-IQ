@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __('Weekly Progress Summary') }}</title>
 </head>
-<body style="margin:0;padding:0;background:#f3f4f6;font-family:'Tajawal','Figtree',Tahoma,Arial,sans-serif;color:#111827;">
+<body style="margin:0;padding:0;background:#f3f4f6;font-family:'Tajawal',Tahoma,Arial,sans-serif;color:#111827;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3f4f6;padding:24px 0;">
         <tr>
             <td align="center">

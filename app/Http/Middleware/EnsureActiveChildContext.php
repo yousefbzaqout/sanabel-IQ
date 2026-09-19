@@ -20,9 +20,33 @@ class EnsureActiveChildContext
             return $next($request);
         }
 
+        if ($user->canAccessAdminPanel() || $user->isTeacher()) {
+            return $next($request);
+        }
+
+        if ($user->isStudent()) {
+            $profile = $user->learningProfile;
+
+            if ($profile === null) {
+                abort(Response::HTTP_FORBIDDEN, 'Student learning profile is required.');
+            }
+
+            $request->session()->put('active_student_id', $profile->id);
+            View::share('activeStudent', $profile);
+            View::share('parentStudents', collect([$profile]));
+
+            $request->attributes->set('activeStudent', $profile);
+
+            return $next($request);
+        }
+
         $students = $user->students()->orderBy('id')->get();
 
         if ($students->isEmpty()) {
+            if ($request->expectsJson()) {
+                abort(Response::HTTP_FORBIDDEN, 'Active student context is required.');
+            }
+
             return redirect()->route('onboarding.child');
         }
 
@@ -38,6 +62,7 @@ class EnsureActiveChildContext
 
         View::share('activeStudent', $activeStudent);
         View::share('parentStudents', $students);
+        $request->attributes->set('activeStudent', $activeStudent);
 
         return $next($request);
     }

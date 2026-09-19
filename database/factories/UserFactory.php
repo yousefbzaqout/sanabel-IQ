@@ -39,7 +39,12 @@ class UserFactory extends Factory
     public function configure(): static
     {
         return $this->afterCreating(function (User $user): void {
-            if ($user->role !== UserRole::Admin) {
+            if (! in_array($user->role, [
+                UserRole::Admin,
+                UserRole::TenantAdmin,
+                UserRole::Teacher,
+                UserRole::Student,
+            ], true)) {
                 $user->assignRole(UserRole::Parent);
             }
         });
@@ -49,6 +54,27 @@ class UserFactory extends Factory
     {
         return $this->afterCreating(function (User $user): void {
             $user->assignRole(UserRole::Admin);
+        });
+    }
+
+    public function tenantAdmin(): static
+    {
+        return $this->afterCreating(function (User $user): void {
+            $user->assignRole(UserRole::TenantAdmin);
+        });
+    }
+
+    public function teacher(): static
+    {
+        return $this->afterCreating(function (User $user): void {
+            $user->assignRole(UserRole::Teacher);
+        });
+    }
+
+    public function student(): static
+    {
+        return $this->afterCreating(function (User $user): void {
+            $user->assignRole(UserRole::Student);
         });
     }
 

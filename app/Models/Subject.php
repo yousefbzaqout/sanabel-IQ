@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 #[Fillable(['name', 'slug', 'code', 'grade_level', 'icon', 'description'])]
 class Subject extends Model
@@ -48,5 +49,11 @@ class Subject extends Model
     public function publishedLearningMaterials(): HasMany
     {
         return $this->learningMaterials()->published();
+    }
+
+    /** @return HasManyThrough<InteractiveLesson, LearningMaterial, $this> */
+    public function interactiveLessons(): HasManyThrough
+    {
+        return $this->hasManyThrough(InteractiveLesson::class, LearningMaterial::class);
     }
 }

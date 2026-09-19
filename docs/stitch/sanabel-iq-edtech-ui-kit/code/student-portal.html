@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary-fixed-dim":"#6bd8cb","tertiary":"#494bd6","on-error":"#ffffff","primary-fixed":"#ffddb8","on-primary-fixed-variant":"#653e00","error":"#ba1a1a","surface-container":"#eaedff","surface":"#faf8ff","tertiary-fixed":"#e1e0ff","tertiary-fixed-dim":"#c0c1ff","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","surface-tint":"#855300","outline":"#867461","inverse-surface":"#283044","on-primary-container":"#613b00","secondary-fixed":"#89f5e7","outline-variant":"#d8c3ad","surface-container-lowest":"#ffffff","primary":"#855300","inverse-on-surface":"#eef0ff","inverse-primary":"#ffb95f","secondary":"#006a61","on-secondary":"#ffffff","background":"#faf8ff","on-surface":"#131b2e","surface-variant":"#dae2fd","tertiary-container":"#a7a9ff","on-error-container":"#93000a","secondary-container":"#86f2e4","primary-fixed-dim":"#ffb95f","on-secondary-container":"#006f66","on-tertiary-fixed":"#07006c","on-background":"#131b2e","on-primary":"#ffffff","on-surface-variant":"#534434","on-primary-fixed":"#2a1700","surface-container-high":"#e2e7ff","surface-dim":"#d2d9f4","primary-container":"#f59e0b","on-tertiary-container":"#2b29bb","surface-bright":"#faf8ff","surface-container-low":"#f2f3ff","error-container":"#ffdad6","on-secondary-fixed":"#00201d","on-secondary-fixed-variant":"#005049","on-tertiary-fixed-variant":"#2f2ebe"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","margin-mobile":"1rem","space-2xl":"3rem","space-sm":"0.5rem","space-xs":"0.25rem","margin":"2rem","gutter":"1.5rem","space-xl":"2rem","gutter-mobile":"0.75rem","space-md":"1rem"},"fontFamily":{"headline-lg-mobile":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"headline-lg-mobile":["1.5rem",{"lineHeight":"2.125rem","fontWeight":"700"}],"title-md":["1.125rem",{"lineHeight":"1.75rem","fontWeight":"600"}],"headline-sm":["1.25rem",{"lineHeight":"1.875rem","fontWeight":"600"}],"body-sm":["0.875rem",{"lineHeight":"1.375rem","fontWeight":"400"}],"body-lg":["1.125rem",{"lineHeight":"1.875rem","fontWeight":"400"}],"label-md":["0.75rem",{"lineHeight":"1rem","fontWeight":"600"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"0.875rem","fontWeight":"500"}],"display":["2.5rem",{"lineHeight":"3.25rem","letterSpacing":"-0.02em","fontWeight":"800"}],"body-md":["1rem",{"lineHeight":"1.625rem","fontWeight":"400"}],"headline-lg":["2rem",{"lineHeight":"2.75rem","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["1.5rem",{"lineHeight":"2.25rem","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><main class="w-full bg-surface min-h-screen flex items-center justify-center p-gutter"><div class="flex flex-col w-full max-w-6xl mx-auto py-4 space-y-6">
+<!-- Top Bar Navigation / Utility -->
+<header class="flex items-center justify-between bg-surface-container-lowest/80 backdrop-blur-md px-6 py-3 rounded-full shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm font-display text-headline-sm">
+<span class="material-symbols-outlined text-primary-fixed-variant">eco</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">سنابل</span>
+<span class="px-2 py-0.5 rounded-lg bg-secondary text-on-secondary font-headline-sm text-headline-sm tracking-wider">IQ</span>
+</div>
+</div>
+<!-- Switch to Parent Portal & Audio Guide -->
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg transition-transform active:scale-95 hover:bg-secondary-fixed" id="playIntroAudio" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<span>استمع للتعليمات</span>
+</button>
+<a class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg transition-colors hover:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined text-[20px]">supervised_user_circle</span>
+<span>بوابة الكبار وأولياء الأمور</span>
+</a>
+</div>
+</header>
+<!-- Hero Banner with Mascot Sanbal & Welcoming Dialogue -->
+<section class="relative bg-surface-container-lowest rounded-3xl p-6 md:p-8 shadow-sm overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Ambient Background Glows -->
+<div class="absolute -top-16 -right-16 w-56 h-56 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -left-16 w-56 h-56 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Speech & Introduction -->
+<div class="flex-1 space-y-4 z-10 text-right">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+<span>مكافأة الدخول اليومية: <strong>+50 نقطة شجاعة</strong> ⭐</span>
+</div>
+<div class="relative bg-surface-container-low rounded-2xl p-5 shadow-sm inline-block max-w-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">
+          أهلاً يا بطل! 🌟 أنا <span class="text-primary-container">سنبل</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          امسح بطاقتك الذكية، أو اختر شخصيتك البطلة وأدخل رمزك السري لتبدأ رحلتك التفاعلية الممتعة اليوم!
+        </p>
+<!-- Speech bubble arrow (pointing to mascot) -->
+<div class="hidden md:block absolute top-1/2 -left-3 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-r-8 border-r-surface-container-low transform -translate-y-1/2"></div>
+</div>
+</div>
+<!-- Mascot Display Container -->
+<div class="relative flex-shrink-0 z-10 flex flex-col items-center">
+<div class="w-48 h-48 md:w-56 md:h-56 relative flex items-center justify-center">
+<div class="absolute inset-0 bg-primary-container/10 rounded-full animate-pulse"></div>
+<img alt="سنبل الصغير" class="w-full h-full object-contain filter drop-shadow-md select-none transform hover:rotate-3 hover:scale-105 transition-transform duration-300 pointer-events-auto cursor-pointer" id="mascotChick" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOgmXCGfhJMAxDrZXJoFPkI22DuHGDgmtg1v62Zeq7cQbX6Td0JG2RaJ1g1iv1Py30vRgJM01h5smAHxz18Oo-f7j0jaUPCe3xqg3gInscrCvP92sVba9Tjxh949Z-F_7O4VLsOzB0wVFGpsM_7zbypvDkAFSbqYgP0pToSbTk_zfMpowE7wmc46R9wo6L7CcqZGGWXTb-2Mf0xroGqyHpwSnTwbIA36mI1JpVNHuAA7W3nRwcmwbMlQ"/>
+</div>
+<span class="inline-flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+        سنبل بانتظارك!
+      </span>
+</div>
+</section>
+<!-- Login Methods Bento Grid: 2 Modalities -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Option 1: QR Smart Badge Scanner (4 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-3xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-secondary block">طريقة سريعة وفائقة الذكاء</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">بطاقة الطالب الذكية</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-sm text-label-sm">QR Code</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          قرّب بطاقتك المدرسية أمام الكاميرا للدخول فوراً بدون الحاجة لأي كتابة أو حفظ رموز.
+        </p>
+<!-- Camera Scanner Viewport Mockup -->
+<div class="relative w-full aspect-square max-h-64 bg-inverse-surface rounded-2xl overflow-hidden flex flex-col items-center justify-center shadow-inner group">
+<!-- Ambient camera preview background grid -->
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#89f5e7_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<!-- Animated Laser Beam -->
+<div class="absolute inset-x-4 h-1 bg-gradient-to-r from-transparent via-secondary-fixed to-transparent shadow-[0_0_12px_#6bd8cb] animate-[bounce_2.5s_infinite]"></div>
+<!-- Scanner Corner Brackets -->
+<div class="w-44 h-44 relative flex items-center justify-center">
+<!-- Top-Right -->
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-secondary-fixed rounded-tr-xl"></div>
+<!-- Top-Left -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-secondary-fixed rounded-tl-xl"></div>
+<!-- Bottom-Right -->
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-secondary-fixed rounded-br-xl"></div>
+<!-- Bottom-Left -->
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-secondary-fixed rounded-bl-xl"></div>
+<!-- Stylized QR Target Graphic -->
+<div class="w-28 h-28 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center flex-col gap-2 p-3 text-inverse-on-surface">
+<span class="material-symbols-outlined text-[44px] text-secondary-fixed animate-pulse">qr_code_2</span>
+<span class="font-label-sm text-label-sm text-center text-secondary-fixed-dim">وجّه الرمز هنا</span>
+</div>
+</div>
+<!-- Scan Status Badge -->
+<div class="absolute bottom-3 px-3 py-1 bg-inverse-surface/80 backdrop-blur-sm rounded-full text-inverse-on-surface font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+            الكاميرا قيد الاستعداد
+          </div>
+</div>
+</div>
+<!-- Action Button for Camera Permission -->
+<button class="mt-6 w-full py-3.5 px-4 bg-secondary text-on-secondary rounded-2xl font-title-md text-title-md flex items-center justify-center gap-2 hover:bg-secondary/90 transition shadow-sm active:scale-98" type="button">
+<span class="material-symbols-outlined">photo_camera</span>
+<span>تشغيل الكاميرا الآن</span>
+</button>
+</div>
+<!-- Option 2: Visual Avatar & Fun Picture PIN (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-3xl p-6 md:p-8 shadow-sm flex flex-col justify-between space-y-6">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">face_6</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">الدخول الذاتي الملون</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">اختر صورتك ورمزك السري</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 bg-primary-fixed text-on-primary-fixed rounded-full font-label-sm text-label-sm">أبطال الفصول</span>
+</div>
+<!-- Step 1: Select Child Avatar -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary inline-flex items-center justify-center font-label-sm text-label-sm">1</span>
+<span>من أنت اليوم؟ (اختر صورتك):</span>
+</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="selectedAvatarLabel">لم يتم الاختيار</span>
+</div>
+<!-- 6 Avatars Grid -->
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 pt-1">
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="أسد الشجاعة" type="button">
+<div class="w-14 h-14 rounded-xl bg-primary-container/20 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🦁
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">ليث</span>
+</button>
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="صقر المعرفة" type="button">
+<div class="w-14 h-14 rounded-xl bg-secondary-container/40 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🦅
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">صقر</span>
+</button>
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="دلفين الذكاء" type="button">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🐬
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">موج</span>
+</button>
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="رائد الفضاء" type="button">
+<div class="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🧑‍🚀
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">شهاب</span>
+</button>
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="دب القوة" type="button">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🐻
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">ميمون</span>
+</button>
+<button class="avatar-card group relative p-2 rounded-2xl bg-surface-container-low hover:bg-primary-fixed/40 transition-all flex flex-col items-center text-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary" data-avatar="بومة الحكمة" type="button">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                🦉
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface">حكيمة</span>
+</button>
+</div>
+</div>
+<!-- Step 2: Visual PIN Pad (Pictures instead of dry digits) -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary inline-flex items-center justify-center font-label-sm text-label-sm">2</span>
+<span>أدخل رمزك المصور (4 أشكال):</span>
+</span>
+<button class="text-error font-label-sm text-label-sm hover:underline flex items-center gap-1" id="clearPinBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">backspace</span>
+<span>مسح الرمز</span>
+</button>
+</div>
+<!-- PIN Progress Slots (4 Circular Glow Badges) -->
+<div class="flex items-center justify-center gap-4 py-2 bg-surface-container-low rounded-2xl">
+<div class="pin-slot w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-2xl shadow-sm transition-all text-on-surface-variant" id="slot-0">⚪</div>
+<div class="pin-slot w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-2xl shadow-sm transition-all text-on-surface-variant" id="slot-1">⚪</div>
+<div class="pin-slot w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-2xl shadow-sm transition-all text-on-surface-variant" id="slot-2">⚪</div>
+<div class="pin-slot w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center text-2xl shadow-sm transition-all text-on-surface-variant" id="slot-3">⚪</div>
+</div>
+<!-- Fun Picture PIN Pad Grid (8 Friendly Icons) -->
+<div class="grid grid-cols-4 sm:grid-cols-8 gap-2">
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="⭐" type="button">⭐</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="🚀" type="button">🚀</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="🍎" type="button">🍎</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="⚽" type="button">⚽</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="🎈" type="button">🎈</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="🎨" type="button">🎨</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="⚡" type="button">⚡</button>
+<button class="pin-key h-14 rounded-2xl bg-surface-container-high hover:bg-primary-container text-2xl flex items-center justify-center transition shadow-sm active:scale-90" data-val="🌈" type="button">🌈</button>
+</div>
+</div>
+</div>
+<!-- Submit Enter Journey Button -->
+<button class="w-full py-4 px-6 bg-primary-container text-on-primary-container rounded-2xl font-headline-sm text-headline-sm flex items-center justify-center gap-3 shadow-md hover:bg-primary-container/90 transition duration-200 active:scale-98" id="submitLoginBtn" type="button">
+<span>انطلق نحو مغامرتي! 🚀</span>
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+</div>
+</div>
+<!-- Bottom Encouragement Banner & Assistance -->
+<footer class="flex flex-col sm:flex-row items-center justify-between bg-surface-container-low px-6 py-4 rounded-2xl gap-4">
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+<span>بيئة تعليمية آمنة وخالية تماماً من الإعلانات مصممة خصيصاً للأبطال الصغار.</span>
+</div>
+<div class="flex items-center gap-4 font-label-md text-label-md text-on-surface-variant">
+<span>نسيت رمزك؟</span>
+<button class="text-primary font-bold hover:underline flex items-center gap-1" type="button">
+<span>اطلب مساعدة المعلم 🙋‍♂️</span>
+</button>
+</div>
+</footer>
+</div>
+<!-- Interactive Logic for Child Delight & Feedback -->
+<script>
+  (function() {
+    let selectedAvatar = null;
+    let pinCode = [];
+
+    // Avatar Selection
+    const avatarCards = document.querySelectorAll('.avatar-card');
+    const selectedLabel = document.getElementById('selectedAvatarLabel');
+
+    avatarCards.forEach(btn => {
+      btn.addEventListener('click', () => {
+        avatarCards.forEach(c => {
+          c.classList.remove('bg-primary-fixed', 'ring-2', 'ring-primary');
+          c.classList.add('bg-surface-container-low');
+        });
+        btn.classList.remove('bg-surface-container-low');
+        btn.classList.add('bg-primary-fixed', 'ring-2', 'ring-primary');
+        selectedAvatar = btn.getAttribute('data-avatar');
+        selectedLabel.textContent = selectedAvatar;
+      });
+    });
+
+    // PIN Pad Interaction
+    const pinSlots = [
+      document.getElementById('slot-0'),
+      document.getElementById('slot-1'),
+      document.getElementById('slot-2'),
+      document.getElementById('slot-3')
+    ];
+    const pinKeys = document.querySelectorAll('.pin-key');
+    const clearBtn = document.getElementById('clearPinBtn');
+
+    function updatePinSlots() {
+      pinSlots.forEach((slot, idx) => {
+        if (idx < pinCode.length) {
+          slot.textContent = pinCode[idx];
+          slot.classList.remove('text-on-surface-variant', 'bg-surface-container-lowest');
+          slot.classList.add('bg-primary-fixed', 'scale-110', 'shadow-md');
+        } else {
+          slot.textContent = '⚪';
+          slot.classList.add('text-on-surface-variant', 'bg-surface-container-lowest');
+          slot.classList.remove('bg-primary-fixed', 'scale-110', 'shadow-md');
+        }
+      });
+    }
+
+    pinKeys.forEach(key => {
+      key.addEventListener('click', () => {
+        if (pinCode.length < 4) {
+          pinCode.push(key.getAttribute('data-val'));
+          updatePinSlots();
+        }
+      });
+    });
+
+    clearBtn.addEventListener('click', () => {
+      pinCode = [];
+      updatePinSlots();
+    });
+
+    // Mascot Interaction
+    const chick = document.getElementById('mascotChick');
+    if (chick) {
+      chick.addEventListener('click', () => {
+        chick.classList.add('animate-bounce');
+        setTimeout(() => chick.classList.remove('animate-bounce'), 1000);
+      });
+    }
+
+    // Audio Instruction Toggle
+    const audioBtn = document.getElementById('playIntroAudio');
+    if (audioBtn) {
+      audioBtn.addEventListener('click', () => {
+        alert('مرحباً بك! اختر شخصيتك المحببة، ثم اضغط على أربعة أشكال تعرفها للدخول، أو مرر بطاقتك أمام الكاميرا.');
+      });
+    }
+
+    // Submit Validation
+    const submitBtn = document.getElementById('submitLoginBtn');
+    submitBtn.addEventListener('click', () => {
+      if (!selectedAvatar) {
+        alert('من فضلك اختر بطلك أولاً! 🦁🦅');
+        return;
+      }
+      if (pinCode.length < 4) {
+        alert('أكمل إدخال الرموز الأربعة السحرية! ⭐');
+        return;
+      }
+      submitBtn.innerHTML = '<span>جاري التحضير... 🌟</span>';
+      setTimeout(() => {
+        alert(`أهلاً بك يا ${selectedAvatar}! تم تسجيل دخولك بنجاح وحصلت على 50 نقطة ⭐!`);
+        submitBtn.innerHTML = '<span>انطلق نحو مغامرتي! 🚀</span><span class="material-symbols-outlined text-[24px]">arrow_back</span>';
+      }, 700);
+    });
+
+  })();
+</script></main></body></html>

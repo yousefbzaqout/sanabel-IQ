@@ -1,0 +1,39 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 1,
+    "subject": {
+        "code": "MATH",
+        "name": "الرياضيات",
+        "slug": "math-g3-palestinian",
+        "icon": "🔢",
+        "description": "الرياضيات للصف 3 — منهاج تجريبي للعرض (يشمل وحدات أصلية وتجريبية)"
+    },
+    "official_outcomes": [
+        "محتوى غني للعرض على خريطة الطالب",
+        "دروس تفاعلية بست محطات مع اختبارات قصيرة",
+        "تلميحات سنبل السياقية في كل درس"
+    ],
+    "units": [
+        {
+            "order": 1,
+            "title": "تجريبي: الضرب والقسمة",
+            "semester": 1,
+            "lesson_files": [
+                "lessons\/mock-multiply-intro.json",
+                "lessons\/mock-times-2-5.json",
+                "lessons\/mock-divide-intro.json"
+            ]
+        },
+        {
+            "order": 2,
+            "title": "تجريبي: جداول الضرب",
+            "semester": 2,
+            "lesson_files": [
+                "lessons\/mock-times-3-4.json",
+                "lessons\/mock-mixed-ops.json",
+                "lessons\/mock-measure-length.json"
+            ]
+        }
+    ]
+}

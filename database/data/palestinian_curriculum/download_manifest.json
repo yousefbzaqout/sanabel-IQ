@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "locale": "ar",
+  "publisher": "وزارة التربية والتعليم الفلسطينية / مركز المناهج",
+  "storage_root": "storage/curriculum/palestine",
+  "subjects": ["arabic", "math", "science"],
+  "grades": [1, 2, 3, 4, 5, 6],
+  "semesters": [1, 2],
+  "notes": "Verified PDF URLs (HTTP 200 + %%EOF). Prefer Drive usercontent mirrors when MoE is slow from Sail. Official MoE paths also listed as official_moe_url where known. Grade 1 has no science book (تربية وطنية وحياتية instead). After download, rewrite with qpdf --object-streams=disable if smalot fails on secured/object-stream PDFs.",
+  "entries": [
+    {
+      "grade": 1,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "لغتنا الجميلة — الجزء الأول",
+      "url": "https://drive.usercontent.google.com/download?id=1cvlzFPfanTjYJtZ5a4_K9roetb2Opobn&export=download",
+      "source_note": "Mirror of official لغتنا الجميلة ج1 ف1 (edu4ps). MoE path Arabic01P1PDF2021/Arabic01P1Book.pdf also exists but is slow/unreliable from some networks."
+    },
+    {
+      "grade": 1,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — الجزء الأول",
+      "url": "https://drive.usercontent.google.com/download?id=1KI3I1wcmwarmo5LRFahyWE-KrKKCT56T&export=download",
+      "official_moe_url": "https://moe.edu.ps/storage/app/pcdcbooks/files/01GradeP1/Math01P1PDF2022/Math01P1.pdf"
+    },
+    {
+      "grade": 1,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم العامة — الجزء الأول",
+      "url": null
+    },
+    {
+      "grade": 1,
+      "semester": 2,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "لغتنا الجميلة — الجزء الثاني",
+      "url": null
+    },
+    {
+      "grade": 1,
+      "semester": 2,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — الجزء الثاني",
+      "url": "https://drive.usercontent.google.com/download?id=1-nJ18cjzdY6aEJCysmBdRyGZvRtUzeIg&export=download"
+    },
+    {
+      "grade": 1,
+      "semester": 2,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم العامة — الجزء الثاني",
+      "url": null
+    },
+    {
+      "grade": 2,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "لغتنا الجميلة — ج2 ف1",
+      "url": null
+    },
+    {
+      "grade": 2,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — ج2 ف1",
+      "url": "https://drive.usercontent.google.com/download?id=1W8eVbUjpYS5r0Q4tdD_NdIVJ2YM2Jomt&export=download"
+    },
+    {
+      "grade": 2,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم — ج2 ف1",
+      "url": null
+    },
+    {
+      "grade": 3,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "اللغة العربية — ج3 ف1",
+      "url": null
+    },
+    {
+      "grade": 3,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — ج3 ف1",
+      "url": "https://drive.usercontent.google.com/download?id=1yLhn9iGJcAvV5Ze8WpnFHK7430kTaeFS&export=download",
+      "official_moe_url": "https://moe.edu.ps/storage/app/pcdcbooks/files/03GradeP1/Math03P1PDF2022/Math03P1.pdf"
+    },
+    {
+      "grade": 3,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم — ج3 ف1",
+      "url": null
+    },
+    {
+      "grade": 4,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "اللغة العربية — ج4 ف1",
+      "url": null
+    },
+    {
+      "grade": 4,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — ج4 ف1",
+      "url": "https://drive.usercontent.google.com/download?id=1oA8d_gL6belfzs5WvkhQ7TBvi-DyaT4F&export=download"
+    },
+    {
+      "grade": 4,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم — ج4 ف1",
+      "url": null
+    },
+    {
+      "grade": 5,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "اللغة العربية — ج5 ف1",
+      "url": "https://drive.usercontent.google.com/download?id=1-e74AwtmStAZt7CEybsJOF1z6c7jEi7b&export=download"
+    },
+    {
+      "grade": 5,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — ج5 ف1",
+      "url": "https://moe.edu.ps/storage/app/pcdcbooks/files/05GradeP1/Math05P1PDF2022/Math05P1.pdf"
+    },
+    {
+      "grade": 5,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم — ج5 ف1",
+      "url": null
+    },
+    {
+      "grade": 6,
+      "semester": 1,
+      "subject": "arabic",
+      "subject_code": "AR",
+      "title": "اللغة العربية — ج6 ف1",
+      "url": "https://drive.usercontent.google.com/download?id=1laRteJ2enIy-b9vMXrmeF6WANqfP13wO&export=download"
+    },
+    {
+      "grade": 6,
+      "semester": 1,
+      "subject": "math",
+      "subject_code": "MATH",
+      "title": "الرياضيات — ج6 ف1",
+      "url": "https://moe.edu.ps/storage/app/pcdcbooks/files/06GradeP1/Math06P1PDF2022/Math06P1.pdf"
+    },
+    {
+      "grade": 6,
+      "semester": 1,
+      "subject": "science",
+      "subject_code": "SCI",
+      "title": "العلوم — ج6 ف1",
+      "url": null
+    }
+  ]
+}

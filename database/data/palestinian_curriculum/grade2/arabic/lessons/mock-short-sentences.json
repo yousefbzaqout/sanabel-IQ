@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 2,
+    "semester": 1,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "أقرأ وأفهم",
+    "lesson_key": "ar-g2-ar-mock-short-sentences",
+    "audio_slug": "short-sentences",
+    "key": "mock-g2-arabic-short-sentences",
+    "title": "جمل قصيرة",
+    "subtitle": "عرض تجريبي — الصف الثاني — الفصل 1",
+    "material_title": "تجريبي G2: جمل قصيرة",
+    "order_column": 30,
+    "xp_reward": 44,
+    "description": "نقرأ جملاً من ثلاث إلى خمس كلمات.",
+    "phonemes": {
+        "voice_targets": [
+            "قَ",
+            "قُ",
+            "قِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "قَ",
+                "label": "فتحة",
+                "audio_script": "صوت قَ",
+                "cards": [
+                    {
+                        "word": "قرأ",
+                        "emoji": "📖",
+                        "audio": "قَ مثل قرأ",
+                        "highlight": "قَ"
+                    },
+                    {
+                        "word": "كتب",
+                        "emoji": "✍️",
+                        "audio": "كتب",
+                        "highlight": "ك"
+                    },
+                    {
+                        "word": "لعب",
+                        "emoji": "⚽",
+                        "audio": "لعب",
+                        "highlight": "ل"
+                    }
+                ]
+            },
+            {
+                "glyph": "قُ",
+                "label": "ضمة",
+                "audio_script": "صوت قُ",
+                "cards": [
+                    {
+                        "word": "كتب",
+                        "emoji": "✍️",
+                        "audio": "قُ مثل كتب",
+                        "highlight": "قُ"
+                    },
+                    {
+                        "word": "لعب",
+                        "emoji": "⚽",
+                        "audio": "لعب",
+                        "highlight": "ل"
+                    },
+                    {
+                        "word": "قرأ",
+                        "emoji": "📖",
+                        "audio": "قرأ",
+                        "highlight": "ق"
+                    }
+                ]
+            },
+            {
+                "glyph": "قِ",
+                "label": "كسرة",
+                "audio_script": "صوت قِ",
+                "cards": [
+                    {
+                        "word": "لعب",
+                        "emoji": "⚽",
+                        "audio": "قِ مثل لعب",
+                        "highlight": "قِ"
+                    },
+                    {
+                        "word": "قرأ",
+                        "emoji": "📖",
+                        "audio": "قرأ",
+                        "highlight": "ق"
+                    },
+                    {
+                        "word": "كتب",
+                        "emoji": "✍️",
+                        "audio": "كتب",
+                        "highlight": "ك"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "قرأ",
+        "syllables": [
+            {
+                "glyph": "ق",
+                "order": 1
+            },
+            {
+                "glyph": "ر",
+                "order": 2
+            },
+            {
+                "glyph": "أ",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة قرأ"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس جمل قصيرة",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس جمل قصيرة",
+        "story_audio": "هيا نستكشف جمل قصيرة مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "قرأ",
+                "emoji": "📖",
+                "correct": true,
+                "audio": "قرأ"
+            },
+            {
+                "id": "item-1",
+                "label": "كتب",
+                "emoji": "✍️",
+                "correct": true,
+                "audio": "كتب"
+            },
+            {
+                "id": "item-2",
+                "label": "لعب",
+                "emoji": "⚽",
+                "correct": true,
+                "audio": "لعب"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في جمل قصيرة؟",
+        "parts": [
+            {
+                "text": "📖",
+                "highlight": true
+            },
+            {
+                "text": " قرأ",
+                "highlight": true
+            },
+            {
+                "text": " = ق",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على قرأ ضمن جمل قصيرة.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس جمل قصيرة.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ق في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس جمل قصيرة؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "قرأ من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "قرأ",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "كتب جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "كتب",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «قرأ» مناسبة لدرس جمل قصيرة.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "قرأ، كتب، لعب",
+                "options": [
+                    {
+                        "text": "قرأ \/ كتب \/ لعب",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ق",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "قرأ",
+            "parts": [
+                {
+                    "text": "ق",
+                    "highlight": true
+                },
+                {
+                    "text": "رأ",
+                    "highlight": false
+                }
+            ],
+            "audio": "قرأ: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "كتب",
+            "parts": [
+                {
+                    "text": "ك",
+                    "highlight": false
+                },
+                {
+                    "text": "ق",
+                    "highlight": true
+                },
+                {
+                    "text": "ب",
+                    "highlight": false
+                }
+            ],
+            "audio": "كتب: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "لعب",
+            "parts": [
+                {
+                    "text": "لع",
+                    "highlight": false
+                },
+                {
+                    "text": "ب",
+                    "highlight": true
+                }
+            ],
+            "audio": "لعب: في نهاية الكلمة"
+        }
+    ]
+}

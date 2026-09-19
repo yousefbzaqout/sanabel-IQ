@@ -12,6 +12,7 @@
 /.phpunit.cache
 /.vscode
 /.zed
+/.venv-tts/
 /auth.json
 /node_modules
 /public/build
@@ -27,5 +28,14 @@ Homestead.yaml
 Thumbs.db
 # Windows zone identifiers
 *:Zone.Identifier
+# Local share archives & marketing capture scratch
+*.zip
+docs/marketing/feature-mockups/_raw-*
+docs/marketing/feature-mockups/**/_raw-*
+docs/marketing/feature-mockups/_tmp*
+docs/marketing/feature-mockups/**/_tmp*
+scripts/__pycache__/
+__pycache__/
+*.pyc
 
 

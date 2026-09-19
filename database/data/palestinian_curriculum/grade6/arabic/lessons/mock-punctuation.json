@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 6,
+    "semester": 1,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "قواعد أساسية",
+    "lesson_key": "ar-g6-ar-mock-punctuation",
+    "audio_slug": "punctuation",
+    "key": "mock-g6-arabic-punctuation",
+    "title": "علامات الترقيم",
+    "subtitle": "عرض تجريبي — الصف السادس — الفصل 1",
+    "material_title": "تجريبي G6: علامات الترقيم",
+    "order_column": 30,
+    "xp_reward": 52,
+    "description": "نستخدم علامات الترقيم الأساسية.",
+    "phonemes": {
+        "voice_targets": [
+            "؟َ",
+            "؟ُ",
+            "؟ِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "؟َ",
+                "label": "فتحة",
+                "audio_script": "صوت ؟َ",
+                "cards": [
+                    {
+                        "word": "نقطة",
+                        "emoji": "⚫",
+                        "audio": "؟َ مثل نقطة",
+                        "highlight": "؟َ"
+                    },
+                    {
+                        "word": "فاصلة",
+                        "emoji": "⏸️",
+                        "audio": "فاصلة",
+                        "highlight": "ف"
+                    },
+                    {
+                        "word": "سؤال",
+                        "emoji": "❓",
+                        "audio": "سؤال",
+                        "highlight": "س"
+                    }
+                ]
+            },
+            {
+                "glyph": "؟ُ",
+                "label": "ضمة",
+                "audio_script": "صوت ؟ُ",
+                "cards": [
+                    {
+                        "word": "فاصلة",
+                        "emoji": "⏸️",
+                        "audio": "؟ُ مثل فاصلة",
+                        "highlight": "؟ُ"
+                    },
+                    {
+                        "word": "سؤال",
+                        "emoji": "❓",
+                        "audio": "سؤال",
+                        "highlight": "س"
+                    },
+                    {
+                        "word": "نقطة",
+                        "emoji": "⚫",
+                        "audio": "نقطة",
+                        "highlight": "ن"
+                    }
+                ]
+            },
+            {
+                "glyph": "؟ِ",
+                "label": "كسرة",
+                "audio_script": "صوت ؟ِ",
+                "cards": [
+                    {
+                        "word": "سؤال",
+                        "emoji": "❓",
+                        "audio": "؟ِ مثل سؤال",
+                        "highlight": "؟ِ"
+                    },
+                    {
+                        "word": "نقطة",
+                        "emoji": "⚫",
+                        "audio": "نقطة",
+                        "highlight": "ن"
+                    },
+                    {
+                        "word": "فاصلة",
+                        "emoji": "⏸️",
+                        "audio": "فاصلة",
+                        "highlight": "ف"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "نقطة",
+        "syllables": [
+            {
+                "glyph": "ن",
+                "order": 1
+            },
+            {
+                "glyph": "ق",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة نقطة"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس علامات الترقيم",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس علامات الترقيم",
+        "story_audio": "هيا نستكشف علامات الترقيم مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "نقطة",
+                "emoji": "⚫",
+                "correct": true,
+                "audio": "نقطة"
+            },
+            {
+                "id": "item-1",
+                "label": "فاصلة",
+                "emoji": "⏸️",
+                "correct": true,
+                "audio": "فاصلة"
+            },
+            {
+                "id": "item-2",
+                "label": "سؤال",
+                "emoji": "❓",
+                "correct": true,
+                "audio": "سؤال"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في علامات الترقيم؟",
+        "parts": [
+            {
+                "text": "⚫",
+                "highlight": true
+            },
+            {
+                "text": " نقطة",
+                "highlight": true
+            },
+            {
+                "text": " = ؟",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على نقطة ضمن علامات الترقيم.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس علامات الترقيم.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ؟ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس علامات الترقيم؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "نقطة من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "نقطة",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "فاصلة جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "فاصلة",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «نقطة» مناسبة لدرس علامات الترقيم.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "نقطة، فاصلة، سؤال",
+                "options": [
+                    {
+                        "text": "نقطة \/ فاصلة \/ سؤال",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "؟",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "نقطة",
+            "parts": [
+                {
+                    "text": "ن",
+                    "highlight": true
+                },
+                {
+                    "text": "قطة",
+                    "highlight": false
+                }
+            ],
+            "audio": "نقطة: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "فاصلة",
+            "parts": [
+                {
+                    "text": "ف",
+                    "highlight": false
+                },
+                {
+                    "text": "؟",
+                    "highlight": true
+                },
+                {
+                    "text": "ة",
+                    "highlight": false
+                }
+            ],
+            "audio": "فاصلة: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "سؤال",
+            "parts": [
+                {
+                    "text": "سؤا",
+                    "highlight": false
+                },
+                {
+                    "text": "ل",
+                    "highlight": true
+                }
+            ],
+            "audio": "سؤال: في نهاية الكلمة"
+        }
+    ]
+}

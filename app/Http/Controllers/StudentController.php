@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
+use App\Models\Tenant;
+use App\Services\Tenancy\TenantSeatLimitService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -31,11 +33,19 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-    public function store(StoreStudentRequest $request): RedirectResponse
+    public function store(StoreStudentRequest $request, TenantSeatLimitService $seatLimitService): RedirectResponse
     {
         $this->authorize('create', Student::class);
 
-        $student = $request->user()->students()->create($request->validated());
+        $user = $request->user();
+        if ($user?->tenant_id !== null) {
+            $tenant = Tenant::query()->find($user->tenant_id);
+            if ($tenant !== null) {
+                $seatLimitService->ensureCanAddStudent($tenant);
+            }
+        }
+
+        $student = $user->students()->create($request->validated());
 
         return redirect()->route('students.show', $student);
     }

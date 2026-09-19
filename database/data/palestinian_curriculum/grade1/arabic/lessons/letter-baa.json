@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "AR",
+  "unit_title": "الوحدة الأولى",
+  "lesson_key": "ar-g1-letter-baa",
+  "audio_slug": "baa",
+  "key": "letter-baa",
+  "title": "حرف الباء",
+  "subtitle": "رحلة الشرح والتأسيس — لغتنا الجميلة",
+  "material_title": "الدرس الثالث: حرف الباء",
+  "letter": "ب",
+  "order_column": 3,
+  "xp_reward": 45,
+  "description": "نتعلم حرف الباء بحركاته الثلاث، مواقعه، وتتبعه، ثم ننتقل للاختبار.",
+  "phonemes": {
+    "voice_targets": ["بَ", "بُ", "بِ"],
+    "tabs": [
+      {
+        "glyph": "بَ",
+        "label": "فتحة",
+        "cards": [
+          {"word": "بَاب", "emoji": "🚪", "audio": "بَ مثل بَاب", "highlight": "بَ"},
+          {"word": "بَحْر", "emoji": "🌊", "audio": "بَ مثل بَحْر", "highlight": "بَ"},
+          {"word": "بَيْت", "emoji": "🏠", "audio": "بَ مثل بَيْت", "highlight": "بَ"}
+        ]
+      },
+      {
+        "glyph": "بُ",
+        "label": "ضمة",
+        "cards": [
+          {"word": "بُرْتُقال", "emoji": "🍊", "audio": "بُ مثل بُرْتُقال", "highlight": "بُ"},
+          {"word": "بُرْج", "emoji": "🗼", "audio": "بُ مثل بُرْج", "highlight": "بُ"},
+          {"word": "بُومَة", "emoji": "🦉", "audio": "بُ مثل بُومَة", "highlight": "بُ"}
+        ]
+      },
+      {
+        "glyph": "بِ",
+        "label": "كسرة",
+        "cards": [
+          {"word": "بِنْت", "emoji": "👧", "audio": "بِ مثل بِنْت", "highlight": "بِ"},
+          {"word": "بِساط", "emoji": "🧺", "audio": "بِ مثل بِساط", "highlight": "بِ"},
+          {"word": "بِئر", "emoji": "🪣", "audio": "بِ مثل بِئر", "highlight": "بِ"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "بَاب",
+    "syllables": [
+      {"glyph": "بَ", "order": 1},
+      {"glyph": "ا", "order": 2},
+      {"glyph": "ب", "order": 3}
+    ],
+    "completion_audio_script": "أحسنت! كوّنت كلمة بَاب"
+  },
+  "positions": [
+    {
+      "label": "في البداية",
+      "word": "بَيْت",
+      "parts": [{"text": "بَ", "highlight": true}, {"text": "يْت", "highlight": false}],
+      "audio": "بَيْت: حرف الباء في بداية الكلمة"
+    },
+    {
+      "order": 2,
+      "label": "في الوسط",
+      "word": "حَبِيب",
+      "parts": [{"text": "حَ", "highlight": false}, {"text": "بِ", "highlight": true}, {"text": "يب", "highlight": false}],
+      "audio": "حَبِيب: حرف الباء في وسط الكلمة"
+    },
+    {
+      "label": "في النهاية",
+      "word": "كِتاب",
+      "parts": [{"text": "كِتا", "highlight": false}, {"text": "ب", "highlight": true}],
+      "audio": "كِتاب: حرف الباء في نهاية الكلمة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع حرف الباء بإصبعك",
+    "path": "M 35 55 C 35 55 35 105 55 115 C 75 125 105 118 115 95 C 120 82 112 70 95 68 L 40 68",
+    "direction": "right_to_left_bowl",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد رسمت حرف الباء يا بطل!"
+  },
+  "discovery": {
+    "intro": "ابحث عن الأشياء التي فيها حرف الباء",
+    "story_audio": "هيا نكتشف حرف الباء من حولنا",
+    "items": [
+      {"id": "bab", "label": "بَاب", "emoji": "🚪", "correct": true, "audio": "بَاب فيها حرف الباء"},
+      {"id": "qamar", "label": "قَمَر", "emoji": "🌙", "correct": false, "audio": "قَمَر ليس فيها باء"},
+      {"id": "bahr", "label": "بَحْر", "emoji": "🌊", "correct": true, "audio": "بَحْر فيها حرف الباء"},
+      {"id": "kitab", "label": "كِتاب", "emoji": "📘", "correct": true, "audio": "كِتاب فيها حرف الباء"},
+      {"id": "shams", "label": "شَمس", "emoji": "☀️", "correct": false, "audio": "شَمس ليس فيها باء"}
+    ]
+  },
+  "demo": {
+    "question": "أين حرف الباء في كلمة (كِتاب)؟",
+    "parts": [{"text": "كِتا", "highlight": false}, {"text": "ب", "highlight": true}],
+    "explain_audio": "انظر معي: في كلمة كِتاب، حرف الباء في النهاية.",
+    "cta": "جاهز للاختبار يا بطل! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "مرحباً! أنا سنبل. لنستمع لحركات حرف الباء معاً.",
+      "2": "رتّب المقاطع لتكوّن الكلمة، أنا معك!",
+      "3": "لاحظ أين يظهر حرف الباء في الكلمة.",
+      "4": "ارسم حرف الباء بيدك ببطء ودقة.",
+      "5": "ابحث عن الكلمات التي فيها باء!",
+      "6": "شاهد كيف أحل السؤال ثم جرب بنفسك."
+    },
+    "adaptive": [
+      {"concept": "diacritic_confusion", "hint": "تلميح سنبل: فرّق بين بَ وبُ وبِ من صوت الحركة."},
+      {"concept": "stroke_order", "hint": "تلميح سنبل: ارسم وعاء الباء من اليمين لليسار ثم ضع النقطة تحت الحرف."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "أي كلمة تبدأ بحرف الباء؟",
+        "explanation": "كلمة بَيْت تبدأ بحرف الباء.",
+        "options": [
+          {"text": "🏠 بَيْت", "correct": true},
+          {"text": "🐔 دَجاجَة", "correct": false},
+          {"text": "🚩 رَايَة", "correct": false}
+        ]
+      },
+      {
+        "type": "true_false",
+        "prompt": "لحرف الباء نقطة واحدة تحت الحرف.",
+        "explanation": "نعم، نقطة الباء تكون تحت الحرف.",
+        "options": [
+          {"text": "صح ✅", "correct": true},
+          {"text": "خطأ ❌", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أين حرف الباء في كلمة كِتاب؟",
+        "explanation": "حرف الباء في نهاية كلمة كِتاب.",
+        "options": [
+          {"text": "في النهاية", "correct": true},
+          {"text": "في البداية", "correct": false},
+          {"text": "لا يوجد باء", "correct": false}
+        ]
+      }
+    ]
+  }
+}

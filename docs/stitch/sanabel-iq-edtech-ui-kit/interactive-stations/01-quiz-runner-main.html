@@ -1,0 +1,169 @@
+<main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Interactive Quiz Runner Canvas -->
+<div class="w-full max-w-6xl mx-auto px-gutter-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg relative">
+<!-- Top Floating Meta Status Bar -->
+<section class="w-full bg-surface-container-lowest rounded-lg p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-32 h-32 bg-primary-fixed/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-32 h-32 bg-secondary-fixed/30 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Right RTL: Exit & Quest Label -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-between md:justify-start">
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface hover:bg-error-container hover:text-on-error-container transition-all active:scale-95 shadow-sm group" href="#">
+<span class="material-symbols-outlined text-headline-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+<span class="font-label-lg text-label-lg font-bold">خروج من التحدي</span>
+</a>
+<div class="flex md:hidden items-center gap-space-xs">
+<span class="flex items-center text-error font-bold text-headline-sm tracking-tighter">❤️❤️❤️</span>
+</div>
+</div>
+<!-- Center: Kid-friendly Progress Gauge -->
+<div class="flex-1 w-full max-w-lg flex flex-col gap-space-xs">
+<div class="flex justify-between items-center px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-lg text-label-lg font-bold text-primary">السؤال 3 من 5</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-space-sm py-0.5 rounded-full">المرحلة الذهبية 🏆</span>
+</div>
+<!-- Track with sliding golden star -->
+<div class="relative w-full h-4 bg-surface-container-high rounded-full overflow-visible p-0.5 flex items-center">
+<div class="h-full bg-gradient-to-l from-primary-container to-primary rounded-full transition-all duration-700 ease-out shadow-inner" style="width: 60%;"></div>
+<!-- Star Pin at 60% mark -->
+<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center w-7 h-7 rounded-full bg-primary-container text-on-primary-container shadow-md ring-4 ring-surface-container-lowest animate-bounce" style="right: 60%;">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Left RTL: Vitals & XP Counter -->
+<div class="hidden md:flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-error-container/60 text-on-error-container rounded-full shadow-sm">
+<span class="material-symbols-outlined text-error text-body-lg" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-lg text-label-lg font-bold">3 محاولات</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-secondary-fixed text-on-secondary-fixed rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-body-lg" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-lg text-label-lg font-bold">+15 XP</span>
+</div>
+</div>
+</section>
+<!-- Split Playground: Mascot Storyteller + Interactive Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Mascot Column: Sanbal with Live Speech Bubble -->
+<aside class="lg:col-span-4 flex flex-col items-center gap-space-md text-center">
+<!-- Speech Bubble -->
+<div class="w-full relative bg-surface-container-lowest rounded-lg p-space-lg shadow-md flex flex-col gap-space-sm text-right">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-secondary bg-secondary-container/50 px-space-sm py-space-xs rounded-full">المرشد سنبل يهمس لكِ 🐥</span>
+<span class="text-headline-sm">💡</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold leading-relaxed">
+            فكري جيداً يا بطلة سارة! أين نلتقي بالمعلمة والأصدقاء لنتعلم العلوم والمرح؟ ✨📚
+          </p>
+<!-- Speech pointer inverted for RTL -->
+<div class="w-5 h-5 bg-surface-container-lowest rotate-45 absolute -bottom-2.5 right-12 shadow-sm rounded-sm"></div>
+</div>
+<!-- Sanbal Plush Mascot Showcase -->
+<div class="relative group mt-space-xs">
+<!-- Ambient Glow Orb -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-fixed to-secondary-fixed rounded-full blur-3xl opacity-70 scale-95 group-hover:scale-105 transition-transform duration-500"></div>
+<div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-xl overflow-hidden bg-surface-container-lowest shadow-xl flex items-center justify-center p-space-sm">
+<img class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300" data-alt="3D animated soft plush chick mascot named Sanbal wearing oversized round teal glasses, sitting on a fluffy pillow while reading a vibrant illustrated magical Arabic storybook with glowing stars, educational whimsical style, ultra cute pastel studio lighting, yellow and cyan accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCInFiZ4R8dtKAwAvJ8fzRigwfrMXBcsx-yhZRQgqaqEVdFma5aIm8AtuqI11YJPW5lHocUF08cOFFGKsCAxRWrviibB-KPjb7mrWYBcw8as0dTlRQJqhr7DF0LOln5LV4BEGJeephsj6nDXxOEX1diHgnGRUYt8u57F0eilu4ddR4Tk83UFsz1xlWLxGS_TtAzEBwysq1isD9FNfZLBsw3jvZ8i4RT7_rzYlBgilbkQY0VGDT64atW1Q"/>
+</div>
+<!-- Tactile Audio Replay Button -->
+<button class="mt-space-md inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-md hover:scale-105 active:scale-95 transition-all" id="sanbal-voice-btn" onclick="playSanbalAudio()" type="button">
+<span class="material-symbols-outlined text-secondary animate-pulse" id="voice-icon" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span id="voice-text">استمع للسؤال بصوت سنبل</span>
+</button>
+</div>
+<!-- Sanabel IQ Mini Mascot Note -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined text-secondary text-sm">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الذكاء الاصطناعي يُكيّف صعوبة الأسئلة حسب تقدمك</span>
+</div>
+</aside>
+<!-- Main Challenge Area: Chunky 3D Question Cards -->
+<main class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Question Prompt Board -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg md:p-space-xl shadow-md relative overflow-hidden">
+<div class="flex items-center gap-space-xs mb-space-sm">
+<span class="px-space-md py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">تحدي الفهم البيئي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">اختر الإجابة الأدق</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-extrabold mb-space-md leading-tight">
+            أين نذهب لنتعلم ونلعب مع الأصدقاء والمعلمة؟ 🏫
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+            تأملي الأماكن التالية واختاري المكان المخصص للفصول الدراسية والساحة المدرسية المرحة.
+          </p>
+<!-- Interactive Chunky Choice Buttons Grid -->
+<div class="grid grid-cols-1 gap-space-md" id="quiz-options-group">
+<!-- Option A: Correct Selected State (Lively Emerald Highlight) -->
+<button class="w-full text-right p-space-lg rounded-lg bg-secondary-container/40 text-on-secondary-container shadow-md flex items-center justify-between relative transition-transform transform active:translate-y-1 group" style="box-shadow: 0 6px 0 #006a61;" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-sm text-headline-sm font-extrabold shadow-sm">
+                  أ
+                </span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">المدرسة والصف 🏫</span>
+<span class="font-body-sm text-body-sm text-secondary/80">مكان اجتماع المعلمين والمعلمات بالطلبة والكتب</span>
+</div>
+</div>
+<!-- Animated Checkmark Badge -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-secondary text-on-secondary shadow-sm animate-bounce">
+<span class="material-symbols-outlined text-body-md" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-lg text-label-lg font-bold">إجابة عبقرية!</span>
+</div>
+</button>
+<!-- Option B: Neutral State -->
+<button class="w-full text-right p-space-lg rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low transition-all active:translate-y-1 flex items-center justify-between group" style="box-shadow: 0 6px 0 #dae2fd;" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-sm text-headline-sm font-extrabold group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  ب
+                </span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold">السوق المركزي 🛒</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">لشراء الفواكه والخضار والاحتياجات المنزلية</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">radio_button_unchecked</span>
+</button>
+<!-- Option C: Neutral State -->
+<button class="w-full text-right p-space-lg rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low transition-all active:translate-y-1 flex items-center justify-between group" style="box-shadow: 0 6px 0 #dae2fd;" type="button">
+<div class="flex items-center gap-space-md">
+<span class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-headline-sm text-headline-sm font-extrabold group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  ج
+                </span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold">الحديقة المائية 🏊</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">للسباحة واللعب المائي في العطلات الصيفية</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- Interactive Question Mode Variety Preview: True / False Binary Cards -->
+<div class="bg-surface-container-low rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary">quiz</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">تمرين التحقق السريع (صح أم خطأ؟)</h3>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-container/30 px-space-sm py-0.5 rounded-full font-bold">سؤال إضافي ذكي</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            «الشمس تشرق من جهة الشرق لتمنح النباتات الضوء والدفء.»
+          </p>
+<div class="grid grid-cols-2 gap-space-md mt-space-xs">
+<!-- True Choice -->
+<button class="p-space-md rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center gap-space-sm transition-all active:translate-y-1 cursor-pointer hover:bg-secondary-fixed/40" onclick="toggleBinary(this, true)" style="box-shadow: 0 4px 0 #86f2e4;" type="button">
+<span class="text-headline-md">✅</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-secondary">صح ومؤكد</span>
+</button>
+<!-- False Choice -->
+<button class="p-space-md rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center gap-space-sm transition-all active:translate-y-1 cursor-pointer hover:bg-error-container/40" onclick="toggleBinary(this, false)" style="box-shadow: 0 4px 0 #ffdad6;" type="button">
+<span class="text-headline-md">❌</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-error">خطأ تماماً</span>
+</button>
+</div>
+</div>
+</main>

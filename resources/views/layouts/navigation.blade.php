@@ -38,6 +38,9 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 gap-3">
+                @if (request()->routeIs('student.*'))
+                    <x-student.audio-toggle />
+                @endif
                 <x-notification-bell />
                 @isset($activeStudent)
                     <x-child-switcher :active-student="$activeStudent" :students="$parentStudents" />
@@ -88,6 +91,12 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        @if (request()->routeIs('student.*'))
+            <div class="flex items-center justify-between gap-3 border-b border-gray-100 px-4 py-3 dark:border-gray-700">
+                <span class="text-sm font-medium text-gray-600 dark:text-gray-300">{{ __('Audio') }}</span>
+                <x-student.audio-toggle />
+            </div>
+        @endif
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}

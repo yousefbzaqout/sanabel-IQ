@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "MATH",
+  "content_kind": "number",
+  "unit_title": "الأعداد حتى 9",
+  "lesson_key": "ar-g1-math-numbers-7-9",
+  "audio_slug": "numbers-7-9",
+  "key": "math-numbers-7-9",
+  "title": "الأعداد ٧ و٨ و٩",
+  "subtitle": "نعدّ ونكتب ونقارن — الرياضيات للصف الأول",
+  "material_title": "الدرس ٣: الأعداد من ٧ إلى ٩",
+  "digit": "٩",
+  "digits": ["٧", "٨", "٩"],
+  "order_column": 12,
+  "xp_reward": 50,
+  "description": "نتعلم الأعداد سبعة وثمانية وتسعة ونختم وحدة الأعداد حتى ٩.",
+  "phonemes": {
+    "voice_targets": ["٧", "٨", "٩"],
+    "spoken_names": {
+      "٧": "سبعة",
+      "٨": "ثمانية",
+      "٩": "تسعة"
+    },
+    "tabs": [
+      {
+        "glyph": "٧",
+        "label": "سبعة",
+        "audio_script": "هذا العدد سبعة",
+        "cards": [
+          {"word": "٧ أقواس", "emoji": "🌈", "audio": "سبعة ألوان في قوس قزح تقريباً", "highlight": "٧"},
+          {"word": "سبعة", "emoji": "7️⃣", "audio": "نقول سبعة", "highlight": "سبعة"},
+          {"word": "٧ أيام", "emoji": "📅", "audio": "أسبوع فيه سبعة أيام", "highlight": "٧"}
+        ]
+      },
+      {
+        "glyph": "٨",
+        "label": "ثمانية",
+        "audio_script": "هذا العدد ثمانية",
+        "cards": [
+          {"word": "٨ أرجل", "emoji": "🕷️", "audio": "للعنكبوت ثمانية أرجل", "highlight": "٨"},
+          {"word": "ثمانية", "emoji": "8️⃣", "audio": "نقول ثمانية", "highlight": "ثمانية"},
+          {"word": "٨ مربعات", "emoji": "🟦🟦🟦🟦🟦🟦🟦🟦", "audio": "ثمانية مربعات", "highlight": "٨"}
+        ]
+      },
+      {
+        "glyph": "٩",
+        "label": "تسعة",
+        "audio_script": "هذا العدد تسعة",
+        "cards": [
+          {"word": "٩ كواكب مصغّرة", "emoji": "🪐", "audio": "نعدّ حتى تسعة", "highlight": "٩"},
+          {"word": "تسعة", "emoji": "9️⃣", "audio": "نقول تسعة", "highlight": "تسعة"},
+          {"word": "٩ نقاط", "emoji": "•••••••••", "audio": "تسع نقاط", "highlight": "٩"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "٧٨٩",
+    "syllables": [
+      {"glyph": "٧", "order": 1},
+      {"glyph": "٨", "order": 2},
+      {"glyph": "٩", "order": 3}
+    ],
+    "completion_audio_script": "أحسنت! عددت سبعة، ثمانية، تسعة!"
+  },
+  "number_forms": [
+    {
+      "id": "fingers",
+      "label": "سبعة أصابع",
+      "word": "🖐️✌️",
+      "parts": [
+        {"text": "٥", "highlight": false},
+        {"text": "+", "highlight": false},
+        {"text": "٢", "highlight": false},
+        {"text": "=", "highlight": false},
+        {"text": "٧", "highlight": true}
+      ],
+      "audio": "خمسة وأصبعين = سبعة"
+    },
+    {
+      "id": "dots",
+      "label": "ثماني نقاط",
+      "word": "••••••••",
+      "parts": [
+        {"text": "●●●●", "highlight": true},
+        {"text": "●●●●", "highlight": true}
+      ],
+      "audio": "ثماني نقاط مثل العدد ثمانية"
+    },
+    {
+      "id": "objects",
+      "label": "تسعة بالونات",
+      "word": "🎈🎈🎈🎈🎈🎈🎈🎈🎈",
+      "parts": [
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true},
+        {"text": "🎈", "highlight": true}
+      ],
+      "audio": "تسعة بالونات ملونة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع كتابة العدد ٩ بإصبعك",
+    "path": "M 88 78 C 88 52 70 34 52 40 C 36 46 34 70 48 82 C 60 92 78 88 88 78 L 88 120",
+    "direction": "digit_stroke",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد كتبت العدد تسعة يا بطل!"
+  },
+  "discovery": {
+    "intro": "امسح واعثر على مجموعات من ٧ و٨ و٩",
+    "story_audio": "هيا نكمل العدّ حتى تسعة مع سنبل!",
+    "items": [
+      {"id": "seven-days", "label": "أيام الأسبوع", "emoji": "📅", "correct": true, "audio": "سبعة"},
+      {"id": "eight-legs", "label": "عنكبوت", "emoji": "🕷️", "correct": true, "audio": "ثمانية"},
+      {"id": "nine-balloons", "label": "بالونات", "emoji": "🎈", "correct": true, "audio": "تسعة"},
+      {"id": "car", "label": "سيارة", "emoji": "🚗", "correct": false, "audio": "هذه سيارة"},
+      {"id": "tree", "label": "شجرة", "emoji": "🌳", "correct": false, "audio": "هذه شجرة"}
+    ]
+  },
+  "demo": {
+    "question": "كم رجلًا للعنكبوت؟",
+    "parts": [
+      {"text": "🕷️", "highlight": true},
+      {"text": " = ٨", "highlight": false}
+    ],
+    "explain_audio": "للعنكبوت ثمانية أرجل. نعدّ حتى ثمانية.",
+    "cta": "جاهز لاختبار الأعداد ٧–٩! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "آخر محطة في الأعداد حتى ٩ مع سنبل!",
+      "2": "رتّب سبعة ثم ثمانية ثم تسعة.",
+      "3": "طابق كل عدد بشكله الصحيح.",
+      "4": "ارسم العدد تسعة: حلقة ثم خط للأسفل.",
+      "5": "ابحث عن المجموعات الكبيرة وعدّها.",
+      "6": "مراجعة سريعة ثم الاختبار النهائي."
+    },
+    "adaptive": [
+      {"concept": "equality_check", "hint": "تلميح سنبل: يساوي تعني نفس العدد في الطرفين."},
+      {"concept": "digit_stroke_9", "hint": "تلميح سنبل: للعدد ٩ ارسم حلقة ثم انزل بخط مستقيم."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "كم عدد البالونات؟",
+        "visual_items": {"emoji": "🎈", "count": 9},
+        "mascot_hint": "تلميح سنبل: عدّ البالونات مجموعة مجموعة إن احتجت.",
+        "explanation": "تسعة بالونات = ٩.",
+        "options": [
+          {"text": "٩", "correct": true},
+          {"text": "٨", "correct": false},
+          {"text": "٧", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أي جملة صحيحة؟",
+        "comparison": {"left": 8, "right": 8, "operator": "eq"},
+        "mascot_hint": "تلميح سنبل: عندما يكون العددان متماثلين نقول يساوي.",
+        "explanation": "٨ يساوي ٨.",
+        "options": [
+          {"text": "٨ يساوي ٨", "correct": true},
+          {"text": "٨ أكبر من ٨", "correct": false},
+          {"text": "٨ أصغر من ٨", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أي عدد أكبر؟",
+        "comparison": {"left": 9, "right": 7, "operator": "gt"},
+        "mascot_hint": "تلميح سنبل: تسعة أكبر من سبعة.",
+        "explanation": "٩ أكبر من ٧.",
+        "options": [
+          {"text": "٩", "correct": true},
+          {"text": "٧", "correct": false},
+          {"text": "متساويان", "correct": false}
+        ]
+      }
+    ]
+  }
+}

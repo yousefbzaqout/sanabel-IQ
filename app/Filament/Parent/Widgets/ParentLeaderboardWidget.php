@@ -10,9 +10,20 @@ use Filament\Widgets\Widget;
 
 class ParentLeaderboardWidget extends Widget
 {
+    protected static bool $isDiscovered = false;
+
+    protected static bool $isLazy = false;
+
     protected static ?int $sort = 3;
 
-    protected int|string|array $columnSpan = 'full';
+    /**
+     * @var int | string | array<string, int | string | null>
+     */
+    protected int|string|array $columnSpan = [
+        'default' => 1,
+        'md' => 2,
+        'lg' => 3,
+    ];
 
     protected string $view = 'filament.parent.widgets.parent-leaderboard';
 

@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "AR",
+  "unit_title": "الوحدة الأولى",
+  "lesson_key": "ar-g1-letter-raa",
+  "audio_slug": "raa",
+  "key": "letter-raa",
+  "title": "حرف الراء",
+  "subtitle": "رحلة الشرح والتأسيس — لغتنا الجميلة",
+  "material_title": "الدرس الأول: حرف الراء",
+  "letter": "ر",
+  "order_column": 1,
+  "xp_reward": 45,
+  "description": "نتعلم حرف الراء بحركاته الثلاث، مواقعه، وتتبعه، ثم ننتقل للاختبار.",
+  "phonemes": {
+    "voice_targets": ["رَ", "رُ", "رِ"],
+    "tabs": [
+      {
+        "glyph": "رَ",
+        "label": "فتحة",
+        "cards": [
+          {"word": "رَسّام", "emoji": "🎨", "audio": "رَ مثل رَسّام", "highlight": "رَ"},
+          {"word": "رَايَة", "emoji": "🚩", "audio": "رَ مثل رَايَة", "highlight": "رَ"},
+          {"word": "رَمَل", "emoji": "🏖️", "audio": "رَ مثل رَمَل", "highlight": "رَ"}
+        ]
+      },
+      {
+        "glyph": "رُ",
+        "label": "ضمة",
+        "cards": [
+          {"word": "رُمّان", "emoji": "🍎", "audio": "رُ مثل رُمّان", "highlight": "رُ"},
+          {"word": "رُكْبَة", "emoji": "🦵", "audio": "رُ مثل رُكْبَة", "highlight": "رُ"},
+          {"word": "رُوح", "emoji": "✨", "audio": "رُ مثل رُوح", "highlight": "رُ"}
+        ]
+      },
+      {
+        "glyph": "رِ",
+        "label": "كسرة",
+        "cards": [
+          {"word": "رِيشَة", "emoji": "🪶", "audio": "رِ مثل رِيشَة", "highlight": "رِ"},
+          {"word": "رِجْل", "emoji": "🦶", "audio": "رِ مثل رِجْل", "highlight": "رِ"},
+          {"word": "رِيح", "emoji": "🌬️", "audio": "رِ مثل رِيح", "highlight": "رِ"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "رَايَة",
+    "syllables": [
+      {"glyph": "رَ", "order": 1},
+      {"glyph": "ا", "order": 2},
+      {"glyph": "يَ", "order": 3},
+      {"glyph": "ة", "order": 4}
+    ],
+    "completion_audio_script": "أحسنت! كوّنت كلمة رَايَة"
+  },
+  "positions": [
+    {
+      "label": "في البداية",
+      "word": "رَايَة",
+      "parts": [{"text": "رَ", "highlight": true}, {"text": "ايَة", "highlight": false}],
+      "audio": "رَايَة: حرف الراء في بداية الكلمة"
+    },
+    {
+      "label": "في الوسط",
+      "word": "مَرْكَب",
+      "parts": [{"text": "مَ", "highlight": false}, {"text": "رْ", "highlight": true}, {"text": "كَب", "highlight": false}],
+      "audio": "مَرْكَب: حرف الراء في وسط الكلمة"
+    },
+    {
+      "label": "في النهاية",
+      "word": "جَزَر",
+      "parts": [{"text": "جَزَ", "highlight": false}, {"text": "ر", "highlight": true}],
+      "audio": "جَزَر: حرف الراء في نهاية الكلمة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع حرف الراء بإصبعك",
+    "path": "M 70 28 C 92 28 108 48 108 72 C 108 96 92 112 70 112 C 48 112 36 96 36 78",
+    "direction": "top_to_bottom_arc",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد رسمت حرف الراء يا بطل!"
+  },
+  "discovery": {
+    "intro": "ابحث عن الأشياء التي فيها حرف الراء",
+    "story_audio": "هيا نكتشف حرف الراء من حولنا",
+    "items": [
+      {"id": "rumman", "label": "رُمّان", "emoji": "🍎", "correct": true, "audio": "رُمّان فيها حرف الراء"},
+      {"id": "zaytoun", "label": "زَيْتُون", "emoji": "🫒", "correct": false, "audio": "زَيْتُون ليس فيها راء"},
+      {"id": "reesha", "label": "رِيشَة", "emoji": "🪶", "correct": true, "audio": "رِيشَة فيها حرف الراء"},
+      {"id": "toofaah", "label": "تُفّاح", "emoji": "🍏", "correct": false, "audio": "تُفّاح ليس فيها راء"},
+      {"id": "rayah", "label": "رَايَة", "emoji": "🚩", "correct": true, "audio": "رَايَة فيها حرف الراء"}
+    ]
+  },
+  "demo": {
+    "question": "أين حرف الراء في كلمة (مَرْكَب)؟",
+    "parts": [{"text": "مَ", "highlight": false}, {"text": "رْ", "highlight": true}, {"text": "كَب", "highlight": false}],
+    "explain_audio": "انظر معي: في كلمة مَرْكَب، حرف الراء في الوسط. مَ ـ رْ ـ كَب.",
+    "cta": "جاهز للاختبار يا بطل! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "مرحباً! أنا سنبل. لنستمع لحركات حرف الراء معاً.",
+      "2": "رتّب المقاطع لتكوّن الكلمة، أنا معك!",
+      "3": "لاحظ أين يظهر حرف الراء في الكلمة.",
+      "4": "ارسم حرف الراء بيدك ببطء ودقة.",
+      "5": "ابحث عن الكلمات التي فيها راء!",
+      "6": "شاهد كيف أحل السؤال ثم جرب بنفسك."
+    },
+    "adaptive": [
+      {"concept": "diacritic_confusion", "hint": "تلميح سنبل: فرّق جيداً بين رَ ورُ ورِ من صوت الفتحة والضمة والكسرة."},
+      {"concept": "stroke_order", "hint": "تلميح سنبل: ابدأ من الأعلى وانزل بقوس ناعم لحرف الراء."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "أي كلمة تبدأ بحرف الراء؟",
+        "explanation": "كلمة رَايَة تبدأ بحرف الراء.",
+        "options": [
+          {"text": "🚩 رَايَة", "correct": true},
+          {"text": "🏠 بَيْت", "correct": false},
+          {"text": "🎈 بَالُون", "correct": false}
+        ]
+      },
+      {
+        "type": "true_false",
+        "prompt": "حرف الراء من حروف اللغة العربية الجميلة.",
+        "explanation": "نعم، حرف الراء حرف عربي نقرأه ونكتبه.",
+        "options": [
+          {"text": "صح ✅", "correct": true},
+          {"text": "خطأ ❌", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أين حرف الراء في كلمة مَرْكَب؟",
+        "explanation": "حرف الراء في وسط كلمة مَرْكَب.",
+        "options": [
+          {"text": "في الوسط", "correct": true},
+          {"text": "في البداية", "correct": false},
+          {"text": "لا يوجد راء", "correct": false}
+        ]
+      }
+    ]
+  }
+}

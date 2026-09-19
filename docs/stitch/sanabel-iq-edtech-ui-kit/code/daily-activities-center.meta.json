@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/4c9596036cbc4bdba7c2eb7b1eb264e2",
+  "id": "4c9596036cbc4bdba7c2eb7b1eb264e2",
+  "title": "مركز الأنشطة اليومية - سنابل IQ",
+  "width": 2560,
+  "height": 3982,
+  "slug": "daily-activities-center",
+  "files": {
+    "screenshot": "screenshots/daily-activities-center.png",
+    "screenshotById": "parent-portal/4c9596036cbc4bdba7c2eb7b1eb264e2/screenshot.png",
+    "code": "code/daily-activities-center.html",
+    "codeById": "parent-portal/4c9596036cbc4bdba7c2eb7b1eb264e2/code.html"
+  },
+  "screenshotBytes": 1635235,
+  "fullResSuffix": "=s0",
+  "codeBytes": 41432,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}
