@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 1,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "قاموسي الصغير",
+    "lesson_key": "ar-g3-ar-mock-vocab-school",
+    "audio_slug": "vocab-school",
+    "key": "mock-g3-arabic-vocab-school",
+    "title": "مفردات المدرسة",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 1",
+    "material_title": "تجريبي G3: مفردات المدرسة",
+    "order_column": 10,
+    "xp_reward": 46,
+    "description": "نوسّع مفردات الصف والمدرسة.",
+    "phonemes": {
+        "voice_targets": [
+            "مَ",
+            "مُ",
+            "مِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "مَ",
+                "label": "فتحة",
+                "audio_script": "صوت مَ",
+                "cards": [
+                    {
+                        "word": "مدرسة",
+                        "emoji": "🏫",
+                        "audio": "مَ مثل مدرسة",
+                        "highlight": "مَ"
+                    },
+                    {
+                        "word": "معلم",
+                        "emoji": "👩‍🏫",
+                        "audio": "معلم",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "مقعد",
+                        "emoji": "🪑",
+                        "audio": "مقعد",
+                        "highlight": "م"
+                    }
+                ]
+            },
+            {
+                "glyph": "مُ",
+                "label": "ضمة",
+                "audio_script": "صوت مُ",
+                "cards": [
+                    {
+                        "word": "معلم",
+                        "emoji": "👩‍🏫",
+                        "audio": "مُ مثل معلم",
+                        "highlight": "مُ"
+                    },
+                    {
+                        "word": "مقعد",
+                        "emoji": "🪑",
+                        "audio": "مقعد",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "مدرسة",
+                        "emoji": "🏫",
+                        "audio": "مدرسة",
+                        "highlight": "م"
+                    }
+                ]
+            },
+            {
+                "glyph": "مِ",
+                "label": "كسرة",
+                "audio_script": "صوت مِ",
+                "cards": [
+                    {
+                        "word": "مقعد",
+                        "emoji": "🪑",
+                        "audio": "مِ مثل مقعد",
+                        "highlight": "مِ"
+                    },
+                    {
+                        "word": "مدرسة",
+                        "emoji": "🏫",
+                        "audio": "مدرسة",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "معلم",
+                        "emoji": "👩‍🏫",
+                        "audio": "معلم",
+                        "highlight": "م"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "مدرسة",
+        "syllables": [
+            {
+                "glyph": "م",
+                "order": 1
+            },
+            {
+                "glyph": "د",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة مدرسة"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس مفردات المدرسة",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس مفردات المدرسة",
+        "story_audio": "هيا نستكشف مفردات المدرسة مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "مدرسة",
+                "emoji": "🏫",
+                "correct": true,
+                "audio": "مدرسة"
+            },
+            {
+                "id": "item-1",
+                "label": "معلم",
+                "emoji": "👩‍🏫",
+                "correct": true,
+                "audio": "معلم"
+            },
+            {
+                "id": "item-2",
+                "label": "مقعد",
+                "emoji": "🪑",
+                "correct": true,
+                "audio": "مقعد"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في مفردات المدرسة؟",
+        "parts": [
+            {
+                "text": "🏫",
+                "highlight": true
+            },
+            {
+                "text": " مدرسة",
+                "highlight": true
+            },
+            {
+                "text": " = م",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على مدرسة ضمن مفردات المدرسة.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس مفردات المدرسة.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على م في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس مفردات المدرسة؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "مدرسة من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "مدرسة",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "معلم جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "معلم",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «مدرسة» مناسبة لدرس مفردات المدرسة.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "مدرسة، معلم، مقعد",
+                "options": [
+                    {
+                        "text": "مدرسة \/ معلم \/ مقعد",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "م",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "مدرسة",
+            "parts": [
+                {
+                    "text": "م",
+                    "highlight": true
+                },
+                {
+                    "text": "درسة",
+                    "highlight": false
+                }
+            ],
+            "audio": "مدرسة: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "معلم",
+            "parts": [
+                {
+                    "text": "م",
+                    "highlight": false
+                },
+                {
+                    "text": "م",
+                    "highlight": true
+                },
+                {
+                    "text": "م",
+                    "highlight": false
+                }
+            ],
+            "audio": "معلم: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "مقعد",
+            "parts": [
+                {
+                    "text": "مقع",
+                    "highlight": false
+                },
+                {
+                    "text": "د",
+                    "highlight": true
+                }
+            ],
+            "audio": "مقعد: في نهاية الكلمة"
+        }
+    ]
+}

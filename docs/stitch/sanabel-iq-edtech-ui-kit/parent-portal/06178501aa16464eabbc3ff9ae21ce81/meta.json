@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/06178501aa16464eabbc3ff9ae21ce81",
+  "id": "06178501aa16464eabbc3ff9ae21ce81",
+  "title": "لوحة المغامرات ومسار التعلم - سنابل IQ",
+  "width": 2560,
+  "height": 3540,
+  "slug": "adventures-learning-path",
+  "files": {
+    "screenshot": "screenshots/adventures-learning-path.png",
+    "screenshotById": "parent-portal/06178501aa16464eabbc3ff9ae21ce81/screenshot.png",
+    "code": "code/adventures-learning-path.html",
+    "codeById": "parent-portal/06178501aa16464eabbc3ff9ae21ce81/code.html"
+  },
+  "screenshotBytes": 1231914,
+  "fullResSuffix": "=s0",
+  "codeBytes": 38267,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": false
+}

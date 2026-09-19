@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     'explanation',
     'points',
     'order_column',
+    'audio_path',
 ])]
 class Question extends Model
 {
@@ -46,6 +47,6 @@ class Question extends Model
     /** @return HasMany<QuestionOption, $this> */
     public function options(): HasMany
     {
-        return $this->hasMany(QuestionOption::class)->orderBy('order_column');
+        return $this->hasMany(QuestionOption::class)->orderBy('order_column')->orderBy('id');
     }
 }

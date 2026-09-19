@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 5,
+    "semester": 2,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "كهرباء بسيطة",
+    "lesson_key": "ar-g5-sci-mock-simple-circuits",
+    "audio_slug": "simple-circuits",
+    "key": "mock-g5-science-simple-circuits",
+    "title": "دائرة كهربائية",
+    "subtitle": "عرض تجريبي — الصف الخامس — الفصل 2",
+    "material_title": "تجريبي G5: دائرة كهربائية",
+    "order_column": 40,
+    "xp_reward": 50,
+    "description": "نركب دائرة بسيطة لإضاءة مصباح.",
+    "phonemes": {
+        "voice_targets": [
+            "كَ",
+            "كُ",
+            "كِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "كَ",
+                "label": "فتحة",
+                "audio_script": "صوت كَ",
+                "cards": [
+                    {
+                        "word": "بطارية",
+                        "emoji": "🔋",
+                        "audio": "كَ مثل بطارية",
+                        "highlight": "كَ"
+                    },
+                    {
+                        "word": "سلك",
+                        "emoji": "🔌",
+                        "audio": "سلك",
+                        "highlight": "س"
+                    },
+                    {
+                        "word": "مصباح",
+                        "emoji": "💡",
+                        "audio": "مصباح",
+                        "highlight": "م"
+                    }
+                ]
+            },
+            {
+                "glyph": "كُ",
+                "label": "ضمة",
+                "audio_script": "صوت كُ",
+                "cards": [
+                    {
+                        "word": "سلك",
+                        "emoji": "🔌",
+                        "audio": "كُ مثل سلك",
+                        "highlight": "كُ"
+                    },
+                    {
+                        "word": "مصباح",
+                        "emoji": "💡",
+                        "audio": "مصباح",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "بطارية",
+                        "emoji": "🔋",
+                        "audio": "بطارية",
+                        "highlight": "ب"
+                    }
+                ]
+            },
+            {
+                "glyph": "كِ",
+                "label": "كسرة",
+                "audio_script": "صوت كِ",
+                "cards": [
+                    {
+                        "word": "مصباح",
+                        "emoji": "💡",
+                        "audio": "كِ مثل مصباح",
+                        "highlight": "كِ"
+                    },
+                    {
+                        "word": "بطارية",
+                        "emoji": "🔋",
+                        "audio": "بطارية",
+                        "highlight": "ب"
+                    },
+                    {
+                        "word": "سلك",
+                        "emoji": "🔌",
+                        "audio": "سلك",
+                        "highlight": "س"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "بطارية",
+        "syllables": [
+            {
+                "glyph": "ب",
+                "order": 1
+            },
+            {
+                "glyph": "ط",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة بطارية"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس دائرة كهربائية",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس دائرة كهربائية",
+        "story_audio": "هيا نستكشف دائرة كهربائية مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "بطارية",
+                "emoji": "🔋",
+                "correct": true,
+                "audio": "بطارية"
+            },
+            {
+                "id": "item-1",
+                "label": "سلك",
+                "emoji": "🔌",
+                "correct": true,
+                "audio": "سلك"
+            },
+            {
+                "id": "item-2",
+                "label": "مصباح",
+                "emoji": "💡",
+                "correct": true,
+                "audio": "مصباح"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في دائرة كهربائية؟",
+        "parts": [
+            {
+                "text": "🔋",
+                "highlight": true
+            },
+            {
+                "text": " بطارية",
+                "highlight": true
+            },
+            {
+                "text": " = ك",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على بطارية ضمن دائرة كهربائية.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس دائرة كهربائية.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ك في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس دائرة كهربائية؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "بطارية من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "بطارية",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "سلك جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "سلك",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «بطارية» مناسبة لدرس دائرة كهربائية.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "بطارية، سلك، مصباح",
+                "options": [
+                    {
+                        "text": "بطارية \/ سلك \/ مصباح",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ك",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "بطارية",
+            "parts": [
+                {
+                    "text": "ب",
+                    "highlight": true
+                },
+                {
+                    "text": "طارية",
+                    "highlight": false
+                }
+            ],
+            "audio": "بطارية: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "سلك",
+            "parts": [
+                {
+                    "text": "س",
+                    "highlight": false
+                },
+                {
+                    "text": "ك",
+                    "highlight": true
+                },
+                {
+                    "text": "ك",
+                    "highlight": false
+                }
+            ],
+            "audio": "سلك: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "مصباح",
+            "parts": [
+                {
+                    "text": "مصبا",
+                    "highlight": false
+                },
+                {
+                    "text": "ح",
+                    "highlight": true
+                }
+            ],
+            "audio": "مصباح: في نهاية الكلمة"
+        }
+    ]
+}

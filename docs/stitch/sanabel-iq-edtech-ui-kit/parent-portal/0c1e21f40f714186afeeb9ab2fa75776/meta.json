@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/0c1e21f40f714186afeeb9ab2fa75776",
+  "id": "0c1e21f40f714186afeeb9ab2fa75776",
+  "title": "رحلة التقدم والمستويات - سنابل IQ",
+  "width": 2560,
+  "height": 4422,
+  "slug": "progress-levels-journey",
+  "files": {
+    "screenshot": "screenshots/progress-levels-journey.png",
+    "screenshotById": "parent-portal/0c1e21f40f714186afeeb9ab2fa75776/screenshot.png",
+    "code": "code/progress-levels-journey.html",
+    "codeById": "parent-portal/0c1e21f40f714186afeeb9ab2fa75776/code.html"
+  },
+  "screenshotBytes": 1519470,
+  "fullResSuffix": "=s0",
+  "codeBytes": 46844,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

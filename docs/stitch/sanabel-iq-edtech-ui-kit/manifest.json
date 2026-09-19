@@ -1,0 +1,311 @@
+{
+  "projectId": "16756164501135582272",
+  "title": "Sanabel-IQ EdTech UI Kit",
+  "screens": [
+    {
+      "id": "ee87778050184b3294cc5ce56df15bf0",
+      "slug": "marketing-landing",
+      "title": "الصفحة التعريفية لمنصة سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/marketing-landing.png",
+        "code": "code/marketing-landing.html",
+        "meta": "code/marketing-landing.meta.json"
+      },
+      "screenshotBytes": 32989,
+      "codeBytes": 70252,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "7eb8276b2bb44c6995fe218511eddd50",
+      "slug": "child-learning-profile-setup",
+      "title": "إعداد الملف التعليمي للطفل - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/child-learning-profile-setup.png",
+        "code": "code/child-learning-profile-setup.html",
+        "meta": "code/child-learning-profile-setup.meta.json"
+      },
+      "screenshotBytes": 73041,
+      "codeBytes": 36681,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "dcb749221b5546d996fd4ea90f3c5499",
+      "slug": "staff-parent-login",
+      "title": "تسجيل دخول الكادر وأولياء الأمور - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/staff-parent-login.png",
+        "code": "code/staff-parent-login.html",
+        "meta": "code/staff-parent-login.meta.json"
+      },
+      "screenshotBytes": 64550,
+      "codeBytes": 23954,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "2bd1c52ac9f7412ba074a4b36573f349",
+      "slug": "password-recovery",
+      "title": "استعادة كلمة المرور - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/password-recovery.png",
+        "code": "code/password-recovery.html",
+        "meta": "code/password-recovery.meta.json"
+      },
+      "screenshotBytes": 41994,
+      "codeBytes": 17759,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "085e8fb6d1b647a78aaa1b5156d6c3ad",
+      "slug": "mascot-sanbal-chick",
+      "title": "Sanbal the friendly cute chick mascot for an Arabic educational app, cute golden-yellow baby chick wearing small playful teal-framed glasses and a cheerful smile, waving wing, friendly mascot sticker on clean plain white background, 3D soft rendered style with warm clean lighting, child-friendly, delightful.",
+      "files": {
+        "screenshot": "screenshots/mascot-sanbal-chick.jpg",
+        "meta": "code/mascot-sanbal-chick.meta.json"
+      },
+      "screenshotBytes": 28322
+    },
+    {
+      "id": "2633dc8d1fc94dfc830b7ce907ec80a6",
+      "slug": "avatar-father-portrait",
+      "title": "Friendly smiling Arab father in his early 30s wearing modern casual smart navy polo shirt, warm approachable expression, soft studio light, warm cream background, avatar headshot portrait",
+      "files": {
+        "screenshot": "screenshots/avatar-father-portrait.jpg",
+        "meta": "code/avatar-father-portrait.meta.json"
+      },
+      "screenshotBytes": 54132
+    },
+    {
+      "id": "839cf19c5b0743a0856eade29f3b3b41",
+      "slug": "parent-register",
+      "title": "تسجيل حساب ولي أمر جديد - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/parent-register.png",
+        "code": "code/parent-register.html",
+        "meta": "code/parent-register.meta.json"
+      },
+      "screenshotBytes": 60676,
+      "codeBytes": 27998,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "0b98e8e8b8ad4c64b69a443af1da3cba",
+      "slug": "logo-sanabel-iq-ar",
+      "title": "شعار سنابل IQ - Sanabel IQ Logo",
+      "files": {
+        "screenshot": "screenshots/logo-sanabel-iq-ar.png",
+        "code": "code/logo-sanabel-iq-ar.svg",
+        "meta": "code/logo-sanabel-iq-ar.meta.json"
+      },
+      "screenshotBytes": 15330,
+      "codeBytes": 1590,
+      "codeMime": "image/svg+xml"
+    },
+    {
+      "id": "76db0afec94241d0a96c43778d436646",
+      "slug": "student-portal",
+      "title": "بوابة الطالب التفاعلية الذكية - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/student-portal.png",
+        "code": "code/student-portal.html",
+        "meta": "code/student-portal.meta.json"
+      },
+      "screenshotBytes": 62815,
+      "codeBytes": 25225,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "098a9c326fe947dd88c5fac76e632349",
+      "slug": "logo-official-brand",
+      "title": "Sanabel-IQ Official Brand Logo",
+      "files": {
+        "screenshot": "screenshots/logo-official-brand.png",
+        "code": "code/logo-official-brand.svg",
+        "meta": "code/logo-official-brand.meta.json"
+      },
+      "screenshotBytes": 14190,
+      "codeBytes": 1599,
+      "codeMime": "image/svg+xml"
+    },
+    {
+      "id": "356a7d13f09f43ddae1a7938d63641c3",
+      "slug": "logo-sanabel-iq",
+      "title": "سنابل IQ Logo",
+      "files": {
+        "screenshot": "screenshots/logo-sanabel-iq.png",
+        "code": "code/logo-sanabel-iq.svg",
+        "meta": "code/logo-sanabel-iq.meta.json"
+      },
+      "screenshotBytes": 13186,
+      "codeBytes": 1076,
+      "codeMime": "image/svg+xml"
+    },
+    {
+      "id": "df461f8851b64221ace4d39c82e14dfb",
+      "slug": "parent-dashboard",
+      "title": "لوحة تحكم ولي الأمر - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/parent-dashboard.png",
+        "meta": "code/parent-dashboard.meta.json",
+        "byId": "parent-portal/df461f8851b64221ace4d39c82e14dfb/",
+        "code": "code/parent-dashboard.html"
+      },
+      "screenshotBytes": 730820,
+      "fullResolution": true,
+      "codeBytes": 41040,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "879e65ab5214476d94e6cd1796b89497",
+      "slug": "mascot-sanbal-storybook",
+      "title": "Sanbal the cute baby chick mascot for an Arabic educational app wearing playful teal glasses, happily sitting and holding open a colorful illustrated story book with glowing educational sparkles around, 3D soft rendered style, clean white isolated background, warm friendly and delightful illustration for an empty state.",
+      "files": {
+        "screenshot": "screenshots/mascot-sanbal-storybook.jpg",
+        "meta": "code/mascot-sanbal-storybook.meta.json",
+        "byId": "parent-portal/879e65ab5214476d94e6cd1796b89497/"
+      },
+      "screenshotBytes": 120837,
+      "fullResolution": true
+    },
+    {
+      "id": "9e1042250e384071ad0869da81c3738a",
+      "slug": "materials-and-lessons",
+      "title": "المواد والدروس التعليمية - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/materials-and-lessons.png",
+        "meta": "code/materials-and-lessons.meta.json",
+        "byId": "parent-portal/9e1042250e384071ad0869da81c3738a/",
+        "code": "code/materials-and-lessons.html"
+      },
+      "screenshotBytes": 898913,
+      "fullResolution": true,
+      "codeBytes": 35861,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "e49ace31207242128f353be30167b812",
+      "slug": "children-management",
+      "title": "إدارة الأبناء - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/children-management.png",
+        "meta": "code/children-management.meta.json",
+        "byId": "parent-portal/e49ace31207242128f353be30167b812/",
+        "code": "code/children-management.html"
+      },
+      "screenshotBytes": 685371,
+      "fullResolution": true,
+      "codeBytes": 45552,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "ada908ff1d0c4496b084e8c39a513c32",
+      "slug": "weekly-goals-challenges",
+      "title": "أهداف وتحديات الأسبوع - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/weekly-goals-challenges.png",
+        "meta": "code/weekly-goals-challenges.meta.json",
+        "byId": "parent-portal/ada908ff1d0c4496b084e8c39a513c32/",
+        "code": "code/weekly-goals-challenges.html"
+      },
+      "screenshotBytes": 1395202,
+      "fullResolution": true,
+      "codeBytes": 53223,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "00e8152a29c246e6a79448d9532cbf0e",
+      "slug": "badges-awards-cabinet",
+      "title": "خزانة الأوسمة والجوائز - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/badges-awards-cabinet.png",
+        "meta": "code/badges-awards-cabinet.meta.json",
+        "byId": "parent-portal/00e8152a29c246e6a79448d9532cbf0e/",
+        "code": "code/badges-awards-cabinet.html"
+      },
+      "screenshotBytes": 1532460,
+      "fullResolution": true,
+      "codeBytes": 51875,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "0c1e21f40f714186afeeb9ab2fa75776",
+      "slug": "progress-levels-journey",
+      "title": "رحلة التقدم والمستويات - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/progress-levels-journey.png",
+        "meta": "code/progress-levels-journey.meta.json",
+        "byId": "parent-portal/0c1e21f40f714186afeeb9ab2fa75776/",
+        "code": "code/progress-levels-journey.html"
+      },
+      "screenshotBytes": 1519470,
+      "fullResolution": true,
+      "codeBytes": 46844,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "4c9596036cbc4bdba7c2eb7b1eb264e2",
+      "slug": "daily-activities-center",
+      "title": "مركز الأنشطة اليومية - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/daily-activities-center.png",
+        "meta": "code/daily-activities-center.meta.json",
+        "byId": "parent-portal/4c9596036cbc4bdba7c2eb7b1eb264e2/",
+        "code": "code/daily-activities-center.html"
+      },
+      "screenshotBytes": 1635235,
+      "fullResolution": true,
+      "codeBytes": 41432,
+      "codeMime": "text/html"
+    },
+    {
+      "id": "06178501aa16464eabbc3ff9ae21ce81",
+      "slug": "adventures-learning-path",
+      "title": "لوحة المغامرات ومسار التعلم - سنابل IQ",
+      "files": {
+        "screenshot": "screenshots/adventures-learning-path.png",
+        "meta": "code/adventures-learning-path.meta.json",
+        "byId": "parent-portal/06178501aa16464eabbc3ff9ae21ce81/",
+        "code": "code/adventures-learning-path.html"
+      },
+      "screenshotBytes": 1231914,
+      "fullResolution": true,
+      "codeBytes": 38267,
+      "codeMime": "text/html"
+    }
+  ],
+  "designSystems": [
+    {
+      "file": "design-systems/DESIGN.md",
+      "source": "project.designTheme.designMd"
+    },
+    {
+      "id": "b5234a2d31524e808a8f2584de19d3d9",
+      "file": "design-systems/asset-b5234a2d31524e808a8f2584de19d3d9.json"
+    },
+    {
+      "id": "da7ec230268a43319ecc42e503163aff",
+      "file": "design-systems/asset-da7ec230268a43319ecc42e503163aff.json"
+    },
+    {
+      "id": "f4851dd3ccca4463b00477f7594fade7",
+      "file": "design-systems/asset-f4851dd3ccca4463b00477f7594fade7.json"
+    }
+  ],
+  "missing": [],
+  "updatedAt": "2026-09-18T15:45:34.261868+00:00",
+  "parentPortalBatch": {
+    "fetchedAt": "2026-09-18T16:00:24.011983+00:00",
+    "path": "parent-portal/",
+    "screenIds": [
+      "df461f8851b64221ace4d39c82e14dfb",
+      "879e65ab5214476d94e6cd1796b89497",
+      "e49ace31207242128f353be30167b812",
+      "9e1042250e384071ad0869da81c3738a",
+      "ada908ff1d0c4496b084e8c39a513c32",
+      "06178501aa16464eabbc3ff9ae21ce81",
+      "4c9596036cbc4bdba7c2eb7b1eb264e2",
+      "0c1e21f40f714186afeeb9ab2fa75776",
+      "00e8152a29c246e6a79448d9532cbf0e"
+    ],
+    "fullRes": true
+  }
+}

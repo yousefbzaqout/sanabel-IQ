@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 2,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "البيئة والحياة",
+    "lesson_key": "ar-g3-sci-mock-food-chains",
+    "audio_slug": "food-chains",
+    "key": "mock-g3-science-food-chains",
+    "title": "سلاسل غذائية",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 2",
+    "material_title": "تجريبي G3: سلاسل غذائية",
+    "order_column": 40,
+    "xp_reward": 46,
+    "description": "نرتّب سلسلة غذائية بسيطة.",
+    "phonemes": {
+        "voice_targets": [
+            "غَ",
+            "غُ",
+            "غِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "غَ",
+                "label": "فتحة",
+                "audio_script": "صوت غَ",
+                "cards": [
+                    {
+                        "word": "منتج",
+                        "emoji": "🌱",
+                        "audio": "غَ مثل منتج",
+                        "highlight": "غَ"
+                    },
+                    {
+                        "word": "مستهلك",
+                        "emoji": "🐰",
+                        "audio": "مستهلك",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "مفترس",
+                        "emoji": "🦊",
+                        "audio": "مفترس",
+                        "highlight": "م"
+                    }
+                ]
+            },
+            {
+                "glyph": "غُ",
+                "label": "ضمة",
+                "audio_script": "صوت غُ",
+                "cards": [
+                    {
+                        "word": "مستهلك",
+                        "emoji": "🐰",
+                        "audio": "غُ مثل مستهلك",
+                        "highlight": "غُ"
+                    },
+                    {
+                        "word": "مفترس",
+                        "emoji": "🦊",
+                        "audio": "مفترس",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "منتج",
+                        "emoji": "🌱",
+                        "audio": "منتج",
+                        "highlight": "م"
+                    }
+                ]
+            },
+            {
+                "glyph": "غِ",
+                "label": "كسرة",
+                "audio_script": "صوت غِ",
+                "cards": [
+                    {
+                        "word": "مفترس",
+                        "emoji": "🦊",
+                        "audio": "غِ مثل مفترس",
+                        "highlight": "غِ"
+                    },
+                    {
+                        "word": "منتج",
+                        "emoji": "🌱",
+                        "audio": "منتج",
+                        "highlight": "م"
+                    },
+                    {
+                        "word": "مستهلك",
+                        "emoji": "🐰",
+                        "audio": "مستهلك",
+                        "highlight": "م"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "منتج",
+        "syllables": [
+            {
+                "glyph": "م",
+                "order": 1
+            },
+            {
+                "glyph": "ن",
+                "order": 2
+            },
+            {
+                "glyph": "ج",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة منتج"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس سلاسل غذائية",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس سلاسل غذائية",
+        "story_audio": "هيا نستكشف سلاسل غذائية مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "منتج",
+                "emoji": "🌱",
+                "correct": true,
+                "audio": "منتج"
+            },
+            {
+                "id": "item-1",
+                "label": "مستهلك",
+                "emoji": "🐰",
+                "correct": true,
+                "audio": "مستهلك"
+            },
+            {
+                "id": "item-2",
+                "label": "مفترس",
+                "emoji": "🦊",
+                "correct": true,
+                "audio": "مفترس"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في سلاسل غذائية؟",
+        "parts": [
+            {
+                "text": "🌱",
+                "highlight": true
+            },
+            {
+                "text": " منتج",
+                "highlight": true
+            },
+            {
+                "text": " = غ",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على منتج ضمن سلاسل غذائية.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس سلاسل غذائية.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على غ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس سلاسل غذائية؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "منتج من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "منتج",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "مستهلك جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "مستهلك",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «منتج» مناسبة لدرس سلاسل غذائية.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "منتج، مستهلك، مفترس",
+                "options": [
+                    {
+                        "text": "منتج \/ مستهلك \/ مفترس",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "غ",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "منتج",
+            "parts": [
+                {
+                    "text": "م",
+                    "highlight": true
+                },
+                {
+                    "text": "نتج",
+                    "highlight": false
+                }
+            ],
+            "audio": "منتج: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "مستهلك",
+            "parts": [
+                {
+                    "text": "م",
+                    "highlight": false
+                },
+                {
+                    "text": "غ",
+                    "highlight": true
+                },
+                {
+                    "text": "ك",
+                    "highlight": false
+                }
+            ],
+            "audio": "مستهلك: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "مفترس",
+            "parts": [
+                {
+                    "text": "مفتر",
+                    "highlight": false
+                },
+                {
+                    "text": "س",
+                    "highlight": true
+                }
+            ],
+            "audio": "مفترس: في نهاية الكلمة"
+        }
+    ]
+}

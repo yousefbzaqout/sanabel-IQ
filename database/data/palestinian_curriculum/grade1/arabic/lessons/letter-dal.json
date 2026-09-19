@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "AR",
+  "unit_title": "الوحدة الأولى",
+  "lesson_key": "ar-g1-letter-dal",
+  "audio_slug": "dal",
+  "key": "letter-dal",
+  "title": "حرف الدال",
+  "subtitle": "رحلة الشرح والتأسيس — لغتنا الجميلة",
+  "material_title": "الدرس الثاني: حرف الدال",
+  "letter": "د",
+  "order_column": 2,
+  "xp_reward": 45,
+  "description": "نتعلم حرف الدال بحركاته الثلاث، مواقعه، وتتبعه، ثم ننتقل للاختبار.",
+  "phonemes": {
+    "voice_targets": ["دَ", "دُ", "دِ"],
+    "tabs": [
+      {
+        "glyph": "دَ",
+        "label": "فتحة",
+        "cards": [
+          {"word": "دَجاجَة", "emoji": "🐔", "audio": "دَ مثل دَجاجَة", "highlight": "دَ"},
+          {"word": "دَفتر", "emoji": "📓", "audio": "دَ مثل دَفتر", "highlight": "دَ"},
+          {"word": "دَار", "emoji": "🏠", "audio": "دَ مثل دَار", "highlight": "دَ"}
+        ]
+      },
+      {
+        "glyph": "دُ",
+        "label": "ضمة",
+        "cards": [
+          {"word": "دُبّ", "emoji": "🐻", "audio": "دُ مثل دُبّ", "highlight": "دُ"},
+          {"word": "دُولاب", "emoji": "🛞", "audio": "دُ مثل دُولاب", "highlight": "دُ"},
+          {"word": "دُخان", "emoji": "💨", "audio": "دُ مثل دُخان", "highlight": "دُ"}
+        ]
+      },
+      {
+        "glyph": "دِ",
+        "label": "كسرة",
+        "cards": [
+          {"word": "دِيك", "emoji": "🐓", "audio": "دِ مثل دِيك", "highlight": "دِ"},
+          {"word": "دِينار", "emoji": "🪙", "audio": "دِ مثل دِينار", "highlight": "دِ"},
+          {"word": "دِراسة", "emoji": "📚", "audio": "دِ مثل دِراسة", "highlight": "دِ"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "دَار",
+    "syllables": [
+      {"glyph": "دَ", "order": 1},
+      {"glyph": "ا", "order": 2},
+      {"glyph": "ر", "order": 3}
+    ],
+    "completion_audio_script": "أحسنت! كوّنت كلمة دَار"
+  },
+  "positions": [
+    {
+      "label": "في البداية",
+      "word": "دَجاجَة",
+      "parts": [{"text": "دَ", "highlight": true}, {"text": "جاجَة", "highlight": false}],
+      "audio": "دَجاجَة: حرف الدال في بداية الكلمة"
+    },
+    {
+      "label": "في الوسط",
+      "word": "مَدْرَسَة",
+      "parts": [{"text": "مَ", "highlight": false}, {"text": "دْ", "highlight": true}, {"text": "رَسَة", "highlight": false}],
+      "audio": "مَدْرَسَة: حرف الدال في وسط الكلمة"
+    },
+    {
+      "label": "في النهاية",
+      "word": "وَرْد",
+      "parts": [{"text": "وَرْ", "highlight": false}, {"text": "د", "highlight": true}],
+      "audio": "وَرْد: حرف الدال في نهاية الكلمة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع حرف الدال بإصبعك",
+    "path": "M 42 40 C 42 40 42 100 42 110 C 42 118 50 122 70 122 C 95 122 112 108 112 85",
+    "direction": "top_to_bottom_curve",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد رسمت حرف الدال يا بطل!"
+  },
+  "discovery": {
+    "intro": "ابحث عن الأشياء التي فيها حرف الدال",
+    "story_audio": "هيا نكتشف حرف الدال من حولنا",
+    "items": [
+      {"id": "dajaaja", "label": "دَجاجَة", "emoji": "🐔", "correct": true, "audio": "دَجاجَة فيها حرف الدال"},
+      {"id": "qalam", "label": "قَلَم", "emoji": "✏️", "correct": false, "audio": "قَلَم ليس فيها دال"},
+      {"id": "dubb", "label": "دُبّ", "emoji": "🐻", "correct": true, "audio": "دُبّ فيها حرف الدال"},
+      {"id": "ward", "label": "وَرْد", "emoji": "🌹", "correct": true, "audio": "وَرْد فيها حرف الدال"},
+      {"id": "samaa", "label": "سَماء", "emoji": "🌤️", "correct": false, "audio": "سَماء ليس فيها دال"}
+    ]
+  },
+  "demo": {
+    "question": "أين حرف الدال في كلمة (مَدْرَسَة)؟",
+    "parts": [{"text": "مَ", "highlight": false}, {"text": "دْ", "highlight": true}, {"text": "رَسَة", "highlight": false}],
+    "explain_audio": "انظر معي: في كلمة مَدْرَسَة، حرف الدال في الوسط.",
+    "cta": "جاهز للاختبار يا بطل! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "مرحباً! أنا سنبل. لنستمع لحركات حرف الدال معاً.",
+      "2": "رتّب المقاطع لتكوّن الكلمة، أنا معك!",
+      "3": "لاحظ أين يظهر حرف الدال في الكلمة.",
+      "4": "ارسم حرف الدال بيدك ببطء ودقة.",
+      "5": "ابحث عن الكلمات التي فيها دال!",
+      "6": "شاهد كيف أحل السؤال ثم جرب بنفسك."
+    },
+    "adaptive": [
+      {"concept": "diacritic_confusion", "hint": "تلميح سنبل: فرّق بين دَ ودُ ودِ من صوت الحركة."},
+      {"concept": "stroke_order", "hint": "تلميح سنبل: انزل بخط مستقيم ثم أقواس لليمين لحرف الدال."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "أي كلمة تبدأ بحرف الدال؟",
+        "explanation": "كلمة دَجاجَة تبدأ بحرف الدال.",
+        "options": [
+          {"text": "🐔 دَجاجَة", "correct": true},
+          {"text": "🚩 رَايَة", "correct": false},
+          {"text": "🌊 بَحْر", "correct": false}
+        ]
+      },
+      {
+        "type": "true_false",
+        "prompt": "حرف الدال من حروف اللغة العربية.",
+        "explanation": "نعم، حرف الدال حرف عربي أصيل.",
+        "options": [
+          {"text": "صح ✅", "correct": true},
+          {"text": "خطأ ❌", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أين حرف الدال في كلمة وَرْد؟",
+        "explanation": "حرف الدال في نهاية كلمة وَرْد.",
+        "options": [
+          {"text": "في النهاية", "correct": true},
+          {"text": "في البداية", "correct": false},
+          {"text": "لا يوجد دال", "correct": false}
+        ]
+      }
+    ]
+  }
+}

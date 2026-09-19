@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "grade_level": 1,
+  "semester": 1,
+  "subject_code": "MATH",
+  "content_kind": "number",
+  "unit_title": "الأعداد حتى 9",
+  "lesson_key": "ar-g1-math-numbers-1-3",
+  "audio_slug": "numbers-1-3",
+  "key": "math-numbers-1-3",
+  "title": "الأعداد ١ و٢ و٣",
+  "subtitle": "نعدّ ونكتب ونقارن — الرياضيات للصف الأول",
+  "material_title": "الدرس ١: الأعداد من ١ إلى ٣",
+  "digit": "٣",
+  "digits": ["١", "٢", "٣"],
+  "order_column": 10,
+  "xp_reward": 45,
+  "description": "نتعلم الأعداد واحد واثنان وثلاثة: العدّ البصري، تتبّع الرقم، والمقارنة البسيطة.",
+  "phonemes": {
+    "voice_targets": ["١", "٢", "٣"],
+    "spoken_names": {
+      "١": "واحد",
+      "٢": "اثنان",
+      "٣": "ثلاثة"
+    },
+    "tabs": [
+      {
+        "glyph": "١",
+        "label": "واحد",
+        "audio_script": "هذا العدد واحد",
+        "cards": [
+          {"word": "١ تفاحة", "emoji": "🍎", "audio": "تفاحة واحدة", "highlight": "١"},
+          {"word": "واحد", "emoji": "1️⃣", "audio": "نقول واحد", "highlight": "واحد"},
+          {"word": "إصبع", "emoji": "☝️", "audio": "إصبع واحد", "highlight": "١"}
+        ]
+      },
+      {
+        "glyph": "٢",
+        "label": "اثنان",
+        "audio_script": "هذا العدد اثنان",
+        "cards": [
+          {"word": "٢ نجمة", "emoji": "⭐⭐", "audio": "نجمتان", "highlight": "٢"},
+          {"word": "اثنان", "emoji": "2️⃣", "audio": "نقول اثنان", "highlight": "اثنان"},
+          {"word": "عينان", "emoji": "👀", "audio": "عينان اثنتان", "highlight": "٢"}
+        ]
+      },
+      {
+        "glyph": "٣",
+        "label": "ثلاثة",
+        "audio_script": "هذا العدد ثلاثة",
+        "cards": [
+          {"word": "٣ تفاح", "emoji": "🍎🍎🍎", "audio": "ثلاث تفاحات", "highlight": "٣"},
+          {"word": "ثلاثة", "emoji": "3️⃣", "audio": "نقول ثلاثة", "highlight": "ثلاثة"},
+          {"word": "٣ أصابع", "emoji": "🖐️", "audio": "ثلاثة أصابع", "highlight": "٣"}
+        ]
+      }
+    ]
+  },
+  "sequence": {
+    "target_word": "١٢٣",
+    "syllables": [
+      {"glyph": "١", "order": 1},
+      {"glyph": "٢", "order": 2},
+      {"glyph": "٣", "order": 3}
+    ],
+    "completion_audio_script": "أحسنت! عددت واحد، اثنان، ثلاثة!"
+  },
+  "number_forms": [
+    {
+      "id": "fingers",
+      "label": "ثلاثة أصابع",
+      "word": "☝️✌️🤟",
+      "parts": [
+        {"text": "☝️", "highlight": true},
+        {"text": "✌️", "highlight": true},
+        {"text": "🤟", "highlight": true}
+      ],
+      "audio": "واحد، اثنان، ثلاثة أصابع"
+    },
+    {
+      "id": "dots",
+      "label": "ثلاث نقاط",
+      "word": "●●●",
+      "parts": [
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true},
+        {"text": "●", "highlight": true}
+      ],
+      "audio": "ثلاث نقاط مثل العدد ثلاثة"
+    },
+    {
+      "id": "objects",
+      "label": "ثلاث كرات",
+      "word": "⚽⚽⚽",
+      "parts": [
+        {"text": "⚽", "highlight": true},
+        {"text": "⚽", "highlight": true},
+        {"text": "⚽", "highlight": true}
+      ],
+      "audio": "ثلاث كرات جميلة"
+    }
+  ],
+  "stroke": {
+    "label": "تتبّع كتابة العدد ٣ بإصبعك",
+    "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+    "direction": "digit_stroke",
+    "view_box": "0 0 140 140",
+    "complete_audio": "أحسنت! لقد كتبت العدد ثلاثة يا بطل!"
+  },
+  "discovery": {
+    "intro": "امسح واعثر على مجموعات من ١ و٢ و٣ أشياء",
+    "story_audio": "هيا نعدّ التفاح والنجوم معاً حتى ثلاثة!",
+    "items": [
+      {"id": "one-apple", "label": "تفاحة واحدة", "emoji": "🍎", "correct": true, "audio": "واحد"},
+      {"id": "two-stars", "label": "نجمتان", "emoji": "⭐", "correct": true, "audio": "اثنان"},
+      {"id": "three-grapes", "label": "ثلاث عنب", "emoji": "🍇", "correct": true, "audio": "ثلاثة"},
+      {"id": "leaf", "label": "ورقة", "emoji": "🍃", "correct": false, "audio": "هذه ورقة وليست للعدّ الآن"},
+      {"id": "cloud", "label": "سحابة", "emoji": "☁️", "correct": false, "audio": "هذه سحابة"}
+    ]
+  },
+  "demo": {
+    "question": "كم تفاحة هنا؟",
+    "parts": [
+      {"text": "🍎", "highlight": true},
+      {"text": "🍎", "highlight": true},
+      {"text": "🍎", "highlight": true},
+      {"text": " = ٣", "highlight": false}
+    ],
+    "explain_audio": "نعدّ: واحد، اثنان، ثلاثة. إذن الجواب ثلاثة.",
+    "cta": "جاهز لاختبار الأعداد ١–٣! 🎯"
+  },
+  "mascot_hints": {
+    "station_prompts": {
+      "1": "مرحباً! أنا سنبل. هيا نتعرّف على واحد واثنين وثلاثة.",
+      "2": "رتّب الأعداد من الأصغر للأكبر معي!",
+      "3": "طابق العدد مع الأصابع والنقاط والأشياء.",
+      "4": "ارسم العدد ثلاثة بخط واضح وهادئ.",
+      "5": "ابحث عن المجموعات وعدّها!",
+      "6": "شاهد كيف أعدّ ثم جرب بنفسك."
+    },
+    "adaptive": [
+      {"concept": "counting_skip", "hint": "تلميح سنبل: أشر بإصبعك على كل شيء وأنت تعدّ ببطء."},
+      {"concept": "digit_stroke_3", "hint": "تلميح سنبل: للعدد ٣ ارسم قوسين ناعمين من الأعلى للأسفل."}
+    ]
+  },
+  "quiz": {
+    "questions": [
+      {
+        "type": "mcq",
+        "prompt": "كم عدد التفاحات؟",
+        "visual_items": {"emoji": "🍎", "count": 3},
+        "mascot_hint": "تلميح سنبل: عدّ التفاحات واحدة واحدة!",
+        "explanation": "ثلاث تفاحات = ٣.",
+        "options": [
+          {"text": "٣", "correct": true},
+          {"text": "٢", "correct": false},
+          {"text": "١", "correct": false}
+        ]
+      },
+      {
+        "type": "mcq",
+        "prompt": "أي جملة صحيحة؟",
+        "comparison": {"left": 3, "right": 1, "operator": "gt"},
+        "mascot_hint": "تلميح سنبل: ٣ أكبر من ١ لأن ثلاثة أكثر من واحد.",
+        "explanation": "٣ أكبر من ١.",
+        "options": [
+          {"text": "٣ أكبر من ١", "correct": true},
+          {"text": "٣ أصغر من ١", "correct": false},
+          {"text": "٣ يساوي ١", "correct": false}
+        ]
+      },
+      {
+        "type": "true_false",
+        "prompt": "العدد ٢ يساوي اثنان.",
+        "explanation": "نعم، ٢ نقرأه اثنان.",
+        "options": [
+          {"text": "صح ✅", "correct": true},
+          {"text": "خطأ ❌", "correct": false}
+        ]
+      }
+    ]
+  }
+}

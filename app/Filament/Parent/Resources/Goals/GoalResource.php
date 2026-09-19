@@ -22,7 +22,7 @@ class GoalResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFlag;
 
-    protected static ?string $navigationLabel = 'الأهداف الأسبوعية';
+    protected static ?string $navigationLabel = 'أهداف وتحديات الأسبوع';
 
     protected static ?string $modelLabel = 'هدف';
 

@@ -33,9 +33,9 @@ class AuthenticatedSessionController extends Controller
 
         $user = $request->user();
 
-        return redirect()->intended(
+        return redirect(
             $user !== null
-                ? app(AuthRedirectResolver::class)->homeUrl($user)
+                ? app(AuthRedirectResolver::class)->redirectPath($user, $request)
                 : route('dashboard', absolute: false),
         );
     }

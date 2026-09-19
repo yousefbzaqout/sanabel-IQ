@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 1,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "الحروف والحركات",
+    "lesson_key": "ar-g1-ar-mock-letter-baa",
+    "audio_slug": "letter-baa",
+    "key": "mock-g1-arabic-letter-baa",
+    "title": "حرف الباء",
+    "subtitle": "عرض تجريبي — الصف الأول — الفصل 1",
+    "material_title": "تجريبي G1: حرف الباء",
+    "order_column": 20,
+    "xp_reward": 42,
+    "description": "نتعلم حرف الباء بالفتح والضم والكسر.",
+    "phonemes": {
+        "voice_targets": [
+            "بَ",
+            "بُ",
+            "بِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "بَ",
+                "label": "فتحة",
+                "audio_script": "صوت بَ",
+                "cards": [
+                    {
+                        "word": "باب",
+                        "emoji": "🚪",
+                        "audio": "بَ مثل باب",
+                        "highlight": "بَ"
+                    },
+                    {
+                        "word": "بحر",
+                        "emoji": "🌊",
+                        "audio": "بحر",
+                        "highlight": "ب"
+                    },
+                    {
+                        "word": "بيت",
+                        "emoji": "🏠",
+                        "audio": "بيت",
+                        "highlight": "ب"
+                    }
+                ]
+            },
+            {
+                "glyph": "بُ",
+                "label": "ضمة",
+                "audio_script": "صوت بُ",
+                "cards": [
+                    {
+                        "word": "بحر",
+                        "emoji": "🌊",
+                        "audio": "بُ مثل بحر",
+                        "highlight": "بُ"
+                    },
+                    {
+                        "word": "بيت",
+                        "emoji": "🏠",
+                        "audio": "بيت",
+                        "highlight": "ب"
+                    },
+                    {
+                        "word": "باب",
+                        "emoji": "🚪",
+                        "audio": "باب",
+                        "highlight": "ب"
+                    }
+                ]
+            },
+            {
+                "glyph": "بِ",
+                "label": "كسرة",
+                "audio_script": "صوت بِ",
+                "cards": [
+                    {
+                        "word": "بيت",
+                        "emoji": "🏠",
+                        "audio": "بِ مثل بيت",
+                        "highlight": "بِ"
+                    },
+                    {
+                        "word": "باب",
+                        "emoji": "🚪",
+                        "audio": "باب",
+                        "highlight": "ب"
+                    },
+                    {
+                        "word": "بحر",
+                        "emoji": "🌊",
+                        "audio": "بحر",
+                        "highlight": "ب"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "باب",
+        "syllables": [
+            {
+                "glyph": "ب",
+                "order": 1
+            },
+            {
+                "glyph": "ا",
+                "order": 2
+            },
+            {
+                "glyph": "ب",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة باب"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس حرف الباء",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس حرف الباء",
+        "story_audio": "هيا نستكشف حرف الباء مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "باب",
+                "emoji": "🚪",
+                "correct": true,
+                "audio": "باب"
+            },
+            {
+                "id": "item-1",
+                "label": "بحر",
+                "emoji": "🌊",
+                "correct": true,
+                "audio": "بحر"
+            },
+            {
+                "id": "item-2",
+                "label": "بيت",
+                "emoji": "🏠",
+                "correct": true,
+                "audio": "بيت"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في حرف الباء؟",
+        "parts": [
+            {
+                "text": "🚪",
+                "highlight": true
+            },
+            {
+                "text": " باب",
+                "highlight": true
+            },
+            {
+                "text": " = ب",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على باب ضمن حرف الباء.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس حرف الباء.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ب في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس حرف الباء؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "باب من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "باب",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "بحر جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "بحر",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «باب» مناسبة لدرس حرف الباء.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "باب، بحر، بيت",
+                "options": [
+                    {
+                        "text": "باب \/ بحر \/ بيت",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ب",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "باب",
+            "parts": [
+                {
+                    "text": "ب",
+                    "highlight": true
+                },
+                {
+                    "text": "اب",
+                    "highlight": false
+                }
+            ],
+            "audio": "باب: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "بحر",
+            "parts": [
+                {
+                    "text": "ب",
+                    "highlight": false
+                },
+                {
+                    "text": "ب",
+                    "highlight": true
+                },
+                {
+                    "text": "ر",
+                    "highlight": false
+                }
+            ],
+            "audio": "بحر: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "بيت",
+            "parts": [
+                {
+                    "text": "بي",
+                    "highlight": false
+                },
+                {
+                    "text": "ت",
+                    "highlight": true
+                }
+            ],
+            "audio": "بيت: في نهاية الكلمة"
+        }
+    ]
+}

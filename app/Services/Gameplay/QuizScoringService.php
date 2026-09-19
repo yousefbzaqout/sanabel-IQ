@@ -38,7 +38,9 @@ class QuizScoringService
      *     percentage: int,
      *     score_percentage: float,
      *     xp_earned: int,
-     *     feedback: list<array<string, mixed>>
+     *     feedback: list<array<string, mixed>>,
+     *     unlocked_badge_ids: list<int>,
+     *     streak_days: int
      * }
      */
     public function submit(LearningMaterial $material, Student $student, array $answers): array
@@ -143,10 +145,15 @@ class QuizScoringService
             ];
         });
 
+        $result['unlocked_badge_ids'] = [];
+        $result['streak_days'] = 0;
+
         $freshStudent = $student->fresh();
 
         if ($freshStudent !== null) {
-            $this->runPostSubmitSideEffects($freshStudent, $material, $result);
+            $sideEffects = $this->runPostSubmitSideEffects($freshStudent, $material, $result);
+            $result['unlocked_badge_ids'] = $sideEffects['unlocked_badge_ids'];
+            $result['streak_days'] = $sideEffects['streak_days'];
         }
 
         return $result;
@@ -162,11 +169,16 @@ class QuizScoringService
      *     xp_earned: int,
      *     feedback: list<array<string, mixed>>
      * }  $result
+     * @return array{unlocked_badge_ids: list<int>, streak_days: int}
      */
-    private function runPostSubmitSideEffects(Student $freshStudent, LearningMaterial $material, array $result): void
+    private function runPostSubmitSideEffects(Student $freshStudent, LearningMaterial $material, array $result): array
     {
+        $unlockedBadgeIds = [];
+        $streakDays = 0;
+
         try {
-            $this->streakTracker->recordActivity($freshStudent);
+            $streak = $this->streakTracker->recordActivity($freshStudent);
+            $streakDays = (int) $streak->current_streak;
         } catch (Throwable $exception) {
             Log::warning('Quiz streak tracking failed after submission.', [
                 'student_id' => $freshStudent->id,
@@ -175,7 +187,12 @@ class QuizScoringService
         }
 
         try {
-            $this->badgeEvaluator->evaluate($freshStudent);
+            $unlockedBadgeIds = $this->badgeEvaluator
+                ->evaluate($freshStudent)
+                ->pluck('id')
+                ->map(static fn (mixed $id): int => (int) $id)
+                ->values()
+                ->all();
         } catch (Throwable $exception) {
             Log::warning('Quiz badge evaluation failed after submission.', [
                 'student_id' => $freshStudent->id,
@@ -215,5 +232,10 @@ class QuizScoringService
                 'message' => $exception->getMessage(),
             ]);
         }
+
+        return [
+            'unlocked_badge_ids' => $unlockedBadgeIds,
+            'streak_days' => $streakDays,
+        ];
     }
 }

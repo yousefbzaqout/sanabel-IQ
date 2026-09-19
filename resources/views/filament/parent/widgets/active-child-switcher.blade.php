@@ -1,25 +1,30 @@
-<div class="flex flex-wrap items-center gap-3">
+<div class="flex flex-wrap items-center gap-space-sm" dir="rtl">
     @php($children = auth()->user()?->students ?? collect())
 
     @if ($children->isNotEmpty())
-        <label class="text-sm font-medium text-gray-700 dark:text-gray-200" for="active-child-select">
-            الابن النشط
-        </label>
-        <select
-            id="active-child-select"
-            wire:model="selectedStudentId"
-            wire:change="switchActiveChild"
-            class="rounded-lg border-gray-300 text-sm shadow-sm focus:border-violet-500 focus:ring-violet-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
-        >
-            @foreach ($children as $child)
-                <option value="{{ $child->id }}">{{ $child->name }}</option>
-            @endforeach
-        </select>
+        <div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-full shadow-[0_2px_8px_rgba(15,23,42,0.04)]">
+            <span class="material-symbols-outlined text-primary-container text-lg">face</span>
+            <label class="font-label-md text-label-md text-on-surface-variant" for="active-child-select">
+                الطفل النشط:
+            </label>
+            <select
+                id="active-child-select"
+                wire:model="selectedStudentId"
+                wire:change="switchActiveChild"
+                class="min-h-11 bg-transparent border-0 font-label-lg text-label-lg text-on-surface font-bold focus:ring-0 focus:outline-none cursor-pointer"
+                style="min-height: 2.25rem; height: 2.25rem;"
+            >
+                @foreach ($children as $child)
+                    <option value="{{ $child->id }}">{{ $child->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
         <a
             href="{{ route('student.dashboard') }}"
-            class="inline-flex items-center rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500"
+            class="inline-flex items-center gap-1.5 rounded-full bg-primary-container px-4 py-2 font-label-md text-label-md font-bold text-on-primary-container shadow-sm hover:brightness-105 transition-all"
         >
+            <span class="material-symbols-outlined text-base">rocket_launch</span>
             بدء التعلم / خوض الاختبارات
         </a>
     @endif

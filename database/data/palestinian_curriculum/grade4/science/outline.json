@@ -1,0 +1,39 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 4,
+    "semester": 1,
+    "subject": {
+        "code": "SCI",
+        "name": "العلوم",
+        "slug": "science-g4-palestinian",
+        "icon": "🔬",
+        "description": "العلوم للصف 4 — منهاج تجريبي للعرض (يشمل وحدات أصلية وتجريبية)"
+    },
+    "official_outcomes": [
+        "محتوى غني للعرض على خريطة الطالب",
+        "دروس تفاعلية بست محطات مع اختبارات قصيرة",
+        "تلميحات سنبل السياقية في كل درس"
+    ],
+    "units": [
+        {
+            "order": 1,
+            "title": "تجريبي: المادة",
+            "semester": 1,
+            "lesson_files": [
+                "lessons\/mock-matter-states.json",
+                "lessons\/mock-habitats.json",
+                "lessons\/mock-water-cycle.json"
+            ]
+        },
+        {
+            "order": 2,
+            "title": "تجريبي: البيئة والحياة",
+            "semester": 2,
+            "lesson_files": [
+                "lessons\/mock-food-chains.json",
+                "lessons\/mock-magnets.json",
+                "lessons\/mock-soil.json"
+            ]
+        }
+    ]
+}

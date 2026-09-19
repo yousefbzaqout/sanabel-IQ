@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 2,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "تعبير شفوي",
+    "lesson_key": "ar-g3-ar-mock-describe",
+    "audio_slug": "describe",
+    "key": "mock-g3-arabic-describe",
+    "title": "أصف ما أرى",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 2",
+    "material_title": "تجريبي G3: أصف ما أرى",
+    "order_column": 60,
+    "xp_reward": 46,
+    "description": "نصف أشياء مألوفة بجمل واضحة.",
+    "phonemes": {
+        "voice_targets": [
+            "وَ",
+            "وُ",
+            "وِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "وَ",
+                "label": "فتحة",
+                "audio_script": "صوت وَ",
+                "cards": [
+                    {
+                        "word": "لون",
+                        "emoji": "🎨",
+                        "audio": "وَ مثل لون",
+                        "highlight": "وَ"
+                    },
+                    {
+                        "word": "شكل",
+                        "emoji": "🔵",
+                        "audio": "شكل",
+                        "highlight": "ش"
+                    },
+                    {
+                        "word": "حجم",
+                        "emoji": "📏",
+                        "audio": "حجم",
+                        "highlight": "ح"
+                    }
+                ]
+            },
+            {
+                "glyph": "وُ",
+                "label": "ضمة",
+                "audio_script": "صوت وُ",
+                "cards": [
+                    {
+                        "word": "شكل",
+                        "emoji": "🔵",
+                        "audio": "وُ مثل شكل",
+                        "highlight": "وُ"
+                    },
+                    {
+                        "word": "حجم",
+                        "emoji": "📏",
+                        "audio": "حجم",
+                        "highlight": "ح"
+                    },
+                    {
+                        "word": "لون",
+                        "emoji": "🎨",
+                        "audio": "لون",
+                        "highlight": "ل"
+                    }
+                ]
+            },
+            {
+                "glyph": "وِ",
+                "label": "كسرة",
+                "audio_script": "صوت وِ",
+                "cards": [
+                    {
+                        "word": "حجم",
+                        "emoji": "📏",
+                        "audio": "وِ مثل حجم",
+                        "highlight": "وِ"
+                    },
+                    {
+                        "word": "لون",
+                        "emoji": "🎨",
+                        "audio": "لون",
+                        "highlight": "ل"
+                    },
+                    {
+                        "word": "شكل",
+                        "emoji": "🔵",
+                        "audio": "شكل",
+                        "highlight": "ش"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "لون",
+        "syllables": [
+            {
+                "glyph": "ل",
+                "order": 1
+            },
+            {
+                "glyph": "و",
+                "order": 2
+            },
+            {
+                "glyph": "ن",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة لون"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس أصف ما أرى",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس أصف ما أرى",
+        "story_audio": "هيا نستكشف أصف ما أرى مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "لون",
+                "emoji": "🎨",
+                "correct": true,
+                "audio": "لون"
+            },
+            {
+                "id": "item-1",
+                "label": "شكل",
+                "emoji": "🔵",
+                "correct": true,
+                "audio": "شكل"
+            },
+            {
+                "id": "item-2",
+                "label": "حجم",
+                "emoji": "📏",
+                "correct": true,
+                "audio": "حجم"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في أصف ما أرى؟",
+        "parts": [
+            {
+                "text": "🎨",
+                "highlight": true
+            },
+            {
+                "text": " لون",
+                "highlight": true
+            },
+            {
+                "text": " = و",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على لون ضمن أصف ما أرى.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس أصف ما أرى.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على و في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس أصف ما أرى؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "لون من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "لون",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "شكل جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "شكل",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «لون» مناسبة لدرس أصف ما أرى.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "لون، شكل، حجم",
+                "options": [
+                    {
+                        "text": "لون \/ شكل \/ حجم",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "و",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "لون",
+            "parts": [
+                {
+                    "text": "ل",
+                    "highlight": true
+                },
+                {
+                    "text": "ون",
+                    "highlight": false
+                }
+            ],
+            "audio": "لون: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "شكل",
+            "parts": [
+                {
+                    "text": "ش",
+                    "highlight": false
+                },
+                {
+                    "text": "و",
+                    "highlight": true
+                },
+                {
+                    "text": "ل",
+                    "highlight": false
+                }
+            ],
+            "audio": "شكل: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "حجم",
+            "parts": [
+                {
+                    "text": "حج",
+                    "highlight": false
+                },
+                {
+                    "text": "م",
+                    "highlight": true
+                }
+            ],
+            "audio": "حجم: في نهاية الكلمة"
+        }
+    ]
+}

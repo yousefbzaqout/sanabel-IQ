@@ -1,0 +1,496 @@
+{
+  "designSystems": [
+    {
+      "name": "assets/b5234a2d31524e808a8f2584de19d3d9",
+      "designSystem": {
+        "displayName": "Sanabel-IQ",
+        "styleGuidelines": "### 🎨 Visual Identity: Safe\n- **Palette & Typography:** A friendly, accessible EdTech baseline pairing warm amber gold with approachable rounded geometry that mirrors modern Arabic geometric letterforms for students and educators alike.\n\n## Brand & Style\n\nThe design system establishes a welcoming, Arabic-first educational SaaS ecosystem designed to bridge enterprise institutional administration with motivating, approachable learning spaces for children, teachers, and parents. The design personality centers on three principles:\n\n1. **Growth & Warmth (النمو والدفء):** Taking metaphoric inspiration from ears of wheat (*Sanabel*), the interface communicates flourishing, nurture, and optimism through warm amber accents and sun-warmed neutral tones.\n2. **Clarity & Institutional Rigor (الوضوح والموثوقية):** Enterprise workflows (grading sheets, school district dashboards, curriculum mapping) require crisp, non-distracting layouts, predictable data hierarchy, and polished structural discipline.\n3. **Approachable Playfulness (التعلم المحبب):** For student and parent portals, surfaces feel soft, tactile, and encouraging without slipping into cartoonish or undisciplined aesthetics.\n\nThe visual style blends **Corporate Modern** structure with **Soft Tactility**: generous inner canvas padding, balanced subtle borders, warm ambient shadows, and deliberate rounded geometry that naturally complements modern Arabic circular letterforms.\n\n## Layout & Spacing\n\nLayouts follow an Arabic-native RTL (`dir=\"rtl\"`) orientation. Visual scans start in the upper right quadrant and terminate at the left edge.\n\n- **Grid Architecture:** \n  - **Desktop (>= 1024px):** 12-column responsive fluid grid with a maximum content container width of 1440px, 24px (`1.5rem`) gutters, and 32px (`2rem`) outer margins.\n  - **Tablet (768px - 1023px):** 8-column layout with 16px gutters and 24px margins.\n  - **Mobile (< 768px):** 4-column layout with 12px gutters and 16px margins.\n- **RTL Reflow & Bidirectionality:**\n  - Sidebar navigation docks persistently to the right edge.\n  - Breadcrumbs, category paths, and sequence steps progress right-to-left.\n  - Next/Forward actions point to the left chevron (`ChevronLeft`), while Back/Previous actions point to the right chevron (`ChevronRight`).\n  - Progress bars and completion rings fill clockwise or from right to left.\n- **Vertical Rhythm:** A base unit of 8px (0.5rem) governs all component margins, card insets, and micro-metric badges.\n\n## Elevation & Depth\n\nVisual hierarchy leverages soft warm ambient layering rather than stark dropped shadows, reflecting an approachable educational tool:\n\n- **Level 0 (Flat Surface):** Baseline page background in `#FFFDF9` or `#F8FAFC` without elevation.\n- **Level 1 (Card & Module Layer):** Clean boundary achieved with a subtle outline (`1px solid #E2E8F0`) paired with an ultra-diffused amber-tinted shadow: `0 2px 8px -2px rgba(245, 158, 11, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.04)`. Used for assignment cards, question cards, and profile overview widgets.\n- **Level 2 (Hover & Interactive Focus):** `0 10px 25px -5px rgba(245, 158, 11, 0.10), 0 8px 10px -6px rgba(15, 23, 42, 0.04)`. Used when cards are focused, hovered, or actively dragged in interactive learning exercises.\n- **Level 3 (Modals, Slide-over Drawers & Popovers):** Higher separation using `0 20px 30px -10px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.05)`.\n- **Tonal Contrast:** Interactive areas (such as student exercise answer boxes) use alternating subtle tinted backgrounds (`#FEF3C7` for Amber tints, `#CCFBF1` for Teal tints) to communicate active states without relying solely on elevated shadows.\n\n## Components\n\n### Buttons\n- **Primary:** Warm Amber background (`#F59E0B`), text `#0F172A` (or `#78350F` for intense contrast), 0.5rem corner radius, font weight 600. On hover, smooth transition to `#D97706` with slight elevation.\n- **Secondary (Edu-Teal):** Emerald Teal (`#0D9488`), white text, used for learning activities and pedagogical actions.\n- **Subtle / Outline:** 1px border (`#E2E8F0`), background `#FFFFFF`, text `#334155`. Hover state renders a gentle amber wash (`#FFFBEB`).\n- **Icon Placement:** Icons precede the label on the right side in RTL layouts. Trailing operational arrows face leftward.\n\n### Chips & Badges\n- Pill-shaped (`rounded-full`) or 8px rounded corners.\n- Color combinations pair low-opacity backgrounds with saturated foreground text:\n  - *Growth/Achievement:* Background `#FEF3C7`, text `#B45309`.\n  - *Progress/IQ:* Background `#CCFBF1`, text `#0F766E`.\n  - *Institutional:* Background `#EEF2FF`, text `#4338CA`.\n\n### Form Fields & Inputs\n- **Orientation:** Right-to-left layout with placeholder text right-aligned.\n- **Adornments:** Leading functional icons (e.g., search spyglass, calendar indicator) sit on the right padding edge; clear buttons or action dropdowns reside on the left edge.\n- **Borders & Focus:** 1px border (`#CBD5E1`). Focus ring emits a 2px amber glow (`#F59E0B`) with 0.15 opacity and crisp inner edge.\n- **Validation Messages:** Positioned underneath the field, right-aligned, accompanied by a small right-aligned contextual icon.\n\n### Cards & Micro-Cards\n- **Student Micro-Cards:** Modular tiles showing subject progress, stars earned, or next exercise. White surface with an 16px border-radius, top or right accent ribbon in Primary Amber or Secondary Teal, and subtle 1px border.\n- **Administrative Data Cards:** 12px or 16px border-radius, subtle neutral border, structured header with school tenant badge pinned to the top left (in RTL) and title/icon on the right.\n\n### Checkboxes & Radio Buttons\n- 20px x 20px hit target with 6px border radius (checkbox) or circular form (radio).\n- In checked state: Primary Amber or Edu-Teal background containing a crisp white glyph.\n- Checkbox labels are positioned to the left of the control with an 8px spacing gap.\n\n### Educational Interactive Modules\n- **Quiz Option Buttons:** Wide full-width radio cards with 16px corner radius, featuring a letter badge on the far right (أ، ب، ج، د), responsive hover state, and clear distinct green/red affirmation feedback on selection.\n- **Progress Trackers:** Smooth right-to-left linear progress tracks with rounded-full bar caps and gold star checkpoints at major mastery thresholds.",
+        "theme": {
+          "colorMode": "LIGHT",
+          "font": "PLUS_JAKARTA_SANS",
+          "roundness": "ROUND_EIGHT",
+          "customColor": "#f59e0b",
+          "headlineFont": "PLUS_JAKARTA_SANS",
+          "bodyFont": "PLUS_JAKARTA_SANS",
+          "labelFont": "PLUS_JAKARTA_SANS",
+          "namedColors": {
+            "primary_fixed": "#ffddb8",
+            "on_secondary": "#ffffff",
+            "surface_tint": "#855300",
+            "outline": "#867461",
+            "inverse_primary": "#ffb95f",
+            "inverse_surface": "#283044",
+            "secondary_fixed": "#89f5e7",
+            "on_primary_fixed": "#2a1700",
+            "surface_variant": "#dae2fd",
+            "tertiary_fixed_dim": "#c0c1ff",
+            "secondary_fixed_dim": "#6bd8cb",
+            "on_secondary_fixed_variant": "#005049",
+            "surface_bright": "#faf8ff",
+            "on_secondary_container": "#006f66",
+            "outline_variant": "#d8c3ad",
+            "on_tertiary": "#ffffff",
+            "primary_fixed_dim": "#ffb95f",
+            "on_primary": "#ffffff",
+            "on_secondary_fixed": "#00201d",
+            "surface_container_low": "#f2f3ff",
+            "primary_container": "#f59e0b",
+            "error_container": "#ffdad6",
+            "on_error": "#ffffff",
+            "tertiary_container": "#a7a9ff",
+            "on_primary_container": "#613b00",
+            "surface_container_highest": "#dae2fd",
+            "on_background": "#131b2e",
+            "on_tertiary_container": "#2b29bb",
+            "primary": "#855300",
+            "surface_container_lowest": "#ffffff",
+            "surface_container": "#eaedff",
+            "on_surface_variant": "#534434",
+            "secondary": "#006a61",
+            "secondary_container": "#86f2e4",
+            "on_error_container": "#93000a",
+            "surface_dim": "#d2d9f4",
+            "tertiary_fixed": "#e1e0ff",
+            "surface_container_high": "#e2e7ff",
+            "error": "#ba1a1a",
+            "background": "#faf8ff",
+            "on_primary_fixed_variant": "#653e00",
+            "tertiary": "#494bd6",
+            "on_surface": "#131b2e",
+            "surface": "#faf8ff",
+            "inverse_on_surface": "#eef0ff",
+            "on_tertiary_fixed": "#07006c",
+            "on_tertiary_fixed_variant": "#2f2ebe"
+          },
+          "designMd": "---\nname: Sanabel-IQ\ncolors:\n  surface: '#faf8ff'\n  surface-dim: '#d2d9f4'\n  surface-bright: '#faf8ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f2f3ff'\n  surface-container: '#eaedff'\n  surface-container-high: '#e2e7ff'\n  surface-container-highest: '#dae2fd'\n  on-surface: '#131b2e'\n  on-surface-variant: '#534434'\n  inverse-surface: '#283044'\n  inverse-on-surface: '#eef0ff'\n  outline: '#867461'\n  outline-variant: '#d8c3ad'\n  surface-tint: '#855300'\n  primary: '#855300'\n  on-primary: '#ffffff'\n  primary-container: '#f59e0b'\n  on-primary-container: '#613b00'\n  inverse-primary: '#ffb95f'\n  secondary: '#006a61'\n  on-secondary: '#ffffff'\n  secondary-container: '#86f2e4'\n  on-secondary-container: '#006f66'\n  tertiary: '#494bd6'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#a7a9ff'\n  on-tertiary-container: '#2b29bb'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#ffddb8'\n  primary-fixed-dim: '#ffb95f'\n  on-primary-fixed: '#2a1700'\n  on-primary-fixed-variant: '#653e00'\n  secondary-fixed: '#89f5e7'\n  secondary-fixed-dim: '#6bd8cb'\n  on-secondary-fixed: '#00201d'\n  on-secondary-fixed-variant: '#005049'\n  tertiary-fixed: '#e1e0ff'\n  tertiary-fixed-dim: '#c0c1ff'\n  on-tertiary-fixed: '#07006c'\n  on-tertiary-fixed-variant: '#2f2ebe'\n  background: '#faf8ff'\n  on-background: '#131b2e'\n  surface-variant: '#dae2fd'\ntypography:\n  display:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 2.5rem\n    fontWeight: '800'\n    lineHeight: 3.25rem\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 2rem\n    fontWeight: '700'\n    lineHeight: 2.75rem\n    letterSpacing: -0.01em\n  headline-lg-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.5rem\n    fontWeight: '700'\n    lineHeight: 2.125rem\n  headline-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.5rem\n    fontWeight: '600'\n    lineHeight: 2.25rem\n  headline-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.25rem\n    fontWeight: '600'\n    lineHeight: 1.875rem\n  title-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.125rem\n    fontWeight: '600'\n    lineHeight: 1.75rem\n  body-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.125rem\n    fontWeight: '400'\n    lineHeight: 1.875rem\n  body-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1rem\n    fontWeight: '400'\n    lineHeight: 1.625rem\n  body-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.875rem\n    fontWeight: '400'\n    lineHeight: 1.375rem\n  label-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.875rem\n    fontWeight: '600'\n    lineHeight: 1.25rem\n  label-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.75rem\n    fontWeight: '600'\n    lineHeight: 1rem\n  label-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.6875rem\n    fontWeight: '500'\n    lineHeight: 0.875rem\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-mobile: 0.75rem\n  margin: 2rem\n  margin-mobile: 1rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2rem\n  space-2xl: 3rem\n---\n\n## Brand & Style\n\nThe design system establishes a welcoming, Arabic-first educational SaaS ecosystem designed to bridge enterprise institutional administration with motivating, approachable learning spaces for children, teachers, and parents. The design personality centers on three principles:\n\n1. **Growth & Warmth (النمو والدفء):** Taking metaphoric inspiration from ears of wheat (*Sanabel*), the interface communicates flourishing, nurture, and optimism through warm amber accents and sun-warmed neutral tones.\n2. **Clarity & Institutional Rigor (الوضوح والموثوقية):** Enterprise workflows (grading sheets, school district dashboards, curriculum mapping) require crisp, non-distracting layouts, predictable data hierarchy, and polished structural discipline.\n3. **Approachable Playfulness (التعلم المحبب):** For student and parent portals, surfaces feel soft, tactile, and encouraging without slipping into cartoonish or undisciplined aesthetics.\n\nThe visual style blends **Corporate Modern** structure with **Soft Tactility**: generous inner canvas padding, balanced subtle borders, warm ambient shadows, and deliberate rounded geometry that naturally complements modern Arabic circular letterforms.\n\n## Colors\n\nThe palette is engineered specifically for light mode clarity, long screen exposure in classrooms, and high visual hierarchy in RTL interfaces.\n\n- **Primary (`#F59E0B` Wheat Gold / Amber):** The emotional center representing intellect, achievement, and nurture. Used for primary calls-to-action, active progress tracks, milestones, and star metrics. Its companion deep amber shade (`#D97706`) ensures WCAG AA compliance against pale surfaces.\n- **Secondary (`#0D9488` Edu-Teal):** Conveys intelligence, pedagogical clarity, and focus. Used for analytical metrics, teacher grading status, informational tags, and navigation anchors.\n- **Tertiary (`#6366F1` Institutional Indigo):** Dedicated to administrative governance, multi-tenant school indicators, roster management, and institutional badge roles.\n- **Neutrals (`#0F172A` to `#F8FAFC`):** Deep Slate is employed for primary Arabic typography (`#0F172A`), supported by mid-slate (`#334155`) for secondary metadata and soft slate borders (`#E2E8F0`). Surfaces rely on soft cream white (`#FFFDF9`) and serene light slate (`#F8FAFC`) rather than harsh stark whites, reducing eye strain during extended grading or study periods.\n- **Feedback & Semantics:** Emerald (`#10B981`) for mastery and passed objectives; Rose (`#F43F5E`) for alerts, attendance absences, and overdue tasks.\n\n## Typography\n\nThe typographic hierarchy is calibrated specifically for bilingual Arabic and Latin character harmony. `Plus Jakarta Sans` delivers wide geometric counters, balanced ascenders, and open letter terminals that map gracefully to contemporary Arabic geometric typography patterns.\n\nKey guidelines:\n- **Vertical Spacing for Arabic Glyphs:** Arabic scripts require ~15-20% greater vertical breathing room compared to pure Latin text to avoid diacritic (*Tashkeel*) and loop clipping. Line-heights (`lineHeight`) are intentionally set wider across all body and heading scales.\n- **Numerals:** The design system renders numbers with high legibility. In student learning portals, numbers may reflect localized Eastern Arabic numerals (`١، ٢، ٣`), while administrative and grade calculation panels default to Western Arabic numerals (`1, 2, 3`) with tabular lining figures enabled (`font-variant-numeric: tabular-nums`).\n- **Font Weight Discipline:** Headings utilize 700 and 800 weights for visual confidence; body copy relies strictly on 400 and 500 weights to preserve optical clarity in dense educational charts.\n\n## Layout & Spacing\n\nLayouts follow an Arabic-native RTL (`dir=\"rtl\"`) orientation. Visual scans start in the upper right quadrant and terminate at the left edge.\n\n- **Grid Architecture:** \n  - **Desktop (>= 1024px):** 12-column responsive fluid grid with a maximum content container width of 1440px, 24px (`1.5rem`) gutters, and 32px (`2rem`) outer margins.\n  - **Tablet (768px - 1023px):** 8-column layout with 16px gutters and 24px margins.\n  - **Mobile (< 768px):** 4-column layout with 12px gutters and 16px margins.\n- **RTL Reflow & Bidirectionality:**\n  - Sidebar navigation docks persistently to the right edge.\n  - Breadcrumbs, category paths, and sequence steps progress right-to-left.\n  - Next/Forward actions point to the left chevron (`ChevronLeft`), while Back/Previous actions point to the right chevron (`ChevronRight`).\n  - Progress bars and completion rings fill clockwise or from right to left.\n- **Vertical Rhythm:** A base unit of 8px (0.5rem) governs all component margins, card insets, and micro-metric badges.\n\n## Elevation & Depth\n\nVisual hierarchy leverages soft warm ambient layering rather than stark dropped shadows, reflecting an approachable educational tool:\n\n- **Level 0 (Flat Surface):** Baseline page background in `#FFFDF9` or `#F8FAFC` without elevation.\n- **Level 1 (Card & Module Layer):** Clean boundary achieved with a subtle outline (`1px solid #E2E8F0`) paired with an ultra-diffused amber-tinted shadow: `0 2px 8px -2px rgba(245, 158, 11, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.04)`. Used for assignment cards, question cards, and profile overview widgets.\n- **Level 2 (Hover & Interactive Focus):** `0 10px 25px -5px rgba(245, 158, 11, 0.10), 0 8px 10px -6px rgba(15, 23, 42, 0.04)`. Used when cards are focused, hovered, or actively dragged in interactive learning exercises.\n- **Level 3 (Modals, Slide-over Drawers & Popovers):** Higher separation using `0 20px 30px -10px rgba(15, 23, 42, 0.12), 0 0 1px 1px rgba(15, 23, 42, 0.05)`.\n- **Tonal Contrast:** Interactive areas (such as student exercise answer boxes) use alternating subtle tinted backgrounds (`#FEF3C7` for Amber tints, `#CCFBF1` for Teal tints) to communicate active states without relying solely on elevated shadows.\n\n## Shapes\n\nThe design system implements a **Rounded (Level 2)** shape identity. Soft curvi-linear structures humanize the experience for young learners while remaining sufficiently structured for enterprise administrators:\n\n- **Base Radius (0.5rem / 8px):** Applied to standard text inputs, table action buttons, inline badges, and micro-dropdowns.\n- **Medium / Large Radius (1rem / 16px):** Standard containers, analytical graph wrappers, modal dialogues, and school summary tiles.\n- **Extra Large Radius (1.5rem / 24px):** Interactive student gamification cards, lesson reward wrappers, quiz prompt cards, and prominent promotional cards.\n- **Full Radius (9999px - Pill):** Pill tags for skill levels, student status badges (e.g., \"مكتمل\", \"قيد المراجعة\"), and floating audio playback buttons.\n\n## Components\n\n### Buttons\n- **Primary:** Warm Amber background (`#F59E0B`), text `#0F172A` (or `#78350F` for intense contrast), 0.5rem corner radius, font weight 600. On hover, smooth transition to `#D97706` with slight elevation.\n- **Secondary (Edu-Teal):** Emerald Teal (`#0D9488`), white text, used for learning activities and pedagogical actions.\n- **Subtle / Outline:** 1px border (`#E2E8F0`), background `#FFFFFF`, text `#334155`. Hover state renders a gentle amber wash (`#FFFBEB`).\n- **Icon Placement:** Icons precede the label on the right side in RTL layouts. Trailing operational arrows face leftward.\n\n### Chips & Badges\n- Pill-shaped (`rounded-full`) or 8px rounded corners.\n- Color combinations pair low-opacity backgrounds with saturated foreground text:\n  - *Growth/Achievement:* Background `#FEF3C7`, text `#B45309`.\n  - *Progress/IQ:* Background `#CCFBF1`, text `#0F766E`.\n  - *Institutional:* Background `#EEF2FF`, text `#4338CA`.\n\n### Form Fields & Inputs\n- **Orientation:** Right-to-left layout with placeholder text right-aligned.\n- **Adornments:** Leading functional icons (e.g., search spyglass, calendar indicator) sit on the right padding edge; clear buttons or action dropdowns reside on the left edge.\n- **Borders & Focus:** 1px border (`#CBD5E1`). Focus ring emits a 2px amber glow (`#F59E0B`) with 0.15 opacity and crisp inner edge.\n- **Validation Messages:** Positioned underneath the field, right-aligned, accompanied by a small right-aligned contextual icon.\n\n### Cards & Micro-Cards\n- **Student Micro-Cards:** Modular tiles showing subject progress, stars earned, or next exercise. White surface with an 16px border-radius, top or right accent ribbon in Primary Amber or Secondary Teal, and subtle 1px border.\n- **Administrative Data Cards:** 12px or 16px border-radius, subtle neutral border, structured header with school tenant badge pinned to the top left (in RTL) and title/icon on the right.\n\n### Checkboxes & Radio Buttons\n- 20px x 20px hit target with 6px border radius (checkbox) or circular form (radio).\n- In checked state: Primary Amber or Edu-Teal background containing a crisp white glyph.\n- Checkbox labels are positioned to the left of the control with an 8px spacing gap.\n\n### Educational Interactive Modules\n- **Quiz Option Buttons:** Wide full-width radio cards with 16px corner radius, featuring a letter badge on the far right (أ، ب، ج، د), responsive hover state, and clear distinct green/red affirmation feedback on selection.\n- **Progress Trackers:** Smooth right-to-left linear progress tracks with rounded-full bar caps and gold star checkpoints at major mastery thresholds.",
+          "colorVariant": "FIDELITY",
+          "overridePrimaryColor": "#f59e0b",
+          "overrideSecondaryColor": "#0d9488",
+          "overrideTertiaryColor": "#6366f1",
+          "overrideNeutralColor": "#0f172a",
+          "spacingScale": 2,
+          "typography": {
+            "display": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "2.5rem",
+              "fontWeight": "800",
+              "lineHeight": "3.25rem",
+              "letterSpacing": "-0.02em"
+            },
+            "label-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.75rem",
+              "fontWeight": "600",
+              "lineHeight": "1rem"
+            },
+            "body-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "1.875rem"
+            },
+            "label-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.875rem",
+              "fontWeight": "600",
+              "lineHeight": "1.25rem"
+            },
+            "headline-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.25rem",
+              "fontWeight": "600",
+              "lineHeight": "1.875rem"
+            },
+            "label-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.6875rem",
+              "fontWeight": "500",
+              "lineHeight": "0.875rem"
+            },
+            "headline-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "2rem",
+              "fontWeight": "700",
+              "lineHeight": "2.75rem",
+              "letterSpacing": "-0.01em"
+            },
+            "body-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "1.625rem"
+            },
+            "headline-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.5rem",
+              "fontWeight": "600",
+              "lineHeight": "2.25rem"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "2.125rem"
+            },
+            "title-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.125rem",
+              "fontWeight": "600",
+              "lineHeight": "1.75rem"
+            },
+            "body-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "1.375rem"
+            }
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-2xl": "3rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem"
+          },
+          "headlineFontFamily": "Plus Jakarta Sans",
+          "bodyFontFamily": "Plus Jakarta Sans",
+          "labelFontFamily": "Plus Jakarta Sans"
+        }
+      },
+      "version": "1"
+    },
+    {
+      "name": "assets/da7ec230268a43319ecc42e503163aff",
+      "designSystem": {
+        "displayName": "Sanabel-IQ RTL EdTech Design System",
+        "styleGuidelines": "### 🎨 Visual Identity: Safe\n- **Palette & Typography:** A welcoming, highly accessible institutional EdTech aesthetic that balances warm wheat tones with soft curves and clean geometric legibility.\n\n## Brand & Style\n\nThe design system bridges institutional rigor with warm, welcoming optimism. Built specifically for an Arabic-first educational ecosystem, it addresses four distinct user groups across K–12 SaaS: educational administrators, teachers, parents, and young learners.\n\nThe personality balances two essential qualities:\n- **Academic Credibility & Trust:** Grounded, precise data tables, institutional gradebooks, curriculum roadmaps, and administrative governance.\n- **Warmth, Growth, and Encouragement:** Inspired by ripe wheat stalks (*Sanabel*), the visual tone emphasizes flourishing potential, safety, and delight without descending into chaotic infantilism.\n\nThe design movement mixes **Soft Institutional Modernism** with **Warm Tactile Depth**. Interfaces leverage generous curved boundaries (rounded-3xl containers), ambient luminous warm shadows, directional RTL flow considerations, and dual-tone visual feedback that provides clarity for enterprise school boards while remaining joyful and friendly for students and parents.\n\n## Layout & Spacing\n\nThe layout is built on a responsive 12-column fluid grid system engineered for bidirectional and native RTL rendering (`dir=\"rtl\"`).\n\n- **Desktop (1280px+):** 12 columns with 32px (`2rem`) gutters and 48px (`3rem`) screen margins. Side navigation sits anchored on the right hand side; the primary content view expands leftward.\n- **Tablet (768px – 1024px):** 8 columns with 24px (`1.5rem`) gutters and 24px outer margins. Collapsible rail navigation.\n- **Mobile (< 768px):** 4 columns with 16px (`1rem`) gutters and 16px canvas margins. Bottom tab bar navigation for student and parent workflows.\n\n### RTL Directionality & Spacing Conventions\n- **Logical Flow Properties:** Avoid physical `left`/`right` token assignments. Rely exclusively on inline start (`margin-inline-start`, `padding-inline-start`) and inline end declarations.\n- **Reading Order:** Hero sections, primary metrics, student avatar groupings, and table primary identifiers originate at the top-right and progress toward the bottom-left.\n- **Internal Component Spacing:**\n  - Micro spaces (`space-xs` = 6px, `space-sm` = 12px) format badges, avatar offsets, icon-to-text distances, and pill counters.\n  - Moderate spaces (`space-md` = 20px, `space-lg` = 32px) handle card padding, fieldsets, and dashboard tile intervals.\n  - Macro spacing (`space-xl` = 48px) defines clear curriculum module sectioning.\n\n## Elevation & Depth\n\nVisual hierarchy uses **Ambient Warm Glows & Low-Contrast Protective Borders** rather than aggressive dark drop shadows. Surfaces appear elevated above warm cream backdrops like physical educational cards.\n\n- **Level 0 (Canvas Base):** Flat `#FFFDF9` or `#F8FAFC`. Zero elevation.\n- **Level 1 (Standard Surface / Module Card):** Pure white background (`#FFFFFF`) with a 1px border of `#F1F5F9` (or `#FEF3C7` for highlighted student tasks). Shadow: `0px 4px 20px -2px rgba(217, 119, 6, 0.05), 0px 2px 6px -1px rgba(15, 23, 42, 0.03)`.\n- **Level 2 (Interactive Hover & Popovers):** Elevated card state upon hover or active focus. Shadow shifts to a golden-tinted ambient halo: `0px 12px 28px -4px rgba(217, 119, 6, 0.12), 0px 4px 10px -2px rgba(15, 23, 42, 0.04)`. Border shifts slightly toward primary amber.\n- **Level 3 (Modals, Overlays, and Drawer Panels):** Floats prominently over a frosted warm overlay (`rgba(15, 23, 42, 0.4)` backdrop blur of `8px`). Shadow: `0px 24px 48px -8px rgba(15, 23, 42, 0.16)`.\n- **Level 4 (Toasts & Floating Action Badges):** Pill-shaped alerts floating with `0px 10px 24px -3px rgba(13, 148, 136, 0.18)` using teal tints for learning achievements or amber for reminders.\n\n## Components\n\n### 1. Buttons\n- **Primary Action (Amber):** Solid `#D97706` background, crisp white label, fully pill-shaped (`rounded-full`). Hover state shifts to `#B45309` with a gentle upward translation (`transform: translateY(-1px)`) and amber glow.\n- **Secondary Action (Edu-Teal):** Solid `#0D9488` with white text for secondary workflows (e.g., \"Download Syllabus\", \"Verify Attendance\").\n- **Soft/Tonal Variant:** `#FEF3C7` container with `#B45309` label text for low-friction actions (e.g., \"Save Draft\", \"Bookmark Lesson\").\n- **Directional Icons:** Icon offsets must use logical margins (`margin-inline-end: 0.5rem`). Forward indicator arrows point to the left in RTL contexts.\n\n### 2. Cards & Learning Modules\n- Built on `#FFFFFF` with `rounded-3xl` geometry.\n- Enclosed with a 1px border (`#FEF3C7` for learning tasks, `#E2E8F0` for administrative tables).\n- Headers feature student avatars or subject badges on the right (start), status indicator pills on the left (end), and title text stacked directly beneath.\n- Hover states slightly elevate the card with a warm amber rim.\n\n### 3. Input Fields & Form Controls\n- **Text Inputs:** Height 48px, `rounded-2xl`, background `#FFFFFF`, border 1.5px solid `#E2E8F0`. Focus state: border color `#D97706` with a soft ring of `4px rgba(217, 119, 6, 0.15)`. Text alignment defaults to right (`rtl`).\n- **Icons within Inputs:** Leading icons sit on the right-hand side; clear buttons or trailing indicators sit on the left-hand side.\n- **Checkboxes & Radios:** `rounded-lg` for checkboxes (6px) and `rounded-full` for radios. Selected state fills with `#0D9488` (Teal) with a crisp white glyph checkmark.\n\n### 4. Badges & Skill Pills\n- Pill-shaped (`rounded-full`), padding `0.25rem 0.875rem`.\n- **Achievement/Gold:** Background `#FEF3C7`, text `#B45309`, border `1px solid #FDE68A`.\n- **Verified/Curriculum:** Background `#CCFBF1`, text `#0F766E`, border `1px solid #99F6E4`.\n- **Grade/Level Tag:** Dark slate `#0F172A` with `#F8FAFC` text for formal school grading levels.\n\n### 5. Lists & Data Rows\n- Striped student rosters use alternating transparent and warm cream (`#FFFDF9`) backgrounds.\n- Row padding: `1rem 1.25rem` with `rounded-2xl` hover outlines.\n- Right-to-left layout: Student photo/identifier -> Student Name -> Attendance Status pill -> Performance grade -> Action triggers on far left.\n\n### 6. Specialized EdTech Components\n- **Gamified Progress Bar:** 12px height container with full pill caps (`rounded-full`). Background `#FEF3C7`, inner active fill transitioning from `#F59E0B` to `#0D9488` as completion approaches 100%.\n- **Parent-Teacher Notification Banner:** Warm card featuring a teal accent bar on the right border (`border-inline-start: 4px solid #0D9488`), communicating safety, transparency, and collaboration.",
+        "theme": {
+          "colorMode": "LIGHT",
+          "font": "PLUS_JAKARTA_SANS",
+          "roundness": "ROUND_FULL",
+          "customColor": "#d97706",
+          "headlineFont": "PLUS_JAKARTA_SANS",
+          "bodyFont": "BE_VIETNAM_PRO",
+          "labelFont": "PLUS_JAKARTA_SANS",
+          "namedColors": {
+            "primary_fixed": "#ffdcc3",
+            "secondary_fixed": "#89f5e7",
+            "inverse_primary": "#ffb77d",
+            "primary": "#8d4b00",
+            "surface_dim": "#ccdbf3",
+            "inverse_surface": "#233144",
+            "on_secondary_fixed_variant": "#005049",
+            "on_tertiary_fixed_variant": "#3f465c",
+            "on_surface": "#0d1c2e",
+            "tertiary_fixed": "#dae2fd",
+            "on_primary_fixed": "#2f1500",
+            "surface_variant": "#d5e3fc",
+            "on_secondary_container": "#006f66",
+            "on_error": "#ffffff",
+            "on_tertiary": "#ffffff",
+            "primary_container": "#b15f00",
+            "on_tertiary_container": "#fefcff",
+            "error_container": "#ffdad6",
+            "primary_fixed_dim": "#ffb77d",
+            "surface_container_low": "#eff4ff",
+            "background": "#f8f9ff",
+            "outline_variant": "#dbc2b0",
+            "on_background": "#0d1c2e",
+            "inverse_on_surface": "#eaf1ff",
+            "surface_bright": "#f8f9ff",
+            "surface_container": "#e6eeff",
+            "on_primary_fixed_variant": "#6e3900",
+            "error": "#ba1a1a",
+            "surface_container_high": "#dce9ff",
+            "outline": "#887364",
+            "tertiary_fixed_dim": "#bec6e0",
+            "surface_container_lowest": "#ffffff",
+            "tertiary": "#545c72",
+            "secondary_fixed_dim": "#6bd8cb",
+            "on_primary": "#ffffff",
+            "surface_container_highest": "#d5e3fc",
+            "surface": "#f8f9ff",
+            "on_error_container": "#93000a",
+            "on_primary_container": "#fffbff",
+            "on_surface_variant": "#554336",
+            "on_secondary": "#ffffff",
+            "surface_tint": "#904d00",
+            "secondary": "#006a61",
+            "tertiary_container": "#6c748b",
+            "secondary_container": "#86f2e4",
+            "on_tertiary_fixed": "#131b2e",
+            "on_secondary_fixed": "#00201d"
+          },
+          "designMd": "---\nname: Sanabel-IQ RTL EdTech Design System\ncolors:\n  surface: '#f8f9ff'\n  surface-dim: '#ccdbf3'\n  surface-bright: '#f8f9ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#eff4ff'\n  surface-container: '#e6eeff'\n  surface-container-high: '#dce9ff'\n  surface-container-highest: '#d5e3fc'\n  on-surface: '#0d1c2e'\n  on-surface-variant: '#554336'\n  inverse-surface: '#233144'\n  inverse-on-surface: '#eaf1ff'\n  outline: '#887364'\n  outline-variant: '#dbc2b0'\n  surface-tint: '#904d00'\n  primary: '#8d4b00'\n  on-primary: '#ffffff'\n  primary-container: '#b15f00'\n  on-primary-container: '#fffbff'\n  inverse-primary: '#ffb77d'\n  secondary: '#006a61'\n  on-secondary: '#ffffff'\n  secondary-container: '#86f2e4'\n  on-secondary-container: '#006f66'\n  tertiary: '#545c72'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#6c748b'\n  on-tertiary-container: '#fefcff'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#ffdcc3'\n  primary-fixed-dim: '#ffb77d'\n  on-primary-fixed: '#2f1500'\n  on-primary-fixed-variant: '#6e3900'\n  secondary-fixed: '#89f5e7'\n  secondary-fixed-dim: '#6bd8cb'\n  on-secondary-fixed: '#00201d'\n  on-secondary-fixed-variant: '#005049'\n  tertiary-fixed: '#dae2fd'\n  tertiary-fixed-dim: '#bec6e0'\n  on-tertiary-fixed: '#131b2e'\n  on-tertiary-fixed-variant: '#3f465c'\n  background: '#f8f9ff'\n  on-background: '#0d1c2e'\n  surface-variant: '#d5e3fc'\ntypography:\n  display-hero:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 48px\n    fontWeight: '800'\n    lineHeight: 64px\n  display-hero-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 32px\n    fontWeight: '800'\n    lineHeight: 44px\n  headline-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 36px\n    fontWeight: '700'\n    lineHeight: 48px\n  headline-lg-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 26px\n    fontWeight: '700'\n    lineHeight: 36px\n  headline-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 24px\n    fontWeight: '700'\n    lineHeight: 34px\n  headline-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 20px\n    fontWeight: '600'\n    lineHeight: 30px\n  body-lg:\n    fontFamily: Be Vietnam Pro\n    fontSize: 18px\n    fontWeight: '400'\n    lineHeight: 30px\n  body-md:\n    fontFamily: Be Vietnam Pro\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 26px\n  body-sm:\n    fontFamily: Be Vietnam Pro\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 22px\n  label-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 14px\n    fontWeight: '600'\n    lineHeight: 20px\n  label-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 18px\n  label-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 11px\n    fontWeight: '700'\n    lineHeight: 16px\nrounded:\n  sm: 0.5rem\n  DEFAULT: 1rem\n  md: 1.5rem\n  lg: 2rem\n  xl: 3rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-sm: 1rem\n  gutter-lg: 2rem\n  margin: 1.5rem\n  margin-mobile: 1rem\n  margin-desktop: 3rem\n  space-xs: 0.375rem\n  space-sm: 0.75rem\n  space-md: 1.25rem\n  space-lg: 2rem\n  space-xl: 3rem\n---\n\n## Brand & Style\n\nThe design system bridges institutional rigor with warm, welcoming optimism. Built specifically for an Arabic-first educational ecosystem, it addresses four distinct user groups across K–12 SaaS: educational administrators, teachers, parents, and young learners.\n\nThe personality balances two essential qualities:\n- **Academic Credibility & Trust:** Grounded, precise data tables, institutional gradebooks, curriculum roadmaps, and administrative governance.\n- **Warmth, Growth, and Encouragement:** Inspired by ripe wheat stalks (*Sanabel*), the visual tone emphasizes flourishing potential, safety, and delight without descending into chaotic infantilism.\n\nThe design movement mixes **Soft Institutional Modernism** with **Warm Tactile Depth**. Interfaces leverage generous curved boundaries (rounded-3xl containers), ambient luminous warm shadows, directional RTL flow considerations, and dual-tone visual feedback that provides clarity for enterprise school boards while remaining joyful and friendly for students and parents.\n\n## Colors\n\nThe palette pairs sun-drenched harvest amber with intellectual scholastic teal, anchored by deep slate typography over warm, non-fatiguing paper surfaces.\n\n- **Primary Wheat & Amber (`#D97706` / `#F59E0B`):** Represents growth, celebration, achievements, active learning milestones, and primary calls to action.\n- **Secondary Edu-Teal & Emerald (`#0D9488` / `#0F766E`):** Represents curriculum accuracy, intelligence, verified grades, pedagogical progress, and analytical data widgets.\n- **Neutral Dark Slate (`#0F172A` / `#475569`):** High-legibility Arabic text rendering. Never use pure `#000000`; deep slate ensures optimal optical contrast against light backgrounds while avoiding eye fatigue.\n- **Backgrounds & Canvas:**\n  - Base canvas: Warm cream (`#FFFDF9`) and soft alabaster (`#F8FAFC`).\n  - Card surfaces: Pure White (`#FFFFFF`) framed by light warm amber-tinted borders (`#FEF3C7` / `#F1F5F9`).\n- **Functional Semantics:**\n  - Success / Mastery: `#10B981` (Emerald)\n  - Pending / Review: `#F59E0B` (Amber)\n  - Alert / Needs Support: `#EF4444` (Coral Red)\n  - Informational / System: `#0284C7` (Sky Blue)\n\n## Typography\n\nThe typography stack ensures balanced metric compatibility between Western alphanumeric notations and Arabic text shaping.\n\n- **Headings & Key Metrics:** Set in `Plus Jakarta Sans` (paired with native geometric Arabic typefaces like *Readex Pro* / *Cairo* in production). The font delivers rounded terminals, friendly counters, and crisp structure for lesson titles, student KPI metrics, and administrative dashboards.\n- **Body & Continuous Text:** Set in `Be Vietnam Pro` (paired with clear Arabic text faces like *IBM Plex Sans Arabic* or *Cairo*). Generous x-height, wide apertures, and deliberate vertical spacing account for Arabic diacritics (Tashkeel) and descending glyphs without clipping.\n- **RTL Baseline Rules:**\n  - All text containers must preserve native RTL alignment (`text-align: right`) with contextual overrides for internationalized figures and metrics.\n  - Arabic typography requires 20–25% higher line-height ratios than pure Latin counterparts to prevent descender collisions and maintain legible mark positioning.\n\n## Layout & Spacing\n\nThe layout is built on a responsive 12-column fluid grid system engineered for bidirectional and native RTL rendering (`dir=\"rtl\"`).\n\n- **Desktop (1280px+):** 12 columns with 32px (`2rem`) gutters and 48px (`3rem`) screen margins. Side navigation sits anchored on the right hand side; the primary content view expands leftward.\n- **Tablet (768px – 1024px):** 8 columns with 24px (`1.5rem`) gutters and 24px outer margins. Collapsible rail navigation.\n- **Mobile (< 768px):** 4 columns with 16px (`1rem`) gutters and 16px canvas margins. Bottom tab bar navigation for student and parent workflows.\n\n### RTL Directionality & Spacing Conventions\n- **Logical Flow Properties:** Avoid physical `left`/`right` token assignments. Rely exclusively on inline start (`margin-inline-start`, `padding-inline-start`) and inline end declarations.\n- **Reading Order:** Hero sections, primary metrics, student avatar groupings, and table primary identifiers originate at the top-right and progress toward the bottom-left.\n- **Internal Component Spacing:**\n  - Micro spaces (`space-xs` = 6px, `space-sm` = 12px) format badges, avatar offsets, icon-to-text distances, and pill counters.\n  - Moderate spaces (`space-md` = 20px, `space-lg` = 32px) handle card padding, fieldsets, and dashboard tile intervals.\n  - Macro spacing (`space-xl` = 48px) defines clear curriculum module sectioning.\n\n## Elevation & Depth\n\nVisual hierarchy uses **Ambient Warm Glows & Low-Contrast Protective Borders** rather than aggressive dark drop shadows. Surfaces appear elevated above warm cream backdrops like physical educational cards.\n\n- **Level 0 (Canvas Base):** Flat `#FFFDF9` or `#F8FAFC`. Zero elevation.\n- **Level 1 (Standard Surface / Module Card):** Pure white background (`#FFFFFF`) with a 1px border of `#F1F5F9` (or `#FEF3C7` for highlighted student tasks). Shadow: `0px 4px 20px -2px rgba(217, 119, 6, 0.05), 0px 2px 6px -1px rgba(15, 23, 42, 0.03)`.\n- **Level 2 (Interactive Hover & Popovers):** Elevated card state upon hover or active focus. Shadow shifts to a golden-tinted ambient halo: `0px 12px 28px -4px rgba(217, 119, 6, 0.12), 0px 4px 10px -2px rgba(15, 23, 42, 0.04)`. Border shifts slightly toward primary amber.\n- **Level 3 (Modals, Overlays, and Drawer Panels):** Floats prominently over a frosted warm overlay (`rgba(15, 23, 42, 0.4)` backdrop blur of `8px`). Shadow: `0px 24px 48px -8px rgba(15, 23, 42, 0.16)`.\n- **Level 4 (Toasts & Floating Action Badges):** Pill-shaped alerts floating with `0px 10px 24px -3px rgba(13, 148, 136, 0.18)` using teal tints for learning achievements or amber for reminders.\n\n## Shapes\n\nThe design system adopts a **Pill & Soft Pebble (Level 3)** roundedness aesthetic. Soft shapes remove intimidation from complex academic metrics, encourage tactile exploration for younger students, and present an approachable interface for teachers and parents.\n\n- **Buttons & Tags:** Full continuous pill curves (`rounded-full` / 9999px).\n- **Cards, Modules, and Modals:** Generous curves utilizing `rounded-3xl` (24px to 32px / `2rem` to `3rem`).\n- **Input Fields & Filter Selects:** `rounded-2xl` (16px / `1rem`), matching the pill language while retaining clear edge definition for structured data entry.\n- **Progress Trackers & Badges:** Fully circular (`rounded-full`) avatar nodes and metric capsules.\n\n## Components\n\n### 1. Buttons\n- **Primary Action (Amber):** Solid `#D97706` background, crisp white label, fully pill-shaped (`rounded-full`). Hover state shifts to `#B45309` with a gentle upward translation (`transform: translateY(-1px)`) and amber glow.\n- **Secondary Action (Edu-Teal):** Solid `#0D9488` with white text for secondary workflows (e.g., \"Download Syllabus\", \"Verify Attendance\").\n- **Soft/Tonal Variant:** `#FEF3C7` container with `#B45309` label text for low-friction actions (e.g., \"Save Draft\", \"Bookmark Lesson\").\n- **Directional Icons:** Icon offsets must use logical margins (`margin-inline-end: 0.5rem`). Forward indicator arrows point to the left in RTL contexts.\n\n### 2. Cards & Learning Modules\n- Built on `#FFFFFF` with `rounded-3xl` geometry.\n- Enclosed with a 1px border (`#FEF3C7` for learning tasks, `#E2E8F0` for administrative tables).\n- Headers feature student avatars or subject badges on the right (start), status indicator pills on the left (end), and title text stacked directly beneath.\n- Hover states slightly elevate the card with a warm amber rim.\n\n### 3. Input Fields & Form Controls\n- **Text Inputs:** Height 48px, `rounded-2xl`, background `#FFFFFF`, border 1.5px solid `#E2E8F0`. Focus state: border color `#D97706` with a soft ring of `4px rgba(217, 119, 6, 0.15)`. Text alignment defaults to right (`rtl`).\n- **Icons within Inputs:** Leading icons sit on the right-hand side; clear buttons or trailing indicators sit on the left-hand side.\n- **Checkboxes & Radios:** `rounded-lg` for checkboxes (6px) and `rounded-full` for radios. Selected state fills with `#0D9488` (Teal) with a crisp white glyph checkmark.\n\n### 4. Badges & Skill Pills\n- Pill-shaped (`rounded-full`), padding `0.25rem 0.875rem`.\n- **Achievement/Gold:** Background `#FEF3C7`, text `#B45309`, border `1px solid #FDE68A`.\n- **Verified/Curriculum:** Background `#CCFBF1`, text `#0F766E`, border `1px solid #99F6E4`.\n- **Grade/Level Tag:** Dark slate `#0F172A` with `#F8FAFC` text for formal school grading levels.\n\n### 5. Lists & Data Rows\n- Striped student rosters use alternating transparent and warm cream (`#FFFDF9`) backgrounds.\n- Row padding: `1rem 1.25rem` with `rounded-2xl` hover outlines.\n- Right-to-left layout: Student photo/identifier -> Student Name -> Attendance Status pill -> Performance grade -> Action triggers on far left.\n\n### 6. Specialized EdTech Components\n- **Gamified Progress Bar:** 12px height container with full pill caps (`rounded-full`). Background `#FEF3C7`, inner active fill transitioning from `#F59E0B` to `#0D9488` as completion approaches 100%.\n- **Parent-Teacher Notification Banner:** Warm card featuring a teal accent bar on the right border (`border-inline-start: 4px solid #0D9488`), communicating safety, transparency, and collaboration.",
+          "colorVariant": "FIDELITY",
+          "overridePrimaryColor": "#d97706",
+          "overrideSecondaryColor": "#0d9488",
+          "overrideTertiaryColor": "#0f172a",
+          "overrideNeutralColor": "#475569",
+          "spacingScale": 2,
+          "typography": {
+            "headline-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "36px",
+              "fontWeight": "700",
+              "lineHeight": "48px"
+            },
+            "body-md": {
+              "fontFamily": "Be Vietnam Pro",
+              "fontSize": "16px",
+              "fontWeight": "400",
+              "lineHeight": "26px"
+            },
+            "headline-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "24px",
+              "fontWeight": "700",
+              "lineHeight": "34px"
+            },
+            "label-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "12px",
+              "fontWeight": "600",
+              "lineHeight": "18px"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "26px",
+              "fontWeight": "700",
+              "lineHeight": "36px"
+            },
+            "label-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "14px",
+              "fontWeight": "600",
+              "lineHeight": "20px"
+            },
+            "body-sm": {
+              "fontFamily": "Be Vietnam Pro",
+              "fontSize": "14px",
+              "fontWeight": "400",
+              "lineHeight": "22px"
+            },
+            "label-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "11px",
+              "fontWeight": "700",
+              "lineHeight": "16px"
+            },
+            "display-hero-mobile": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "32px",
+              "fontWeight": "800",
+              "lineHeight": "44px"
+            },
+            "body-lg": {
+              "fontFamily": "Be Vietnam Pro",
+              "fontSize": "18px",
+              "fontWeight": "400",
+              "lineHeight": "30px"
+            },
+            "display-hero": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "48px",
+              "fontWeight": "800",
+              "lineHeight": "64px"
+            },
+            "headline-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "20px",
+              "fontWeight": "600",
+              "lineHeight": "30px"
+            }
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "3rem",
+            "margin-desktop": "3rem",
+            "gutter-lg": "2rem",
+            "margin": "1.5rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "gutter-sm": "1rem",
+            "space-lg": "2rem",
+            "space-md": "1.25rem"
+          },
+          "headlineFontFamily": "Plus Jakarta Sans",
+          "bodyFontFamily": "Be Vietnam Pro",
+          "labelFontFamily": "Plus Jakarta Sans"
+        }
+      },
+      "version": "1"
+    },
+    {
+      "name": "assets/f4851dd3ccca4463b00477f7594fade7",
+      "designSystem": {
+        "displayName": "Sanabel-IQ EdTech Design System",
+        "styleGuidelines": "### 🎨 Visual Identity: Safe\n- **Palette & Typography:** Balances approachable, pillowy geometry with clean Latin pairings that mirror modern Arabic geometric grotesques for an inviting parent-and-child EdTech experience.\n\n## Brand & Style\n\nThe design system bridges pedagogical warmth with institutional rigor. Serving both young Arab learners and their discerning parents, the visual tone merges the playfulness of digital discovery with the clarity and authority expected of enterprise-grade education tracking.\n\nThe emotional signature is inviting, sunny, and disciplined:\n- **Playful Tactility:** Pillowed contours, warm volumetric layering, and physical touchpoints offer young learners an encouraging, pressure-free interface.\n- **Institutional Reliability:** Clear tabular data, structured progress metrics, and sharp typographic hierarchies give parents and educators full visibility without clutter.\n- **RTL-Native Architecture:** Bi-directional layouts treat Right-to-Left (Arabic) as the primary axis of cognitive flow, matching logical progress, micro-interactions, and visual weight.\n- **Style Mix:** Warm, modern geometric minimal surfaces accented by tactile, soft-edged card elevations and cream-tinted micro-textures.\n\n## Layout & Spacing\n\nThe layout is built on an adaptive 12-column grid system optimized for bi-directional flow:\n\n- **RTL Fluidity:** The layout grid flips along the vertical axis in Arabic mode. Primary navigation anchors to the right, visual milestones advance right-to-left, and dismiss/close patterns reside comfortably on the left.\n- **Desktop (1024px+):** 12 columns, 24px gutters, and 32px safe margins. Dashboard views for parents utilize asymmetric splits (8 columns for core curriculum tracking, 4 columns for child milestone telemetry and streak metrics).\n- **Tablet (768px - 1023px):** 8 columns, 16px gutters, and 24px margins. Cards group into 2-up modules with persistent bottom navigation for thumb accessibility.\n- **Mobile (<768px):** 4 columns, 16px gutters, and 16px margins. Full-width, stacked card carousels with edge-to-edge overflow for gamified lesson nodes.\n- **Rhythmic Densities:** Component padding adheres strictly to `space-md` (16px) internally for child-friendly touch targets, scaling up to `space-xl` (40px) to separate learning chapters.\n\n## Elevation & Depth\n\nVisual hierarchy uses physical, pillowed layers rather than stark, cold drop shadows. Depth communicates interaction safety, touch targets, and priority:\n\n- **Level 0 (Flat Canvas):** `#FFFDF9`. Serves as the warm foundational substrate.\n- **Level 1 (Card & Module Foundation):** `#FFFFFF` with a 1px solid border of `#F1F5F9`. Anchored by a pillowy ambient shadow: `0 4px 20px -2px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Interactive Elements & Quizzes):** Soft dimensional lift with a warm-tinted shadow: `0 8px 24px -4px rgba(245, 158, 11, 0.10)`. Utilized for currently active child tasks and selectable cards.\n- **Level 3 (Modals, Reward Dialogs & Overlays):** Higher elevation using stacked diffusions: `0 20px 40px -8px rgba(15, 23, 42, 0.08)`, creating clear focus separation during parental verification popups and congratulatory level-up flows.\n\n## Components\n\n### Buttons\n- **Primary:** Full pill (`rounded-full`) geometry, background `#F59E0B`, text `#0F172A` (Semi-bold), with an inset highlight (`inset 0 1px 0 rgba(255,255,255,0.3)`) and an amber baseline shadow (`0 4px 0 #D97706`). Hover state animates down by 2px, providing a bouncy, responsive feel.\n- **Secondary:** Surface `#FFFFFF`, border 1.5px solid `#0D9488`, text `#0D9488`. Active press transitions to subtle teal tint (`#F0FDFA`).\n- **Icon Buttons:** Circular 48x48px touch targets ensuring ease of use for small fingers and mobile interfaces.\n\n### Chips & Badges\n- **Milestone Chips:** Pill-shaped, tinted backgrounds (`#FEF3C7` for Amber, `#CCFBF1` for Teal) paired with dense, colored text. Include contextual icons anchored to the right (RTL start position).\n- **Streak & XP Badges:** Prominent rounded-full badges featuring celebratory emoji/icons followed by bold tabular figures.\n\n### Cards\n- **Curriculum & Lesson Cards:** `#FFFFFF` background with 32px corner radius (`rounded-lg`), padded with 24px (`space-lg`), and bounded by `#F1F5F9`. Active cards feature an animated top accent line in `#F59E0B` or `#0D9488`.\n- **Parental Insight Cards:** Structured, flat white panels framed with `#E2E8F0`, presenting clean typographic tables and micro-sparklines.\n\n### Input Fields\n- **Search & Entry Fields:** 16px corner radius, tall height (48px - 56px), background `#F8FAFC`, border 1.5px solid `#E2E8F0`. On focus: transitions smoothly to `#FFFFFF` background with a `#0D9488` border and a 4px soft teal halo ring (`rgba(13, 148, 136, 0.15)`).\n- **Placeholder Alignment:** Right-aligned by default for RTL, seamlessly switching to left-align in English mode.\n\n### Selection Controls (Checkboxes & Radios)\n- **Checkboxes:** 24x24px rounded squares (8px border radius) for ease of selection. Filled with `#0D9488` when checked, showing a thick white checkmark.\n- **Radio Options:** 24x24px pillowed rings with a warm amber center dot (`#F59E0B`) on active selection.\n\n### Progress Trackers\n- **Sanabel Growth Bars:** 12px pill-shaped horizontal tracks in `#F1F5F9` filled with a dynamic gradient from `#F59E0B` to `#FBBF24`, indicating lesson mastery and progress.",
+        "theme": {
+          "colorMode": "LIGHT",
+          "font": "PLUS_JAKARTA_SANS",
+          "roundness": "ROUND_FULL",
+          "customColor": "#f59e0b",
+          "headlineFont": "PLUS_JAKARTA_SANS",
+          "bodyFont": "PLUS_JAKARTA_SANS",
+          "labelFont": "PLUS_JAKARTA_SANS",
+          "namedColors": {
+            "primary_fixed": "#ffddb8",
+            "error": "#ba1a1a",
+            "surface_variant": "#dae2fd",
+            "tertiary_container": "#a7a9ff",
+            "surface_tint": "#855300",
+            "on_secondary": "#ffffff",
+            "on_secondary_fixed": "#00201d",
+            "background": "#faf8ff",
+            "surface_container_lowest": "#ffffff",
+            "on_error_container": "#93000a",
+            "inverse_surface": "#283044",
+            "surface_container_highest": "#dae2fd",
+            "on_secondary_fixed_variant": "#005049",
+            "inverse_primary": "#ffb95f",
+            "secondary_fixed": "#89f5e7",
+            "surface_container_high": "#e2e7ff",
+            "on_surface_variant": "#534434",
+            "tertiary": "#494bd6",
+            "on_primary_container": "#613b00",
+            "primary_fixed_dim": "#ffb95f",
+            "primary_container": "#f59e0b",
+            "on_background": "#131b2e",
+            "on_primary_fixed": "#2a1700",
+            "outline_variant": "#d8c3ad",
+            "surface": "#faf8ff",
+            "on_surface": "#131b2e",
+            "error_container": "#ffdad6",
+            "surface_container": "#eaedff",
+            "tertiary_fixed_dim": "#c0c1ff",
+            "on_secondary_container": "#006f66",
+            "secondary_fixed_dim": "#6bd8cb",
+            "on_tertiary_fixed_variant": "#2f2ebe",
+            "outline": "#867461",
+            "inverse_on_surface": "#eef0ff",
+            "surface_bright": "#faf8ff",
+            "surface_container_low": "#f2f3ff",
+            "on_primary_fixed_variant": "#653e00",
+            "on_tertiary": "#ffffff",
+            "secondary": "#006a61",
+            "secondary_container": "#86f2e4",
+            "on_tertiary_container": "#2b29bb",
+            "on_error": "#ffffff",
+            "primary": "#855300",
+            "on_tertiary_fixed": "#07006c",
+            "surface_dim": "#d2d9f4",
+            "tertiary_fixed": "#e1e0ff",
+            "on_primary": "#ffffff"
+          },
+          "designMd": "---\nname: Sanabel-IQ EdTech Design System\ncolors:\n  surface: '#faf8ff'\n  surface-dim: '#d2d9f4'\n  surface-bright: '#faf8ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f2f3ff'\n  surface-container: '#eaedff'\n  surface-container-high: '#e2e7ff'\n  surface-container-highest: '#dae2fd'\n  on-surface: '#131b2e'\n  on-surface-variant: '#534434'\n  inverse-surface: '#283044'\n  inverse-on-surface: '#eef0ff'\n  outline: '#867461'\n  outline-variant: '#d8c3ad'\n  surface-tint: '#855300'\n  primary: '#855300'\n  on-primary: '#ffffff'\n  primary-container: '#f59e0b'\n  on-primary-container: '#613b00'\n  inverse-primary: '#ffb95f'\n  secondary: '#006a61'\n  on-secondary: '#ffffff'\n  secondary-container: '#86f2e4'\n  on-secondary-container: '#006f66'\n  tertiary: '#494bd6'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#a7a9ff'\n  on-tertiary-container: '#2b29bb'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#ffddb8'\n  primary-fixed-dim: '#ffb95f'\n  on-primary-fixed: '#2a1700'\n  on-primary-fixed-variant: '#653e00'\n  secondary-fixed: '#89f5e7'\n  secondary-fixed-dim: '#6bd8cb'\n  on-secondary-fixed: '#00201d'\n  on-secondary-fixed-variant: '#005049'\n  tertiary-fixed: '#e1e0ff'\n  tertiary-fixed-dim: '#c0c1ff'\n  on-tertiary-fixed: '#07006c'\n  on-tertiary-fixed-variant: '#2f2ebe'\n  background: '#faf8ff'\n  on-background: '#131b2e'\n  surface-variant: '#dae2fd'\ntypography:\n  headline-xl:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 3rem\n    fontWeight: '800'\n    lineHeight: 3.75rem\n    letterSpacing: -0.02em\n  headline-xl-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 2rem\n    fontWeight: '800'\n    lineHeight: 2.5rem\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 2.25rem\n    fontWeight: '700'\n    lineHeight: 2.75rem\n    letterSpacing: -0.02em\n  headline-lg-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.75rem\n    fontWeight: '700'\n    lineHeight: 2.25rem\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.5rem\n    fontWeight: '700'\n    lineHeight: 2rem\n  headline-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.25rem\n    fontWeight: '600'\n    lineHeight: 1.75rem\n  body-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1.125rem\n    fontWeight: '400'\n    lineHeight: 1.875rem\n  body-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 1rem\n    fontWeight: '400'\n    lineHeight: 1.625rem\n  body-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.875rem\n    fontWeight: '400'\n    lineHeight: 1.375rem\n  label-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.875rem\n    fontWeight: '600'\n    lineHeight: 1.25rem\n  label-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.75rem\n    fontWeight: '600'\n    lineHeight: 1rem\n  label-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 0.6875rem\n    fontWeight: '700'\n    lineHeight: 0.875rem\nrounded:\n  sm: 0.5rem\n  DEFAULT: 1rem\n  md: 1.5rem\n  lg: 2rem\n  xl: 3rem\n  full: 9999px\nspacing:\n  gutter: 1.5rem\n  gutter-mobile: 1rem\n  margin: 2rem\n  margin-mobile: 1rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2.5rem\n---\n\n## Brand & Style\n\nThe design system bridges pedagogical warmth with institutional rigor. Serving both young Arab learners and their discerning parents, the visual tone merges the playfulness of digital discovery with the clarity and authority expected of enterprise-grade education tracking.\n\nThe emotional signature is inviting, sunny, and disciplined:\n- **Playful Tactility:** Pillowed contours, warm volumetric layering, and physical touchpoints offer young learners an encouraging, pressure-free interface.\n- **Institutional Reliability:** Clear tabular data, structured progress metrics, and sharp typographic hierarchies give parents and educators full visibility without clutter.\n- **RTL-Native Architecture:** Bi-directional layouts treat Right-to-Left (Arabic) as the primary axis of cognitive flow, matching logical progress, micro-interactions, and visual weight.\n- **Style Mix:** Warm, modern geometric minimal surfaces accented by tactile, soft-edged card elevations and cream-tinted micro-textures.\n\n## Colors\n\nThe palette draws inspiration from golden wheat harvest fields (*Sanabel*) balanced by deep, cognitive teals and comforting ivory backdrops:\n\n- **Primary (Golden Wheat / Amber - `#F59E0B`):** Represents celebration, energy, and milestones. Utilized across active streaks, primary hero buttons, achievement badges, and reward mechanisms. Deep amber (`#D97706`) serves as the hover and focus state anchor for accessible contrast.\n- **Secondary (Edu-Teal / Sage Cyan - `#0D9488`):** Embodies analytical clarity and instructional safety. Used for progress rings, lesson modules, verified parent badges, and secondary actions.\n- **Tertiary (Cognitive Lavender / Indigo - `#6366F1`):** Applied selectively to interactive quiz states, specialized AI tutoring sessions, and creative play features.\n- **Backgrounds (Ivory / Warm Cream):** The base canvas uses `#FFFDF9`, preventing digital glare during prolonged homework and reading sessions, with `#F8FAFC` separating structural sub-panels.\n- **Surfaces & Borders:** Surface panels use pure `#FFFFFF` with warm slate micro-borders (`#F1F5F9` to `#E2E8F0`) to ensure tactile differentiation without optical harshness.\n- **Text & Contrast:** Deep Slate (`#0F172A`) anchors all headlines and data points, while Slate Muted (`#475569`) carries supportive instructional copy.\n\n## Typography\n\nThe type system is engineered to harmonize geometric Latin letterforms with proportional modern Arabic grotesque typography (such as Readex Pro or Cairo in dual-script implementations).\n\n- **Proportions & Line Height:** Arabic scripts require vertical breathing room; line heights across all body and headline levels are scaled 15–20% taller than standard European baselines to prevent clash between diacritics (*harakat*) and descending loops.\n- **Letter Spacing:** While Latin headers utilize subtle negative tracking (`-0.02em`), Arabic implementations must enforce strictly neutral (`0em`) or slightly open tracking to preserve authentic cursive glyph ligation.\n- **Weights:** Heavy emphasis is placed on `700` and `800` weights for achievement counters, gamified scoreboards, and unit headers, establishing immediate visual clarity for young eyes.\n\n## Layout & Spacing\n\nThe layout is built on an adaptive 12-column grid system optimized for bi-directional flow:\n\n- **RTL Fluidity:** The layout grid flips along the vertical axis in Arabic mode. Primary navigation anchors to the right, visual milestones advance right-to-left, and dismiss/close patterns reside comfortably on the left.\n- **Desktop (1024px+):** 12 columns, 24px gutters, and 32px safe margins. Dashboard views for parents utilize asymmetric splits (8 columns for core curriculum tracking, 4 columns for child milestone telemetry and streak metrics).\n- **Tablet (768px - 1023px):** 8 columns, 16px gutters, and 24px margins. Cards group into 2-up modules with persistent bottom navigation for thumb accessibility.\n- **Mobile (<768px):** 4 columns, 16px gutters, and 16px margins. Full-width, stacked card carousels with edge-to-edge overflow for gamified lesson nodes.\n- **Rhythmic Densities:** Component padding adheres strictly to `space-md` (16px) internally for child-friendly touch targets, scaling up to `space-xl` (40px) to separate learning chapters.\n\n## Elevation & Depth\n\nVisual hierarchy uses physical, pillowed layers rather than stark, cold drop shadows. Depth communicates interaction safety, touch targets, and priority:\n\n- **Level 0 (Flat Canvas):** `#FFFDF9`. Serves as the warm foundational substrate.\n- **Level 1 (Card & Module Foundation):** `#FFFFFF` with a 1px solid border of `#F1F5F9`. Anchored by a pillowy ambient shadow: `0 4px 20px -2px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Interactive Elements & Quizzes):** Soft dimensional lift with a warm-tinted shadow: `0 8px 24px -4px rgba(245, 158, 11, 0.10)`. Utilized for currently active child tasks and selectable cards.\n- **Level 3 (Modals, Reward Dialogs & Overlays):** Higher elevation using stacked diffusions: `0 20px 40px -8px rgba(15, 23, 42, 0.08)`, creating clear focus separation during parental verification popups and congratulatory level-up flows.\n\n## Shapes\n\nThe shape system adopts a pillowed geometric philosophy (Roundedness level 3), reinforcing friendliness, organic safety, and tactile digital toy aesthetics:\n\n- **Base Radius (`rounded-md` - 16px):** Used on inner form inputs, list items, and mini widgets.\n- **Large Radius (`rounded-lg` - 32px):** Applied to primary lesson cards, analytical summary boxes, and parental alert panels.\n- **Extra-Large Radius (`rounded-xl` - 48px):** Reserved for hero display modules, gamified playground hubs, and full-screen dialog wraps.\n- **Full Pill (`rounded-full`):** Applied to all interactive buttons, skill tags, counter badges, and child profile avatars, maximizing ergonomic tap comfort on touchscreens.\n\n## Components\n\n### Buttons\n- **Primary:** Full pill (`rounded-full`) geometry, background `#F59E0B`, text `#0F172A` (Semi-bold), with an inset highlight (`inset 0 1px 0 rgba(255,255,255,0.3)`) and an amber baseline shadow (`0 4px 0 #D97706`). Hover state animates down by 2px, providing a bouncy, responsive feel.\n- **Secondary:** Surface `#FFFFFF`, border 1.5px solid `#0D9488`, text `#0D9488`. Active press transitions to subtle teal tint (`#F0FDFA`).\n- **Icon Buttons:** Circular 48x48px touch targets ensuring ease of use for small fingers and mobile interfaces.\n\n### Chips & Badges\n- **Milestone Chips:** Pill-shaped, tinted backgrounds (`#FEF3C7` for Amber, `#CCFBF1` for Teal) paired with dense, colored text. Include contextual icons anchored to the right (RTL start position).\n- **Streak & XP Badges:** Prominent rounded-full badges featuring celebratory emoji/icons followed by bold tabular figures.\n\n### Cards\n- **Curriculum & Lesson Cards:** `#FFFFFF` background with 32px corner radius (`rounded-lg`), padded with 24px (`space-lg`), and bounded by `#F1F5F9`. Active cards feature an animated top accent line in `#F59E0B` or `#0D9488`.\n- **Parental Insight Cards:** Structured, flat white panels framed with `#E2E8F0`, presenting clean typographic tables and micro-sparklines.\n\n### Input Fields\n- **Search & Entry Fields:** 16px corner radius, tall height (48px - 56px), background `#F8FAFC`, border 1.5px solid `#E2E8F0`. On focus: transitions smoothly to `#FFFFFF` background with a `#0D9488` border and a 4px soft teal halo ring (`rgba(13, 148, 136, 0.15)`).\n- **Placeholder Alignment:** Right-aligned by default for RTL, seamlessly switching to left-align in English mode.\n\n### Selection Controls (Checkboxes & Radios)\n- **Checkboxes:** 24x24px rounded squares (8px border radius) for ease of selection. Filled with `#0D9488` when checked, showing a thick white checkmark.\n- **Radio Options:** 24x24px pillowed rings with a warm amber center dot (`#F59E0B`) on active selection.\n\n### Progress Trackers\n- **Sanabel Growth Bars:** 12px pill-shaped horizontal tracks in `#F1F5F9` filled with a dynamic gradient from `#F59E0B` to `#FBBF24`, indicating lesson mastery and progress.",
+          "colorVariant": "FIDELITY",
+          "overridePrimaryColor": "#f59e0b",
+          "overrideSecondaryColor": "#0d9488",
+          "overrideTertiaryColor": "#6366f1",
+          "overrideNeutralColor": "#0f172a",
+          "spacingScale": 2,
+          "typography": {
+            "headline-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "2rem"
+            },
+            "label-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.6875rem",
+              "fontWeight": "700",
+              "lineHeight": "0.875rem"
+            },
+            "headline-xl": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "3rem",
+              "fontWeight": "800",
+              "lineHeight": "3.75rem",
+              "letterSpacing": "-0.02em"
+            },
+            "headline-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "2.25rem",
+              "fontWeight": "700",
+              "lineHeight": "2.75rem",
+              "letterSpacing": "-0.02em"
+            },
+            "body-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "1.625rem"
+            },
+            "label-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.875rem",
+              "fontWeight": "600",
+              "lineHeight": "1.25rem"
+            },
+            "body-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "1.375rem"
+            },
+            "label-md": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "0.75rem",
+              "fontWeight": "600",
+              "lineHeight": "1rem"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "2.25rem",
+              "letterSpacing": "-0.01em"
+            },
+            "body-lg": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "1.875rem"
+            },
+            "headline-sm": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "1.25rem",
+              "fontWeight": "600",
+              "lineHeight": "1.75rem"
+            },
+            "headline-xl-mobile": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": "2rem",
+              "fontWeight": "800",
+              "lineHeight": "2.5rem",
+              "letterSpacing": "-0.01em"
+            }
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem"
+          },
+          "headlineFontFamily": "Plus Jakarta Sans",
+          "bodyFontFamily": "Plus Jakarta Sans",
+          "labelFontFamily": "Plus Jakarta Sans"
+        }
+      },
+      "version": "1"
+    }
+  ]
+}

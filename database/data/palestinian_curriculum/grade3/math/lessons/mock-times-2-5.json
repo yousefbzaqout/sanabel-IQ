@@ -1,0 +1,383 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 3,
+    "semester": 1,
+    "subject_code": "MATH",
+    "content_kind": "number",
+    "unit_title": "الضرب والقسمة",
+    "lesson_key": "ar-g3-math-mock-times-2-5",
+    "audio_slug": "times-2-5",
+    "key": "mock-g3-math-times-2-5",
+    "title": "جدول ٢ و٥",
+    "subtitle": "عرض تجريبي — الصف الثالث — الفصل 1",
+    "material_title": "تجريبي G3: جدول ٢ و٥",
+    "order_column": 20,
+    "xp_reward": 46,
+    "description": "نحفظ حقائق جدول ٢ و٥.",
+    "phonemes": {
+        "voice_targets": [
+            "١",
+            "٢",
+            "٣"
+        ],
+        "tabs": [
+            {
+                "glyph": "١",
+                "label": "اثنان",
+                "audio_script": "هذا العدد ١",
+                "cards": [
+                    {
+                        "word": "١ اثنان",
+                        "emoji": "2️⃣",
+                        "audio": "اثنان",
+                        "highlight": "١"
+                    },
+                    {
+                        "word": "اثنان",
+                        "emoji": "2️⃣",
+                        "audio": "نقول اثنان",
+                        "highlight": "اثنان"
+                    },
+                    {
+                        "word": "١",
+                        "emoji": "🔢",
+                        "audio": "١",
+                        "highlight": "١"
+                    }
+                ]
+            },
+            {
+                "glyph": "٢",
+                "label": "خمسة",
+                "audio_script": "هذا العدد ٢",
+                "cards": [
+                    {
+                        "word": "٢ خمسة",
+                        "emoji": "5️⃣",
+                        "audio": "خمسة",
+                        "highlight": "٢"
+                    },
+                    {
+                        "word": "خمسة",
+                        "emoji": "5️⃣",
+                        "audio": "نقول خمسة",
+                        "highlight": "خمسة"
+                    },
+                    {
+                        "word": "٢",
+                        "emoji": "🔢",
+                        "audio": "٢",
+                        "highlight": "٢"
+                    }
+                ]
+            },
+            {
+                "glyph": "٣",
+                "label": "ضعف",
+                "audio_script": "هذا العدد ٣",
+                "cards": [
+                    {
+                        "word": "٣ ضعف",
+                        "emoji": "⚡",
+                        "audio": "ضعف",
+                        "highlight": "٣"
+                    },
+                    {
+                        "word": "ضعف",
+                        "emoji": "⚡",
+                        "audio": "نقول ضعف",
+                        "highlight": "ضعف"
+                    },
+                    {
+                        "word": "٣",
+                        "emoji": "🔢",
+                        "audio": "٣",
+                        "highlight": "٣"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "١٢٣",
+        "syllables": [
+            {
+                "glyph": "١",
+                "order": 1
+            },
+            {
+                "glyph": "٢",
+                "order": 2
+            },
+            {
+                "glyph": "٣",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! رتّبت الأعداد بالترتيب الصحيح."
+    },
+    "stroke": {
+        "label": "تتبّع كتابة ٥",
+        "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+        "direction": "digit_stroke",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس جدول ٢ و٥",
+        "story_audio": "هيا نستكشف جدول ٢ و٥ مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "اثنان",
+                "emoji": "2️⃣",
+                "correct": true,
+                "audio": "اثنان"
+            },
+            {
+                "id": "item-1",
+                "label": "خمسة",
+                "emoji": "5️⃣",
+                "correct": true,
+                "audio": "خمسة"
+            },
+            {
+                "id": "item-2",
+                "label": "ضعف",
+                "emoji": "⚡",
+                "correct": true,
+                "audio": "ضعف"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في جدول ٢ و٥؟",
+        "parts": [
+            {
+                "text": "2️⃣",
+                "highlight": true
+            },
+            {
+                "text": " اثنان",
+                "highlight": true
+            },
+            {
+                "text": " = ٥",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على اثنان ضمن جدول ٢ و٥.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس جدول ٢ و٥.",
+            "2": "رتّب معي الأعداد خطوة بخطوة!",
+            "3": "طابق العدد ٥ مع أشكاله المختلفة.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ٥ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "كم عنصراً في المجموعة؟",
+                "visual_items": {
+                    "emoji": "2️⃣",
+                    "count": 3
+                },
+                "mascot_hint": "تلميح سنبل: عدّ واحداً واحداً بإصبعك.",
+                "explanation": "المجموعة فيها 3 عناصر.",
+                "options": [
+                    {
+                        "text": "3",
+                        "correct": true
+                    },
+                    {
+                        "text": "2",
+                        "correct": false
+                    },
+                    {
+                        "text": "4",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي جملة صحيحة؟",
+                "comparison": {
+                    "left": 3,
+                    "right": 2,
+                    "operator": "gt"
+                },
+                "mascot_hint": "تلميح سنبل: العدد الأكبر يعني كمية أكثر.",
+                "explanation": "3 أكبر من 2.",
+                "options": [
+                    {
+                        "text": "3 أكبر من 2",
+                        "correct": true
+                    },
+                    {
+                        "text": "3 أصغر من 2",
+                        "correct": false
+                    },
+                    {
+                        "text": "3 يساوي 2",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «اثنان» مناسبة لدرس جدول ٢ و٥.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "اثنان، خمسة، ضعف",
+                "options": [
+                    {
+                        "text": "اثنان \/ خمسة \/ ضعف",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "digits": [
+        "١",
+        "٢",
+        "٣"
+    ],
+    "digit": "٣",
+    "number_forms": [
+        {
+            "id": "fingers",
+            "label": "٣ أصابع",
+            "word": "☝️☝️☝️",
+            "parts": [
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                }
+            ],
+            "audio": "نعدّ حتى ٣"
+        },
+        {
+            "id": "dots",
+            "label": "٣ نقاط",
+            "word": "●●●",
+            "parts": [
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ نقاط"
+        },
+        {
+            "id": "objects",
+            "label": "٣ أشياء",
+            "word": "2️⃣2️⃣2️⃣",
+            "parts": [
+                {
+                    "text": "2️⃣",
+                    "highlight": true
+                },
+                {
+                    "text": "2️⃣",
+                    "highlight": true
+                },
+                {
+                    "text": "2️⃣",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ 2️⃣"
+        }
+    ]
+}

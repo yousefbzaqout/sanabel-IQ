@@ -20,7 +20,7 @@ class ChildActivityController extends Controller
         $activeStudentId = (int) $request->session()->get('active_student_id');
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         $activities = Activity::query()
             ->with(['parentMaterial', 'attempts' => fn ($query) => $query
@@ -47,7 +47,7 @@ class ChildActivityController extends Controller
 
         return view('student.activities.play', [
             'activity' => $activity,
-            'student' => $request->user()->students()->findOrFail($activeStudentId),
+            'student' => $request->user()->findAccessibleStudentOrFail($activeStudentId),
         ]);
     }
 
@@ -63,7 +63,7 @@ class ChildActivityController extends Controller
         $this->authorize('play', $activity);
 
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         /** @var list<int> $answers */
         $answers = array_values($request->validated('answers'));

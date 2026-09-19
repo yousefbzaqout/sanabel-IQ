@@ -1,10 +1,19 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "sanabel/sanabel-iq",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
-    "license": "MIT",
+    "description": "Sanabel IQ — adaptive Arabic learning platform for children, parents, teachers, and schools.",
+    "keywords": [
+        "sanabel",
+        "education",
+        "arabic",
+        "edtech",
+        "laravel",
+        "filament",
+        "interactive-lessons",
+        "multi-tenant"
+    ],
+    "license": "proprietary",
     "require": {
         "php": "^8.3",
         "barryvdh/laravel-dompdf": "^3.1",

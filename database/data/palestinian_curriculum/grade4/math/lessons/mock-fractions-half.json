@@ -1,0 +1,383 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 4,
+    "semester": 1,
+    "subject_code": "MATH",
+    "content_kind": "number",
+    "unit_title": "الكسور",
+    "lesson_key": "ar-g4-math-mock-fractions-half",
+    "audio_slug": "fractions-half",
+    "key": "mock-g4-math-fractions-half",
+    "title": "النصف والربع",
+    "subtitle": "عرض تجريبي — الصف الرابع — الفصل 1",
+    "material_title": "تجريبي G4: النصف والربع",
+    "order_column": 10,
+    "xp_reward": 48,
+    "description": "نتعرّف على النصف والربع.",
+    "phonemes": {
+        "voice_targets": [
+            "١",
+            "٢",
+            "٣"
+        ],
+        "tabs": [
+            {
+                "glyph": "١",
+                "label": "نصف",
+                "audio_script": "هذا العدد ١",
+                "cards": [
+                    {
+                        "word": "١ نصف",
+                        "emoji": "🍕",
+                        "audio": "نصف",
+                        "highlight": "١"
+                    },
+                    {
+                        "word": "نصف",
+                        "emoji": "🍕",
+                        "audio": "نقول نصف",
+                        "highlight": "نصف"
+                    },
+                    {
+                        "word": "١",
+                        "emoji": "🔢",
+                        "audio": "١",
+                        "highlight": "١"
+                    }
+                ]
+            },
+            {
+                "glyph": "٢",
+                "label": "ربع",
+                "audio_script": "هذا العدد ٢",
+                "cards": [
+                    {
+                        "word": "٢ ربع",
+                        "emoji": "🍰",
+                        "audio": "ربع",
+                        "highlight": "٢"
+                    },
+                    {
+                        "word": "ربع",
+                        "emoji": "🍰",
+                        "audio": "نقول ربع",
+                        "highlight": "ربع"
+                    },
+                    {
+                        "word": "٢",
+                        "emoji": "🔢",
+                        "audio": "٢",
+                        "highlight": "٢"
+                    }
+                ]
+            },
+            {
+                "glyph": "٣",
+                "label": "جزء",
+                "audio_script": "هذا العدد ٣",
+                "cards": [
+                    {
+                        "word": "٣ جزء",
+                        "emoji": "✂️",
+                        "audio": "جزء",
+                        "highlight": "٣"
+                    },
+                    {
+                        "word": "جزء",
+                        "emoji": "✂️",
+                        "audio": "نقول جزء",
+                        "highlight": "جزء"
+                    },
+                    {
+                        "word": "٣",
+                        "emoji": "🔢",
+                        "audio": "٣",
+                        "highlight": "٣"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "١٢٣",
+        "syllables": [
+            {
+                "glyph": "١",
+                "order": 1
+            },
+            {
+                "glyph": "٢",
+                "order": 2
+            },
+            {
+                "glyph": "٣",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! رتّبت الأعداد بالترتيب الصحيح."
+    },
+    "stroke": {
+        "label": "تتبّع كتابة ½",
+        "path": "M 48 34 C 78 28 108 38 108 58 C 108 74 88 78 70 78 C 92 78 112 88 112 108 C 112 126 86 132 52 126",
+        "direction": "digit_stroke",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس النصف والربع",
+        "story_audio": "هيا نستكشف النصف والربع مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "نصف",
+                "emoji": "🍕",
+                "correct": true,
+                "audio": "نصف"
+            },
+            {
+                "id": "item-1",
+                "label": "ربع",
+                "emoji": "🍰",
+                "correct": true,
+                "audio": "ربع"
+            },
+            {
+                "id": "item-2",
+                "label": "جزء",
+                "emoji": "✂️",
+                "correct": true,
+                "audio": "جزء"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في النصف والربع؟",
+        "parts": [
+            {
+                "text": "🍕",
+                "highlight": true
+            },
+            {
+                "text": " نصف",
+                "highlight": true
+            },
+            {
+                "text": " = ½",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على نصف ضمن النصف والربع.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس النصف والربع.",
+            "2": "رتّب معي الأعداد خطوة بخطوة!",
+            "3": "طابق العدد ½ مع أشكاله المختلفة.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ½ في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "كم عنصراً في المجموعة؟",
+                "visual_items": {
+                    "emoji": "🍕",
+                    "count": 3
+                },
+                "mascot_hint": "تلميح سنبل: عدّ واحداً واحداً بإصبعك.",
+                "explanation": "المجموعة فيها 3 عناصر.",
+                "options": [
+                    {
+                        "text": "3",
+                        "correct": true
+                    },
+                    {
+                        "text": "2",
+                        "correct": false
+                    },
+                    {
+                        "text": "4",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي جملة صحيحة؟",
+                "comparison": {
+                    "left": 3,
+                    "right": 2,
+                    "operator": "gt"
+                },
+                "mascot_hint": "تلميح سنبل: العدد الأكبر يعني كمية أكثر.",
+                "explanation": "3 أكبر من 2.",
+                "options": [
+                    {
+                        "text": "3 أكبر من 2",
+                        "correct": true
+                    },
+                    {
+                        "text": "3 أصغر من 2",
+                        "correct": false
+                    },
+                    {
+                        "text": "3 يساوي 2",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «نصف» مناسبة لدرس النصف والربع.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "نصف، ربع، جزء",
+                "options": [
+                    {
+                        "text": "نصف \/ ربع \/ جزء",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "digits": [
+        "١",
+        "٢",
+        "٣"
+    ],
+    "digit": "٣",
+    "number_forms": [
+        {
+            "id": "fingers",
+            "label": "٣ أصابع",
+            "word": "☝️☝️☝️",
+            "parts": [
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                },
+                {
+                    "text": "☝️",
+                    "highlight": true
+                }
+            ],
+            "audio": "نعدّ حتى ٣"
+        },
+        {
+            "id": "dots",
+            "label": "٣ نقاط",
+            "word": "●●●",
+            "parts": [
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                },
+                {
+                    "text": "●",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ نقاط"
+        },
+        {
+            "id": "objects",
+            "label": "٣ أشياء",
+            "word": "🍕🍕🍕",
+            "parts": [
+                {
+                    "text": "🍕",
+                    "highlight": true
+                },
+                {
+                    "text": "🍕",
+                    "highlight": true
+                },
+                {
+                    "text": "🍕",
+                    "highlight": true
+                }
+            ],
+            "audio": "٣ 🍕"
+        }
+    ]
+}

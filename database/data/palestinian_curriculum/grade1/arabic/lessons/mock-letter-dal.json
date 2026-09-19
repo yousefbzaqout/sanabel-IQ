@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 2,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "المقاطع القصيرة",
+    "lesson_key": "ar-g1-ar-mock-letter-dal",
+    "audio_slug": "letter-dal",
+    "key": "mock-g1-arabic-letter-dal",
+    "title": "حرف الدال",
+    "subtitle": "عرض تجريبي — الصف الأول — الفصل 2",
+    "material_title": "تجريبي G1: حرف الدال",
+    "order_column": 50,
+    "xp_reward": 42,
+    "description": "نقرأ كلمات تبدأ بالدال.",
+    "phonemes": {
+        "voice_targets": [
+            "دَ",
+            "دُ",
+            "دِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "دَ",
+                "label": "فتحة",
+                "audio_script": "صوت دَ",
+                "cards": [
+                    {
+                        "word": "دفتر",
+                        "emoji": "📓",
+                        "audio": "دَ مثل دفتر",
+                        "highlight": "دَ"
+                    },
+                    {
+                        "word": "دب",
+                        "emoji": "🐻",
+                        "audio": "دب",
+                        "highlight": "د"
+                    },
+                    {
+                        "word": "دجاجة",
+                        "emoji": "🐔",
+                        "audio": "دجاجة",
+                        "highlight": "د"
+                    }
+                ]
+            },
+            {
+                "glyph": "دُ",
+                "label": "ضمة",
+                "audio_script": "صوت دُ",
+                "cards": [
+                    {
+                        "word": "دب",
+                        "emoji": "🐻",
+                        "audio": "دُ مثل دب",
+                        "highlight": "دُ"
+                    },
+                    {
+                        "word": "دجاجة",
+                        "emoji": "🐔",
+                        "audio": "دجاجة",
+                        "highlight": "د"
+                    },
+                    {
+                        "word": "دفتر",
+                        "emoji": "📓",
+                        "audio": "دفتر",
+                        "highlight": "د"
+                    }
+                ]
+            },
+            {
+                "glyph": "دِ",
+                "label": "كسرة",
+                "audio_script": "صوت دِ",
+                "cards": [
+                    {
+                        "word": "دجاجة",
+                        "emoji": "🐔",
+                        "audio": "دِ مثل دجاجة",
+                        "highlight": "دِ"
+                    },
+                    {
+                        "word": "دفتر",
+                        "emoji": "📓",
+                        "audio": "دفتر",
+                        "highlight": "د"
+                    },
+                    {
+                        "word": "دب",
+                        "emoji": "🐻",
+                        "audio": "دب",
+                        "highlight": "د"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "دفتر",
+        "syllables": [
+            {
+                "glyph": "د",
+                "order": 1
+            },
+            {
+                "glyph": "ف",
+                "order": 2
+            },
+            {
+                "glyph": "ر",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة دفتر"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس حرف الدال",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس حرف الدال",
+        "story_audio": "هيا نستكشف حرف الدال مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "دفتر",
+                "emoji": "📓",
+                "correct": true,
+                "audio": "دفتر"
+            },
+            {
+                "id": "item-1",
+                "label": "دب",
+                "emoji": "🐻",
+                "correct": true,
+                "audio": "دب"
+            },
+            {
+                "id": "item-2",
+                "label": "دجاجة",
+                "emoji": "🐔",
+                "correct": true,
+                "audio": "دجاجة"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في حرف الدال؟",
+        "parts": [
+            {
+                "text": "📓",
+                "highlight": true
+            },
+            {
+                "text": " دفتر",
+                "highlight": true
+            },
+            {
+                "text": " = د",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على دفتر ضمن حرف الدال.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس حرف الدال.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على د في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس حرف الدال؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "دفتر من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "دفتر",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "دب جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "دب",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «دفتر» مناسبة لدرس حرف الدال.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "دفتر، دب، دجاجة",
+                "options": [
+                    {
+                        "text": "دفتر \/ دب \/ دجاجة",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "د",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "دفتر",
+            "parts": [
+                {
+                    "text": "د",
+                    "highlight": true
+                },
+                {
+                    "text": "فتر",
+                    "highlight": false
+                }
+            ],
+            "audio": "دفتر: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "دب",
+            "parts": [
+                {
+                    "text": "د",
+                    "highlight": false
+                },
+                {
+                    "text": "د",
+                    "highlight": true
+                },
+                {
+                    "text": "ب",
+                    "highlight": false
+                }
+            ],
+            "audio": "دب: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "دجاجة",
+            "parts": [
+                {
+                    "text": "دجاج",
+                    "highlight": false
+                },
+                {
+                    "text": "ة",
+                    "highlight": true
+                }
+            ],
+            "audio": "دجاجة: في نهاية الكلمة"
+        }
+    ]
+}

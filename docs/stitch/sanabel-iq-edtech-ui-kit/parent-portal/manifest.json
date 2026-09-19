@@ -1,0 +1,174 @@
+{
+  "projectId": "16756164501135582272",
+  "title": "Sanabel-IQ EdTech UI Kit — Parent portal screens (exact IDs)",
+  "note": "Screenshots downloaded with =s0 for full design resolution (not thumbnails).",
+  "fetchedAt": "2026-09-18T16:00:24.011983+00:00",
+  "screens": [
+    {
+      "name": "projects/16756164501135582272/screens/df461f8851b64221ace4d39c82e14dfb",
+      "id": "df461f8851b64221ace4d39c82e14dfb",
+      "title": "لوحة تحكم ولي الأمر - سنابل IQ",
+      "width": 2560,
+      "height": 3012,
+      "slug": "parent-dashboard",
+      "files": {
+        "screenshot": "screenshots/parent-dashboard.png",
+        "screenshotById": "parent-portal/df461f8851b64221ace4d39c82e14dfb/screenshot.png",
+        "code": "code/parent-dashboard.html",
+        "codeById": "parent-portal/df461f8851b64221ace4d39c82e14dfb/code.html"
+      },
+      "screenshotBytes": 730820,
+      "fullResSuffix": "=s0",
+      "codeBytes": 41040,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/879e65ab5214476d94e6cd1796b89497",
+      "id": "879e65ab5214476d94e6cd1796b89497",
+      "title": "Sanbal the cute baby chick mascot for an Arabic educational app wearing playful teal glasses, happily sitting and holding open a colorful illustrated story book with glowing educational sparkles around, 3D soft rendered style, clean white isolated background, warm friendly and delightful illustration for an empty state.",
+      "width": 1024,
+      "height": 1024,
+      "slug": "mascot-sanbal-storybook",
+      "files": {
+        "screenshot": "screenshots/mascot-sanbal-storybook.jpg",
+        "screenshotById": "parent-portal/879e65ab5214476d94e6cd1796b89497/screenshot.jpg"
+      },
+      "screenshotBytes": 120837,
+      "fullResSuffix": "=s0"
+    },
+    {
+      "name": "projects/16756164501135582272/screens/e49ace31207242128f353be30167b812",
+      "id": "e49ace31207242128f353be30167b812",
+      "title": "إدارة الأبناء - سنابل IQ",
+      "width": 2560,
+      "height": 2846,
+      "slug": "children-management",
+      "files": {
+        "screenshot": "screenshots/children-management.png",
+        "screenshotById": "parent-portal/e49ace31207242128f353be30167b812/screenshot.png",
+        "code": "code/children-management.html",
+        "codeById": "parent-portal/e49ace31207242128f353be30167b812/code.html"
+      },
+      "screenshotBytes": 685371,
+      "fullResSuffix": "=s0",
+      "codeBytes": 45552,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/9e1042250e384071ad0869da81c3738a",
+      "id": "9e1042250e384071ad0869da81c3738a",
+      "title": "المواد والدروس التعليمية - سنابل IQ",
+      "width": 2560,
+      "height": 3192,
+      "slug": "materials-and-lessons",
+      "files": {
+        "screenshot": "screenshots/materials-and-lessons.png",
+        "screenshotById": "parent-portal/9e1042250e384071ad0869da81c3738a/screenshot.png",
+        "code": "code/materials-and-lessons.html",
+        "codeById": "parent-portal/9e1042250e384071ad0869da81c3738a/code.html"
+      },
+      "screenshotBytes": 898913,
+      "fullResSuffix": "=s0",
+      "codeBytes": 35861,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/ada908ff1d0c4496b084e8c39a513c32",
+      "id": "ada908ff1d0c4496b084e8c39a513c32",
+      "title": "أهداف وتحديات الأسبوع - سنابل IQ",
+      "width": 2560,
+      "height": 3632,
+      "slug": "weekly-goals-challenges",
+      "files": {
+        "screenshot": "screenshots/weekly-goals-challenges.png",
+        "screenshotById": "parent-portal/ada908ff1d0c4496b084e8c39a513c32/screenshot.png",
+        "code": "code/weekly-goals-challenges.html",
+        "codeById": "parent-portal/ada908ff1d0c4496b084e8c39a513c32/code.html"
+      },
+      "screenshotBytes": 1395202,
+      "fullResSuffix": "=s0",
+      "codeBytes": 53223,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/06178501aa16464eabbc3ff9ae21ce81",
+      "id": "06178501aa16464eabbc3ff9ae21ce81",
+      "title": "لوحة المغامرات ومسار التعلم - سنابل IQ",
+      "width": 2560,
+      "height": 3540,
+      "slug": "adventures-learning-path",
+      "files": {
+        "screenshot": "screenshots/adventures-learning-path.png",
+        "screenshotById": "parent-portal/06178501aa16464eabbc3ff9ae21ce81/screenshot.png",
+        "code": "code/adventures-learning-path.html",
+        "codeById": "parent-portal/06178501aa16464eabbc3ff9ae21ce81/code.html"
+      },
+      "screenshotBytes": 1231914,
+      "fullResSuffix": "=s0",
+      "codeBytes": 38267,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": false
+    },
+    {
+      "name": "projects/16756164501135582272/screens/4c9596036cbc4bdba7c2eb7b1eb264e2",
+      "id": "4c9596036cbc4bdba7c2eb7b1eb264e2",
+      "title": "مركز الأنشطة اليومية - سنابل IQ",
+      "width": 2560,
+      "height": 3982,
+      "slug": "daily-activities-center",
+      "files": {
+        "screenshot": "screenshots/daily-activities-center.png",
+        "screenshotById": "parent-portal/4c9596036cbc4bdba7c2eb7b1eb264e2/screenshot.png",
+        "code": "code/daily-activities-center.html",
+        "codeById": "parent-portal/4c9596036cbc4bdba7c2eb7b1eb264e2/code.html"
+      },
+      "screenshotBytes": 1635235,
+      "fullResSuffix": "=s0",
+      "codeBytes": 41432,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/0c1e21f40f714186afeeb9ab2fa75776",
+      "id": "0c1e21f40f714186afeeb9ab2fa75776",
+      "title": "رحلة التقدم والمستويات - سنابل IQ",
+      "width": 2560,
+      "height": 4422,
+      "slug": "progress-levels-journey",
+      "files": {
+        "screenshot": "screenshots/progress-levels-journey.png",
+        "screenshotById": "parent-portal/0c1e21f40f714186afeeb9ab2fa75776/screenshot.png",
+        "code": "code/progress-levels-journey.html",
+        "codeById": "parent-portal/0c1e21f40f714186afeeb9ab2fa75776/code.html"
+      },
+      "screenshotBytes": 1519470,
+      "fullResSuffix": "=s0",
+      "codeBytes": 46844,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    },
+    {
+      "name": "projects/16756164501135582272/screens/00e8152a29c246e6a79448d9532cbf0e",
+      "id": "00e8152a29c246e6a79448d9532cbf0e",
+      "title": "خزانة الأوسمة والجوائز - سنابل IQ",
+      "width": 2560,
+      "height": 5274,
+      "slug": "badges-awards-cabinet",
+      "files": {
+        "screenshot": "screenshots/badges-awards-cabinet.png",
+        "screenshotById": "parent-portal/00e8152a29c246e6a79448d9532cbf0e/screenshot.png",
+        "code": "code/badges-awards-cabinet.html",
+        "codeById": "parent-portal/00e8152a29c246e6a79448d9532cbf0e/code.html"
+      },
+      "screenshotBytes": 1532460,
+      "fullResSuffix": "=s0",
+      "codeBytes": 51875,
+      "codeMime": "text/html",
+      "htmlContainsTitleFragment": true
+    }
+  ]
+}

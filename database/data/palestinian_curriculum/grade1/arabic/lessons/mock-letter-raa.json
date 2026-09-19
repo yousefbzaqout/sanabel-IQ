@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 1,
+    "semester": 2,
+    "subject_code": "AR",
+    "content_kind": "letter",
+    "unit_title": "المقاطع القصيرة",
+    "lesson_key": "ar-g1-ar-mock-letter-raa",
+    "audio_slug": "letter-raa",
+    "key": "mock-g1-arabic-letter-raa",
+    "title": "حرف الراء",
+    "subtitle": "عرض تجريبي — الصف الأول — الفصل 2",
+    "material_title": "تجريبي G1: حرف الراء",
+    "order_column": 60,
+    "xp_reward": 42,
+    "description": "نتدرّب على نطق الراء بوضوح.",
+    "phonemes": {
+        "voice_targets": [
+            "رَ",
+            "رُ",
+            "رِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "رَ",
+                "label": "فتحة",
+                "audio_script": "صوت رَ",
+                "cards": [
+                    {
+                        "word": "رمان",
+                        "emoji": "🍎",
+                        "audio": "رَ مثل رمان",
+                        "highlight": "رَ"
+                    },
+                    {
+                        "word": "ريح",
+                        "emoji": "💨",
+                        "audio": "ريح",
+                        "highlight": "ر"
+                    },
+                    {
+                        "word": "رجل",
+                        "emoji": "🚶",
+                        "audio": "رجل",
+                        "highlight": "ر"
+                    }
+                ]
+            },
+            {
+                "glyph": "رُ",
+                "label": "ضمة",
+                "audio_script": "صوت رُ",
+                "cards": [
+                    {
+                        "word": "ريح",
+                        "emoji": "💨",
+                        "audio": "رُ مثل ريح",
+                        "highlight": "رُ"
+                    },
+                    {
+                        "word": "رجل",
+                        "emoji": "🚶",
+                        "audio": "رجل",
+                        "highlight": "ر"
+                    },
+                    {
+                        "word": "رمان",
+                        "emoji": "🍎",
+                        "audio": "رمان",
+                        "highlight": "ر"
+                    }
+                ]
+            },
+            {
+                "glyph": "رِ",
+                "label": "كسرة",
+                "audio_script": "صوت رِ",
+                "cards": [
+                    {
+                        "word": "رجل",
+                        "emoji": "🚶",
+                        "audio": "رِ مثل رجل",
+                        "highlight": "رِ"
+                    },
+                    {
+                        "word": "رمان",
+                        "emoji": "🍎",
+                        "audio": "رمان",
+                        "highlight": "ر"
+                    },
+                    {
+                        "word": "ريح",
+                        "emoji": "💨",
+                        "audio": "ريح",
+                        "highlight": "ر"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "رمان",
+        "syllables": [
+            {
+                "glyph": "ر",
+                "order": 1
+            },
+            {
+                "glyph": "م",
+                "order": 2
+            },
+            {
+                "glyph": "ن",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة رمان"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس حرف الراء",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس حرف الراء",
+        "story_audio": "هيا نستكشف حرف الراء مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "رمان",
+                "emoji": "🍎",
+                "correct": true,
+                "audio": "رمان"
+            },
+            {
+                "id": "item-1",
+                "label": "ريح",
+                "emoji": "💨",
+                "correct": true,
+                "audio": "ريح"
+            },
+            {
+                "id": "item-2",
+                "label": "رجل",
+                "emoji": "🚶",
+                "correct": true,
+                "audio": "رجل"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في حرف الراء؟",
+        "parts": [
+            {
+                "text": "🍎",
+                "highlight": true
+            },
+            {
+                "text": " رمان",
+                "highlight": true
+            },
+            {
+                "text": " = ر",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على رمان ضمن حرف الراء.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس حرف الراء.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ر في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس حرف الراء؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "رمان من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "رمان",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "ريح جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "ريح",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «رمان» مناسبة لدرس حرف الراء.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "رمان، ريح، رجل",
+                "options": [
+                    {
+                        "text": "رمان \/ ريح \/ رجل",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ر",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "رمان",
+            "parts": [
+                {
+                    "text": "ر",
+                    "highlight": true
+                },
+                {
+                    "text": "مان",
+                    "highlight": false
+                }
+            ],
+            "audio": "رمان: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "ريح",
+            "parts": [
+                {
+                    "text": "ر",
+                    "highlight": false
+                },
+                {
+                    "text": "ر",
+                    "highlight": true
+                },
+                {
+                    "text": "ح",
+                    "highlight": false
+                }
+            ],
+            "audio": "ريح: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "رجل",
+            "parts": [
+                {
+                    "text": "رج",
+                    "highlight": false
+                },
+                {
+                    "text": "ل",
+                    "highlight": true
+                }
+            ],
+            "audio": "رجل: في نهاية الكلمة"
+        }
+    ]
+}

@@ -17,10 +17,11 @@ class StudentDashboardController extends Controller
     {
         $activeStudentId = (int) $request->session()->get('active_student_id');
         /** @var Student $student */
-        $student = $request->user()->students()->findOrFail($activeStudentId);
+        $student = $request->user()->findAccessibleStudentOrFail($activeStudentId);
 
         $materials = LearningMaterial::query()
             ->published()
+            ->with('interactiveLesson')
             ->whereHas('subject', fn ($query) => $query->where('grade_level', $student->grade_level))
             ->orderBy('title')
             ->limit(6)

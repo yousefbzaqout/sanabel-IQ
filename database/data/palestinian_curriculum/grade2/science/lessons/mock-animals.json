@@ -1,0 +1,358 @@
+{
+    "schema_version": "1.0.0",
+    "grade_level": 2,
+    "semester": 1,
+    "subject_code": "SCI",
+    "content_kind": "letter",
+    "unit_title": "كائنات حية",
+    "lesson_key": "ar-g2-sci-mock-animals",
+    "audio_slug": "animals",
+    "key": "mock-g2-science-animals",
+    "title": "حيوانات أليفة",
+    "subtitle": "عرض تجريبي — الصف الثاني — الفصل 1",
+    "material_title": "تجريبي G2: حيوانات أليفة",
+    "order_column": 30,
+    "xp_reward": 44,
+    "description": "نميّز حيوانات أليفة وموائلها.",
+    "phonemes": {
+        "voice_targets": [
+            "حَ",
+            "حُ",
+            "حِ"
+        ],
+        "tabs": [
+            {
+                "glyph": "حَ",
+                "label": "فتحة",
+                "audio_script": "صوت حَ",
+                "cards": [
+                    {
+                        "word": "قطة",
+                        "emoji": "🐱",
+                        "audio": "حَ مثل قطة",
+                        "highlight": "حَ"
+                    },
+                    {
+                        "word": "كلب",
+                        "emoji": "🐶",
+                        "audio": "كلب",
+                        "highlight": "ك"
+                    },
+                    {
+                        "word": "عصفور",
+                        "emoji": "🐦",
+                        "audio": "عصفور",
+                        "highlight": "ع"
+                    }
+                ]
+            },
+            {
+                "glyph": "حُ",
+                "label": "ضمة",
+                "audio_script": "صوت حُ",
+                "cards": [
+                    {
+                        "word": "كلب",
+                        "emoji": "🐶",
+                        "audio": "حُ مثل كلب",
+                        "highlight": "حُ"
+                    },
+                    {
+                        "word": "عصفور",
+                        "emoji": "🐦",
+                        "audio": "عصفور",
+                        "highlight": "ع"
+                    },
+                    {
+                        "word": "قطة",
+                        "emoji": "🐱",
+                        "audio": "قطة",
+                        "highlight": "ق"
+                    }
+                ]
+            },
+            {
+                "glyph": "حِ",
+                "label": "كسرة",
+                "audio_script": "صوت حِ",
+                "cards": [
+                    {
+                        "word": "عصفور",
+                        "emoji": "🐦",
+                        "audio": "حِ مثل عصفور",
+                        "highlight": "حِ"
+                    },
+                    {
+                        "word": "قطة",
+                        "emoji": "🐱",
+                        "audio": "قطة",
+                        "highlight": "ق"
+                    },
+                    {
+                        "word": "كلب",
+                        "emoji": "🐶",
+                        "audio": "كلب",
+                        "highlight": "ك"
+                    }
+                ]
+            }
+        ]
+    },
+    "sequence": {
+        "target_word": "قطة",
+        "syllables": [
+            {
+                "glyph": "ق",
+                "order": 1
+            },
+            {
+                "glyph": "ط",
+                "order": 2
+            },
+            {
+                "glyph": "ة",
+                "order": 3
+            }
+        ],
+        "completion_audio_script": "أحسنت! كوّنت كلمة قطة"
+    },
+    "stroke": {
+        "label": "تتبّع رمز درس حيوانات أليفة",
+        "path": "M 36 28 C 36 70 36 110 36 118 M 36 70 C 70 55 100 55 112 70 C 100 88 70 95 36 90",
+        "direction": "rtl_top_down",
+        "view_box": "0 0 140 140",
+        "complete_audio": "أحسنت يا بطل! تتبّع رائع مع سنبل."
+    },
+    "discovery": {
+        "intro": "امسح واعثر على عناصر درس حيوانات أليفة",
+        "story_audio": "هيا نستكشف حيوانات أليفة مع سنبل!",
+        "items": [
+            {
+                "id": "item-0",
+                "label": "قطة",
+                "emoji": "🐱",
+                "correct": true,
+                "audio": "قطة"
+            },
+            {
+                "id": "item-1",
+                "label": "كلب",
+                "emoji": "🐶",
+                "correct": true,
+                "audio": "كلب"
+            },
+            {
+                "id": "item-2",
+                "label": "عصفور",
+                "emoji": "🐦",
+                "correct": true,
+                "audio": "عصفور"
+            },
+            {
+                "id": "distractor-cloud",
+                "label": "سحابة",
+                "emoji": "☁️",
+                "correct": false,
+                "audio": "هذه ليست من عناصر الدرس"
+            },
+            {
+                "id": "distractor-rock",
+                "label": "صخرة",
+                "emoji": "🪨",
+                "correct": false,
+                "audio": "جرّب عنصراً آخر"
+            }
+        ]
+    },
+    "demo": {
+        "question": "ماذا نتعلم في حيوانات أليفة؟",
+        "parts": [
+            {
+                "text": "🐱",
+                "highlight": true
+            },
+            {
+                "text": " قطة",
+                "highlight": true
+            },
+            {
+                "text": " = ح",
+                "highlight": false
+            }
+        ],
+        "explain_audio": "في هذا الدرس نتعرّف على قطة ضمن حيوانات أليفة.",
+        "cta": "جاهز للاختبار القصير! 🎯"
+    },
+    "mascot_hints": {
+        "station_prompts": {
+            "1": "مرحباً! أنا سنبل. هيا نبدأ درس حيوانات أليفة.",
+            "2": "رتّب المقاطع أو الكلمات معي!",
+            "3": "لاحظ المواقع المختلفة في الكلمات.",
+            "4": "تتبّع بهدوء ودقة، أنا معك.",
+            "5": "ابحث عن العناصر الصحيحة في المشهد!",
+            "6": "شاهد المثال ثم جرّب بنفسك يا بطل."
+        },
+        "adaptive": [
+            {
+                "concept": "mock_attention",
+                "hint": "تلميح سنبل: اقرأ السؤال مرتين بهدوء ثم اختر."
+            },
+            {
+                "concept": "mock_practice",
+                "hint": "تلميح سنبل: ركّز على ح في كل تمرين."
+            }
+        ]
+    },
+    "quiz": {
+        "questions": [
+            {
+                "type": "mcq",
+                "prompt": "أي كلمة ترتبط بدرس حيوانات أليفة؟",
+                "mascot_hint": "تلميح سنبل: اختر الكلمة التي سمعناها في الدرس.",
+                "explanation": "قطة من كلمات الدرس الأساسية.",
+                "options": [
+                    {
+                        "text": "قطة",
+                        "correct": true
+                    },
+                    {
+                        "text": "سحابة بعيدة",
+                        "correct": false
+                    },
+                    {
+                        "text": "رقم عشوائي",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي خيار يكمل معنى الدرس؟",
+                "mascot_hint": "تلميح سنبل: فكّر في الفكرة الرئيسة.",
+                "explanation": "كلب جزء مهم من الموضوع.",
+                "options": [
+                    {
+                        "text": "كلب",
+                        "correct": true
+                    },
+                    {
+                        "text": "لا علاقة",
+                        "correct": false
+                    },
+                    {
+                        "text": "كلمة دخيلة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "true_false",
+                "prompt": "كلمة «قطة» مناسبة لدرس حيوانات أليفة.",
+                "mascot_hint": "تلميح سنبل: هل سمعنا هذه الكلمة اليوم؟",
+                "explanation": "نعم، هذه من مفردات الدرس.",
+                "options": [
+                    {
+                        "text": "صح ✅",
+                        "correct": true
+                    },
+                    {
+                        "text": "خطأ ❌",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "ماذا يفعل سنبل عندما نحتار؟",
+                "mascot_hint": "تلميح سنبل: أنا هنا لأشجّعك!",
+                "explanation": "سنبل يقدّم تلميحاً لطيفاً ويشجّعنا.",
+                "options": [
+                    {
+                        "text": "يقدّم تلميحاً ويشجّعنا",
+                        "correct": true
+                    },
+                    {
+                        "text": "يغلق الدرس فوراً",
+                        "correct": false
+                    },
+                    {
+                        "text": "يغيّر المادة",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "type": "mcq",
+                "prompt": "أي مجموعة تنتمي للدرس؟",
+                "mascot_hint": "تلميح سنبل: اختر المجموعة التي رأيناها معاً.",
+                "explanation": "قطة، كلب، عصفور",
+                "options": [
+                    {
+                        "text": "قطة \/ كلب \/ عصفور",
+                        "correct": true
+                    },
+                    {
+                        "text": "قمر \/ نجم \/ مذنب بعيد",
+                        "correct": false
+                    },
+                    {
+                        "text": "صفر \/ سالب \/ عشوائي",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
+    },
+    "letter": "ح",
+    "positions": [
+        {
+            "label": "في البداية",
+            "word": "قطة",
+            "parts": [
+                {
+                    "text": "ق",
+                    "highlight": true
+                },
+                {
+                    "text": "طة",
+                    "highlight": false
+                }
+            ],
+            "audio": "قطة: في بداية الكلمة"
+        },
+        {
+            "label": "في الوسط",
+            "word": "كلب",
+            "parts": [
+                {
+                    "text": "ك",
+                    "highlight": false
+                },
+                {
+                    "text": "ح",
+                    "highlight": true
+                },
+                {
+                    "text": "ب",
+                    "highlight": false
+                }
+            ],
+            "audio": "كلب: موقع متوسط"
+        },
+        {
+            "label": "في النهاية",
+            "word": "عصفور",
+            "parts": [
+                {
+                    "text": "عصفو",
+                    "highlight": false
+                },
+                {
+                    "text": "ر",
+                    "highlight": true
+                }
+            ],
+            "audio": "عصفور: في نهاية الكلمة"
+        }
+    ]
+}

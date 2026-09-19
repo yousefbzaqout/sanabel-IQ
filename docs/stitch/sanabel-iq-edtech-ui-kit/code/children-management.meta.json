@@ -1,0 +1,19 @@
+{
+  "name": "projects/16756164501135582272/screens/e49ace31207242128f353be30167b812",
+  "id": "e49ace31207242128f353be30167b812",
+  "title": "إدارة الأبناء - سنابل IQ",
+  "width": 2560,
+  "height": 2846,
+  "slug": "children-management",
+  "files": {
+    "screenshot": "screenshots/children-management.png",
+    "screenshotById": "parent-portal/e49ace31207242128f353be30167b812/screenshot.png",
+    "code": "code/children-management.html",
+    "codeById": "parent-portal/e49ace31207242128f353be30167b812/code.html"
+  },
+  "screenshotBytes": 685371,
+  "fullResSuffix": "=s0",
+  "codeBytes": 45552,
+  "codeMime": "text/html",
+  "htmlContainsTitleFragment": true
+}

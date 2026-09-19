@@ -44,6 +44,16 @@ class ChildForm
                 TextInput::make('avatar_path')
                     ->label('مسار الصورة الرمزية')
                     ->maxLength(255),
+                TextInput::make('login_pin')
+                    ->label('رمز دخول الطالب (PIN)')
+                    ->password()
+                    ->revealable()
+                    ->length(4)
+                    ->rule('digits:4')
+                    ->inputMode('numeric')
+                    ->helperText('4 أرقام فقط. يُعرض لولي الأمر عند الحفظ مرة واحدة ثم يُخزَّن مشفّراً.')
+                    ->dehydrated(fn (mixed $state): bool => filled($state))
+                    ->required(false),
             ]);
     }
 }

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Database\Factories\StudentFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +15,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
-#[Fillable(['user_id', 'name', 'grade_level', 'school_term', 'total_xp', 'coins', 'lives', 'avatar_path'])]
+#[Fillable([
+    'tenant_id',
+    'user_id',
+    'name',
+    'grade_level',
+    'school_term',
+    'total_xp',
+    'coins',
+    'lives',
+    'avatar_path',
+    'pin_hash',
+    'login_enabled_at',
+    'login_user_id',
+])]
+#[Hidden(['pin_hash'])]
 class Student extends Model
 {
     /** @use HasFactory<StudentFactory> */
@@ -31,13 +46,33 @@ class Student extends Model
             'total_xp' => 'integer',
             'coins' => 'integer',
             'lives' => 'integer',
+            'login_enabled_at' => 'datetime',
         ];
+    }
+
+    /** @return BelongsTo<Tenant, $this> */
+    public function tenant(): BelongsTo
+    {
+        return $this->belongsTo(Tenant::class);
     }
 
     /** @return BelongsTo<User, $this> */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /** @return BelongsTo<User, $this> */
+    public function loginUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'login_user_id');
+    }
+
+    public function hasChildLoginEnabled(): bool
+    {
+        return $this->login_enabled_at !== null
+            && $this->pin_hash !== null
+            && $this->login_user_id !== null;
     }
 
     /** @return HasMany<Activity, $this> */
@@ -108,11 +143,23 @@ class Student extends Model
 
     protected static function booted(): void
     {
+        static::creating(function (Student $student): void {
+            if ($student->tenant_id === null && $student->user_id !== null) {
+                $student->tenant_id = $student->user?->tenant_id;
+            }
+        });
+
         static::deleting(function (Student $student): void {
             $student->parentMaterials()->each(function (ParentMaterial $material): void {
                 Storage::disk('materials')->delete($material->file_path);
                 $material->delete();
             });
+
+            $loginUser = $student->loginUser;
+            if ($loginUser !== null) {
+                $student->forceFill(['login_user_id' => null])->saveQuietly();
+                $loginUser->delete();
+            }
         });
     }
 }
