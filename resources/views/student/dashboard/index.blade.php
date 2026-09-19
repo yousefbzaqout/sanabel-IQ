@@ -5,22 +5,11 @@
             <div class="absolute -top-16 -right-16 w-52 h-52 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-md">
                 <div class="flex items-center gap-space-md flex-1">
-                    <div class="relative shrink-0">
-                        <div class="absolute inset-0 rounded-full bg-primary-container/30 blur-md animate-pulse"></div>
-                        <img alt="سنبل" class="relative z-10 w-24 h-24 md:w-32 md:h-32 object-cover rounded-full drop-shadow-xl" src="{{ asset('brand/mascot-sanbal.jpg') }}">
-                        <span class="absolute -bottom-1 -right-1 bg-surface-container-lowest px-2 py-0.5 rounded-full text-label-sm font-bold text-on-primary-fixed-variant shadow-md">سنبل معك 🐥</span>
-                    </div>
-                    <div class="space-y-space-xs">
-                        <div class="relative bg-surface-container-lowest text-on-surface p-space-md rounded-2xl md:rounded-3xl shadow-sm border-2 border-primary-container/20">
-                            <p class="font-headline-sm text-headline-sm md:text-headline-md text-on-primary-fixed leading-tight font-extrabold">
-                                أهلاً بك يا بطل {{ $student->name }}! 🌟 جاهز لمغامرة اليوم؟
-                            </p>
-                            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                                أكمل محطة واحدة اليوم للمحافظة على شعلتك النشطة
-                                <span class="text-primary font-bold">🔥 ({{ $streakDays }} يوماً)</span>
-                            </p>
-                        </div>
-                    </div>
+                    <x-student.mascot
+                        state="happy"
+                        size="lg"
+                        :message="'أهلاً بك يا بطل '.$student->name.'! 🌟 جاهز لمغامرة اليوم؟ أكمل محطة واحدة اليوم للمحافظة على شعلتك النشطة 🔥 ('.$streakDays.' يوماً)'"
+                    />
                 </div>
                 <div class="w-full md:w-auto shrink-0 bg-surface-container-lowest/80 backdrop-blur-md p-space-md rounded-2xl shadow-sm flex items-center justify-around gap-space-md">
                     <div class="text-center px-2">

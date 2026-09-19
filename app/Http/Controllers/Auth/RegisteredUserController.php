@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Support\AuthRedirectResolver;
@@ -48,6 +49,12 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if ($user->role !== UserRole::Parent) {
+            $user->assignRole(UserRole::Parent);
+        }
+
+        $user->refresh();
 
         event(new Registered($user));
 

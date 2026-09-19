@@ -27,6 +27,7 @@ class MultiPanelArchitectureTest extends TestCase
     public function test_parent_is_redirected_to_filament_parent_panel_after_login(): void
     {
         $parent = User::factory()->create();
+        Student::factory()->for($parent)->create();
 
         $response = $this->post(route('login'), [
             'email' => $parent->email,

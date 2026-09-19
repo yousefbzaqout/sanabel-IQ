@@ -20,6 +20,7 @@ OUT = ROOT / "docs/marketing/feature-mockups"
 COMPOSE = ROOT / "scripts/compose_screely_mockup.py"
 CHROME = Path.home() / ".cache/ms-playwright/chromium-1243/chrome-linux64/chrome"
 BASE = "http://localhost"
+EMOJI_FONT = Path.home() / ".local/share/fonts/NotoColorEmoji.ttf"
 
 PARENT_EMAIL = "parent@sanabel.test"
 PARENT_PASSWORD = "password"
@@ -115,6 +116,33 @@ def new_context(browser: Browser) -> BrowserContext:
         device_scale_factor=2,
         locale="ar",
         ignore_https_errors=True,
+    )
+
+
+def ensure_emoji_fonts() -> None:
+    """Headless Chromium shows tofu □ for emoji without a color emoji font."""
+    if EMOJI_FONT.is_file():
+        return
+    print(
+        "WARNING: Noto Color Emoji missing — install to ~/.local/share/fonts/\n"
+        "  apt-get download fonts-noto-color-emoji && dpkg-deb -x …\n"
+        "Otherwise celebration/marketing shots will show empty rectangles.",
+        file=sys.stderr,
+    )
+
+
+def inject_emoji_font_fallback(page: Page) -> None:
+    """Force emoji glyph fallback even when UI fonts lack emoji coverage."""
+    page.add_style_tag(
+        content="""
+        :root, body, [data-quiz-celebration], .font-headline-lg, .font-headline-md,
+        .font-headline-sm, .font-body-lg, .font-body-md, .font-body-sm, .font-label-lg,
+        .font-label-md, .font-label-sm {
+            font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', 'Tajawal',
+                'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji',
+                ui-sans-serif, system-ui, sans-serif !important;
+        }
+        """
     )
 
 
@@ -223,6 +251,7 @@ def login_child(page: Page) -> None:
 def capture_shot(page: Page, shot: Shot) -> Path:
     page.goto(f"{BASE}{shot.url}", wait_until="domcontentloaded", timeout=60_000)
     wait_ready(page, shot.settle_ms)
+    inject_emoji_font_fallback(page)
     page.evaluate("() => window.scrollTo(0,0)")
     page.wait_for_timeout(200)
     raw = OUT / f"_raw-{shot.file}"
@@ -367,6 +396,7 @@ def main() -> None:
     if not CHROME.is_file():
         raise SystemExit(f"Chromium missing: {CHROME}")
 
+    ensure_emoji_fonts()
     OUT.mkdir(parents=True, exist_ok=True)
     print("Resolving dynamic IDs…")
     ids = resolve_ids()

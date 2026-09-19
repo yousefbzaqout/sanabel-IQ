@@ -66,8 +66,10 @@ class StudentLayoutAndLocaleTest extends TestCase
         $this->assertSame('ar', app()->getLocale());
 
         $response->assertSee('الأنشطة');
-        $response->assertSee('التقدم');
-        $response->assertSee('الشارات');
+        $response->assertSee('تقدمي');
+        $response->assertSee('جوائزي');
         $response->assertSee('الخريطة');
+        $response->assertSee('مسار تقدمي');
+        $response->assertSee('خزانة الجوائز');
     }
 }

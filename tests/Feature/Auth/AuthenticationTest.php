@@ -33,7 +33,7 @@ class AuthenticationTest extends TestCase
             'name' => 'Parent User',
             'email' => 'parent@example.com',
         ]);
-        $response->assertRedirect('/parent');
+        $response->assertRedirect('/onboarding/child');
     }
 
     public function test_parent_cannot_register_with_duplicate_email(): void
@@ -65,7 +65,7 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect('/parent');
+        $response->assertRedirect('/onboarding/child');
     }
 
     public function test_parent_cannot_authenticate_with_invalid_password(): void
