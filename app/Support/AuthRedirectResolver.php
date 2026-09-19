@@ -23,7 +23,8 @@ class AuthRedirectResolver
             return '/student';
         }
 
-        if ($user->isParent() && $user->students()->doesntExist()) {
+        // Default / parent accounts without children start onboarding.
+        if ($user->students()->doesntExist() && ! $user->canAccessAdminPanel() && ! $user->isTeacher() && ! $user->isStudent()) {
             return '/onboarding/child';
         }
 

@@ -122,7 +122,7 @@ class ChildPinLoginTest extends TestCase
             'email' => DualRoleLoginSeeder::PARENT_EMAIL,
             'password' => 'password',
             'intended_role' => 'parent',
-        ])->assertRedirect('/parent');
+        ])->assertRedirect('/onboarding/child');
 
         $this->assertAuthenticatedAs($parent);
     }

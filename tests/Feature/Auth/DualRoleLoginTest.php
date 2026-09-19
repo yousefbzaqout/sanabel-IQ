@@ -47,7 +47,7 @@ class DualRoleLoginTest extends TestCase
             'email' => 'parent@sanabel.test',
             'password' => 'password',
             'intended_role' => 'parent',
-        ])->assertRedirect('/parent');
+        ])->assertRedirect('/onboarding/child');
 
         $this->assertAuthenticatedAs($parent);
     }
