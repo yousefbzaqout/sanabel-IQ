@@ -15,8 +15,8 @@
     --font-sans: 'Be Vietnam Pro', 'Tajawal', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
         'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-display: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
-    --font-headline: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
-    --font-body: 'Be Vietnam Pro', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
+    --font-headline: 'Plus Jakarta Sans', 'Tajawal', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Be Vietnam Pro', 'Tajawal', 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', ui-sans-serif, system-ui, sans-serif;
     --font-label: 'Plus Jakarta Sans', 'Tajawal', ui-sans-serif, system-ui, sans-serif;
 
     /* Brand / Material 3 named colors from Stitch */

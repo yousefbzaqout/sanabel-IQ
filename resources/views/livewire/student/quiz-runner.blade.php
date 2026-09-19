@@ -134,7 +134,7 @@
                         </div>
                         <button
                             type="button"
-                            class="mt-space-md inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-md hover:scale-105 active:scale-95 transition-all"
+                            class="mt-space-md inline-flex min-h-12 min-w-12 items-center gap-space-xs px-space-lg py-space-sm rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg font-bold shadow-md hover:scale-105 active:scale-95 transition-all"
                             data-tts-text="{{ $this->currentQuestion->prompt }}"
                             @if ($questionAudioUrl)
                                 data-static-audio="{{ $questionAudioUrl }}"
@@ -148,7 +148,7 @@
                                 if (url && audio.playStatic) { audio.playStatic(url, text); return; }
                                 audio.speakFast?.(text) ?? audio.speak?.(text);
                             })()"
-                            aria-label="استمع للسؤال بصوت سنبل"
+                            aria-label="سماع السؤال"
                         >
                             <span class="material-symbols-outlined text-secondary animate-pulse" style="font-variation-settings: 'FILL' 1;">volume_up</span>
                             <span>استمع للسؤال بصوت سنبل</span>
@@ -192,7 +192,7 @@
                                         data-static-audio="{{ $optionAudioUrl }}"
                                     @endif
                                     @class([
-                                        'w-full text-right p-space-lg rounded-lg flex items-center justify-between relative transition-transform transform active:translate-y-1 group disabled:cursor-not-allowed',
+                                        'w-full min-h-12 text-right p-space-lg rounded-lg flex items-center justify-between relative transition-transform transform active:translate-y-1 group disabled:cursor-not-allowed',
                                         'bg-secondary-container/40 text-on-secondary-container shadow-md' => $isCorrectReveal,
                                         'bg-error-container/50 text-on-error-container shadow-md' => $isWrongReveal,
                                         'bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-low' => ! $isCorrectReveal && ! $isWrongReveal,

@@ -87,6 +87,28 @@
 
         <section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
             <div class="flex items-center gap-space-xs mb-space-md">
+                <span class="material-symbols-outlined text-primary text-2xl">military_tech</span>
+                <h2 class="font-headline-sm text-headline-sm font-extrabold text-on-surface">أوسمتي المفتوحة</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                @forelse ($badges->where('unlocked', true) as $entry)
+                    <div class="bg-surface-container-low rounded-lg p-space-md flex items-center gap-space-md">
+                        <div class="w-12 h-12 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">{{ $entry['badge']->icon ?: 'military_tech' }}</span>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="font-headline-sm text-headline-sm font-bold text-on-surface block truncate">{{ $entry['badge']->name_ar }}</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">{{ $entry['badge']->description_ar }}</span>
+                        </div>
+                    </div>
+                @empty
+                    <p class="font-body-md text-body-md text-on-surface-variant sm:col-span-2">لا أوسمة بعد — أكمل نشاطاً لفتح أول وسام!</p>
+                @endforelse
+            </div>
+        </section>
+
+        <section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+            <div class="flex items-center gap-space-xs mb-space-md">
                 <span class="material-symbols-outlined text-primary text-2xl">task_alt</span>
                 <h2 class="font-headline-sm text-headline-sm font-extrabold text-on-surface">آخر الإنجازات</h2>
             </div>
